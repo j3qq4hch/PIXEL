@@ -390,16 +390,6 @@
 <wire x1="-2.2" y1="-1" x2="-2.2" y2="1" width="0.15" layer="21"/>
 <wire x1="0.9" y1="1" x2="0.9" y2="-1" width="0.15" layer="21"/>
 </package>
-<package name="SDR0604-XXX">
-<smd name="1" x="-1.95" y="0" dx="5.8" dy="2.1" layer="1" rot="R90"/>
-<smd name="2" x="1.95" y="0" dx="5.8" dy="2.1" layer="1" rot="R90"/>
-<wire x1="-3.15" y1="-3.05" x2="3.15" y2="-3.05" width="0.1" layer="21"/>
-<wire x1="3.15" y1="-3.05" x2="3.15" y2="3.05" width="0.1" layer="21"/>
-<wire x1="3.15" y1="3.05" x2="-3.15" y2="3.05" width="0.1" layer="21"/>
-<wire x1="-3.15" y1="3.05" x2="-3.15" y2="-3.05" width="0.1" layer="21"/>
-<text x="0" y="0" size="0.5" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
-<text x="0" y="3.5" size="0.5" layer="27" font="vector" ratio="15" align="center">&gt;VALUE</text>
-</package>
 </packages>
 <symbols>
 <symbol name="C">
@@ -472,18 +462,18 @@
 <text x="-4.318" y="0.508" size="0.635" layer="96" font="vector" align="center">&gt;COLOR</text>
 </symbol>
 <symbol name="L">
-<wire x1="-5.08" y1="0" x2="-3.81" y2="1.27" width="0.254" layer="94" curve="-90"/>
-<wire x1="-2.54" y1="0" x2="-3.81" y2="1.27" width="0.254" layer="94" curve="90"/>
-<wire x1="-2.54" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94" curve="-90"/>
-<wire x1="0" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94" curve="90"/>
-<wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94" curve="-90"/>
-<wire x1="2.54" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94" curve="90"/>
-<wire x1="2.54" y1="0" x2="3.81" y2="1.27" width="0.254" layer="94" curve="-90"/>
-<wire x1="5.08" y1="0" x2="3.81" y2="1.27" width="0.254" layer="94" curve="90"/>
-<pin name="1" x="-7.62" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-<pin name="2" x="7.62" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<text x="5.08" y="3.81" size="1.778" layer="95" rot="R180">&gt;NAME</text>
-<text x="5.08" y="-1.27" size="1.778" layer="96" rot="R180">&gt;VALUE</text>
+<wire x1="-3.81" y1="0" x2="-2.54" y2="1.27" width="0.1524" layer="94" curve="-90"/>
+<wire x1="-1.27" y1="0" x2="-2.54" y2="1.27" width="0.1524" layer="94" curve="90"/>
+<wire x1="-1.27" y1="0" x2="0" y2="1.27" width="0.1524" layer="94" curve="-90"/>
+<wire x1="1.27" y1="0" x2="0" y2="1.27" width="0.1524" layer="94" curve="90"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="1.27" width="0.1524" layer="94" curve="-90"/>
+<wire x1="3.81" y1="0" x2="2.54" y2="1.27" width="0.1524" layer="94" curve="90"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
+<pin name="2" x="5.08" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
+<text x="0" y="-1.27" size="1.778" layer="96" font="vector" ratio="15" rot="R180" align="center">&gt;VALUE</text>
+<wire x1="-5.08" y1="0" x2="-3.81" y2="0" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="0" x2="3.81" y2="0" width="0.1524" layer="94"/>
+<text x="0" y="2.54" size="1.778" layer="95" font="vector" ratio="15" rot="R180" align="center">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -768,22 +758,6 @@
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="L" prefix="L" uservalue="yes">
-<gates>
-<gate name="G$1" symbol="L" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-SDR0604" package="SDR0604-XXX">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
