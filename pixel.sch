@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1761,6 +1761,57 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="diodes">
+<packages>
+<package name="SOD123">
+<text x="0.25" y="0" size="0.5" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
+<text x="0" y="-1.25" size="0.5" layer="27" font="vector" ratio="15" align="center">&gt;VALUE</text>
+<wire x1="-1.05" y1="0.7" x2="1.05" y2="0.7" width="0.254" layer="21"/>
+<wire x1="1.05" y1="0.7" x2="1.05" y2="-0.7" width="0.254" layer="21"/>
+<wire x1="1.05" y1="-0.7" x2="-1.05" y2="-0.7" width="0.254" layer="21"/>
+<wire x1="-1.05" y1="-0.7" x2="-1.05" y2="0.7" width="0.254" layer="21"/>
+<smd name="C" x="-1.9" y="0" dx="1.4" dy="1.4" layer="1"/>
+<smd name="A" x="1.9" y="0" dx="1.4" dy="1.4" layer="1"/>
+<rectangle x1="-1.95" y1="-0.45" x2="-1.1" y2="0.4" layer="51"/>
+<rectangle x1="1.1" y1="-0.45" x2="1.95" y2="0.4" layer="51"/>
+<rectangle x1="-1.05" y1="-0.65" x2="-0.15" y2="0.7" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="D">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<text x="2.54" y="0.4826" size="1.27" layer="95">&gt;NAME</text>
+<text x="2.54" y="-0.7366" size="1.27" layer="96" rot="MR180">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<text x="-1.778" y="0.508" size="0.508" layer="95" align="center-right">&gt;PACKAGE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DIODE" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="D" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-SOD123" package="SOD123">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PACKAGE" value="SOD123" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1853,6 +1904,11 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="+P10" library="supply_symbols" deviceset="12V" device=""/>
 <part name="R5" library="rc" deviceset="R" device="-0805" value="22R"/>
 <part name="R6" library="rc" deviceset="R" device="-0805" value="10K"/>
+<part name="D3" library="diodes" deviceset="DIODE" device="-SOD123"/>
+<part name="GND23" library="supply_symbols" deviceset="GND" device="" value="GND"/>
+<part name="R7" library="rc" deviceset="R" device="-0603"/>
+<part name="R8" library="rc" deviceset="R" device="-0603"/>
+<part name="GND24" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 </parts>
 <sheets>
 <sheet>
@@ -1875,10 +1931,10 @@ with 0-resistors</text>
 <wire x1="281.94" y1="142.24" x2="281.94" y2="193.04" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="281.94" y1="193.04" x2="223.52" y2="193.04" width="0.1524" layer="97" style="shortdash"/>
 <text x="226.06" y="195.58" size="2.54" layer="97">Maybe should get rid of it</text>
-<wire x1="38.1" y1="101.6" x2="38.1" y2="45.72" width="0.1524" layer="97" style="shortdash"/>
-<wire x1="38.1" y1="45.72" x2="121.92" y2="45.72" width="0.1524" layer="97" style="shortdash"/>
-<wire x1="121.92" y1="45.72" x2="121.92" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
-<wire x1="121.92" y1="101.6" x2="38.1" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="35.56" y1="101.6" x2="35.56" y2="45.72" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="35.56" y1="45.72" x2="144.78" y2="45.72" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="144.78" y1="45.72" x2="144.78" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="144.78" y1="101.6" x2="35.56" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
 <text x="40.64" y="99.06" size="1.27" layer="97">LED CHANNEL</text>
 </plain>
 <instances>
@@ -1955,6 +2011,11 @@ with 0-resistors</text>
 <instance part="+P10" gate="G$1" x="55.88" y="88.9"/>
 <instance part="R5" gate="G$1" x="73.66" y="71.12" rot="R90"/>
 <instance part="R6" gate="G$1" x="63.5" y="78.74"/>
+<instance part="D3" gate="G$1" x="88.9" y="71.12" rot="R90"/>
+<instance part="GND23" gate="1" x="88.9" y="48.26" rot="MR0"/>
+<instance part="R7" gate="G$1" x="119.38" y="68.58" rot="R180"/>
+<instance part="R8" gate="G$1" x="111.76" y="60.96" rot="R90"/>
+<instance part="GND24" gate="1" x="111.76" y="48.26" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -2171,6 +2232,16 @@ with 0-resistors</text>
 <pinref part="Q1" gate="B" pin="S"/>
 <wire x1="73.66" y1="50.8" x2="73.66" y2="53.34" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND23" gate="1" pin="GND"/>
+<pinref part="D3" gate="G$1" pin="A"/>
+<wire x1="88.9" y1="50.8" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND24" gate="1" pin="GND"/>
+<pinref part="R8" gate="G$1" pin="1"/>
+<wire x1="111.76" y1="50.8" x2="111.76" y2="55.88" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -2274,6 +2345,11 @@ with 0-resistors</text>
 <pinref part="IC1" gate="IC" pin="PA8/C1"/>
 <wire x1="106.68" y1="200.66" x2="109.22" y2="200.66" width="0.1524" layer="91"/>
 <label x="109.22" y="200.66" size="1.27" layer="95" rot="MR180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="55.88" x2="48.26" y2="55.88" width="0.1524" layer="91"/>
+<label x="48.26" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="LED2_PWM" class="0">
@@ -2582,13 +2658,6 @@ with 0-resistors</text>
 <wire x1="60.96" y1="55.88" x2="68.58" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="55.88" x2="48.26" y2="55.88" width="0.1524" layer="91"/>
-<label x="48.26" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="VDD_12V" class="0">
 <segment>
 <pinref part="Q1" gate="A" pin="S"/>
@@ -2599,12 +2668,6 @@ with 0-resistors</text>
 <wire x1="55.88" y1="78.74" x2="58.42" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="78.74" x2="55.88" y2="86.36" width="0.1524" layer="91"/>
 <junction x="55.88" y="86.36"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="Q1" gate="A" pin="D"/>
-<wire x1="81.28" y1="86.36" x2="86.36" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -2623,6 +2686,43 @@ with 0-resistors</text>
 <pinref part="Q1" gate="B" pin="D"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="73.66" y1="63.5" x2="73.66" y2="66.04" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="D3" gate="G$1" pin="C"/>
+<wire x1="88.9" y1="86.36" x2="88.9" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="A" pin="D"/>
+<wire x1="81.28" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="L1" gate="G$1" pin="1"/>
+<wire x1="88.9" y1="86.36" x2="96.52" y2="86.36" width="0.1524" layer="91"/>
+<junction x="88.9" y="86.36"/>
+</segment>
+</net>
+<net name="LED1_FB\" class="0">
+<segment>
+<label x="129.54" y="68.58" size="1.27" layer="95" xref="yes"/>
+<pinref part="R7" gate="G$1" pin="1"/>
+<wire x1="124.46" y1="68.58" x2="129.54" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="LED1_A" class="0">
+<segment>
+<pinref part="L1" gate="G$1" pin="2"/>
+<wire x1="106.68" y1="86.36" x2="114.3" y2="86.36" width="0.1524" layer="91"/>
+<label x="114.3" y="86.36" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="LED_COMMON_C" class="0">
+<segment>
+<pinref part="R8" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="66.04" x2="111.76" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="68.58" x2="114.3" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="68.58" x2="111.76" y2="78.74" width="0.1524" layer="91"/>
+<junction x="111.76" y="68.58"/>
+<wire x1="111.76" y1="78.74" x2="114.3" y2="78.74" width="0.1524" layer="91"/>
+<label x="114.3" y="78.74" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
