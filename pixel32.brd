@@ -956,10 +956,10 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="IC1" library="pixel_masterlib" package="LQFP32-7X7" value="STM32F030K6TX-LQFP32(7X7)" x="-6" y="-33">
-<attribute name="MANF" value="STMicroelectronics" x="-6" y="-19" size="1.778" layer="27" display="off"/>
-<attribute name="DIGIKEY#" value="497-14046-ND" x="-6" y="-19" size="1.778" layer="27" display="off"/>
-<attribute name="MANF#" value="STM32F030K6T6" x="-6" y="-19" size="1.778" layer="27" display="off"/>
+<element name="IC1" library="pixel_masterlib" package="LQFP32-7X7" value="STM32F030K6TX-LQFP32(7X7)" x="4" y="-16">
+<attribute name="MANF" value="STMicroelectronics" x="4" y="-2" size="1.778" layer="27" display="off"/>
+<attribute name="DIGIKEY#" value="497-14046-ND" x="4" y="-2" size="1.778" layer="27" display="off"/>
+<attribute name="MANF#" value="STM32F030K6T6" x="4" y="-2" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C2" library="rc" package="C0603" value="100 nF" x="-6" y="-46">
 <attribute name="PACKAGE" value="0603" x="-10" y="-27" size="1.778" layer="27" display="off"/>
@@ -993,8 +993,8 @@ design rules under a new name.</description>
 <attribute name="DIGIKEY#" value="1253-1182-1-ND" x="-8" y="-64" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="CX3225GB16000P0HPQCC" x="-8" y="-64" size="1.778" layer="27" display="off"/>
 </element>
-<element name="CON1" library="pixel_masterlib" package="DS1066-08M_SIDE" value="DS1066-07M-SIDE" x="-4" y="-21"/>
-<element name="CON2" library="pixel_masterlib" package="DS1066-08M_SIDE" value="DS1066-07M-SIDE" x="12" y="-21"/>
+<element name="CON1" library="pixel_masterlib" package="DS1066-08M_SIDE" value="DS1066-07M-SIDE" x="-20" y="-5"/>
+<element name="CON2" library="pixel_masterlib" package="DS1066-08M_SIDE" value="DS1066-07M-SIDE" x="-20" y="-30" rot="MR180"/>
 <element name="D1" library="pixel_masterlib" package="SC70_6L" value="SMF05C" x="-10" y="-53">
 <attribute name="MANF" value="Semtech Corporation" x="-9" y="-96" size="1.778" layer="27" display="off"/>
 <attribute name="DIGIKEY#" value="SMF05CCT-ND" x="-9" y="-96" size="1.778" layer="27" display="off"/>
@@ -1135,10 +1135,10 @@ design rules under a new name.</description>
 <wire x1="12.725" y1="-46" x2="9.725" y2="-46" width="0" layer="19" extent="1-1"/>
 <wire x1="15.725" y1="-46" x2="12.725" y2="-46" width="0" layer="19" extent="1-1"/>
 <wire x1="18.725" y1="-46" x2="15.725" y2="-46" width="0" layer="19" extent="1-1"/>
-<wire x1="-1.75" y1="-35.8" x2="-1.275" y2="-46" width="0" layer="19" extent="1-1"/>
-<wire x1="-10.25" y1="-33.4" x2="-1.75" y2="-35.8" width="0" layer="19" extent="1-1"/>
-<wire x1="-10.25" y1="-30.2" x2="-10.25" y2="-33.4" width="0" layer="19" extent="1-1"/>
-<wire x1="10.6" y1="-32.095" x2="-1.75" y2="-35.8" width="0" layer="19" extent="1-1"/>
+<wire x1="8.25" y1="-18.8" x2="-1.275" y2="-46" width="0" layer="19" extent="1-1"/>
+<wire x1="-0.25" y1="-16.4" x2="8.25" y2="-18.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-0.25" y1="-13.2" x2="-0.25" y2="-16.4" width="0" layer="19" extent="1-1"/>
+<wire x1="10.6" y1="-32.095" x2="8.25" y2="-18.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
 <contactref element="C3" pad="1"/>
@@ -1194,31 +1194,31 @@ design rules under a new name.</description>
 <wire x1="4.725" y1="-50" x2="5.275" y2="-46" width="0" layer="19" extent="1-1"/>
 <wire x1="-5.725" y1="-50" x2="-6.725" y2="-46" width="0" layer="19" extent="1-1"/>
 <wire x1="0.275" y1="-50" x2="1.275" y2="-46" width="0" layer="19" extent="1-1"/>
-<wire x1="-3.2" y1="-37.25" x2="-7.85" y2="-42.9" width="0" layer="19" extent="1-1"/>
 <wire x1="10.6" y1="-35.905" x2="11.275" y2="-46" width="0" layer="19" extent="1-1"/>
 <wire x1="4.55" y1="-29" x2="10.6" y2="-35.905" width="0" layer="19" extent="1-1"/>
-<wire x1="2" y1="-21.25" x2="4.55" y2="-29" width="0" layer="19" extent="1-1"/>
-<wire x1="-8.8" y1="-28.75" x2="-3.2" y2="-37.25" width="0" layer="19" extent="1-1"/>
-<wire x1="18" y1="-21.25" x2="4.55" y2="-29" width="0" layer="19" extent="1-1"/>
+<wire x1="6.8" y1="-20.25" x2="4.55" y2="-29" width="0" layer="19" extent="1-1"/>
+<wire x1="1.2" y1="-11.75" x2="6.8" y2="-20.25" width="0" layer="19" extent="1-1"/>
+<wire x1="-14" y1="-29.75" x2="-10.15" y2="-41.1" width="0" layer="19" extent="1-16"/>
+<wire x1="-14" y1="-5.25" x2="1.2" y2="-11.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="IC1" pad="2"/>
 <contactref element="C9" pad="2"/>
 <contactref element="Z1" pad="1"/>
 <wire x1="-10.15" y1="-42.9" x2="1.725" y2="-50" width="0" layer="19" extent="1-1"/>
-<wire x1="-10.25" y1="-31" x2="-10.15" y2="-42.9" width="0" layer="19" extent="1-1"/>
+<wire x1="-0.25" y1="-14" x2="-10.15" y2="-42.9" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$3">
 <contactref element="IC1" pad="3"/>
 <contactref element="C10" pad="1"/>
 <contactref element="Z1" pad="3"/>
-<wire x1="-10.25" y1="-31.8" x2="-7.85" y2="-41.1" width="0" layer="19" extent="1-1"/>
+<wire x1="-0.25" y1="-14.8" x2="-7.85" y2="-41.1" width="0" layer="19" extent="1-1"/>
 <wire x1="3.275" y1="-50" x2="-7.85" y2="-41.1" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="TX">
 <contactref element="IC1" pad="8"/>
 <contactref element="IC3" pad="4"/>
-<wire x1="5.4" y1="-35.905" x2="-10.25" y2="-35.8" width="0" layer="19" extent="1-1"/>
+<wire x1="5.4" y1="-35.905" x2="-0.25" y2="-18.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DC-DC_FB">
 <contactref element="IC1" pad="6"/>
@@ -1226,7 +1226,7 @@ design rules under a new name.</description>
 <signal name="RX">
 <contactref element="IC1" pad="9"/>
 <contactref element="IC3" pad="1"/>
-<wire x1="5.4" y1="-32.095" x2="-8.8" y2="-37.25" width="0" layer="19" extent="1-1"/>
+<wire x1="5.4" y1="-32.095" x2="1.2" y2="-20.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CK">
 <contactref element="IC1" pad="10"/>
@@ -1246,7 +1246,7 @@ design rules under a new name.</description>
 <signal name="LED1_PWM">
 <contactref element="IC1" pad="18"/>
 <contactref element="R4" pad="1"/>
-<wire x1="-1.75" y1="-35" x2="-39" y2="-65" width="0" layer="19" extent="1-1"/>
+<wire x1="8.25" y1="-18" x2="-39" y2="-65" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED2_PWM">
 <contactref element="IC1" pad="19"/>
@@ -1260,8 +1260,8 @@ design rules under a new name.</description>
 <contactref element="RN1" pad="3"/>
 <contactref element="IC5" pad="2"/>
 <wire x1="-9.025" y1="-52.35" x2="-19" y2="-57.3" width="0" layer="19" extent="1-1"/>
-<wire x1="-1.75" y1="-32.6" x2="-9.025" y2="-52.35" width="0" layer="19" extent="1-1"/>
-<wire x1="-1.6" y1="-25.8" x2="-1.75" y2="-32.6" width="0" layer="19" extent="1-1"/>
+<wire x1="8.25" y1="-15.6" x2="-9.025" y2="-52.35" width="0" layer="19" extent="1-1"/>
+<wire x1="-1.6" y1="-25.8" x2="8.25" y2="-15.6" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CLOCK">
 <contactref element="IC1" pad="22"/>
@@ -1269,8 +1269,8 @@ design rules under a new name.</description>
 <contactref element="RN1" pad="2"/>
 <contactref element="IC4" pad="2"/>
 <wire x1="-9.025" y1="-53" x2="-15" y2="-57.3" width="0" layer="19" extent="1-1"/>
-<wire x1="-1.75" y1="-31.8" x2="-9.025" y2="-53" width="0" layer="19" extent="1-1"/>
-<wire x1="-2.4" y1="-25.8" x2="-1.75" y2="-31.8" width="0" layer="19" extent="1-1"/>
+<wire x1="8.25" y1="-14.8" x2="-9.025" y2="-53" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.4" y1="-25.8" x2="8.25" y2="-14.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SYS_SWDIO">
 <contactref element="IC1" pad="23"/>
@@ -1284,47 +1284,47 @@ design rules under a new name.</description>
 <signal name="VDD_24V">
 <contactref element="CON1" pad="1"/>
 <contactref element="CON2" pad="1"/>
-<wire x1="6" y1="-21.25" x2="-10" y2="-21.25" width="0" layer="19" extent="1-1"/>
+<wire x1="-26" y1="-5.25" x2="-26" y2="-29.75" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="RS485_B">
 <contactref element="CON1" pad="3"/>
 <contactref element="CON2" pad="3"/>
-<wire x1="10" y1="-21.25" x2="-6" y2="-21.25" width="0" layer="19" extent="1-1"/>
+<wire x1="-22" y1="-5.25" x2="-22" y2="-29.75" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="RS485_A">
 <contactref element="CON1" pad="2"/>
 <contactref element="CON2" pad="2"/>
-<wire x1="8" y1="-21.25" x2="-8" y2="-21.25" width="0" layer="19" extent="1-1"/>
+<wire x1="-24" y1="-5.25" x2="-24" y2="-29.75" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$2">
 <contactref element="CON1" pad="4"/>
 <contactref element="RN1" pad="8"/>
-<wire x1="-4" y1="-21.25" x2="-3.2" y2="-24.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-3.2" y1="-24.2" x2="-20" y2="-5.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$4">
 <contactref element="CON1" pad="5"/>
 <contactref element="RN1" pad="7"/>
-<wire x1="-2" y1="-21.25" x2="-2.4" y2="-24.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.4" y1="-24.2" x2="-18" y2="-5.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$5">
 <contactref element="CON1" pad="6"/>
 <contactref element="RN1" pad="6"/>
-<wire x1="0" y1="-21.25" x2="-1.6" y2="-24.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-1.6" y1="-24.2" x2="-16" y2="-5.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DATA_IN">
 <contactref element="D1" pad="4"/>
 <contactref element="RN1" pad="1"/>
-<wire x1="-9.025" y1="-53.65" x2="-3.2" y2="-25.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-3.2" y1="-25.8" x2="-9.025" y2="-53.65" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$6">
 <contactref element="CON2" pad="4"/>
 <contactref element="RN2" pad="8"/>
-<wire x1="12" y1="-21.25" x2="-10.2" y2="-56.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-20" y1="-29.75" x2="-10.2" y2="-56.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$9">
 <contactref element="CON2" pad="5"/>
 <contactref element="RN2" pad="7"/>
-<wire x1="14" y1="-21.25" x2="-9.4" y2="-56.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-18" y1="-29.75" x2="-9.4" y2="-56.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="DE">
 <contactref element="IC3" pad="2"/>
@@ -1381,7 +1381,7 @@ design rules under a new name.</description>
 <signal name="N$12">
 <contactref element="CON2" pad="6"/>
 <contactref element="RN2" pad="6"/>
-<wire x1="16" y1="-21.25" x2="-8.6" y2="-56.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-16" y1="-29.75" x2="-8.6" y2="-56.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="DATA_OUT">
 <contactref element="RN2" pad="1"/>
@@ -1434,17 +1434,17 @@ design rules under a new name.</description>
 <signal name="SCK">
 <contactref element="IC1" pad="26"/>
 <contactref element="NRF24L01" pad="5"/>
-<wire x1="-4" y1="-28.75" x2="-42.7" y2="-93.73" width="0" layer="19" extent="1-1"/>
+<wire x1="6" y1="-11.75" x2="-42.7" y2="-93.73" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MISO">
 <contactref element="IC1" pad="27"/>
 <contactref element="NRF24L01" pad="7"/>
-<wire x1="-4.8" y1="-28.75" x2="-42.7" y2="-96.27" width="0" layer="19" extent="1-1"/>
+<wire x1="5.2" y1="-11.75" x2="-42.7" y2="-96.27" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MOSI">
 <contactref element="IC1" pad="28"/>
 <contactref element="NRF24L01" pad="6"/>
-<wire x1="-5.6" y1="-28.75" x2="-40.16" y2="-93.73" width="0" layer="19" extent="1-1"/>
+<wire x1="4.4" y1="-11.75" x2="-40.16" y2="-93.73" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="NRF_IRQ">
 <contactref element="NRF24L01" pad="8"/>
