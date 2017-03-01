@@ -954,6 +954,15 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </package>
 </packages>
 </library>
+<library name="pixhawk2">
+<packages>
+<package name="PAD.05X.05">
+<circle x="0" y="0" radius="0.837" width="0.1" layer="21"/>
+<smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
+<text x="1.004" y="-0.25" size="0.5" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1464,6 +1473,42 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="LED_CATHODE2" library="valenok_master_library" package="5-2,5" value="WIREPADSMD5-2,5" x="-75" y="-170.375"/>
 <element name="LED_CATHODE3" library="valenok_master_library" package="5-2,5" value="WIREPADSMD5-2,5" x="-79.2" y="-170.375"/>
 <element name="LED_ANODE" library="valenok_master_library" package="5-2,5" value="WIREPADSMD5-2,5" x="-83.4" y="-170.375"/>
+<element name="TP101" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-179.75">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-179.625" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-179.625" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP201" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-181.8">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-181.55" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-181.55" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP301" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-183.85">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-183.475" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-183.475" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP102" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-185.775">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-185.775" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-185.775" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP202" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-187.7">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-187.7" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-187.7" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP302" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-189.625">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-189.625" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-189.625" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP103" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-191.55">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-191.55" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-191.55" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP203" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-193.475">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-193.475" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-193.475" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP303" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="-83.85" y="-195.4">
+<attribute name="BOM" value="EXCLUDE" x="-83.85" y="-195.4" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNO" value="*" x="-83.85" y="-195.4" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -2061,8 +2106,10 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="Q101" pad="6"/>
 <contactref element="D101" pad="A"/>
 <contactref element="L102" pad="1"/>
+<contactref element="TP102" pad="P$1"/>
 <wire x1="-37.875" y1="-90.975" x2="-48.625" y2="-96.275" width="0" layer="19" extent="1-1"/>
 <wire x1="-33.825" y1="-85.575" x2="-37.875" y2="-90.975" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-185.775" x2="-48.625" y2="-96.275" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED_DRIVER2:N$1">
 <contactref element="Q201" pad="1"/>
@@ -2073,8 +2120,10 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="Q201" pad="6"/>
 <contactref element="D201" pad="A"/>
 <contactref element="L202" pad="1"/>
+<contactref element="TP202" pad="P$1"/>
 <wire x1="-60.45" y1="-124.35" x2="-67.3" y2="-140" width="0" layer="19" extent="1-1"/>
 <wire x1="-72.125" y1="-113" x2="-60.45" y2="-124.35" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-187.7" x2="-67.3" y2="-140" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED_DRIVER2:N$3">
 <contactref element="R210" pad="2"/>
@@ -2094,8 +2143,10 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="Q301" pad="6"/>
 <contactref element="D301" pad="A"/>
 <contactref element="L302" pad="1"/>
+<contactref element="TP302" pad="P$1"/>
 <wire x1="-60.45" y1="-162.05" x2="-67.3" y2="-177.7" width="0" layer="19" extent="1-1"/>
 <wire x1="-72.125" y1="-150.7" x2="-60.45" y2="-162.05" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-189.625" x2="-67.3" y2="-177.7" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED_DRIVER3:N$3">
 <contactref element="R310" pad="2"/>
@@ -2145,64 +2196,76 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-51.025" y1="-92.575" x2="-56.55" y2="-95.275" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$10">
-<contactref element="D101" pad="C"/>
 <contactref element="LED_CATHODE1" pad="1"/>
-<wire x1="-52.025" y1="-96.275" x2="-70.8" y2="-94.975" width="0" layer="19" extent="1-1"/>
+<contactref element="L102" pad="2"/>
+<wire x1="-29.925" y1="-85.575" x2="-70.8" y2="-94.975" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$20">
-<contactref element="L102" pad="2"/>
-<contactref element="L302" pad="2"/>
-<contactref element="L202" pad="2"/>
 <contactref element="LED_ANODE" pad="1"/>
-<wire x1="-68.225" y1="-150.7" x2="-83.4" y2="-170.375" width="0" layer="19" extent="1-1"/>
-<wire x1="-68.225" y1="-113" x2="-68.225" y2="-150.7" width="0" layer="19" extent="1-1"/>
-<wire x1="-29.925" y1="-85.575" x2="-68.225" y2="-113" width="0" layer="19" extent="1-1"/>
+<contactref element="D101" pad="C"/>
+<contactref element="D201" pad="C"/>
+<contactref element="D301" pad="C"/>
+<wire x1="-70.7" y1="-177.7" x2="-83.4" y2="-170.375" width="0" layer="19" extent="1-1"/>
+<wire x1="-70.7" y1="-140" x2="-83.4" y2="-170.375" width="0" layer="19" extent="1-1"/>
+<wire x1="-52.025" y1="-96.275" x2="-70.7" y2="-140" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
 <contactref element="LED_CATHODE2" pad="1"/>
-<contactref element="D201" pad="C"/>
-<wire x1="-70.7" y1="-140" x2="-75" y2="-170.375" width="0" layer="19" extent="1-1"/>
+<contactref element="L202" pad="2"/>
+<wire x1="-68.225" y1="-113" x2="-75" y2="-170.375" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$23">
 <contactref element="LED_CATHODE3" pad="1"/>
-<contactref element="D301" pad="C"/>
-<wire x1="-70.7" y1="-177.7" x2="-79.2" y2="-170.375" width="0" layer="19" extent="1-1"/>
+<contactref element="L302" pad="2"/>
+<wire x1="-68.225" y1="-150.7" x2="-79.2" y2="-170.375" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$24">
 <contactref element="R310" pad="1"/>
 <contactref element="IC308" pad="1"/>
+<contactref element="TP301" pad="P$1"/>
 <wire x1="-59.55" y1="-169.15" x2="-69.625" y2="-164.975" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-183.85" x2="-69.625" y2="-164.975" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$25">
 <contactref element="R314" pad="P$2"/>
 <contactref element="Q301" pad="5"/>
 <contactref element="C312" pad="2"/>
+<contactref element="TP303" pad="P$1"/>
 <wire x1="-61.075" y1="-173.825" x2="-66.6" y2="-169.65" width="0" layer="19" extent="1-1"/>
 <wire x1="-59.5" y1="-162.05" x2="-66.6" y2="-169.65" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-195.4" x2="-66.6" y2="-169.65" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$27">
 <contactref element="R214" pad="P$2"/>
 <contactref element="Q201" pad="5"/>
 <contactref element="C212" pad="2"/>
+<contactref element="TP203" pad="P$1"/>
 <wire x1="-61.075" y1="-136.125" x2="-66.6" y2="-131.95" width="0" layer="19" extent="1-1"/>
 <wire x1="-59.5" y1="-124.35" x2="-66.6" y2="-131.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-193.475" x2="-61.075" y2="-136.125" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$29">
 <contactref element="R210" pad="1"/>
 <contactref element="IC208" pad="1"/>
+<contactref element="TP201" pad="P$1"/>
 <wire x1="-59.55" y1="-131.45" x2="-69.625" y2="-127.275" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-181.8" x2="-59.55" y2="-131.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$30">
 <contactref element="R114" pad="P$2"/>
 <contactref element="Q101" pad="5"/>
 <contactref element="C112" pad="2"/>
+<contactref element="TP103" pad="P$1"/>
 <wire x1="-47.925" y1="-92.575" x2="-65.025" y2="-101.825" width="0" layer="19" extent="1-1"/>
 <wire x1="-36.925" y1="-90.975" x2="-47.925" y2="-92.575" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-191.55" x2="-65.025" y2="-101.825" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$31">
 <contactref element="R110" pad="1"/>
 <contactref element="IC108" pad="1"/>
+<contactref element="TP101" pad="P$1"/>
 <wire x1="-57.5" y1="-95.275" x2="-65.825" y2="-98.125" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.85" y1="-179.75" x2="-65.825" y2="-98.125" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <errors>

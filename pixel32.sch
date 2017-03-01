@@ -2893,6 +2893,202 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="pixhawk2">
+<packages>
+<package name="PAD.02X.02">
+<smd name="P$1" x="0" y="0" dx="0.508" dy="0.508" layer="1"/>
+</package>
+<package name="PAD.03X.03">
+<circle x="0" y="0" radius="0.583" width="0.1" layer="21"/>
+<smd name="P$1" x="0" y="0" dx="0.762" dy="0.762" layer="1" roundness="100" cream="no"/>
+<text x="0.75" y="-0.25" size="0.5" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+<package name="POGO">
+<description>Pogo-Testpin</description>
+<circle x="0" y="0" radius="1" width="0.1" layer="21"/>
+<pad name="P$1" x="0" y="0" drill="1.1" diameter="1.6"/>
+<text x="1.25" y="-0.3" size="0.6" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+<package name="POGO-HOLE">
+<description>&lt;h2&gt;Pogo-pin-head hole&lt;/h2&gt;
+&lt;br /&gt;
+This footprint allows the head of the pogo-pin to pass through. It should be uses for the PCB-mount, not for mounting the pogo pin (use footprint POGO for the pogo-pin solder footprint).</description>
+<circle x="0" y="0" radius="1.2" width="0.127" layer="21"/>
+<smd name="P$2" x="0" y="1.2" dx="0.25" dy="0.25" layer="16" stop="no" cream="no"/>
+<text x="1.4" y="-0.3" size="0.6" layer="21" font="vector" ratio="15">&gt;NAME</text>
+<hole x="0" y="0" drill="1.45"/>
+</package>
+<package name="PAD.05X.05">
+<circle x="0" y="0" radius="0.837" width="0.1" layer="21"/>
+<smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
+<text x="1.004" y="-0.25" size="0.5" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+<package name="PAD.04X.04">
+<circle x="0" y="0" radius="0.6485" width="0.1" layer="21"/>
+<smd name="P$1" x="0" y="0" dx="1.016" dy="1.016" layer="1" roundness="100" cream="no"/>
+<text x="0.8008" y="-0.25" size="0.5" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+<package name="KEYSTONE-5016">
+<wire x1="2.35" y1="2" x2="2.65" y2="1.7" width="0.2" layer="21" curve="-90"/>
+<wire x1="2.65" y1="1.7" x2="2.65" y2="-1.7" width="0.2" layer="21"/>
+<wire x1="2.65" y1="-1.7" x2="2.35" y2="-2" width="0.2" layer="21" curve="-90"/>
+<wire x1="2.35" y1="-2" x2="-2.35" y2="-2" width="0.2" layer="21"/>
+<wire x1="-2.35" y1="-2" x2="-2.65" y2="-1.7" width="0.2" layer="21" curve="-90"/>
+<wire x1="-2.65" y1="-1.7" x2="-2.65" y2="1.7" width="0.2" layer="21"/>
+<wire x1="-2.65" y1="1.7" x2="-2.35" y2="2" width="0.2" layer="21" curve="-90"/>
+<wire x1="-2.35" y1="2" x2="2.35" y2="2" width="0.2" layer="21"/>
+<wire x1="-2" y1="-0.6" x2="-2" y2="0.6" width="0.2" layer="51"/>
+<wire x1="-2" y1="0.6" x2="-1.8" y2="0.6" width="0.2" layer="51"/>
+<wire x1="-1.8" y1="0.6" x2="2" y2="0.6" width="0.2" layer="51"/>
+<wire x1="2" y1="0.6" x2="2" y2="-0.6" width="0.2" layer="51"/>
+<wire x1="2" y1="-0.6" x2="-2" y2="-0.6" width="0.2" layer="51"/>
+<wire x1="2" y1="0.6" x2="-1.6" y2="1.4" width="0.2" layer="51"/>
+<wire x1="-1.6" y1="1.4" x2="-1.8" y2="0.6" width="0.2" layer="51"/>
+<wire x1="2" y1="-0.6" x2="1.8" y2="-1.4" width="0.2" layer="51"/>
+<wire x1="1.8" y1="-1.4" x2="-2" y2="-0.6" width="0.2" layer="51"/>
+<smd name="P$1" x="0" y="0" dx="4.7" dy="3.43" layer="1"/>
+<text x="-2.8" y="2.4" size="1" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+<package name="PAD-2MM-PROBE-HORZ">
+<description>2MM Probe Tip Diameter
+
+For 2MM multimeter / scope standard probes. Similar to:
+
+Keystone 6050 and Emerson 105-1102-001
+
+http://emersonconnectivity.com/OA_MEDIA/specs/pi-1051102001.pdf</description>
+<wire x1="2.4" y1="1.9" x2="2.7" y2="1.6" width="0.2" layer="21" curve="-90"/>
+<wire x1="2.7" y1="1.6" x2="2.7" y2="1.3" width="0.2" layer="21"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2" layer="21"/>
+<wire x1="-2.4" y1="1.9" x2="-2.7" y2="1.6" width="0.2" layer="21" curve="90"/>
+<wire x1="-2.7" y1="1.6" x2="-2.7" y2="1.3" width="0.2" layer="21"/>
+<wire x1="-2.4" y1="-1.9" x2="-2.7" y2="-1.6" width="0.2" layer="21" curve="-90"/>
+<wire x1="-2.7" y1="-1.6" x2="-2.7" y2="-1.3" width="0.2" layer="21"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2" layer="21"/>
+<wire x1="2.4" y1="-1.9" x2="2.7" y2="-1.6" width="0.2" layer="21" curve="90"/>
+<wire x1="2.7" y1="-1.6" x2="2.7" y2="-1.3" width="0.2" layer="21"/>
+<wire x1="-2.7" y1="1.3" x2="-2.7" y2="-1.3" width="0.2" layer="51"/>
+<wire x1="2.7" y1="1.3" x2="2.7" y2="-1.3" width="0.2" layer="51"/>
+<pad name="P$1" x="-2.54" y="0" drill="1.3"/>
+<pad name="P$2" x="2.54" y="0" drill="1.3"/>
+<text x="-1.2" y="1.1" size="0.5" layer="25" font="vector" ratio="15">&gt;NAME</text>
+<text x="-1.4" y="-1.6" size="0.5" layer="27" font="vector" ratio="15">&gt;VALUE</text>
+<text x="-2.8" y="2.2" size="1" layer="21" font="vector" ratio="15">&gt;NAME</text>
+<rectangle x1="-2.7" y1="-0.6" x2="-2.4" y2="0.6" layer="51"/>
+<rectangle x1="2.4" y1="-0.6" x2="2.7" y2="0.6" layer="51"/>
+</package>
+<package name="HARWIN-S1751-46R">
+<wire x1="1.8" y1="1.3" x2="2.1" y2="1" width="0.2" layer="21" curve="-90"/>
+<wire x1="2.1" y1="1" x2="2.1" y2="-1" width="0.2" layer="21"/>
+<wire x1="2.1" y1="-1" x2="1.8" y2="-1.3" width="0.2" layer="21" curve="-90"/>
+<wire x1="1.8" y1="-1.3" x2="-1.8" y2="-1.3" width="0.2" layer="21"/>
+<wire x1="-1.8" y1="-1.3" x2="-2.1" y2="-1" width="0.2" layer="21" curve="-90"/>
+<wire x1="-2.1" y1="-1" x2="-2.1" y2="1" width="0.2" layer="21"/>
+<wire x1="-2.1" y1="1" x2="-1.8" y2="1.3" width="0.2" layer="21" curve="-90"/>
+<wire x1="-1.8" y1="1.3" x2="1.8" y2="1.3" width="0.2" layer="21"/>
+<wire x1="-1.6" y1="0.8" x2="-1.6" y2="-0.8" width="0.2" layer="51"/>
+<wire x1="-1.6" y1="-0.8" x2="1.6" y2="-0.8" width="0.2" layer="51"/>
+<wire x1="1.6" y1="-0.8" x2="1.6" y2="0.8" width="0.2" layer="51"/>
+<wire x1="1.6" y1="0.8" x2="-1.6" y2="0.8" width="0.2" layer="51"/>
+<smd name="P$1" x="0" y="0" dx="3.65" dy="2.05" layer="1"/>
+<text x="-2.2" y="1.6" size="0.8" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+</packages>
+<symbols>
+<symbol name="PAD">
+<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="-2.54" y="2.794" size="1.27" layer="95">&gt;NAME</text>
+<pin name="P$1" x="-7.62" y="0" visible="off" length="middle" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PAD" prefix="TP">
+<description>&lt;h3&gt;Test pad&lt;/h3&gt;
+
+This footprint includes three classes: The actual test pads, a pogo-pin footprint to mount the pogo-pin as through-hole part and a hole footprint which allows the head of the pogo-pin to pass through (do NOT use the hole to mount the pogo-pin). In a typical test setup, the stack would consist of three PCBs: The actual PCB under testing with a test pad on the bottom, then a second PCB with the hole for the pogo-pin head where the PCB under testing is pressed on and a third PCB at 30 mm / 1.2" distance with the pogo-pin footprints. The pogo-pins are soldered to the last PCB. To create the stack, copy the board under testing and exchange the footprints - this way the correct positioning is ensured.</description>
+<gates>
+<gate name="G$1" symbol="PAD" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name=".02" package="PAD.02X.02">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name=".03" package="PAD.03X.03">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-POGO" package="POGO">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-HOLE" package="POGO-HOLE">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name=".05" package="PAD.05X.05">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name=".04" package="PAD.04X.04">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-SCOPE-RING-L" package="KEYSTONE-5016">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-PROBE-2MM" package="PAD-2MM-PROBE-HORZ">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-SCOPE-RING-S" package="HARWIN-S1751-46R">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2932,18 +3128,30 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="R10" library="rc" deviceset="R" device="-0805" value="22R"/>
 <part name="C12" library="rc" deviceset="C" device="-0603" value="100 nF"/>
 <part name="GND1" library="supply_symbols" deviceset="GND" device="" value="GND"/>
+<part name="TP1" library="pixhawk2" deviceset="PAD" device=".05">
+<attribute name="BOM" value="EXCLUDE"/>
+<attribute name="PARTNO" value="*"/>
+</part>
+<part name="TP2" library="pixhawk2" deviceset="PAD" device=".05">
+<attribute name="BOM" value="EXCLUDE"/>
+<attribute name="PARTNO" value="*"/>
+</part>
+<part name="TP3" library="pixhawk2" deviceset="PAD" device=".05">
+<attribute name="BOM" value="EXCLUDE"/>
+<attribute name="PARTNO" value="*"/>
+</part>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="10.16" y="124.46" size="2.54" layer="97" font="vector" ratio="15">LED CHANNEL</text>
-<text x="121.92" y="53.34" size="1.778" layer="97">R7 is 2 Ohms current shunt. 
+<text x="121.92" y="48.26" size="1.778" layer="97">R7 is 2 Ohms current shunt. 
 So at 350mA voltage drop will be 0.7V. 
 Power dissipation is 0.7*0.35 ~ 0.22W. 
 1206 resistors are 0.25W rated. 
 Maybe should split it in 2 resistors</text>
-<text x="55.88" y="88.9" size="1.27" layer="97">PLACE R10 is driver is not needed</text>
-<text x="93.98" y="48.26" size="1.27" layer="97">Not sure if C12 is needed</text>
+<text x="55.88" y="91.44" size="1.27" layer="97">PLACE R10 is driver is not needed</text>
+<text x="93.98" y="43.18" size="1.27" layer="97">Not sure if C12 is needed</text>
 <text x="15.24" y="104.14" size="1.27" layer="97">2do:
 -replace Q1 with proper N-channel mosfet
 -replace L2 with SDR0805 </text>
@@ -2951,18 +3159,30 @@ Maybe should split it in 2 resistors</text>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
 <instance part="L2" gate="G$1" x="109.22" y="86.36"/>
-<instance part="GND37" gate="1" x="101.6" y="53.34" rot="MR0"/>
+<instance part="GND37" gate="1" x="101.6" y="48.26" rot="MR0"/>
 <instance part="Q1" gate="B" x="101.6" y="78.74"/>
 <instance part="R8" gate="G$1" x="88.9" y="76.2"/>
-<instance part="R14" gate="G$1" x="101.6" y="63.5" rot="R90"/>
+<instance part="R14" gate="G$1" x="101.6" y="58.42" rot="R90"/>
 <instance part="D1" gate="G$1" x="101.6" y="91.44" rot="R90"/>
 <instance part="IC8" gate="G$1" x="60.96" y="71.12"/>
-<instance part="C26" gate="G$1" x="45.72" y="71.12" rot="MR90"/>
+<instance part="C26" gate="G$1" x="38.1" y="71.12" rot="MR90"/>
 <instance part="GND18" gate="1" x="55.88" y="55.88" rot="MR0"/>
-<instance part="GND32" gate="1" x="45.72" y="55.88" rot="MR0"/>
-<instance part="R10" gate="G$1" x="68.58" y="86.36"/>
-<instance part="C12" gate="G$1" x="106.68" y="63.5" rot="R90"/>
-<instance part="GND1" gate="1" x="106.68" y="53.34" rot="MR0"/>
+<instance part="GND32" gate="1" x="38.1" y="55.88" rot="MR0"/>
+<instance part="R10" gate="G$1" x="68.58" y="88.9"/>
+<instance part="C12" gate="G$1" x="106.68" y="58.42" rot="R90"/>
+<instance part="GND1" gate="1" x="106.68" y="48.26" rot="MR0"/>
+<instance part="TP1" gate="G$1" x="48.26" y="58.42" rot="R270">
+<attribute name="PARTNO" x="48.26" y="58.42" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="BOM" x="48.26" y="58.42" size="1.778" layer="96" rot="R270" display="off"/>
+</instance>
+<instance part="TP2" gate="G$1" x="88.9" y="86.36" rot="R180">
+<attribute name="PARTNO" x="88.9" y="86.36" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="BOM" x="88.9" y="86.36" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="TP3" gate="G$1" x="88.9" y="66.04" rot="R180">
+<attribute name="PARTNO" x="88.9" y="66.04" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="BOM" x="88.9" y="66.04" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -2976,17 +3196,19 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="CURRENT_SENS" class="0">
 <segment>
-<wire x1="101.6" y1="73.66" x2="101.6" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="71.12" x2="101.6" y2="68.58" width="0.1524" layer="91"/>
-<junction x="101.6" y="71.12"/>
-<wire x1="101.6" y1="71.12" x2="106.68" y2="71.12" width="0.1524" layer="91"/>
-<label x="116.84" y="71.12" size="1.27" layer="95" xref="yes"/>
+<wire x1="101.6" y1="73.66" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="66.04" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
+<junction x="101.6" y="66.04"/>
+<wire x1="101.6" y1="66.04" x2="106.68" y2="66.04" width="0.1524" layer="91"/>
+<label x="116.84" y="66.04" size="1.27" layer="95" xref="yes"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 <pinref part="Q1" gate="B" pin="S"/>
 <pinref part="C12" gate="G$1" pin="2"/>
-<wire x1="106.68" y1="71.12" x2="116.84" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="66.04" x2="106.68" y2="71.12" width="0.1524" layer="91"/>
-<junction x="106.68" y="71.12"/>
+<wire x1="106.68" y1="66.04" x2="116.84" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="60.96" x2="106.68" y2="66.04" width="0.1524" layer="91"/>
+<junction x="106.68" y="66.04"/>
+<pinref part="TP3" gate="G$1" pin="P$1"/>
+<wire x1="101.6" y1="66.04" x2="96.52" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -2998,28 +3220,25 @@ Maybe should split it in 2 resistors</text>
 <pinref part="Q1" gate="B" pin="D"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <pinref part="L2" gate="G$1" pin="1"/>
+<pinref part="TP2" gate="G$1" pin="P$1"/>
+<wire x1="101.6" y1="86.36" x2="96.52" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PWM" class="0">
 <segment>
-<wire x1="58.42" y1="76.2" x2="55.88" y2="76.2" width="0.1524" layer="91"/>
-<label x="53.34" y="76.2" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="55.88" y1="76.2" x2="53.34" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="86.36" x2="55.88" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="86.36" x2="55.88" y2="76.2" width="0.1524" layer="91"/>
-<junction x="55.88" y="76.2"/>
+<wire x1="58.42" y1="76.2" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<label x="45.72" y="76.2" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="48.26" y1="76.2" x2="45.72" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="88.9" x2="48.26" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="88.9" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<junction x="48.26" y="76.2"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="IC8" gate="G$1" pin="IN"/>
+<pinref part="TP1" gate="G$1" pin="P$1"/>
+<wire x1="48.26" y1="66.04" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LED_ANODE" class="0">
-<segment>
-<wire x1="116.84" y1="86.36" x2="114.3" y2="86.36" width="0.1524" layer="91"/>
-<label x="116.84" y="86.36" size="1.27" layer="95" xref="yes"/>
-<pinref part="L2" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="LED_CATHODE" class="0">
 <segment>
 <wire x1="101.6" y1="93.98" x2="101.6" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="96.52" x2="116.84" y2="96.52" width="0.1524" layer="91"/>
@@ -3029,21 +3248,21 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="SUPPLY" class="0">
 <segment>
-<wire x1="45.72" y1="73.66" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="78.74" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="78.74" x2="45.72" y2="81.28" width="0.1524" layer="91"/>
-<junction x="45.72" y="78.74"/>
-<label x="45.72" y="81.28" size="1.27" layer="95" rot="R90" xref="yes"/>
+<wire x1="38.1" y1="73.66" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="78.74" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="78.74" x2="38.1" y2="91.44" width="0.1524" layer="91"/>
+<junction x="38.1" y="78.74"/>
+<label x="38.1" y="91.44" size="1.27" layer="95" rot="R90" xref="yes"/>
 <pinref part="C26" gate="G$1" pin="2"/>
 <pinref part="IC8" gate="G$1" pin="VCC"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<wire x1="73.66" y1="86.36" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="88.9" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="76.2" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="76.2" x2="83.82" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="86.36" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="88.9" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
 <junction x="81.28" y="76.2"/>
 <pinref part="R10" gate="G$1" pin="2"/>
 <pinref part="R8" gate="G$1" pin="1"/>
@@ -3052,12 +3271,12 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="GND" class="0">
 <segment>
-<wire x1="45.72" y1="58.42" x2="45.72" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="58.42" x2="38.1" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="GND32" gate="1" pin="GND"/>
 <pinref part="C26" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="101.6" y1="58.42" x2="101.6" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="53.34" x2="101.6" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 <pinref part="GND37" gate="1" pin="GND"/>
 </segment>
@@ -3070,7 +3289,14 @@ Maybe should split it in 2 resistors</text>
 <segment>
 <pinref part="C12" gate="G$1" pin="1"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="106.68" y1="55.88" x2="106.68" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="50.8" x2="106.68" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="LED_CATHODE" class="0">
+<segment>
+<wire x1="116.84" y1="86.36" x2="114.3" y2="86.36" width="0.1524" layer="91"/>
+<label x="116.84" y="86.36" size="1.27" layer="95" xref="yes"/>
+<pinref part="L2" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
