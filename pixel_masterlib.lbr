@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="25" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="15" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -734,11 +734,11 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <text x="0" y="13" size="1.5" layer="51" font="vector" ratio="15" align="center">USB</text>
 </package>
 <package name="BOARD_OUTLINE">
-<wire x1="-25" y1="-22.5" x2="-25" y2="22.5" width="0.01" layer="21"/>
-<wire x1="-25" y1="22.5" x2="-22.5" y2="25" width="0.01" layer="21" curve="-90"/>
-<wire x1="-22.5" y1="25" x2="22.5" y2="25" width="0.01" layer="21"/>
-<wire x1="22.5" y1="25" x2="25" y2="22.5" width="0.01" layer="21" curve="-90"/>
-<wire x1="25" y1="22.5" x2="25" y2="-22.5" width="0.01" layer="21"/>
+<wire x1="-25" y1="-22.5" x2="-25" y2="7.5" width="0.01" layer="21"/>
+<wire x1="-25" y1="7.5" x2="-22.5" y2="10" width="0.01" layer="21" curve="-90"/>
+<wire x1="-22.5" y1="10" x2="22.5" y2="10" width="0.01" layer="21"/>
+<wire x1="22.5" y1="10" x2="25" y2="7.5" width="0.01" layer="21" curve="-90"/>
+<wire x1="25" y1="7.5" x2="25" y2="-22.5" width="0.01" layer="21"/>
 <wire x1="25" y1="-22.5" x2="22.5" y2="-25" width="0.01" layer="21" curve="-90"/>
 <wire x1="22.5" y1="-25" x2="-22.5" y2="-25" width="0.01" layer="21"/>
 <wire x1="-22.5" y1="-25" x2="-25" y2="-22.5" width="0.01" layer="21" curve="-90"/>
