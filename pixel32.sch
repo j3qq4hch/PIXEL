@@ -3300,7 +3300,7 @@ Maybe should split it in 2 resistors</text>
 <junction x="116.84" y="73.66"/>
 </segment>
 </net>
-<net name="LED1_PWM" class="0">
+<net name="PWM" class="0">
 <segment>
 <wire x1="58.42" y1="83.82" x2="48.26" y2="83.82" width="0.1524" layer="91"/>
 <label x="45.72" y="83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -3367,14 +3367,6 @@ Maybe should split it in 2 resistors</text>
 <attribute name="MANF#" value="LTST-C191KGKT"/>
 </part>
 <part name="R39" library="rc" deviceset="R" device="-0603" value="1K"/>
-<part name="LED3" library="rc" deviceset="LED" device="-0603">
-<attribute name="COLOR" value="RED"/>
-<attribute name="DIGIKEY#" value="160-1447-1-ND"/>
-<attribute name="MANF" value="Lite-On Inc"/>
-<attribute name="MANF#" value="LTST-C191KRKT"/>
-</part>
-<part name="R40" library="rc" deviceset="R" device="-0603" value="1K"/>
-<part name="GND90" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND14" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="FRAME2" library="frames" deviceset="A3L-LOC" device=""/>
 <part name="IC1" library="pixel_masterlib" deviceset="STM32F030K6TX" device="-LQFP32(7X7)"/>
@@ -3494,8 +3486,7 @@ with 0-resistors</text>
 <wire x1="226.06" y1="213.36" x2="226.06" y2="251.46" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="226.06" y1="251.46" x2="157.48" y2="251.46" width="0.1524" layer="97" style="shortdash"/>
 <text x="162.56" y="215.9" size="2.54" layer="97" font="vector" ratio="15">OPTIONAL NRF24L01</text>
-<text x="208.28" y="48.26" size="1.778" layer="97" font="vector" ratio="15" rot="MR270" align="center-right">TRIG</text>
-<text x="215.9" y="48.26" size="1.778" layer="97" font="vector" ratio="15" rot="MR270" align="center-right">STAT</text>
+<text x="160.02" y="195.58" size="1.778" layer="97" font="vector" ratio="15" rot="MR270" align="center-right">STAT</text>
 </plain>
 <moduleinsts>
 <moduleinst name="LED_DRIVER1" module="LED_DRIVER" x="91.44" y="114.3" offset="100" smashed="yes">
@@ -3582,22 +3573,14 @@ with 0-resistors</text>
 <instance part="GND17" gate="1" x="271.78" y="12.7" rot="MR0"/>
 <instance part="IC5" gate="G$1" x="243.84" y="15.24"/>
 <instance part="+P4" gate="G$1" x="271.78" y="30.48"/>
-<instance part="LED2" gate="G$1" x="215.9" y="20.32" rot="MR270">
-<attribute name="COLOR" x="215.9" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-<attribute name="DIGIKEY#" x="215.9" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-<attribute name="MANF" x="215.9" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-<attribute name="MANF#" x="215.9" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
+<instance part="LED2" gate="G$1" x="160.02" y="167.64" rot="MR270">
+<attribute name="COLOR" x="160.02" y="167.64" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
+<attribute name="DIGIKEY#" x="160.02" y="167.64" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
+<attribute name="MANF" x="160.02" y="167.64" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
+<attribute name="MANF#" x="160.02" y="167.64" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
 </instance>
-<instance part="R39" gate="G$1" x="215.9" y="33.02" rot="MR90"/>
-<instance part="LED3" gate="G$1" x="208.28" y="20.32" rot="MR270">
-<attribute name="COLOR" x="208.28" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-<attribute name="DIGIKEY#" x="208.28" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-<attribute name="MANF" x="208.28" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-<attribute name="MANF#" x="208.28" y="20.32" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-</instance>
-<instance part="R40" gate="G$1" x="208.28" y="33.02" rot="MR90"/>
-<instance part="GND90" gate="1" x="208.28" y="12.7" rot="MR0"/>
-<instance part="GND14" gate="1" x="215.9" y="12.7" rot="MR0"/>
+<instance part="R39" gate="G$1" x="160.02" y="180.34" rot="MR90"/>
+<instance part="GND14" gate="1" x="160.02" y="160.02" rot="MR0"/>
 <instance part="+P2" gate="G$1" x="231.14" y="30.48" rot="MR0"/>
 <instance part="LED_CATHODE1" gate="G$1" x="124.46" y="109.22" rot="R180"/>
 <instance part="LED_CATHODE2" gate="G$1" x="124.46" y="81.28" rot="R180"/>
@@ -3859,12 +3842,7 @@ with 0-resistors</text>
 <segment>
 <pinref part="GND14" gate="1" pin="GND"/>
 <pinref part="LED2" gate="G$1" pin="C"/>
-<wire x1="215.9" y1="15.24" x2="215.9" y2="17.78" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND90" gate="1" pin="GND"/>
-<pinref part="LED3" gate="G$1" pin="C"/>
-<wire x1="208.28" y1="15.24" x2="208.28" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="162.56" x2="160.02" y2="165.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R8" gate="G$1" pin="1"/>
@@ -3913,10 +3891,10 @@ with 0-resistors</text>
 <net name="TX" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PA2"/>
-<label x="55.88" y="185.42" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<label x="45.72" y="185.42" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <wire x1="63.5" y1="198.12" x2="60.96" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="198.12" x2="60.96" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="185.42" x2="55.88" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="185.42" x2="45.72" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="233.68" y1="104.14" x2="228.6" y2="104.14" width="0.1524" layer="91"/>
@@ -3924,19 +3902,12 @@ with 0-resistors</text>
 <pinref part="IC3" gate="G$1" pin="DI"/>
 </segment>
 </net>
-<net name="DC-DC_FB" class="0">
-<segment>
-<pinref part="IC1" gate="IC" pin="PA0"/>
-<wire x1="63.5" y1="203.2" x2="60.96" y2="203.2" width="0.1524" layer="91"/>
-<label x="60.96" y="203.2" size="1.27" layer="95" rot="MR0" xref="yes"/>
-</segment>
-</net>
 <net name="RX" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PA3"/>
-<label x="55.88" y="182.88" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<label x="45.72" y="182.88" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <wire x1="76.2" y1="185.42" x2="76.2" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="182.88" x2="55.88" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="182.88" x2="45.72" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="233.68" y1="111.76" x2="228.6" y2="111.76" width="0.1524" layer="91"/>
@@ -3944,39 +3915,47 @@ with 0-resistors</text>
 <pinref part="IC3" gate="G$1" pin="RO"/>
 </segment>
 </net>
-<net name="CK" class="0">
+<net name="LED1_CURRENT" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PA4"/>
 <wire x1="78.74" y1="185.42" x2="78.74" y2="182.88" width="0.1524" layer="91"/>
-<label x="78.74" y="182.88" size="1.27" layer="95" rot="MR270" xref="yes"/>
+<label x="78.74" y="182.88" size="1.27" layer="95" font="vector" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<portref moduleinst="LED_DRIVER1" port="CURRENT_SENS"/>
+<wire x1="71.12" y1="111.76" x2="63.5" y2="111.76" width="0.1524" layer="91"/>
+<label x="63.5" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="LED2_FB" class="0">
+<net name="LED2_CURRENT" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PA5"/>
 <wire x1="81.28" y1="185.42" x2="81.28" y2="182.88" width="0.1524" layer="91"/>
-<label x="81.28" y="182.88" size="1.27" layer="95" rot="MR270" xref="yes"/>
+<label x="81.28" y="182.88" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
+</segment>
+<segment>
+<portref moduleinst="LED_DRIVER2" port="CURRENT_SENS"/>
+<wire x1="71.12" y1="83.82" x2="63.5" y2="83.82" width="0.1524" layer="91"/>
+<label x="63.5" y="83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="LED3_FB" class="0">
+<net name="LED3_CURRENT" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PA6"/>
 <wire x1="83.82" y1="185.42" x2="83.82" y2="182.88" width="0.1524" layer="91"/>
-<label x="83.82" y="182.88" size="1.27" layer="95" rot="MR270" xref="yes"/>
+<label x="83.82" y="182.88" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
 </segment>
-</net>
-<net name="DC-DC_PWM" class="0">
 <segment>
-<pinref part="IC1" gate="IC" pin="PA7/C1N"/>
-<wire x1="86.36" y1="185.42" x2="86.36" y2="182.88" width="0.1524" layer="91"/>
-<label x="86.36" y="182.88" size="1.27" layer="95" rot="MR270" xref="yes"/>
+<portref moduleinst="LED_DRIVER3" port="CURRENT_SENS"/>
+<wire x1="71.12" y1="55.88" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
+<label x="63.5" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="TEMP" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PB0/C2N"/>
 <wire x1="88.9" y1="185.42" x2="88.9" y2="182.88" width="0.1524" layer="91"/>
-<label x="88.9" y="182.88" size="1.27" layer="95" rot="MR270" xref="yes"/>
+<label x="88.9" y="182.88" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
 </segment>
 <segment>
 <pinref part="CON3" gate="G$1" pin="1"/>
@@ -3998,6 +3977,11 @@ with 0-resistors</text>
 <wire x1="106.68" y1="200.66" x2="109.22" y2="200.66" width="0.1524" layer="91"/>
 <label x="109.22" y="200.66" size="1.27" layer="95" rot="MR180" xref="yes"/>
 </segment>
+<segment>
+<portref moduleinst="LED_DRIVER1" port="PWM"/>
+<wire x1="71.12" y1="116.84" x2="63.5" y2="116.84" width="0.1524" layer="91"/>
+<label x="63.5" y="116.84" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="LED2_PWM" class="0">
 <segment>
@@ -4005,12 +3989,22 @@ with 0-resistors</text>
 <wire x1="106.68" y1="203.2" x2="109.22" y2="203.2" width="0.1524" layer="91"/>
 <label x="109.22" y="203.2" size="1.27" layer="95" rot="MR180" xref="yes"/>
 </segment>
+<segment>
+<portref moduleinst="LED_DRIVER2" port="PWM"/>
+<wire x1="71.12" y1="88.9" x2="63.5" y2="88.9" width="0.1524" layer="91"/>
+<label x="63.5" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="LED3_PWM" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PA10/C3"/>
 <wire x1="106.68" y1="205.74" x2="109.22" y2="205.74" width="0.1524" layer="91"/>
 <label x="109.22" y="205.74" size="1.27" layer="95" rot="MR180" xref="yes"/>
+</segment>
+<segment>
+<portref moduleinst="LED_DRIVER3" port="PWM"/>
+<wire x1="71.12" y1="60.96" x2="63.5" y2="60.96" width="0.1524" layer="91"/>
+<label x="63.5" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="CLOCK" class="0">
@@ -4056,10 +4050,10 @@ with 0-resistors</text>
 <net name="RE/DE" class="0">
 <segment>
 <pinref part="IC1" gate="IC" pin="PA1"/>
-<label x="55.88" y="187.96" size="1.27" layer="95" rot="R180" xref="yes"/>
+<label x="45.72" y="187.96" size="1.27" layer="95" rot="R180" xref="yes"/>
 <wire x1="63.5" y1="200.66" x2="58.42" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="200.66" x2="58.42" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="187.96" x2="55.88" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="187.96" x2="45.72" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VDD_24V" class="0">
@@ -4330,29 +4324,15 @@ with 0-resistors</text>
 <net name="LED1" class="0">
 <segment>
 <pinref part="R39" gate="G$1" pin="2"/>
-<wire x1="215.9" y1="38.1" x2="215.9" y2="40.64" width="0.1524" layer="91"/>
-<label x="215.9" y="40.64" size="1.27" layer="95" font="vector" rot="MR90" xref="yes"/>
-</segment>
-</net>
-<net name="LED2" class="0">
-<segment>
-<pinref part="R40" gate="G$1" pin="2"/>
-<wire x1="208.28" y1="38.1" x2="208.28" y2="40.64" width="0.1524" layer="91"/>
-<label x="208.28" y="40.64" size="1.27" layer="95" font="vector" rot="MR90" xref="yes"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="LED3" gate="G$1" pin="A"/>
-<pinref part="R40" gate="G$1" pin="1"/>
-<wire x1="208.28" y1="27.94" x2="208.28" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="185.42" x2="160.02" y2="187.96" width="0.1524" layer="91"/>
+<label x="160.02" y="187.96" size="1.27" layer="95" font="vector" rot="MR90" xref="yes"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="LED2" gate="G$1" pin="A"/>
 <pinref part="R39" gate="G$1" pin="1"/>
-<wire x1="215.9" y1="25.4" x2="215.9" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="172.72" x2="160.02" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$26" class="0">
@@ -4400,48 +4380,6 @@ with 0-resistors</text>
 <pinref part="LED_CATHODE3" gate="G$1" pin="P"/>
 <portref moduleinst="LED_DRIVER3" port="LED_CATHODE"/>
 <wire x1="111.76" y1="53.34" x2="121.92" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<portref moduleinst="LED_DRIVER3" port="PWM"/>
-<wire x1="71.12" y1="60.96" x2="63.5" y2="60.96" width="0.1524" layer="91"/>
-<label x="63.5" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$25" class="0">
-<segment>
-<portref moduleinst="LED_DRIVER3" port="CURRENT_SENS"/>
-<wire x1="71.12" y1="55.88" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
-<label x="63.5" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<portref moduleinst="LED_DRIVER2" port="CURRENT_SENS"/>
-<wire x1="71.12" y1="83.82" x2="63.5" y2="83.82" width="0.1524" layer="91"/>
-<label x="63.5" y="83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$29" class="0">
-<segment>
-<portref moduleinst="LED_DRIVER2" port="PWM"/>
-<wire x1="71.12" y1="88.9" x2="63.5" y2="88.9" width="0.1524" layer="91"/>
-<label x="63.5" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$30" class="0">
-<segment>
-<portref moduleinst="LED_DRIVER1" port="CURRENT_SENS"/>
-<wire x1="71.12" y1="111.76" x2="63.5" y2="111.76" width="0.1524" layer="91"/>
-<label x="63.5" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$31" class="0">
-<segment>
-<portref moduleinst="LED_DRIVER1" port="PWM"/>
-<wire x1="71.12" y1="116.84" x2="63.5" y2="116.84" width="0.1524" layer="91"/>
-<label x="63.5" y="116.84" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="CS" class="0">
