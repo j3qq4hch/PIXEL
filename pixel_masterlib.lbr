@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="2.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -221,7 +221,7 @@ MAX3223-MAX3243.pdf</description>
 <wire x1="1.8508" y1="-1.0262" x2="-1.8508" y2="-1.0262" width="0.1524" layer="21"/>
 <wire x1="-1.8508" y1="-1.0262" x2="-1.8508" y2="1.0262" width="0.1524" layer="21"/>
 </package>
-<package name="SOT23">
+<package name="SOT23-3">
 <description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;</description>
 <wire x1="1.4224" y1="0.5104" x2="1.4224" y2="-0.5104" width="0.1524" layer="21"/>
 <wire x1="1.4224" y1="-0.5104" x2="-1.4224" y2="-0.5104" width="0.1524" layer="21"/>
@@ -734,14 +734,26 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <text x="0" y="13" size="1.5" layer="51" font="vector" ratio="15" align="center">USB</text>
 </package>
 <package name="BOARD_OUTLINE">
-<wire x1="-25" y1="-17.5" x2="-25" y2="17.5" width="0.01" layer="21"/>
-<wire x1="-25" y1="17.5" x2="-22.5" y2="20" width="0.01" layer="21" curve="-90"/>
-<wire x1="-22.5" y1="20" x2="22.5" y2="20" width="0.01" layer="21"/>
-<wire x1="22.5" y1="20" x2="25" y2="17.5" width="0.01" layer="21" curve="-90"/>
-<wire x1="25" y1="17.5" x2="25" y2="-17.5" width="0.01" layer="21"/>
-<wire x1="25" y1="-17.5" x2="22.5" y2="-20" width="0.01" layer="21" curve="-90"/>
-<wire x1="22.5" y1="-20" x2="-22.5" y2="-20" width="0.01" layer="21"/>
-<wire x1="-22.5" y1="-20" x2="-25" y2="-17.5" width="0.01" layer="21" curve="-90"/>
+<wire x1="-25" y1="-17.5" x2="-25" y2="3.5" width="0.01" layer="20"/>
+<wire x1="-25" y1="3.5" x2="-24.5" y2="4" width="0.01" layer="20" curve="-90"/>
+<wire x1="-24.5" y1="4" x2="-19" y2="4" width="0.01" layer="20"/>
+<wire x1="19" y1="4" x2="24.5" y2="4" width="0.01" layer="20"/>
+<wire x1="24.5" y1="4" x2="25" y2="3.5" width="0.01" layer="20" curve="-90"/>
+<wire x1="25" y1="3.5" x2="25" y2="-17.5" width="0.01" layer="20"/>
+<wire x1="19" y1="4" x2="18.5" y2="4.5" width="0.01" layer="20" curve="-90"/>
+<wire x1="-18" y1="20" x2="18" y2="20" width="0.01" layer="20"/>
+<wire x1="18" y1="20" x2="18.5" y2="19.5" width="0.01" layer="20" curve="-90"/>
+<wire x1="18.5" y1="19.5" x2="18.5" y2="4.5" width="0.01" layer="20"/>
+<wire x1="-19" y1="4" x2="-18.5" y2="4.5" width="0.01" layer="20" curve="90"/>
+<wire x1="-18.5" y1="4.5" x2="-18.5" y2="19.5" width="0.01" layer="20"/>
+<wire x1="-18.5" y1="19.5" x2="-18" y2="20" width="0.01" layer="20" curve="-90"/>
+<wire x1="25" y1="-17.5" x2="22.5" y2="-20" width="0.01" layer="20" curve="-90"/>
+<wire x1="22.5" y1="-20" x2="-22.5" y2="-20" width="0.01" layer="20"/>
+<wire x1="-22.5" y1="-20" x2="-25" y2="-17.5" width="0.01" layer="20" curve="-90"/>
+</package>
+<package name="MOUNTING_HOLE_M2">
+<hole x="0" y="0" drill="2.1"/>
+<circle x="0" y="0" radius="2.1" width="0.15" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -1406,7 +1418,7 @@ min dev board</text>
 <gate name="G$1" symbol="SM712" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOT23">
+<device name="" package="SOT23-3">
 <connects>
 <connect gate="G$1" pin="C2" pad="2"/>
 <connect gate="G$1" pin="C3" pad="1"/>
@@ -1741,7 +1753,7 @@ min dev board</text>
 <gate name="G$1" symbol="ESDA" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOT23">
+<device name="" package="SOT23-3">
 <connects>
 <connect gate="G$1" pin="A" pad="1"/>
 <connect gate="G$1" pin="C1" pad="2"/>
@@ -1846,7 +1858,7 @@ min dev board</text>
 <gate name="G$1" symbol="P-FET" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-SOT23" package="SOT23">
+<device name="-SOT23" package="SOT23-3">
 <connects>
 <connect gate="G$1" pin="D" pad="3"/>
 <connect gate="G$1" pin="G" pad="1"/>
@@ -1863,7 +1875,7 @@ min dev board</text>
 <gate name="G$1" symbol="N-FET" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOT23">
+<device name="" package="SOT23-3">
 <connects>
 <connect gate="G$1" pin="D" pad="3"/>
 <connect gate="G$1" pin="G" pad="1"/>
