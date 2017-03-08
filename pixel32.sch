@@ -3146,7 +3146,7 @@ Maybe should split it in 2 resistors</text>
 <instance part="+P10" gate="G$1" x="264.16" y="114.3" rot="MR0"/>
 <instance part="SJ2" gate="G$1" x="266.7" y="99.06" rot="R270"/>
 <instance part="RN1" gate="G$1" x="317.5" y="223.52"/>
-<instance part="RN2" gate="G$1" x="317.5" y="175.26"/>
+<instance part="RN2" gate="G$1" x="312.42" y="177.8"/>
 <instance part="IC6" gate="G$1" x="241.3" y="172.72"/>
 <instance part="IC7" gate="G$1" x="241.3" y="149.86"/>
 <instance part="GND31" gate="1" x="236.22" y="147.32" rot="MR0"/>
@@ -3487,9 +3487,9 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="LED1_CURRENT" class="0">
 <segment>
-<pinref part="IC1" gate="IC" pin="PA4"/>
-<wire x1="78.74" y1="185.42" x2="78.74" y2="182.88" width="0.1524" layer="91"/>
-<label x="78.74" y="182.88" size="1.27" layer="95" font="vector" rot="R270" xref="yes"/>
+<label x="86.36" y="172.72" size="1.27" layer="95" font="vector" rot="R270" xref="yes"/>
+<pinref part="IC1" gate="IC" pin="PA7/C1N"/>
+<wire x1="86.36" y1="172.72" x2="86.36" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <portref moduleinst="LED_DRIVER1" port="CURRENT_SENS"/>
@@ -3499,9 +3499,9 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="LED2_CURRENT" class="0">
 <segment>
-<pinref part="IC1" gate="IC" pin="PA5"/>
-<wire x1="81.28" y1="185.42" x2="81.28" y2="182.88" width="0.1524" layer="91"/>
-<label x="81.28" y="182.88" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
+<label x="88.9" y="172.72" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
+<pinref part="IC1" gate="IC" pin="PB0/C2N"/>
+<wire x1="88.9" y1="172.72" x2="88.9" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <portref moduleinst="LED_DRIVER2" port="CURRENT_SENS"/>
@@ -3511,9 +3511,9 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="LED3_CURRENT" class="0">
 <segment>
-<pinref part="IC1" gate="IC" pin="PA6"/>
-<wire x1="83.82" y1="185.42" x2="83.82" y2="182.88" width="0.1524" layer="91"/>
-<label x="83.82" y="182.88" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
+<wire x1="91.44" y1="185.42" x2="91.44" y2="172.72" width="0.1524" layer="91"/>
+<label x="91.44" y="172.72" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
+<pinref part="IC1" gate="IC" pin="PB1/C3N"/>
 </segment>
 <segment>
 <portref moduleinst="LED_DRIVER3" port="CURRENT_SENS"/>
@@ -3523,9 +3523,9 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="TEMP" class="0">
 <segment>
-<pinref part="IC1" gate="IC" pin="PB0/C2N"/>
-<wire x1="88.9" y1="185.42" x2="88.9" y2="182.88" width="0.1524" layer="91"/>
-<label x="88.9" y="182.88" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
+<label x="78.74" y="180.34" size="1.27" layer="95" font="vector" rot="MR270" xref="yes"/>
+<pinref part="IC1" gate="IC" pin="PA4"/>
+<wire x1="78.74" y1="180.34" x2="78.74" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="CON3" gate="G$1" pin="1"/>
@@ -3664,28 +3664,28 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="RS485_B" class="0">
 <segment>
-<pinref part="CON2" gate="G$1" pin="3"/>
-<wire x1="340.36" y1="187.96" x2="330.2" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="330.2" y1="187.96" x2="330.2" y2="233.68" width="0.1524" layer="91"/>
 <pinref part="CON1" gate="G$1" pin="3"/>
+<wire x1="330.2" y1="187.96" x2="330.2" y2="233.68" width="0.1524" layer="91"/>
 <wire x1="330.2" y1="233.68" x2="368.3" y2="233.68" width="0.1524" layer="91"/>
 <junction x="330.2" y="233.68"/>
 <wire x1="330.2" y1="233.68" x2="330.2" y2="238.76" width="0.1524" layer="91"/>
 <pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="330.2" y1="238.76" x2="327.66" y2="238.76" width="0.1524" layer="91"/>
+<pinref part="CON2" gate="G$1" pin="3"/>
+<wire x1="340.36" y1="187.96" x2="330.2" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RS485_A" class="0">
 <segment>
-<pinref part="CON2" gate="G$1" pin="2"/>
-<wire x1="340.36" y1="190.5" x2="332.74" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="332.74" y1="190.5" x2="332.74" y2="236.22" width="0.1524" layer="91"/>
 <pinref part="CON1" gate="G$1" pin="2"/>
+<wire x1="332.74" y1="190.5" x2="332.74" y2="236.22" width="0.1524" layer="91"/>
 <wire x1="332.74" y1="236.22" x2="368.3" y2="236.22" width="0.1524" layer="91"/>
 <wire x1="332.74" y1="236.22" x2="332.74" y2="241.3" width="0.1524" layer="91"/>
 <junction x="332.74" y="236.22"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="332.74" y1="241.3" x2="327.66" y2="241.3" width="0.1524" layer="91"/>
+<pinref part="CON2" gate="G$1" pin="2"/>
+<wire x1="340.36" y1="190.5" x2="332.74" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -3700,20 +3700,6 @@ Maybe should split it in 2 resistors</text>
 <pinref part="CON1" gate="G$1" pin="5"/>
 <pinref part="RN1" gate="G$1" pin="6"/>
 <wire x1="327.66" y1="228.6" x2="368.3" y2="228.6" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="CON2" gate="G$1" pin="4"/>
-<wire x1="327.66" y1="185.42" x2="340.36" y2="185.42" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="G$1" pin="8"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="CON2" gate="G$1" pin="5"/>
-<wire x1="327.66" y1="182.88" x2="340.36" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="G$1" pin="7"/>
 </segment>
 </net>
 <net name="B" class="0">
@@ -3760,18 +3746,16 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="N$19" class="0">
 <segment>
-<pinref part="CON2" gate="G$1" pin="6"/>
 <pinref part="RN2" gate="G$1" pin="5"/>
-<wire x1="330.2" y1="180.34" x2="340.36" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="177.8" x2="330.2" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="330.2" y1="177.8" x2="330.2" y2="180.34" width="0.1524" layer="91"/>
+<pinref part="CON2" gate="G$1" pin="6"/>
+<wire x1="340.36" y1="180.34" x2="322.58" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CLOCK_BUFFERED" class="0">
 <segment>
-<wire x1="314.96" y1="182.88" x2="312.42" y2="182.88" width="0.1524" layer="91"/>
-<label x="312.42" y="182.88" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="RN2" gate="G$1" pin="2"/>
+<label x="304.8" y="180.34" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="4"/>
+<wire x1="304.8" y1="180.34" x2="309.88" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC6" gate="G$1" pin="OUT_Y"/>
@@ -3862,9 +3846,9 @@ Maybe should split it in 2 resistors</text>
 <label x="264.16" y="152.4" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<wire x1="314.96" y1="185.42" x2="312.42" y2="185.42" width="0.1524" layer="91"/>
-<label x="312.42" y="185.42" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="RN2" gate="G$1" pin="1"/>
+<label x="304.8" y="182.88" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="3"/>
+<wire x1="304.8" y1="182.88" x2="309.88" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MOSI/DATA" class="0">
@@ -3890,9 +3874,9 @@ Maybe should split it in 2 resistors</text>
 </net>
 <net name="CS_OUT" class="0">
 <segment>
-<label x="309.88" y="177.8" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="RN2" gate="G$1" pin="4"/>
-<wire x1="314.96" y1="177.8" x2="309.88" y2="177.8" width="0.1524" layer="91"/>
+<label x="297.18" y="187.96" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="1"/>
+<wire x1="297.18" y1="187.96" x2="309.88" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="IC" pin="PA12"/>
@@ -3965,6 +3949,22 @@ Maybe should split it in 2 resistors</text>
 <pinref part="IC1" gate="IC" pin="PA13"/>
 <pinref part="CON4" gate="G$1" pin="3"/>
 <wire x1="106.68" y1="213.36" x2="127" y2="213.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="CON2" gate="G$1" pin="5"/>
+<wire x1="322.58" y1="182.88" x2="340.36" y2="182.88" width="0.1524" layer="91"/>
+<pinref part="RN2" gate="G$1" pin="6"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="RN2" gate="G$1" pin="8"/>
+<wire x1="322.58" y1="187.96" x2="327.66" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="187.96" x2="327.66" y2="185.42" width="0.1524" layer="91"/>
+<pinref part="CON2" gate="G$1" pin="4"/>
+<wire x1="327.66" y1="185.42" x2="340.36" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
