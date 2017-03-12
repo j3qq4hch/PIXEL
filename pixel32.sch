@@ -6873,18 +6873,18 @@ Maybe should split it in 2 resistors</text>
 <attribute name="PARTNO" x="124.46" y="137.16" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="BOM" x="124.46" y="137.16" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="TP3" gate="G$1" x="121.92" y="116.84" rot="R180">
-<attribute name="PARTNO" x="121.92" y="116.84" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="BOM" x="121.92" y="116.84" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="TP3" gate="G$1" x="124.46" y="116.84" rot="R180">
+<attribute name="PARTNO" x="124.46" y="116.84" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="BOM" x="124.46" y="116.84" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="Q1" gate="G$1" x="137.16" y="129.54"/>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
 <instance part="C1" gate="G$1" x="152.4" y="142.24" rot="R90"/>
-<instance part="TP4" gate="G$1" x="121.92" y="101.6">
-<attribute name="PARTNO" x="121.92" y="101.6" size="1.778" layer="96" display="off"/>
-<attribute name="BOM" x="121.92" y="101.6" size="1.778" layer="96" display="off"/>
+<instance part="TP4" gate="G$1" x="124.46" y="101.6">
+<attribute name="PARTNO" x="124.46" y="101.6" size="1.778" layer="96" display="off"/>
+<attribute name="BOM" x="124.46" y="101.6" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="GND2" gate="1" x="111.76" y="96.52" rot="MR0"/>
+<instance part="GND2" gate="1" x="114.3" y="96.52" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -6950,9 +6950,9 @@ Maybe should split it in 2 resistors</text>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
-<wire x1="111.76" y1="99.06" x2="111.76" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="99.06" x2="114.3" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="TP4" gate="G$1" pin="P$1"/>
-<wire x1="111.76" y1="101.6" x2="114.3" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="101.6" x2="116.84" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LED_CATHODE" class="0">
@@ -6978,7 +6978,7 @@ Maybe should split it in 2 resistors</text>
 <wire x1="142.24" y1="111.76" x2="142.24" y2="116.84" width="0.1524" layer="91"/>
 <junction x="142.24" y="116.84"/>
 <pinref part="TP3" gate="G$1" pin="P$1"/>
-<wire x1="137.16" y1="116.84" x2="129.54" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="116.84" x2="132.08" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <wire x1="137.16" y1="124.46" x2="137.16" y2="116.84" width="0.1524" layer="91"/>
 </segment>
@@ -7102,7 +7102,7 @@ Maybe should split it in 2 resistors</text>
 <part name="GND32" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND19" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P16" library="supply_symbols" deviceset="24V" device=""/>
-<part name="R10" library="rc" deviceset="R" device="-0805"/>
+<part name="R10" library="rc" deviceset="R" device="-0603"/>
 <part name="R13" library="rc" deviceset="R" device="-0603"/>
 <part name="GND37" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C18" library="rc" deviceset="C" device="-0603" value="100 nF"/>
@@ -7163,9 +7163,15 @@ Maybe should split it in 2 resistors</text>
 <attribute name="PARTNO" value="*"/>
 </part>
 <part name="+P17" library="supply_symbols" deviceset="3.3V" device=""/>
-<part name="PAD1" library="valenok_master_library" deviceset="WIREPAD" device="SMD2.5-1.8"/>
-<part name="PAD2" library="valenok_master_library" deviceset="WIREPAD" device="SMD2.5-1.8"/>
-<part name="PAD4" library="valenok_master_library" deviceset="WIREPAD" device="SMD2.5-1.8"/>
+<part name="PAD1" library="valenok_master_library" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
+<part name="PAD2" library="valenok_master_library" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
+<part name="PAD4" library="valenok_master_library" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
 <part name="GND9" library="supply_symbols" deviceset="GNDD" device="" value="GNDD"/>
 <part name="CON4" library="pinhead" deviceset="PINHEAD_1X01" device="-2.54"/>
 <part name="CON5" library="pinhead" deviceset="PINHEAD_1X01" device="-2.54"/>
@@ -7174,6 +7180,10 @@ Maybe should split it in 2 resistors</text>
 <part name="SJ4" library="eth_conv_master_lib" deviceset="SOLDER_JOINT" device=""/>
 <part name="+P18" library="supply_symbols" deviceset="3.3V" device=""/>
 <part name="U$1" library="logo" deviceset="RTU" device=""/>
+<part name="U$3" library="usb2can_master_lib" deviceset="CONNECTION" device=""/>
+<part name="PAD3" library="valenok_master_library" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -7314,16 +7324,26 @@ Maybe should split it in 2 resistors</text>
 <attribute name="BOM" x="147.32" y="228.6" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="+P17" gate="G$1" x="137.16" y="231.14" rot="MR0"/>
-<instance part="PAD1" gate="G$1" x="129.54" y="220.98"/>
-<instance part="PAD2" gate="G$1" x="132.08" y="208.28" rot="R90"/>
-<instance part="PAD4" gate="G$1" x="132.08" y="198.12" rot="R90"/>
+<instance part="PAD1" gate="G$1" x="129.54" y="220.98">
+<attribute name="BOM" x="129.54" y="220.98" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="PAD2" gate="G$1" x="132.08" y="208.28" rot="R90">
+<attribute name="BOM" x="132.08" y="208.28" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="PAD4" gate="G$1" x="132.08" y="198.12" rot="R90">
+<attribute name="BOM" x="132.08" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND9" gate="G$1" x="160.02" y="160.02" rot="MR0"/>
 <instance part="CON4" gate="G$1" x="96.52" y="139.7" rot="R270"/>
 <instance part="CON5" gate="G$1" x="104.14" y="139.7" rot="R270"/>
 <instance part="CON6" gate="G$1" x="111.76" y="139.7" rot="R270"/>
 <instance part="CON7" gate="G$1" x="119.38" y="139.7" rot="R270"/>
 <instance part="+P18" gate="G$1" x="109.22" y="190.5"/>
-<instance part="U$1" gate="G$1" x="302.26" y="134.62"/>
+<instance part="U$1" gate="G$1" x="373.38" y="63.5"/>
+<instance part="U$3" gate="G$1" x="335.28" y="167.64" rot="MR0"/>
+<instance part="PAD3" gate="G$1" x="129.54" y="228.6">
+<attribute name="BOM" x="129.54" y="228.6" size="1.778" layer="96" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -7404,6 +7424,9 @@ Maybe should split it in 2 resistors</text>
 <pinref part="TP3" gate="G$1" pin="P$1"/>
 <wire x1="139.7" y1="228.6" x2="137.16" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="228.6" x2="137.16" y2="231.14" width="0.1524" layer="91"/>
+<pinref part="PAD3" gate="G$1" pin="P"/>
+<wire x1="137.16" y1="228.6" x2="132.08" y2="228.6" width="0.1524" layer="91"/>
+<junction x="137.16" y="228.6"/>
 </segment>
 <segment>
 <pinref part="+P18" gate="G$1" pin="VDD_3V3"/>
@@ -7557,6 +7580,10 @@ Maybe should split it in 2 resistors</text>
 <wire x1="332.74" y1="165.1" x2="330.2" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="GND44" gate="1" pin="GND"/>
 <wire x1="330.2" y1="165.1" x2="330.2" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="165.1" x2="330.2" y2="167.64" width="0.1524" layer="91"/>
+<junction x="330.2" y="165.1"/>
+<pinref part="U$3" gate="G$1" pin="P$2"/>
+<wire x1="332.74" y1="167.64" x2="330.2" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
@@ -7860,8 +7887,10 @@ Maybe should split it in 2 resistors</text>
 <net name="N$15" class="0">
 <segment>
 <pinref part="CON2" gate="G$1" pin="5"/>
-<wire x1="327.66" y1="182.88" x2="340.36" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="G$1" pin="7"/>
+<pinref part="RN2" gate="G$1" pin="6"/>
+<wire x1="330.2" y1="182.88" x2="340.36" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="180.34" x2="330.2" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="180.34" x2="330.2" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="B" class="0">
@@ -7910,16 +7939,18 @@ Maybe should split it in 2 resistors</text>
 <segment>
 <pinref part="CON2" gate="G$1" pin="6"/>
 <pinref part="RN2" gate="G$1" pin="5"/>
-<wire x1="330.2" y1="180.34" x2="340.36" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="177.8" x2="330.2" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="330.2" y1="177.8" x2="330.2" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="180.34" x2="340.36" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="177.8" x2="332.74" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="177.8" x2="332.74" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CLOCK_BUFFERED" class="0">
 <segment>
-<wire x1="314.96" y1="182.88" x2="312.42" y2="182.88" width="0.1524" layer="91"/>
-<label x="312.42" y="182.88" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="RN2" gate="G$1" pin="2"/>
+<label x="309.88" y="182.88" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="3"/>
+<wire x1="312.42" y1="182.88" x2="309.88" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="180.34" x2="312.42" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="180.34" x2="312.42" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC6" gate="G$1" pin="OUT_Y"/>
@@ -8088,6 +8119,10 @@ Maybe should split it in 2 resistors</text>
 <wire x1="340.36" y1="162.56" x2="340.36" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="P$1"/>
 <wire x1="340.36" y1="165.1" x2="337.82" y2="165.1" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="G$1" pin="P$1"/>
+<wire x1="337.82" y1="167.64" x2="340.36" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="167.64" x2="340.36" y2="165.1" width="0.1524" layer="91"/>
+<junction x="340.36" y="165.1"/>
 </segment>
 <segment>
 <wire x1="340.36" y1="177.8" x2="337.82" y2="177.8" width="0.1524" layer="91"/>
