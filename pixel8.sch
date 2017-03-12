@@ -2177,7 +2177,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <label x="99.06" y="91.44" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="SW" class="0">
 <segment>
 <pinref part="D1" gate="G$1" pin="A"/>
 <pinref part="IC1" gate="IC" pin="SW"/>
@@ -2206,11 +2206,11 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="MODULE1" library="pixel_masterlib" deviceset="STM8S_MIN_DEV_BOARD" device=""/>
 <part name="CATHODE1" library="valenok_master_library" deviceset="WIREPAD" device="SMD5-2,5"/>
 <part name="ANODE1" library="valenok_master_library" deviceset="WIREPAD" device="SMD5-2,5"/>
-<part name="R8" library="rc" deviceset="R" device="-0603" value="10K"/>
+<part name="R3" library="rc" deviceset="R" device="-0603" value="10K"/>
 <part name="CON3" library="pinhead" deviceset="PINHEAD_1X02" device="-2.54"/>
 <part name="GND18" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P15" library="supply_symbols" deviceset="3.3V" device=""/>
-<part name="C26" library="rc" deviceset="C" device="-0603" value="100 nF"/>
+<part name="C6" library="rc" deviceset="C" device="-0603" value="100 nF"/>
 <part name="GND32" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P7" library="supply_symbols" deviceset="12V" device=""/>
 <part name="CON1" library="pixel_masterlib" deviceset="DS1066-07M" device="-SIDE"/>
@@ -2252,8 +2252,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="GND44" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND22" library="supply_symbols" deviceset="GNDD" device="" value="GNDD"/>
 <part name="GND23" library="supply_symbols" deviceset="GNDD" device="" value="GNDD"/>
-<part name="C19" library="rc" deviceset="C" device="-0603"/>
-<part name="C20" library="rc" deviceset="C" device="-0603"/>
+<part name="C4" library="rc" deviceset="C" device="-0603"/>
+<part name="C5" library="rc" deviceset="C" device="-0603"/>
 <part name="GND20" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="Z1" library="watchdog_master_library" deviceset="CRYSTAL" device="-3.2X2.5-4P" value="16MHz"/>
 <part name="GND9" library="supply_symbols" deviceset="GND" device="" value="GND"/>
@@ -2286,14 +2286,14 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <text x="33.02" y="124.46" size="1.27" layer="97">UART should be used in single wire half-duplex mode</text>
 </plain>
 <moduleinsts>
-<moduleinst name="LED_DRV1" module="PT4115" x="223.52" y="160.02" smashed="yes">
-<attribute name="NAME" x="223.52" y="160.02" size="2.032" layer="95" align="bottom-center"/>
+<moduleinst name="LED_DRV1" module="PT4115" x="223.52" y="160.02" offset="100" smashed="yes">
+<attribute name="NAME" x="223.52" y="168.656" size="2.032" layer="95" align="bottom-center"/>
 </moduleinst>
-<moduleinst name="LED_DRV2" module="PT4115" x="223.52" y="132.08" smashed="yes">
-<attribute name="NAME" x="223.52" y="132.08" size="2.032" layer="95" align="bottom-center"/>
+<moduleinst name="LED_DRV2" module="PT4115" x="223.52" y="132.08" offset="200" smashed="yes">
+<attribute name="NAME" x="223.52" y="140.716" size="2.032" layer="95" align="bottom-center"/>
 </moduleinst>
-<moduleinst name="LED_DRV3" module="PT4115" x="223.52" y="104.14" smashed="yes">
-<attribute name="NAME" x="223.52" y="104.14" size="2.032" layer="95" align="bottom-center"/>
+<moduleinst name="LED_DRV3" module="PT4115" x="223.52" y="104.14" offset="300" smashed="yes">
+<attribute name="NAME" x="223.52" y="112.776" size="2.032" layer="95" align="bottom-center"/>
 </moduleinst>
 </moduleinsts>
 <instances>
@@ -2301,11 +2301,11 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <instance part="MODULE1" gate="G$1" x="48.26" y="86.36"/>
 <instance part="CATHODE1" gate="G$1" x="248.92" y="154.94" rot="R180"/>
 <instance part="ANODE1" gate="G$1" x="248.92" y="165.1" rot="R180"/>
-<instance part="R8" gate="G$1" x="93.98" y="88.9" rot="MR90"/>
+<instance part="R3" gate="G$1" x="93.98" y="88.9" rot="MR90"/>
 <instance part="CON3" gate="G$1" x="104.14" y="93.98" rot="MR0"/>
 <instance part="GND18" gate="1" x="93.98" y="78.74"/>
 <instance part="+P15" gate="G$1" x="93.98" y="101.6"/>
-<instance part="C26" gate="G$1" x="88.9" y="88.9" rot="R90"/>
+<instance part="C6" gate="G$1" x="88.9" y="88.9" rot="R90"/>
 <instance part="GND32" gate="1" x="88.9" y="78.74"/>
 <instance part="+P7" gate="G$1" x="238.76" y="83.82"/>
 <instance part="CON1" gate="G$1" x="248.92" y="63.5" rot="MR0"/>
@@ -2339,8 +2339,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <instance part="GND44" gate="1" x="175.26" y="30.48" rot="MR0"/>
 <instance part="GND22" gate="G$1" x="238.76" y="27.94" rot="MR0"/>
 <instance part="GND23" gate="G$1" x="238.76" y="60.96" rot="MR0"/>
-<instance part="C19" gate="G$1" x="20.32" y="101.6" rot="MR0"/>
-<instance part="C20" gate="G$1" x="20.32" y="91.44" rot="MR0"/>
+<instance part="C4" gate="G$1" x="20.32" y="101.6" rot="MR0"/>
+<instance part="C5" gate="G$1" x="20.32" y="91.44" rot="MR0"/>
 <instance part="GND20" gate="1" x="15.24" y="86.36"/>
 <instance part="Z1" gate="P" x="25.4" y="96.52" rot="R270"/>
 <instance part="GND9" gate="1" x="200.66" y="149.86"/>
@@ -2362,13 +2362,13 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <net name="GND" class="0">
 <segment>
 <wire x1="88.9" y1="81.28" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="C26" gate="G$1" pin="1"/>
+<pinref part="C6" gate="G$1" pin="1"/>
 <pinref part="GND32" gate="1" pin="GND"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="81.28" x2="93.98" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="GND18" gate="1" pin="GND"/>
-<pinref part="R8" gate="G$1" pin="1"/>
+<pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="D4" gate="G$1" pin="G"/>
@@ -2418,13 +2418,13 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </segment>
 <segment>
 <pinref part="GND20" gate="1" pin="GND"/>
-<pinref part="C20" gate="G$1" pin="2"/>
+<pinref part="C5" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="101.6" x2="15.24" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="96.52" x2="15.24" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="91.44" x2="17.78" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="91.44" x2="15.24" y2="88.9" width="0.1524" layer="91"/>
 <junction x="15.24" y="91.44"/>
-<pinref part="C19" gate="G$1" pin="2"/>
+<pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="101.6" x2="15.24" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="Z1" gate="P" pin="GND"/>
 <wire x1="22.86" y1="96.52" x2="15.24" y2="96.52" width="0.1524" layer="91"/>
@@ -2462,8 +2462,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="93.98" y1="96.52" x2="88.9" y2="96.52" width="0.1524" layer="91"/>
 <junction x="93.98" y="96.52"/>
 <wire x1="88.9" y1="91.44" x2="88.9" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="C26" gate="G$1" pin="2"/>
-<pinref part="R8" gate="G$1" pin="2"/>
+<pinref part="C6" gate="G$1" pin="2"/>
+<pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="CON3" gate="G$1" pin="1"/>
 <pinref part="MODULE1" gate="G$1" pin="C4"/>
 <wire x1="68.58" y1="96.52" x2="88.9" y2="96.52" width="0.1524" layer="91"/>
@@ -2549,7 +2549,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <label x="43.18" y="106.68" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="RS485_B1" class="0">
+<net name="RS485_B" class="0">
 <segment>
 <pinref part="CON2" gate="G$1" pin="3"/>
 <wire x1="241.3" y1="43.18" x2="231.14" y2="43.18" width="0.1524" layer="91"/>
@@ -2562,7 +2562,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="231.14" y1="83.82" x2="228.6" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="RS485_A1" class="0">
+<net name="RS485_A" class="0">
 <segment>
 <pinref part="CON2" gate="G$1" pin="2"/>
 <wire x1="241.3" y1="45.72" x2="233.68" y2="45.72" width="0.1524" layer="91"/>
@@ -2767,7 +2767,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="C19" gate="G$1" pin="1"/>
+<pinref part="C4" gate="G$1" pin="1"/>
 <pinref part="Z1" gate="P" pin="1"/>
 <wire x1="25.4" y1="101.6" x2="22.86" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="99.06" x2="25.4" y2="101.6" width="0.1524" layer="91"/>
@@ -2778,7 +2778,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </net>
 <net name="N$9" class="0">
 <segment>
-<pinref part="C20" gate="G$1" pin="1"/>
+<pinref part="C5" gate="G$1" pin="1"/>
 <pinref part="Z1" gate="P" pin="2"/>
 <wire x1="25.4" y1="91.44" x2="22.86" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="91.44" x2="25.4" y2="93.98" width="0.1524" layer="91"/>
@@ -2789,14 +2789,14 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <junction x="25.4" y="91.44"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="C1" class="0">
 <segment>
 <pinref part="CATHODE1" gate="G$1" pin="P"/>
 <portref moduleinst="LED_DRV1" port="CATHODE"/>
 <wire x1="243.84" y1="154.94" x2="246.38" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="A1" class="0">
 <segment>
 <pinref part="ANODE1" gate="G$1" pin="P"/>
 <portref moduleinst="LED_DRV1" port="ANODE"/>
@@ -2815,28 +2815,28 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <label x="43.18" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="C2" class="0">
 <segment>
 <pinref part="CATHODE2" gate="G$1" pin="P"/>
 <portref moduleinst="LED_DRV2" port="CATHODE"/>
 <wire x1="243.84" y1="127" x2="246.38" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="A2" class="0">
 <segment>
 <pinref part="ANODE2" gate="G$1" pin="P"/>
 <portref moduleinst="LED_DRV2" port="ANODE"/>
 <wire x1="243.84" y1="137.16" x2="246.38" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="C3" class="0">
 <segment>
 <pinref part="CATHODE3" gate="G$1" pin="P"/>
 <portref moduleinst="LED_DRV3" port="CATHODE"/>
 <wire x1="243.84" y1="99.06" x2="246.38" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="A3" class="0">
 <segment>
 <pinref part="ANODE3" gate="G$1" pin="P"/>
 <portref moduleinst="LED_DRV3" port="ANODE"/>
