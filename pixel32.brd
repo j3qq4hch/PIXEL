@@ -5485,11 +5485,11 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="BOM" value="EXCLUDE" x="3.5" y="-8.7" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="PARTNO" value="*" x="3.5" y="-8.7" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="PAD1" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="2.97" y="18.3">
-<attribute name="BOM" value="EXCLUDE" x="2.97" y="18.3" size="1.778" layer="27" display="off"/>
+<element name="PAD1" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="3.02" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="3.02" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
-<element name="PAD2" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="5.51" y="18.3">
-<attribute name="BOM" value="EXCLUDE" x="5.51" y="18.3" size="1.778" layer="27" display="off"/>
+<element name="PAD2" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="5.56" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="5.56" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="PAD4" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="8.1" y="18.3">
 <attribute name="BOM" value="EXCLUDE" x="8.1" y="18.3" size="1.778" layer="27" display="off"/>
@@ -5504,8 +5504,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="U$3" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="15.55" y="11.975" rot="MR0">
 <attribute name="BOM" value="EXCLUDE" x="15.55" y="11.975" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="PAD3" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="10.69" y="18.3">
-<attribute name="BOM" value="EXCLUDE" x="10.69" y="18.3" size="1.778" layer="27" display="off"/>
+<element name="PAD3" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="10.64" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="10.64" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="CON8" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="0" y="-19.99"/>
 <element name="CON9" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="22.2" y="-19.99"/>
@@ -5532,6 +5532,9 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="PACKAGE" value="0603" x="-2.55" y="4.25" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FARNELL#" value="2008341" x="-2.55" y="4.25" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="TME#" value="RC0603FR-0710KL" x="-2.55" y="4.25" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="PAD5" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="13.18" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="13.18" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
 </elements>
 <signals>
@@ -5854,7 +5857,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-12.5" y1="0.675" x2="-12.5" y2="0.575" width="0.2" layer="1"/>
 <wire x1="11.175" y1="16" x2="11.175" y2="14.975" width="0.4" layer="1"/>
 <wire x1="11.175" y1="16" x2="11.175" y2="17.815" width="0.4" layer="1"/>
-<wire x1="11.175" y1="17.815" x2="10.69" y2="18.3" width="0.4" layer="1"/>
+<wire x1="11.175" y1="17.815" x2="10.64" y2="18.3" width="0.4" layer="1"/>
 </signal>
 <signal name="N$22">
 <contactref element="LED2" pad="A"/>
@@ -6961,7 +6964,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="3.625" y1="14.1" x2="3.875" y2="14.35" width="0.2" layer="1"/>
 <wire x1="3.875" y1="14.35" x2="3.875" y2="17.045" width="0.2" layer="1"/>
 <wire x1="3.875" y1="17.045" x2="2.97" y2="17.95" width="0.2" layer="1"/>
-<wire x1="2.97" y1="17.95" x2="2.97" y2="18.3" width="0.2" layer="1"/>
+<wire x1="2.97" y1="17.95" x2="3.02" y2="18.3" width="0.2" layer="1"/>
 </signal>
 <signal name="SWIO">
 <contactref element="IC1" pad="23"/>
@@ -6974,7 +6977,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="3.65" y1="13.3" x2="5.35" y2="15" width="0.2" layer="1"/>
 <wire x1="5.35" y1="15" x2="5.975" y2="15" width="0.2" layer="1"/>
 <wire x1="5.35" y1="15" x2="5.35" y2="18.14" width="0.2" layer="1"/>
-<wire x1="5.35" y1="18.14" x2="5.51" y2="18.3" width="0.2" layer="1"/>
+<wire x1="5.35" y1="18.14" x2="5.56" y2="18.3" width="0.2" layer="1"/>
 </signal>
 <signal name="STAT_LED">
 <contactref element="IC1" pad="21"/>
@@ -7083,6 +7086,11 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-2.4" y1="9.925" x2="-2.4" y2="10.55" width="0.2" layer="1"/>
 <wire x1="-2.4" y1="10.55" x2="-3.6" y2="11.75" width="0.2" layer="1"/>
 <wire x1="-3.6" y1="11.75" x2="-3.6" y2="15.55" width="0.2" layer="1"/>
+</signal>
+<signal name="RST">
+<contactref element="IC1" pad="4"/>
+<contactref element="PAD5" pad="P$1"/>
+<wire x1="-5.85" y1="11.7" x2="13.18" y2="18.3" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <errors>
