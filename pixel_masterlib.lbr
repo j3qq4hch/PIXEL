@@ -1882,7 +1882,7 @@ min dev board</text>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="CHIPDIP#" value="9000325604" constant="no"/>
+<attribute name="CHIPDIP#" value="9000325603" constant="no"/>
 <attribute name="DIGIKEY#" value="455-1709-ND" constant="no"/>
 <attribute name="FARNELL#" value="9491864" constant="no"/>
 <attribute name="MANF#" value="B7B-PH-K-S(LF)(SN)" constant="no"/>
