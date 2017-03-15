@@ -197,6 +197,7 @@
 </symbols>
 <devicesets>
 <deviceset name="INDUCTOR" prefix="L" uservalue="yes">
+<description>Unshielded Wirewound Inductor</description>
 <gates>
 <gate name="G$1" symbol="L" x="0" y="0"/>
 </gates>
@@ -222,7 +223,9 @@
 </connects>
 <technologies>
 <technology name="-470KL">
+<attribute name="CHIPDIP#" value="8980699057" constant="no"/>
 <attribute name="DIGIKEY#" value="SDR0805-470KLCT-ND" constant="no"/>
+<attribute name="FARNELL#" value="1828030" constant="no"/>
 <attribute name="MANF" value="Bourns Inc" constant="no"/>
 <attribute name="MANF#" value="SDR0805-470KL" constant="no"/>
 <attribute name="VALUE" value="47UH" constant="no"/>
