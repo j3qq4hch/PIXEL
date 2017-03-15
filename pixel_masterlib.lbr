@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1816,7 +1816,7 @@ min dev board</text>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="CHIPDIP" value="9000048448" constant="no"/>
+<attribute name="CHIPDIP#" value="9000048448" constant="no"/>
 <attribute name="DIGIKEY#" value="SMF05CCT-ND" constant="no"/>
 <attribute name="FARNELL#" value="2059033" constant="no"/>
 <attribute name="MANF" value="Semtech Corporation" constant="no"/>
@@ -1932,11 +1932,7 @@ min dev board</text>
 <connect gate="G$1" pin="8" pad="8"/>
 </connects>
 <technologies>
-<technology name="">
-<attribute name="DIGIKEY#" value="CAT16-511J4LF-ND" constant="no"/>
-<attribute name="MANF" value="Bourns Inc" constant="no"/>
-<attribute name="MANF#" value="CAT16-511J4LF" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>

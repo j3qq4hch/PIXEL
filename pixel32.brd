@@ -4970,13 +4970,14 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="MANF" value="Lite-On Inc" x="-1.875" y="12.525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="COLOR" value="GREEN" x="-1.875" y="12.525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF#" value="LTST-C191KGKT" x="-1.875" y="12.525" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CHIPDIP" value="8598509892" x="-4.675" y="18.725" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIPDIP#" value="8598509892" x="-4.675" y="18.725" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2293494" x="-4.675" y="18.725" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="TME#" value="LTST-C191KGKT" x="-4.675" y="18.725" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R39" library="rc" package="R0603" value="1K" x="-2.125" y="18.725">
 <attribute name="PACKAGE" value="0603" x="-4.325" y="18.725" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2303145" x="-2.125" y="18.725" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="RC0603FR-071KL" x="-2.125" y="18.725" size="1.778" layer="27" display="off"/>
 </element>
 <element name="IC1" library="pixel_masterlib" package="LQFP32-7X7" value="STM32F030K6TX-LQFP32(7X7)" x="-1.6" y="11.3">
 <attribute name="DIGIKEY#" value="497-14046-ND" x="-33.6" y="36.925" size="1.778" layer="27" display="off"/>
@@ -4989,30 +4990,37 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="C13" library="rc" package="C0603" value="100 nF" x="-6.975" y="15.55">
 <attribute name="PACKAGE" value="0603" x="-6.975" y="50.725" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="-6.975" y="15.55" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="-6.975" y="15.55" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C14" library="rc" package="C0603" value="1 uF" x="-7.975" y="8.525">
 <attribute name="PACKAGE" value="0603" x="-31.075" y="40.675" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496917" x="-7.975" y="8.525" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R61C105KA93D" x="-7.975" y="8.525" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C15" library="rc" package="C0603" value="10 nF" x="-7.975" y="9.8">
 <attribute name="PACKAGE" value="0603" x="-26.15" y="38.925" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496827" x="-7.975" y="9.8" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="C0603C103K3RACTU" x="-7.975" y="9.8" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C16" library="rc" package="C0603" value="4.7 uF" x="3.675" y="6.075" rot="R180">
 <attribute name="PACKAGE" value="0603" x="19.075" y="-20.025" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2496930" x="3.675" y="6.075" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM188R60J475KE19D" x="3.675" y="6.075" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C17" library="rc" package="C0603" value="100 nF" x="3.675" y="7.425" rot="R180">
 <attribute name="PACKAGE" value="0603" x="6.775" y="-15.65" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="3.675" y="7.425" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="3.675" y="7.425" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C19" library="rc" package="C0603" value="10 pF" x="-9.4" y="15.55">
 <attribute name="PACKAGE" value="0603" x="-44.25" y="32.55" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="1414601" x="-9.4" y="15.55" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM1885C1H100JA01D" x="-9.4" y="15.55" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C20" library="rc" package="C0603" value="10 pF" x="-9.825" y="9.225" rot="R270">
 <attribute name="PACKAGE" value="0603" x="4.15" y="46.425" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FARNELL#" value="1414601" x="-9.825" y="9.225" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="GRM1885C1H100JA01D" x="-9.825" y="9.225" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="Y1" library="crystals" package="OSCILLATOR-3.2X2.5" value="16MHz" x="-8.825" y="12.675" rot="R270">
 <attribute name="CHIPDIP#" value="8596067027" x="-8.825" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
@@ -5040,12 +5048,13 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="MANF#" value="SMF05C.TCT" x="-24.725" y="-6.475" size="1.778" layer="27" display="off"/>
 <attribute name="MANF" value="Semtech Corporation" x="-24.725" y="-6.475" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2059033" x="-12.4" y="11.55" size="1.778" layer="27" display="off"/>
-<attribute name="CHIPDIP" value="9000048448" x="-12.4" y="11.55" size="1.778" layer="27" display="off"/>
 <attribute name="TME#" value="SMF05CT1G" x="-12.4" y="11.55" size="1.778" layer="27" display="off"/>
+<attribute name="CHIPDIP#" value="9000048448" x="-12.4" y="11.55" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C21" library="rc" package="C0603" value="100 nF" x="-11.95" y="1.5" rot="R180">
 <attribute name="PACKAGE" value="0603" x="8.75" y="24.85" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="-11.95" y="1.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="-11.95" y="1.5" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="IC3" library="pixel_masterlib" package="SOIC8" value="ST3485SOIC8" x="-9.75" y="4.7" rot="R180">
 <attribute name="DIGIKEY#" value="497-2080-1-ND" x="21.75" y="42.6" size="1.778" layer="27" rot="R180" display="off"/>
@@ -5058,29 +5067,36 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="R5" library="rc" package="R0603" value="120R" x="-11.575" y="8.75" rot="R90">
 <attribute name="PACKAGE" value="0603" x="19.825" y="-16.7" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="FARNELL#" value="2303067" x="-11.575" y="8.75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="TME#" value="CRCW0603120RFKTABC" x="-11.575" y="8.75" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R11" library="rc" package="R0603" value="100R" x="-13.45" y="9.7" rot="R180">
 <attribute name="PACKAGE" value="0603" x="8.1" y="57.575" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2303059" x="-13.45" y="9.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="RC0603FR-07100RL" x="-13.45" y="9.7" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R12" library="rc" package="R0603" value="100R" x="-13.45" y="8.25" rot="R180">
 <attribute name="PACKAGE" value="0603" x="15" y="56.125" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2303059" x="-13.45" y="8.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="RC0603FR-07100RL" x="-13.45" y="8.25" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="SJ2" library="eth_conv_master_lib" package="RES_0" value="" x="-12.675" y="9.075" smashed="yes" rot="MR180">
 <attribute name="BOM" value="EXCLUDE" x="-12.675" y="9.075" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="RN1" library="pixel_masterlib" package="CAT16-J4" value="510R" x="-12.85" y="15.05" rot="R90">
-<attribute name="DIGIKEY#" value="CAT16-511J4LF-ND" x="55.925" y="-4.625" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANF#" value="CAT16-511J4LF" x="55.925" y="-4.625" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANF" value="Bourns Inc" x="55.925" y="-4.625" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DIGIKEY#" value="CAT16-511J4LF-ND" x="-12.85" y="15.05" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANF#" value="CAT16-511J4LF" x="-12.85" y="15.05" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANF" value="Bourns Inc" x="-12.85" y="15.05" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="CHIPDIP#" value="9000044911" x="-12.85" y="15.05" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FARNELL#" value="2321730" x="-12.85" y="15.05" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="RN2" library="pixel_masterlib" package="CAT16-J4" value="510R" x="13.4" y="10.9" smashed="yes" rot="R270">
-<attribute name="DIGIKEY#" value="CAT16-511J4LF-ND" x="-61.075" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANF#" value="CAT16-511J4LF" x="-61.075" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANF" value="Bourns Inc" x="-61.075" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="15.4" y="10.9" size="1" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
 <attribute name="VALUE" x="11.4" y="10.9" size="1" layer="27" font="vector" ratio="15" rot="R270" align="center"/>
+<attribute name="DIGIKEY#" value="CAT16-511J4LF-ND" x="13.4" y="10.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANF#" value="CAT16-511J4LF" x="13.4" y="10.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANF" value="Bourns Inc" x="13.4" y="10.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="9000044911" x="13.4" y="10.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2321730" x="13.4" y="10.9" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC6" library="pixel_masterlib" package="SOT23-5" value="MC74VHC1GT125" x="9.875" y="10.5" rot="R270">
 <attribute name="DIGIKEY#" value="MC74VHC1GT125DT1GOSDKR-ND " x="-63.7" y="25.325" size="1.778" layer="27" rot="R270" display="off"/>
@@ -5099,10 +5115,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="C23" library="rc" package="C0603" value="100 nF" x="9.875" y="12.75">
 <attribute name="PACKAGE" value="0603" x="-17.575" y="-55.9" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="9.875" y="12.75" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="9.875" y="12.75" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C24" library="rc" package="C0603" value="100 nF" x="12.725" y="15.275" rot="R90">
 <attribute name="PACKAGE" value="0603" x="84.4" y="-15.275" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="12.725" y="15.275" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="12.725" y="15.275" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="L102" library="power_inductors" package="SDR0805" value="47UH" x="20.75" y="-9.5" rot="R270">
 <attribute name="MANF#" value="SDR0805-470KL" x="20.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
@@ -5114,24 +5132,25 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="R101" library="rc" package="R0603" value="22R" x="18.65" y="-0.35">
 <attribute name="PACKAGE" value="0603" x="18.65" y="-0.35" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2302996" x="18.65" y="-0.35" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="CRCW060322R0FKEA" x="18.65" y="-0.35" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R102" library="rc" package="R1206" value="2R" x="15.95" y="-2.2">
 <attribute name="PACKAGE" value="1206" x="15.95" y="-2.2" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2328120" x="15.95" y="-2.2" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="RC1206FR-072RL" x="15.95" y="-2.2" size="1.778" layer="27" display="off"/>
 </element>
 <element name="D101" library="pixel_masterlib" package="SOD123" value="DIODE-SOD123" x="16.2" y="-4.3">
-<attribute name="CHIPDIP" value="MBRS1100T3G" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="CHIPDIP#" value="MBRS1100T3G" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="9555862" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="MANF" value="ON Semiconductor" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="MBRS1100T3G" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="TME#" value="MBRS1100T3G" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="DIGIKEY#" value="MBRS1100T3GOSCT-ND" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
 </element>
-<element name="IC101" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="16.675" y="1.875" smashed="yes" rot="R270">
+<element name="IC101" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="16.675" y="1.875" rot="R270">
 <attribute name="MANF#" value="IRS44273LTRPBF" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Infineon Technologies" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="IRS44273LTRPBFTR-ND" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="16.675" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
 <attribute name="FARNELL#" value="2580779" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="TME#" value="IRS44273LTRPBF" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CHIPDIP#" value="9000204261" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
@@ -5139,39 +5158,43 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="C102" library="rc" package="C0805" value="1 uF" x="20.375" y="2.975" rot="R180">
 <attribute name="PACKAGE" value="0805" x="20.375" y="2.975" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="1735541" x="20.375" y="2.975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM21BR71H105KA12K" x="20.375" y="2.975" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R103" library="rc" package="R0603" value="22R" x="16.675" y="1.875" smashed="yes" rot="R270">
+<element name="R103" library="rc" package="R0603" value="22R" x="16.675" y="1.875" rot="R270">
 <attribute name="PACKAGE" value="0603" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="16.675" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
-<attribute name="VALUE" x="17.675" y="1.875" size="0.5" layer="27" font="vector" ratio="15" rot="R270" align="center"/>
 <attribute name="FARNELL#" value="2302996" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="CRCW060322R0FKEA" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C103" library="rc" package="C0603" value="100 nF" x="16.2" y="-0.35">
 <attribute name="PACKAGE" value="0603" x="14.325" y="-0.35" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="16.2" y="-0.35" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="16.2" y="-0.35" size="1.778" layer="27" display="off"/>
 </element>
-<element name="LED_CATHODE1" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="22.2" y="-17" smashed="yes"/>
+<element name="LED_CATHODE1" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="22.2" y="-17" smashed="yes">
+<attribute name="BOM" value="EXCLUDE" x="22.2" y="-17" size="1.778" layer="27" display="off"/>
+</element>
 <element name="C203" library="rc" package="C0603" value="100 nF" x="9.675" y="-0.4">
 <attribute name="PACKAGE" value="0603" x="-8.75" y="30.875" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="9.675" y="-0.4" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="9.675" y="-0.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C202" library="rc" package="C0805" value="1 uF" x="12.925" y="2.075" rot="R90">
 <attribute name="PACKAGE" value="0805" x="-15.325" y="-25.1" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="FARNELL#" value="1735541" x="12.925" y="2.075" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="TME#" value="GRM21BR71H105KA12K" x="12.925" y="2.075" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="D201" library="pixel_masterlib" package="SOD123" value="DIODE-SOD123" x="8.3" y="-4.3">
-<attribute name="CHIPDIP" value="MBRS1100T3G" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="CHIPDIP#" value="MBRS1100T3G" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="9555862" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="MANF" value="ON Semiconductor" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="MBRS1100T3G" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="TME#" value="MBRS1100T3G" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="DIGIKEY#" value="MBRS1100T3GOSCT-ND" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
 </element>
-<element name="IC201" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="9.95" y="1.875" smashed="yes" rot="R270">
+<element name="IC201" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="9.95" y="1.875" rot="R270">
 <attribute name="MANF#" value="IRS44273LTRPBF" x="27.825" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Infineon Technologies" x="27.825" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="IRS44273LTRPBFTR-ND" x="27.825" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="9.95" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
 <attribute name="FARNELL#" value="2580779" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="TME#" value="IRS44273LTRPBF" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CHIPDIP#" value="9000204261" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
@@ -5186,36 +5209,40 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="R203" library="rc" package="R0603" value="22R" x="9.95" y="1.875" rot="R270">
 <attribute name="PACKAGE" value="0603" x="32.175" y="49.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FARNELL#" value="2302996" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="CRCW060322R0FKEA" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R202" library="rc" package="R1206" value="2R" x="8.05" y="-2.2">
 <attribute name="PACKAGE" value="1206" x="-36.975" y="21.025" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2328120" x="8.05" y="-2.2" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="RC1206FR-072RL" x="8.05" y="-2.2" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R201" library="rc" package="R0603" value="22R" x="12.125" y="-0.4">
 <attribute name="PACKAGE" value="0603" x="-38.7" y="27.175" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2302996" x="12.125" y="-0.4" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="CRCW060322R0FKEA" x="12.125" y="-0.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C303" library="rc" package="C0603" value="100 nF" x="2.4" y="-0.4">
 <attribute name="PACKAGE" value="0603" x="-16.025" y="30.9" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="2.4" y="-0.4" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="2.4" y="-0.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C302" library="rc" package="C0805" value="1 uF" x="6.2" y="2.025" rot="R90">
 <attribute name="PACKAGE" value="0805" x="-22.075" y="-25.15" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="FARNELL#" value="1735541" x="6.2" y="2.025" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="TME#" value="GRM21BR71H105KA12K" x="6.2" y="2.025" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="D301" library="pixel_masterlib" package="SOD123" value="DIODE-SOD123" x="0.45" y="-4.3">
-<attribute name="CHIPDIP" value="MBRS1100T3G" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="CHIPDIP#" value="MBRS1100T3G" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="9555862" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="MANF" value="ON Semiconductor" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="MBRS1100T3G" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="TME#" value="MBRS1100T3G" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
 <attribute name="DIGIKEY#" value="MBRS1100T3GOSCT-ND" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
 </element>
-<element name="IC301" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="3.2" y="1.875" smashed="yes" rot="R270">
+<element name="IC301" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="3.2" y="1.875" rot="R270">
 <attribute name="MANF#" value="IRS44273LTRPBF" x="21.1" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Infineon Technologies" x="21.1" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="IRS44273LTRPBFTR-ND" x="21.1" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="3.2" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
 <attribute name="FARNELL#" value="2580779" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="TME#" value="IRS44273LTRPBF" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="CHIPDIP#" value="9000204261" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
@@ -5230,18 +5257,27 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="R303" library="rc" package="R0603" value="22R" x="3.2" y="1.875" rot="R270">
 <attribute name="PACKAGE" value="0603" x="25.45" y="49.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FARNELL#" value="2302996" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="CRCW060322R0FKEA" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R302" library="rc" package="R1206" value="2R" x="0.1" y="-2.2">
 <attribute name="PACKAGE" value="1206" x="-44.925" y="21.05" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2328120" x="0.1" y="-2.2" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="RC1206FR-072RL" x="0.1" y="-2.2" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R301" library="rc" package="R0603" value="22R" x="4.875" y="-0.4" rot="R180">
 <attribute name="PACKAGE" value="0603" x="55.7" y="-28" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2302996" x="4.875" y="-0.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="CRCW060322R0FKEA" x="4.875" y="-0.4" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="LED_CATHODE2" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="14.8" y="-17" smashed="yes"/>
-<element name="LED_CATHODE3" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="7.4" y="-17" smashed="yes"/>
-<element name="LED_ANODE" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="0" y="-17" smashed="yes"/>
+<element name="LED_CATHODE2" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="14.8" y="-17" smashed="yes">
+<attribute name="BOM" value="EXCLUDE" x="14.8" y="-17" size="1.778" layer="27" display="off"/>
+</element>
+<element name="LED_CATHODE3" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="7.4" y="-17" smashed="yes">
+<attribute name="BOM" value="EXCLUDE" x="7.4" y="-17" size="1.778" layer="27" display="off"/>
+</element>
+<element name="LED_ANODE" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="0" y="-17" smashed="yes">
+<attribute name="BOM" value="EXCLUDE" x="0" y="-17" size="1.778" layer="27" display="off"/>
+</element>
 <element name="TP101" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="12.55" y="4.65" smashed="yes" rot="MR270">
 <attribute name="BOM" value="EXCLUDE" x="12.425" y="4.65" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="PARTNO" value="*" x="12.425" y="4.65" size="1.778" layer="28" rot="MR270" display="off"/>
@@ -5282,47 +5318,69 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="DIGIKEY#" value="IRLML0040TRPBFCT-ND" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF" value="Infineon Technologies " x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF#" value="IRLML0040TRPBF" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIPDIP#" value="9000095041" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="1831088" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="IRLML0040TRPBF" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="Q201" library="pixel_masterlib" package="SOT23-3" value="" x="11.95" y="-3.1" rot="R180">
 <attribute name="DIGIKEY#" value="IRLML0040TRPBFCT-ND" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF" value="Infineon Technologies " x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF#" value="IRLML0040TRPBF" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIPDIP#" value="9000095041" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="1831088" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="IRLML0040TRPBF" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="Q301" library="pixel_masterlib" package="SOT23-3" value="" x="4" y="-3.1" rot="R180">
 <attribute name="DIGIKEY#" value="IRLML0040TRPBFCT-ND" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF" value="Infineon Technologies " x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF#" value="IRLML0040TRPBF" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIPDIP#" value="9000095041" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="1831088" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="IRLML0040TRPBF" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="U$2" library="pixel_masterlib" package="BOARD_OUTLINE" value="" x="0" y="0"/>
 <element name="C101" library="rc" package="C1812" value="10 uF" x="18.5" y="-16.825" rot="R270">
 <attribute name="PACKAGE" value="1812" x="18.5" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2449143" x="18.5" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="CL32B106KBJNNNE" x="18.5" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C201" library="rc" package="C1812" value="10 uF" x="11.1" y="-16.825" rot="R270">
 <attribute name="PACKAGE" value="1812" x="11.1" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2449143" x="11.1" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="CL32B106KBJNNNE" x="11.1" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C301" library="rc" package="C1812" value="10 uF" x="3.7" y="-16.825" rot="R270">
 <attribute name="PACKAGE" value="1812" x="3.7" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2449143" x="3.7" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="CL32B106KBJNNNE" x="3.7" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R8" library="rc" package="R0603" value="10K" x="-6.2" y="1.3" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-6.2" y="1.3" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2008341" x="-6.2" y="1.3" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="RC0603FR-0710KL" x="-6.2" y="1.3" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="CON3" library="pinhead" package="1X02-PTH-2.54" value="PINHEAD_1X02-2.54" x="-7.475" y="-14.55" rot="R180"/>
 <element name="C26" library="rc" package="C0603" value="100 nF" x="-6.2" y="0.05" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-6.2" y="0.05" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="-6.2" y="0.05" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="-6.2" y="0.05" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="U$4" library="pixel_masterlib" package="MOUNTING_HOLE_M2" value="" x="-22.8" y="0" locked="yes"/>
 <element name="U$5" library="pixel_masterlib" package="MOUNTING_HOLE_M2" value="" x="22.8" y="0" locked="yes"/>
 <element name="R10" library="rc" package="R0603" value="100K" x="-3.775" y="-0.55">
 <attribute name="PACKAGE" value="0603" x="-3.775" y="-0.55" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2303232" x="-3.775" y="-0.55" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="RC0603FR-07100KL" x="-3.775" y="-0.55" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R13" library="rc" package="R0603" value="10K" x="-3.775" y="0.7" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-3.775" y="0.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2008341" x="-3.775" y="0.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="RC0603FR-0710KL" x="-3.775" y="0.7" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C18" library="rc" package="C0603" value="100 nF" x="-3.775" y="1.95" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-3.775" y="1.95" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="-3.775" y="1.95" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="-3.775" y="1.95" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="IC8" library="pixel_masterlib" package="SOT223" value="LM317" x="-13" y="-11.5" rot="R180">
 <attribute name="DIGIKEY#" value="296-23224-5-ND" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
@@ -5335,24 +5393,27 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="R6" library="rc" package="R0603" value="1K" x="-8.35" y="-9.475" rot="R270">
 <attribute name="PACKAGE" value="0603" x="-4" y="0.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FARNELL#" value="2303145" x="-8.35" y="-9.475" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="RC0603FR-071KL" x="-8.35" y="-9.475" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R7" library="rc" package="R0603" value="1K6" x="-8.35" y="-6.9" rot="R270">
 <attribute name="PACKAGE" value="0603" x="-4" y="10.35" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FARNELL#" value="2303159" x="-8.35" y="-6.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="RC0603FR-071K6L" x="-8.35" y="-6.9" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R9" library="rc" package="R0603" value="10K" x="13.675" y="5.85" rot="R270">
 <attribute name="PACKAGE" value="0603" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FARNELL#" value="2008341" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="RC0603FR-0710KL" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R14" library="rc" package="R0603" value="10K" x="7.525" y="4.625" smashed="yes">
+<element name="R14" library="rc" package="R0603" value="10K" x="7.525" y="4.625">
 <attribute name="PACKAGE" value="0603" x="7.525" y="4.625" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="7.525" y="4.625" size="0.8" layer="25" font="vector" ratio="15" align="center"/>
-<attribute name="VALUE" x="7.525" y="5.625" size="0.5" layer="27" font="vector" ratio="15" align="center"/>
 <attribute name="FARNELL#" value="2008341" x="7.525" y="4.625" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="RC0603FR-0710KL" x="7.525" y="4.625" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R15" library="rc" package="R0603" value="10K" x="2.7" y="4.075">
 <attribute name="PACKAGE" value="0603" x="2.7" y="4.075" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2008341" x="2.7" y="4.075" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="RC0603FR-0710KL" x="2.7" y="4.075" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$6" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="15.55" y="10.975" rot="MR0">
 <attribute name="BOM" value="EXCLUDE" x="17.575" y="14.325" size="1.778" layer="28" rot="MR0" display="off"/>
@@ -5366,21 +5427,27 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="C1" library="rc" package="C0603" value="4.7 uF" x="-14.2" y="-5.025">
 <attribute name="PACKAGE" value="0603" x="-14.075" y="-5.025" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496930" x="-14.2" y="-5.025" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R60J475KE19D" x="-14.2" y="-5.025" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C2" library="rc" package="C0603" value="4.7 uF" x="-14.2" y="-6.275">
 <attribute name="PACKAGE" value="0603" x="-14.2" y="-6.275" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496930" x="-14.2" y="-6.275" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R60J475KE19D" x="-14.2" y="-6.275" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C3" library="rc" package="C0603" value="4.7 uF" x="-11.8" y="-5.025" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-11.8" y="-5.025" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2496930" x="-11.8" y="-5.025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM188R60J475KE19D" x="-11.8" y="-5.025" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C4" library="rc" package="C0603" value="4.7 uF" x="-11.8" y="-6.275" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-11.8" y="-6.275" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="FARNELL#" value="2496930" x="-11.8" y="-6.275" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="GRM188R60J475KE19D" x="-11.8" y="-6.275" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C5" library="rc" package="C1812" value="10 uF" x="-20.1" y="-9.65">
 <attribute name="PACKAGE" value="1812" x="-20.1" y="-9.65" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2449143" x="-20.1" y="-9.65" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="CL32B106KBJNNNE" x="-20.1" y="-9.65" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R1" library="rc" package="R0603" value="100R" x="0.975" y="5.5">
 <attribute name="PACKAGE" value="0603" x="0.975" y="5.5" size="1.778" layer="27" display="off"/>
@@ -5446,7 +5513,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="CON11" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="7.4" y="-19.99"/>
 <element name="CON12" library="pinhead" package="1X02-PTH-2.54" value="PINHEAD_1X02-2.54" x="-6.35" y="-19.99" rot="R180"/>
 <element name="D5" library="pixel_masterlib" package="SMB" value="TVS_DIODE-SMB" x="-17.1" y="2.1">
-<attribute name="CHIPDIP" value="8023193826" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
+<attribute name="CHIPDIP#" value="8023193826" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
 <attribute name="DIGIKEY#" value="497-15658-2-ND " x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
 <attribute name="MANF" value="STMicroelectronics" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="SMBJ26CA" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
@@ -5459,9 +5526,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="C6" library="rc" package="C0603" value="100 nF" x="-18.825" y="-6.975">
 <attribute name="PACKAGE" value="0603" x="-18.825" y="-6.975" size="1.778" layer="27" display="off"/>
 <attribute name="FARNELL#" value="2496834" x="-18.825" y="-6.975" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="GRM188R71H104KA93D" x="-18.825" y="-6.975" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R3" library="rc" package="R0603" value="20K" x="-2.55" y="4.25" rot="R270">
+<element name="R3" library="rc" package="R0603" value="10K" x="-2.55" y="4.25" rot="R270">
 <attribute name="PACKAGE" value="0603" x="-2.55" y="4.25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2008341" x="-2.55" y="4.25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="RC0603FR-0710KL" x="-2.55" y="4.25" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 </elements>
 <signals>

@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="5" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,20 +53,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="12" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="9" fill="1" visible="no" active="no"/>
-<layer number="59" name="Invisible" color="7" fill="1" visible="no" active="no"/>
-<layer number="61" name="stand" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="12" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="9" fill="1" visible="yes" active="no"/>
+<layer number="59" name="Invisible" color="7" fill="1" visible="yes" active="no"/>
+<layer number="61" name="stand" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -1236,7 +1236,7 @@ package type OT</description>
 <pin name="PB5" x="20.32" y="40.64" length="short" rot="R270"/>
 <pin name="PB6" x="17.78" y="40.64" length="short" rot="R270"/>
 <pin name="PB7" x="15.24" y="40.64" length="short" rot="R270"/>
-<pin name="PB8" x="12.7" y="40.64" length="short" rot="R270"/>
+<pin name="BOOT0" x="12.7" y="40.64" length="short" rot="R270"/>
 <pin name="VSSA" x="10.16" y="40.64" length="short" rot="R270"/>
 <wire x1="0" y1="35.56" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="2.54" y1="38.1" x2="38.1" y2="38.1" width="0.254" layer="94"/>
@@ -1466,6 +1466,7 @@ package type OT</description>
 <devices>
 <device name="-LQFP32(7X7)" package="LQFP32-7X7">
 <connects>
+<connect gate="IC" pin="BOOT0" pad="31"/>
 <connect gate="IC" pin="NRST" pad="4"/>
 <connect gate="IC" pin="PA0" pad="6"/>
 <connect gate="IC" pin="PA1" pad="7"/>
@@ -1490,7 +1491,6 @@ package type OT</description>
 <connect gate="IC" pin="PB5" pad="28"/>
 <connect gate="IC" pin="PB6" pad="29"/>
 <connect gate="IC" pin="PB7" pad="30"/>
-<connect gate="IC" pin="PB8" pad="31"/>
 <connect gate="IC" pin="PF0" pad="2"/>
 <connect gate="IC" pin="PF1" pad="3"/>
 <connect gate="IC" pin="VDD@1" pad="1"/>
@@ -1556,7 +1556,7 @@ package type OT</description>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="CHIPDIP" value="9000048448" constant="no"/>
+<attribute name="CHIPDIP#" value="9000048448" constant="no"/>
 <attribute name="DIGIKEY#" value="SMF05CCT-ND" constant="no"/>
 <attribute name="FARNELL#" value="2059033" constant="no"/>
 <attribute name="MANF" value="Semtech Corporation" constant="no"/>
@@ -1615,11 +1615,7 @@ package type OT</description>
 <connect gate="G$1" pin="8" pad="8"/>
 </connects>
 <technologies>
-<technology name="">
-<attribute name="DIGIKEY#" value="CAT16-511J4LF-ND" constant="no"/>
-<attribute name="MANF" value="Bourns Inc" constant="no"/>
-<attribute name="MANF#" value="CAT16-511J4LF" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -1681,7 +1677,7 @@ package type OT</description>
 <gate name="G$1" symbol="N-FET" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOT23-3">
+<device name="-SOT23" package="SOT23-3">
 <connects>
 <connect gate="G$1" pin="D" pad="3"/>
 <connect gate="G$1" pin="G" pad="1"/>
@@ -1814,6 +1810,7 @@ http://ru.aliexpress.com/item/New-Mini-Converter-Adjustable-DC-DC-Step-down-Powe
 </symbols>
 <devicesets>
 <deviceset name="INDUCTOR" prefix="L" uservalue="yes">
+<description>Unshielded Wirewound Inductor</description>
 <gates>
 <gate name="G$1" symbol="L" x="0" y="0"/>
 </gates>
@@ -3197,12 +3194,14 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="GND37" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R1" library="rc" deviceset="R" device="-0603" value="22R">
 <attribute name="FARNELL#" value="2302996"/>
+<attribute name="TME#" value="CRCW060322R0FKEA"/>
 </part>
 <part name="R2" library="rc" deviceset="R" device="-R1206" value="2R">
 <attribute name="FARNELL#" value="2328120"/>
+<attribute name="TME#" value="RC1206FR-072RL"/>
 </part>
 <part name="D1" library="pixel_masterlib" deviceset="DIODE" device="-SOD123">
-<attribute name="CHIPDIP" value="MBRS1100T3G"/>
+<attribute name="CHIPDIP#" value="MBRS1100T3G"/>
 <attribute name="DIGIKEY#" value="MBRS1100T3GOSCT-ND"/>
 <attribute name="FARNELL#" value="9555862"/>
 <attribute name="MANF" value="ON Semiconductor"/>
@@ -3212,14 +3211,17 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="IC1" library="pixel_masterlib" deviceset="IRS44273L" device=""/>
 <part name="C2" library="rc" deviceset="C" device="-0805" value="1 uF">
 <attribute name="FARNELL#" value="1735541"/>
+<attribute name="TME#" value="GRM21BR71H105KA12K"/>
 </part>
 <part name="GND18" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND32" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R3" library="rc" deviceset="R" device="-0603" value="22R">
 <attribute name="FARNELL#" value="2302996"/>
+<attribute name="TME#" value="CRCW060322R0FKEA"/>
 </part>
 <part name="C3" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="GND1" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="TP1" library="pixhawk2" deviceset="PAD" device=".05">
@@ -3234,12 +3236,18 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="BOM" value="EXCLUDE"/>
 <attribute name="PARTNO" value="*"/>
 </part>
-<part name="Q1" library="pixel_masterlib" deviceset="N-FET" device="">
+<part name="Q1" library="pixel_masterlib" deviceset="N-FET" device="-SOT23">
+<attribute name="CHIPDIP#" value="9000095041"/>
 <attribute name="DIGIKEY#" value="IRLML0040TRPBFCT-ND"/>
+<attribute name="FARNELL#" value="1831088"/>
 <attribute name="MANF" value="Infineon Technologies "/>
 <attribute name="MANF#" value="IRLML0040TRPBF"/>
+<attribute name="TME#" value="IRLML0040TRPBF"/>
 </part>
-<part name="C1" library="rc" deviceset="C" device="-1812" value="10 uF"/>
+<part name="C1" library="rc" deviceset="C" device="-1812" value="10 uF">
+<attribute name="FARNELL#" value="2449143"/>
+<attribute name="TME#" value="CL32B106KBJNNNE"/>
+</part>
 <part name="TP4" library="pixhawk2" deviceset="PAD" device=".05">
 <attribute name="BOM" value="EXCLUDE"/>
 <attribute name="PARTNO" value="*"/>
@@ -3265,12 +3273,14 @@ Maybe should split it in 2 resistors</text>
 <instance part="GND37" gate="1" x="162.56" y="83.82" rot="MR0"/>
 <instance part="R1" gate="G$1" x="132.08" y="111.76">
 <attribute name="FARNELL#" x="132.08" y="111.76" size="1.778" layer="96" display="off"/>
+<attribute name="TME#" x="132.08" y="111.76" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R2" gate="G$1" x="162.56" y="93.98" rot="R90">
 <attribute name="FARNELL#" x="162.56" y="93.98" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="162.56" y="93.98" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="D1" gate="G$1" x="162.56" y="137.16" rot="R90">
-<attribute name="CHIPDIP" x="162.56" y="137.16" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="CHIPDIP#" x="162.56" y="137.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="FARNELL#" x="162.56" y="137.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MANF" x="162.56" y="137.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MANF#" x="162.56" y="137.16" size="1.778" layer="96" rot="R90" display="off"/>
@@ -3280,14 +3290,17 @@ Maybe should split it in 2 resistors</text>
 <instance part="IC1" gate="G$1" x="104.14" y="106.68"/>
 <instance part="C2" gate="G$1" x="73.66" y="106.68" rot="MR90">
 <attribute name="FARNELL#" x="73.66" y="106.68" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="73.66" y="106.68" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND18" gate="1" x="99.06" y="91.44" rot="MR0"/>
 <instance part="GND32" gate="1" x="73.66" y="91.44" rot="MR0"/>
 <instance part="R3" gate="G$1" x="111.76" y="124.46">
 <attribute name="FARNELL#" x="111.76" y="124.46" size="1.778" layer="96" display="off"/>
+<attribute name="TME#" x="111.76" y="124.46" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C3" gate="G$1" x="167.64" y="93.98" rot="R90">
 <attribute name="FARNELL#" x="167.64" y="93.98" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="167.64" y="93.98" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND1" gate="1" x="167.64" y="83.82" rot="MR0"/>
 <instance part="TP1" gate="G$1" x="91.44" y="93.98" rot="R270">
@@ -3306,8 +3319,14 @@ Maybe should split it in 2 resistors</text>
 <attribute name="DIGIKEY#" x="162.56" y="114.3" size="1.778" layer="96" display="off"/>
 <attribute name="MANF" x="162.56" y="114.3" size="1.778" layer="96" display="off"/>
 <attribute name="MANF#" x="162.56" y="114.3" size="1.778" layer="96" display="off"/>
+<attribute name="CHIPDIP#" x="162.56" y="114.3" size="1.778" layer="96" display="off"/>
+<attribute name="FARNELL#" x="162.56" y="114.3" size="1.778" layer="96" display="off"/>
+<attribute name="TME#" x="162.56" y="114.3" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C1" gate="G$1" x="177.8" y="137.16" rot="R90"/>
+<instance part="C1" gate="G$1" x="177.8" y="137.16" rot="R90">
+<attribute name="FARNELL#" x="177.8" y="137.16" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="177.8" y="137.16" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="TP4" gate="G$1" x="144.78" y="86.36">
 <attribute name="PARTNO" x="144.78" y="86.36" size="1.778" layer="96" display="off"/>
 <attribute name="BOM" x="144.78" y="86.36" size="1.778" layer="96" display="off"/>
@@ -3454,7 +3473,7 @@ Maybe should split it in 2 resistors</text>
 <part name="GND24" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND25" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="LED2" library="rc" deviceset="LED" device="-0603">
-<attribute name="CHIPDIP" value="8598509892"/>
+<attribute name="CHIPDIP#" value="8598509892"/>
 <attribute name="COLOR" value="GREEN"/>
 <attribute name="DIGIKEY#" value="160-1446-1-ND"/>
 <attribute name="FARNELL#" value="2293494"/>
@@ -3464,17 +3483,21 @@ Maybe should split it in 2 resistors</text>
 </part>
 <part name="R39" library="rc" deviceset="R" device="-0603" value="1K">
 <attribute name="FARNELL#" value="2303145"/>
+<attribute name="TME#" value="RC0603FR-071KL"/>
 </part>
 <part name="IC1" library="pixel_masterlib" deviceset="STM32F030K6TX" device="-LQFP32(7X7)"/>
 <part name="GND2" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C13" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="C14" library="rc" deviceset="C" device="-0603" value="1 uF">
 <attribute name="FARNELL#" value="2496917"/>
+<attribute name="TME#" value="GRM188R61C105KA93D"/>
 </part>
 <part name="C15" library="rc" deviceset="C" device="-0603" value="10 nF">
 <attribute name="FARNELL#" value="2496827"/>
+<attribute name="TME#" value="C0603C103K3RACTU"/>
 </part>
 <part name="GND5" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P5" library="supply_symbols" deviceset="3.3V" device=""/>
@@ -3483,17 +3506,21 @@ Maybe should split it in 2 resistors</text>
 <part name="+P6" library="supply_symbols" deviceset="3.3V" device=""/>
 <part name="C16" library="rc" deviceset="C" device="-0603" value="4.7 uF">
 <attribute name="FARNELL#" value="2496930"/>
+<attribute name="TME#" value="GRM188R60J475KE19D"/>
 </part>
 <part name="C17" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="GND13" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND16" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C19" library="rc" deviceset="C" device="-0603" value="10 pF">
 <attribute name="FARNELL#" value="1414601"/>
+<attribute name="TME#" value="GRM1885C1H100JA01D"/>
 </part>
 <part name="C20" library="rc" deviceset="C" device="-0603" value="10 pF">
 <attribute name="FARNELL#" value="1414601"/>
+<attribute name="TME#" value="GRM1885C1H100JA01D"/>
 </part>
 <part name="GND20" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND21" library="supply_symbols" deviceset="GND" device="" value="GND"/>
@@ -3512,16 +3539,20 @@ Maybe should split it in 2 resistors</text>
 <part name="GND36" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C21" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="IC3" library="pixel_masterlib" deviceset="ST3485" device="SOIC8"/>
 <part name="R5" library="rc" deviceset="R" device="-0603" value="120R">
 <attribute name="FARNELL#" value="2303067"/>
+<attribute name="TME#" value="CRCW0603120RFKTABC"/>
 </part>
 <part name="R11" library="rc" deviceset="R" device="-0603" value="100R">
 <attribute name="FARNELL#" value="2303059"/>
+<attribute name="TME#" value="RC0603FR-07100RL"/>
 </part>
 <part name="R12" library="rc" deviceset="R" device="-0603" value="100R">
 <attribute name="FARNELL#" value="2303059"/>
+<attribute name="TME#" value="RC0603FR-07100RL"/>
 </part>
 <part name="GND26" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P9" library="supply_symbols" deviceset="3.3V" device=""/>
@@ -3531,12 +3562,16 @@ Maybe should split it in 2 resistors</text>
 <attribute name="BOM" value="EXCLUDE"/>
 </part>
 <part name="RN1" library="pixel_masterlib" deviceset="RESISTOR_ARRAY" device="" value="510R">
+<attribute name="CHIPDIP#" value="9000044911"/>
 <attribute name="DIGIKEY#" value="CAT16-511J4LF-ND"/>
+<attribute name="FARNELL#" value="2321730"/>
 <attribute name="MANF" value="Bourns Inc"/>
 <attribute name="MANF#" value="CAT16-511J4LF"/>
 </part>
 <part name="RN2" library="pixel_masterlib" deviceset="RESISTOR_ARRAY" device="" value="510R">
+<attribute name="CHIPDIP#" value="9000044911"/>
 <attribute name="DIGIKEY#" value="CAT16-511J4LF-ND"/>
+<attribute name="FARNELL#" value="2321730"/>
 <attribute name="MANF" value="Bourns Inc"/>
 <attribute name="MANF#" value="CAT16-511J4LF"/>
 </part>
@@ -3546,9 +3581,11 @@ Maybe should split it in 2 resistors</text>
 <part name="GND33" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C23" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="C24" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="+P12" library="supply_symbols" deviceset="3.3V" device=""/>
 <part name="+P13" library="supply_symbols" deviceset="3.3V" device=""/>
@@ -3556,48 +3593,70 @@ Maybe should split it in 2 resistors</text>
 <part name="GND35" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P3" library="supply_symbols" deviceset="24V" device=""/>
 <part name="+P1" library="supply_symbols" deviceset="12V" device=""/>
-<part name="LED_CATHODE1" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8"/>
-<part name="LED_CATHODE2" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8"/>
-<part name="LED_CATHODE3" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8"/>
-<part name="LED_ANODE" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8"/>
+<part name="LED_CATHODE1" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
+<part name="LED_CATHODE2" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
+<part name="LED_CATHODE3" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
+<part name="LED_ANODE" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
 <part name="R8" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
+<attribute name="TME#" value="RC0603FR-0710KL"/>
 </part>
 <part name="CON3" library="pinhead" deviceset="PINHEAD_1X02" device="-2.54"/>
 <part name="GND18" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C26" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="GND19" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P16" library="supply_symbols" deviceset="24V" device=""/>
-<part name="R10" library="rc" deviceset="R" device="-0603" value="100K"/>
-<part name="R13" library="rc" deviceset="R" device="-0603" value="10K"/>
+<part name="R10" library="rc" deviceset="R" device="-0603" value="100K">
+<attribute name="FARNELL#" value="2303232"/>
+<attribute name="TME#" value="RC0603FR-07100KL"/>
+</part>
+<part name="R13" library="rc" deviceset="R" device="-0603" value="10K">
+<attribute name="FARNELL#" value="2008341"/>
+<attribute name="TME#" value="RC0603FR-0710KL"/>
+</part>
 <part name="GND37" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C18" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="GND38" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P11" library="supply_symbols" deviceset="12V" device=""/>
 <part name="IC8" library="pixel_masterlib" deviceset="LM317" device=""/>
 <part name="R6" library="rc" deviceset="R" device="-0603" value="1K">
 <attribute name="FARNELL#" value="2303145"/>
+<attribute name="TME#" value="RC0603FR-071KL"/>
 </part>
 <part name="R7" library="rc" deviceset="R" device="-0603" value="1K6">
 <attribute name="FARNELL#" value="2303159"/>
+<attribute name="TME#" value="RC0603FR-071K6L"/>
 </part>
 <part name="GND30" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND39" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND41" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R9" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
+<attribute name="TME#" value="RC0603FR-0710KL"/>
 </part>
 <part name="GND27" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R14" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
+<attribute name="TME#" value="RC0603FR-0710KL"/>
 </part>
 <part name="GND28" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R15" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
+<attribute name="TME#" value="RC0603FR-0710KL"/>
 </part>
 <part name="GND42" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="U$6" library="usb2can_master_lib" deviceset="CONNECTION" device=""/>
@@ -3617,20 +3676,27 @@ Maybe should split it in 2 resistors</text>
 <part name="GND1" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C1" library="rc" deviceset="C" device="-0603" value="4.7 uF">
 <attribute name="FARNELL#" value="2496930"/>
+<attribute name="TME#" value="GRM188R60J475KE19D"/>
 </part>
 <part name="C2" library="rc" deviceset="C" device="-0603" value="4.7 uF">
 <attribute name="FARNELL#" value="2496930"/>
+<attribute name="TME#" value="GRM188R60J475KE19D"/>
 </part>
 <part name="C3" library="rc" deviceset="C" device="-0603" value="4.7 uF">
 <attribute name="FARNELL#" value="2496930"/>
+<attribute name="TME#" value="GRM188R60J475KE19D"/>
 </part>
 <part name="C4" library="rc" deviceset="C" device="-0603" value="4.7 uF">
 <attribute name="FARNELL#" value="2496930"/>
+<attribute name="TME#" value="GRM188R60J475KE19D"/>
 </part>
 <part name="GND3" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND4" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND7" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="C5" library="rc" deviceset="C" device="-1812" value="10 uF"/>
+<part name="C5" library="rc" deviceset="C" device="-1812" value="10 uF">
+<attribute name="FARNELL#" value="2449143"/>
+<attribute name="TME#" value="CL32B106KBJNNNE"/>
+</part>
 <part name="R1" library="rc" deviceset="R" device="-0603" value="100R">
 <attribute name="ASSY" value="DO NOT MOUNT"/>
 </part>
@@ -3684,7 +3750,7 @@ Maybe should split it in 2 resistors</text>
 <part name="CON12" library="pinhead" deviceset="PINHEAD_1X02" device="-2.54"/>
 <part name="+P15" library="supply_symbols" deviceset="3.3V" device=""/>
 <part name="D5" library="pixel_masterlib" deviceset="TVS_DIODE" device="-SMB">
-<attribute name="CHIPDIP" value="8023193826"/>
+<attribute name="CHIPDIP#" value="8023193826"/>
 <attribute name="DIGIKEY#" value="497-15658-2-ND "/>
 <attribute name="FARNELL#" value="1749366"/>
 <attribute name="MANF" value="STMicroelectronics"/>
@@ -3699,9 +3765,13 @@ Maybe should split it in 2 resistors</text>
 <part name="CON14" library="pinhead" deviceset="PINHEAD_1X07" device="-2"/>
 <part name="C6" library="rc" deviceset="C" device="-0603" value="100 nF">
 <attribute name="FARNELL#" value="2496834"/>
+<attribute name="TME#" value="GRM188R71H104KA93D"/>
 </part>
 <part name="GND14" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="R3" library="rc" deviceset="R" device="-0603" value="20K"/>
+<part name="R3" library="rc" deviceset="R" device="-0603" value="10K">
+<attribute name="FARNELL#" value="2008341"/>
+<attribute name="TME#" value="RC0603FR-0710KL"/>
+</part>
 <part name="GND15" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 </parts>
 <sheets>
@@ -3742,12 +3812,15 @@ otherwise recalculate C19 and C20</text>
 <instance part="GND2" gate="1" x="43.18" y="193.04"/>
 <instance part="C13" gate="G$1" x="55.88" y="226.06">
 <attribute name="FARNELL#" x="55.88" y="226.06" size="1.778" layer="96" display="off"/>
+<attribute name="TME#" x="55.88" y="226.06" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C14" gate="G$1" x="43.18" y="200.66" rot="R90">
 <attribute name="FARNELL#" x="43.18" y="200.66" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="43.18" y="200.66" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="C15" gate="G$1" x="48.26" y="200.66" rot="R90">
 <attribute name="FARNELL#" x="48.26" y="200.66" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="48.26" y="200.66" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND5" gate="1" x="50.8" y="220.98"/>
 <instance part="+P5" gate="G$1" x="43.18" y="208.28"/>
@@ -3756,17 +3829,21 @@ otherwise recalculate C19 and C20</text>
 <instance part="+P6" gate="G$1" x="124.46" y="200.66" rot="MR0"/>
 <instance part="C16" gate="G$1" x="119.38" y="193.04" rot="MR90">
 <attribute name="FARNELL#" x="119.38" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="119.38" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C17" gate="G$1" x="124.46" y="193.04" rot="MR90">
 <attribute name="FARNELL#" x="124.46" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="124.46" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND13" gate="1" x="119.38" y="185.42" rot="MR0"/>
 <instance part="GND16" gate="1" x="124.46" y="185.42" rot="MR0"/>
 <instance part="C19" gate="G$1" x="45.72" y="226.06" rot="MR90">
 <attribute name="FARNELL#" x="45.72" y="226.06" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="45.72" y="226.06" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C20" gate="G$1" x="35.56" y="226.06" rot="MR90">
 <attribute name="FARNELL#" x="35.56" y="226.06" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="35.56" y="226.06" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND20" gate="1" x="27.94" y="223.52"/>
 <instance part="GND21" gate="1" x="76.2" y="233.68" rot="MR180"/>
@@ -3785,16 +3862,20 @@ otherwise recalculate C19 and C20</text>
 <instance part="GND36" gate="1" x="287.02" y="195.58"/>
 <instance part="C21" gate="G$1" x="251.46" y="109.22" rot="R90">
 <attribute name="FARNELL#" x="251.46" y="109.22" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="251.46" y="109.22" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="IC3" gate="G$1" x="213.36" y="106.68"/>
 <instance part="R5" gate="G$1" x="238.76" y="104.14" rot="R90">
 <attribute name="FARNELL#" x="238.76" y="104.14" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="238.76" y="104.14" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="R11" gate="G$1" x="304.8" y="233.68">
 <attribute name="FARNELL#" x="304.8" y="233.68" size="1.778" layer="96" display="off"/>
+<attribute name="TME#" x="304.8" y="233.68" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R12" gate="G$1" x="304.8" y="238.76">
 <attribute name="FARNELL#" x="304.8" y="238.76" size="1.778" layer="96" display="off"/>
+<attribute name="TME#" x="304.8" y="238.76" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND26" gate="1" x="233.68" y="104.14"/>
 <instance part="+P9" gate="G$1" x="60.96" y="228.6" rot="MR0"/>
@@ -3803,17 +3884,31 @@ otherwise recalculate C19 and C20</text>
 <instance part="SJ2" gate="G$1" x="243.84" y="104.14" rot="R270">
 <attribute name="BOM" x="243.84" y="104.14" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
-<instance part="RN1" gate="G$1" x="302.26" y="215.9"/>
-<instance part="RN2" gate="G$1" x="302.26" y="137.16"/>
+<instance part="RN1" gate="G$1" x="302.26" y="215.9">
+<attribute name="DIGIKEY#" x="302.26" y="215.9" size="1.778" layer="96" display="off"/>
+<attribute name="MANF#" x="302.26" y="215.9" size="1.778" layer="96" display="off"/>
+<attribute name="MANF" x="302.26" y="215.9" size="1.778" layer="96" display="off"/>
+<attribute name="CHIPDIP#" x="302.26" y="215.9" size="1.778" layer="96" display="off"/>
+<attribute name="FARNELL#" x="302.26" y="215.9" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="RN2" gate="G$1" x="302.26" y="137.16">
+<attribute name="DIGIKEY#" x="302.26" y="137.16" size="1.778" layer="96" display="off"/>
+<attribute name="MANF#" x="302.26" y="137.16" size="1.778" layer="96" display="off"/>
+<attribute name="MANF" x="302.26" y="137.16" size="1.778" layer="96" display="off"/>
+<attribute name="CHIPDIP#" x="302.26" y="137.16" size="1.778" layer="96" display="off"/>
+<attribute name="FARNELL#" x="302.26" y="137.16" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="IC6" gate="G$1" x="218.44" y="180.34"/>
 <instance part="IC7" gate="G$1" x="218.44" y="157.48"/>
 <instance part="GND31" gate="1" x="213.36" y="154.94" rot="MR0"/>
 <instance part="GND33" gate="1" x="213.36" y="177.8" rot="MR0"/>
 <instance part="C23" gate="G$1" x="246.38" y="193.04" rot="R180">
 <attribute name="FARNELL#" x="246.38" y="193.04" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="TME#" x="246.38" y="193.04" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C24" gate="G$1" x="246.38" y="170.18" rot="R180">
 <attribute name="FARNELL#" x="246.38" y="170.18" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="TME#" x="246.38" y="170.18" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="+P12" gate="G$1" x="241.3" y="195.58" rot="MR0"/>
 <instance part="+P13" gate="G$1" x="241.3" y="172.72" rot="MR0"/>
@@ -3824,45 +3919,66 @@ otherwise recalculate C19 and C20</text>
 <attribute name="DIGIKEY#" x="172.72" y="210.82" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
 <attribute name="MANF" x="172.72" y="210.82" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
 <attribute name="MANF#" x="172.72" y="210.82" size="1.778" layer="96" font="vector" ratio="15" rot="MR270" align="center-right" display="off"/>
-<attribute name="CHIPDIP" x="172.72" y="210.82" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="CHIPDIP#" x="172.72" y="210.82" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="FARNELL#" x="172.72" y="210.82" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="TME#" x="172.72" y="210.82" size="1.778" layer="96" rot="MR270" display="off"/>
 </instance>
 <instance part="R39" gate="G$1" x="172.72" y="223.52" rot="MR90">
 <attribute name="FARNELL#" x="172.72" y="223.52" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="172.72" y="223.52" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
-<instance part="LED_CATHODE1" gate="G$1" x="132.08" y="114.3" rot="R180"/>
-<instance part="LED_CATHODE2" gate="G$1" x="132.08" y="86.36" rot="R180"/>
-<instance part="LED_CATHODE3" gate="G$1" x="132.08" y="58.42" rot="R180"/>
-<instance part="LED_ANODE" gate="G$1" x="132.08" y="124.46" rot="R180"/>
+<instance part="LED_CATHODE1" gate="G$1" x="132.08" y="114.3" rot="R180">
+<attribute name="BOM" x="132.08" y="114.3" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="LED_CATHODE2" gate="G$1" x="132.08" y="86.36" rot="R180">
+<attribute name="BOM" x="132.08" y="86.36" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="LED_CATHODE3" gate="G$1" x="132.08" y="58.42" rot="R180">
+<attribute name="BOM" x="132.08" y="58.42" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="LED_ANODE" gate="G$1" x="132.08" y="124.46" rot="R180">
+<attribute name="BOM" x="132.08" y="124.46" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="R8" gate="G$1" x="347.98" y="71.12" rot="MR90">
 <attribute name="FARNELL#" x="347.98" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="347.98" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="CON3" gate="G$1" x="365.76" y="43.18" rot="MR0"/>
 <instance part="GND18" gate="1" x="347.98" y="40.64"/>
 <instance part="C26" gate="G$1" x="347.98" y="50.8" rot="R90">
 <attribute name="FARNELL#" x="347.98" y="50.8" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="347.98" y="50.8" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND19" gate="1" x="43.18" y="43.18" rot="MR0"/>
 <instance part="+P16" gate="G$1" x="91.44" y="129.54" rot="MR0"/>
-<instance part="R10" gate="G$1" x="132.08" y="68.58" rot="MR180"/>
-<instance part="R13" gate="G$1" x="139.7" y="60.96" rot="MR90"/>
+<instance part="R10" gate="G$1" x="132.08" y="68.58" rot="MR180">
+<attribute name="FARNELL#" x="132.08" y="68.58" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="TME#" x="132.08" y="68.58" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="R13" gate="G$1" x="139.7" y="60.96" rot="MR90">
+<attribute name="FARNELL#" x="139.7" y="60.96" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="139.7" y="60.96" size="1.778" layer="96" rot="MR90" display="off"/>
+</instance>
 <instance part="GND37" gate="1" x="139.7" y="50.8"/>
 <instance part="C18" gate="G$1" x="144.78" y="60.96" rot="R90">
 <attribute name="FARNELL#" x="144.78" y="60.96" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="144.78" y="60.96" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND38" gate="1" x="144.78" y="50.8"/>
 <instance part="+P11" gate="G$1" x="45.72" y="129.54" rot="MR0"/>
 <instance part="R9" gate="G$1" x="38.1" y="109.22" rot="R90">
 <attribute name="FARNELL#" x="38.1" y="109.22" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="38.1" y="109.22" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND27" gate="1" x="38.1" y="99.06" rot="MR0"/>
 <instance part="R14" gate="G$1" x="38.1" y="81.28" rot="R90">
 <attribute name="FARNELL#" x="38.1" y="81.28" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="38.1" y="81.28" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND28" gate="1" x="38.1" y="71.12" rot="MR0"/>
 <instance part="R15" gate="G$1" x="38.1" y="53.34" rot="R90">
 <attribute name="FARNELL#" x="38.1" y="53.34" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="38.1" y="53.34" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND42" gate="1" x="38.1" y="43.18" rot="MR0"/>
 <instance part="U$6" gate="G$1" x="294.64" y="114.3" rot="MR0"/>
@@ -3921,7 +4037,7 @@ otherwise recalculate C19 and C20</text>
 <instance part="CON12" gate="G$1" x="365.76" y="58.42" rot="MR0"/>
 <instance part="+P15" gate="G$1" x="347.98" y="78.74" rot="MR0"/>
 <instance part="D5" gate="G$1" x="340.36" y="243.84">
-<attribute name="CHIPDIP" x="340.36" y="243.84" size="1.778" layer="96" display="off"/>
+<attribute name="CHIPDIP#" x="340.36" y="243.84" size="1.778" layer="96" display="off"/>
 <attribute name="DIGIKEY#" x="340.36" y="243.84" size="1.778" layer="96" display="off"/>
 <attribute name="MANF" x="340.36" y="243.84" size="1.778" layer="96" display="off"/>
 <attribute name="MANF#" x="340.36" y="243.84" size="1.778" layer="96" display="off"/>
@@ -3933,7 +4049,10 @@ otherwise recalculate C19 and C20</text>
 <instance part="GND10" gate="1" x="355.6" y="40.64"/>
 <instance part="CON13" gate="G$1" x="365.76" y="175.26" rot="MR0"/>
 <instance part="CON14" gate="G$1" x="365.76" y="99.06" rot="MR0"/>
-<instance part="R3" gate="G$1" x="78.74" y="238.76" rot="R90"/>
+<instance part="R3" gate="G$1" x="78.74" y="238.76" rot="R90">
+<attribute name="FARNELL#" x="78.74" y="238.76" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="78.74" y="238.76" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND15" gate="1" x="78.74" y="248.92" rot="MR180"/>
 </instances>
 <busses>
@@ -4888,7 +5007,7 @@ otherwise recalculate C19 and C20</text>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="IC1" gate="IC" pin="PB8"/>
+<pinref part="IC1" gate="IC" pin="BOOT0"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="78.74" y1="228.6" x2="78.74" y2="233.68" width="0.1524" layer="91"/>
 </segment>
@@ -4916,9 +5035,11 @@ otherwise recalculate C19 and C20</text>
 <instance part="IC8" gate="G$1" x="101.6" y="81.28"/>
 <instance part="R6" gate="G$1" x="124.46" y="78.74" rot="R90">
 <attribute name="FARNELL#" x="124.46" y="78.74" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="124.46" y="78.74" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="R7" gate="G$1" x="124.46" y="63.5" rot="R90">
 <attribute name="FARNELL#" x="124.46" y="63.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="TME#" x="124.46" y="63.5" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND30" gate="1" x="129.54" y="53.34"/>
 <instance part="GND39" gate="1" x="124.46" y="53.34"/>
@@ -4934,26 +5055,34 @@ otherwise recalculate C19 and C20</text>
 <instance part="+P14" gate="G$1" x="66.04" y="88.9"/>
 <instance part="C1" gate="G$1" x="129.54" y="71.12" rot="MR90">
 <attribute name="FARNELL#" x="129.54" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="129.54" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C2" gate="G$1" x="134.62" y="71.12" rot="MR90">
 <attribute name="FARNELL#" x="134.62" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="134.62" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C3" gate="G$1" x="139.7" y="71.12" rot="MR90">
 <attribute name="FARNELL#" x="139.7" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="139.7" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C4" gate="G$1" x="144.78" y="71.12" rot="MR90">
 <attribute name="FARNELL#" x="144.78" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="144.78" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND3" gate="1" x="134.62" y="53.34"/>
 <instance part="GND4" gate="1" x="139.7" y="53.34"/>
 <instance part="GND7" gate="1" x="144.78" y="53.34"/>
-<instance part="C5" gate="G$1" x="86.36" y="71.12" rot="MR90"/>
+<instance part="C5" gate="G$1" x="86.36" y="71.12" rot="MR90">
+<attribute name="FARNELL#" x="86.36" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="86.36" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+</instance>
 <instance part="SJ4" gate="G$1" x="152.4" y="86.36" rot="R180">
 <attribute name="BOM" x="152.4" y="86.36" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
 <instance part="C6" gate="G$1" x="93.98" y="71.12" rot="MR90">
 <attribute name="FARNELL#" x="93.98" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="TME#" x="93.98" y="71.12" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND14" gate="1" x="93.98" y="53.34"/>
 </instances>
