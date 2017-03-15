@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
+<grid distance="0.025" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -48,12 +48,12 @@
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
@@ -182,11 +182,11 @@
 <text x="8.95" y="-10.925" size="1" layer="22" font="vector" ratio="12" rot="MR0" align="center">j3qq4hch@gmail.com</text>
 <text x="4.25" y="14.85" size="1.5" layer="21" font="vector" ratio="15" rot="R90" align="center">CLK</text>
 <text x="6.415" y="15.75" size="1.5" layer="21" font="vector" ratio="15" rot="R90" align="center">IO</text>
-<wire x1="-9.8" y1="19.7" x2="-9.775" y2="2.85" width="0.2" layer="22" style="shortdash"/>
-<wire x1="-9.775" y1="2.85" x2="-15.95" y2="2.85" width="0.2" layer="22" style="shortdash"/>
+<wire x1="-9.275" y1="19.7" x2="-9.275" y2="4.8" width="0.2" layer="22" style="shortdash"/>
+<wire x1="-9.275" y1="4.8" x2="-18.2" y2="4.8" width="0.2" layer="22" style="shortdash"/>
 <wire x1="9.2" y1="19.7" x2="9.2" y2="16.2" width="0.2" layer="22" style="shortdash"/>
 <wire x1="9.275" y1="14.625" x2="9.275" y2="4.925" width="0.2" layer="22" style="shortdash"/>
-<wire x1="18.1" y1="4.8" x2="13.575" y2="4.8" width="0.2" layer="22" style="shortdash"/>
+<wire x1="18.175" y1="4.8" x2="13.575" y2="4.8" width="0.2" layer="22" style="shortdash"/>
 <wire x1="9.4" y1="4.8" x2="9.275" y2="4.925" width="0.2" layer="22" style="shortdash"/>
 <text x="-12.575" y="6.275" size="1.5" layer="22" font="vector" ratio="15" rot="MR180" align="center">TERM</text>
 <text x="-12.95" y="-4.975" size="1.5" layer="22" font="vector" ratio="15" rot="MR0" align="center">I measure</text>
@@ -262,15 +262,6 @@
 <wire x1="2.2" y1="-1" x2="-2.2" y2="-1" width="0.15" layer="21"/>
 <wire x1="-2.2" y1="-1" x2="-2.2" y2="1" width="0.15" layer="21"/>
 </package>
-<package name="R0805">
-<smd name="1" x="-1" y="0" dx="0.9" dy="1.3" layer="1"/>
-<smd name="2" x="1" y="0" dx="0.9" dy="1.3" layer="1"/>
-<wire x1="-1.65" y1="0.85" x2="1.65" y2="0.85" width="0.127" layer="21"/>
-<wire x1="1.65" y1="0.85" x2="1.65" y2="-0.85" width="0.127" layer="21"/>
-<wire x1="1.65" y1="-0.85" x2="-1.65" y2="-0.85" width="0.127" layer="21"/>
-<wire x1="-1.65" y1="-0.85" x2="-1.65" y2="0.85" width="0.127" layer="21"/>
-<text x="0" y="0" size="0.635" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
-</package>
 <package name="C0805">
 <smd name="1" x="-1" y="0" dx="0.9" dy="1.3" layer="1"/>
 <smd name="2" x="1" y="0" dx="0.9" dy="1.3" layer="1"/>
@@ -292,54 +283,6 @@
 <wire x1="1.8" y1="0.95" x2="1.8" y2="-0.95" width="0.15" layer="21"/>
 <wire x1="1.8" y1="-0.95" x2="-1.8" y2="-0.95" width="0.15" layer="21"/>
 <wire x1="-1.8" y1="-0.95" x2="-1.8" y2="0.95" width="0.15" layer="21"/>
-</package>
-</packages>
-</library>
-<library name="FMU_masterlib">
-<packages>
-<package name="SOD123">
-<description>&lt;b&gt;SMALL OUTLINE DIODE&lt;/b&gt;</description>
-<wire x1="-2.973" y1="0.983" x2="2.973" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="2.973" y1="-0.983" x2="-2.973" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-2.973" y1="-0.983" x2="-2.973" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="2.973" y1="0.983" x2="2.973" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.3" y1="0.8" x2="-0.6" y2="0.8" width="0.1524" layer="21"/>
-<wire x1="-0.6" y1="0.8" x2="1.3" y2="0.8" width="0.1524" layer="21"/>
-<wire x1="-1.3" y1="-0.8" x2="-0.6" y2="-0.8" width="0.1524" layer="21"/>
-<wire x1="-0.6" y1="-0.8" x2="1.3" y2="-0.8" width="0.1524" layer="21"/>
-<wire x1="-0.6" y1="0.8" x2="-0.6" y2="-0.8" width="0.1524" layer="21"/>
-<smd name="C" x="-1.7" y="0" dx="1.6" dy="0.8" layer="1"/>
-<smd name="A" x="1.7" y="0" dx="1.6" dy="0.8" layer="1"/>
-<rectangle x1="-1.9558" y1="-0.3048" x2="-1.3716" y2="0.3048" layer="51"/>
-<rectangle x1="1.3716" y1="-0.3048" x2="1.9558" y2="0.3048" layer="51"/>
-<wire x1="-1.3" y1="0.8" x2="-1.3" y2="0.6762" width="0.1524" layer="21"/>
-<wire x1="-1.3" y1="-0.8" x2="-1.3" y2="-0.6762" width="0.1524" layer="21"/>
-<wire x1="1.3" y1="-0.8" x2="1.3" y2="-0.6762" width="0.1524" layer="21"/>
-<wire x1="1.3" y1="0.8" x2="1.3" y2="0.6762" width="0.1524" layer="21"/>
-<text x="0" y="0" size="0.6" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
-</package>
-</packages>
-</library>
-<library name="ali_modules">
-<packages>
-<package name="GW1584">
-<wire x1="-11.049" y1="-8.382" x2="11.049" y2="-8.382" width="0.1" layer="21"/>
-<wire x1="11.049" y1="-8.382" x2="11.049" y2="8.382" width="0.1" layer="21"/>
-<wire x1="11.049" y1="8.382" x2="-11.049" y2="8.382" width="0.1" layer="21"/>
-<wire x1="-11.049" y1="8.382" x2="-11.049" y2="-8.382" width="0.1" layer="21"/>
-<pad name="OUT+@1" x="-9.271" y="6.604" drill="1" diameter="1.8"/>
-<pad name="OUT+@2" x="-9.271" y="4.064" drill="1" diameter="1.8"/>
-<pad name="OUT-@1" x="-9.271" y="-4.064" drill="1" diameter="1.8"/>
-<pad name="OUT-@2" x="-9.271" y="-6.604" drill="1" diameter="1.8"/>
-<pad name="IN+@1" x="9.271" y="6.604" drill="1" diameter="1.8"/>
-<pad name="IN+@2" x="9.271" y="4.064" drill="1" diameter="1.8"/>
-<pad name="IN-@2" x="9.271" y="-4.064" drill="1" diameter="1.8"/>
-<pad name="IN-@1" x="9.271" y="-6.604" drill="1" diameter="1.8"/>
-<text x="0" y="0" size="1.5" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
-<text x="6.6" y="5.3" size="1.5" layer="37" font="vector" ratio="15" align="center">IN+</text>
-<text x="6.6" y="-5.3" size="1.5" layer="37" font="vector" ratio="15" align="center">IN-</text>
-<text x="-5.4" y="-5.3" size="1.5" layer="37" font="vector" ratio="15" rot="R180" align="center">OUT-</text>
-<text x="-5.4" y="5.3" size="1.5" layer="37" font="vector" ratio="15" rot="R180" align="center">OUT+</text>
 </package>
 </packages>
 </library>
@@ -483,7 +426,7 @@ Sourced: &lt;a href="http://www.st.com/stonline/products/literature/ds/14771/stm
 <rectangle x1="-3.375" y1="4.125" x2="-2.225" y2="4.475" layer="31" rot="R270"/>
 <rectangle x1="-3.45" y1="4.05" x2="-2.15" y2="4.55" layer="29" rot="R270"/>
 </package>
-<package name="DS1066-08M_SIDE">
+<package name="B7B-PH-K-S_SIDE">
 <smd name="2" x="-4" y="-0.25" dx="3" dy="1" layer="1" rot="R90"/>
 <smd name="3" x="-2" y="-0.25" dx="3" dy="1" layer="1" rot="R90"/>
 <smd name="1" x="-6" y="-0.25" dx="3" dy="1" layer="1" rot="R90"/>
@@ -739,68 +682,82 @@ package type OT</description>
 <hole x="0" y="0" drill="2.1"/>
 <circle x="0" y="0" radius="2.1" width="0.15" layer="21"/>
 </package>
-</packages>
-</library>
-<library name="watchdog_master_library">
-<packages>
-<package name="OSCILLATOR-3.2X2.5">
-<description>3.2x2.5 MM Chrystal Oscillator
-
-http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
-<wire x1="-2.1" y1="1.5508" x2="-1.8508" y2="1.8" width="0.1524" layer="21"/>
-<wire x1="-1.8508" y1="1.8" x2="1.8508" y2="1.8" width="0.1524" layer="21"/>
-<wire x1="1.8508" y1="1.8" x2="2.1" y2="1.5508" width="0.1524" layer="21"/>
-<wire x1="2.1" y1="1.5508" x2="2.1" y2="-1.5508" width="0.1524" layer="21"/>
-<wire x1="2.1" y1="-1.5508" x2="1.8508" y2="-1.8" width="0.1524" layer="21"/>
-<wire x1="1.8508" y1="-1.8" x2="-1.8508" y2="-1.8" width="0.1524" layer="21"/>
-<wire x1="-1.8508" y1="-1.8" x2="-2.1" y2="-1.5508" width="0.1524" layer="21"/>
-<wire x1="-2.1" y1="-1.5508" x2="-2.1" y2="1.5508" width="0.1524" layer="21"/>
-<wire x1="-2.1" y1="1.5" x2="-1.8" y2="1.8" width="0.0006" layer="57"/>
-<wire x1="-1.8" y1="1.8" x2="1.8" y2="1.8" width="0.0006" layer="57"/>
-<wire x1="1.8" y1="1.8" x2="2.1" y2="1.5" width="0.0006" layer="57"/>
-<wire x1="2.1" y1="1.5" x2="2.1" y2="-1.5" width="0.0006" layer="57"/>
-<wire x1="2.1" y1="-1.5" x2="1.8" y2="-1.8" width="0.0006" layer="57"/>
-<wire x1="1.8" y1="-1.8" x2="-1.8" y2="-1.8" width="0.0006" layer="57"/>
-<wire x1="-1.8" y1="-1.8" x2="-2.1" y2="-1.5" width="0.0006" layer="57"/>
-<wire x1="-2.1" y1="-1.5" x2="-2.1" y2="1.5" width="0.0006" layer="57"/>
-<circle x="-2.3" y="-2" radius="0.1" width="0.3" layer="21"/>
-<smd name="4" x="-1.15" y="0.9" dx="1.3" dy="1.1" layer="1"/>
-<smd name="3" x="1.15" y="0.9" dx="1.3" dy="1.1" layer="1"/>
-<smd name="1" x="-1.15" y="-0.9" dx="1.3" dy="1.1" layer="1"/>
-<smd name="2" x="1.15" y="-0.9" dx="1.3" dy="1.1" layer="1"/>
-<text x="0" y="2.15" size="0.5" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
-<wire x1="-1.2" y1="1.25" x2="1.2" y2="1.25" width="0.1" layer="51"/>
-<wire x1="1.6" y1="0.85" x2="1.6" y2="-0.85" width="0.1" layer="51"/>
-<wire x1="1.2" y1="-1.25" x2="-1.2" y2="-1.25" width="0.1" layer="51"/>
-<wire x1="-1.6" y1="-0.85" x2="-1.6" y2="0.85" width="0.1" layer="51"/>
-<wire x1="-1.6" y1="0.85" x2="-1.2" y2="1.25" width="0.1" layer="51"/>
-<wire x1="1.2" y1="1.25" x2="1.6" y2="0.85" width="0.1" layer="51"/>
-<wire x1="-1.6" y1="-0.85" x2="-1.2" y2="-1.25" width="0.1" layer="51"/>
-<wire x1="1.2" y1="-1.25" x2="1.6" y2="-0.85" width="0.1" layer="51"/>
+<package name="SOD123">
+<description>&lt;b&gt;SMALL OUTLINE DIODE&lt;/b&gt;</description>
+<wire x1="-2.973" y1="0.983" x2="2.973" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="2.973" y1="-0.983" x2="-2.973" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-2.973" y1="-0.983" x2="-2.973" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="2.973" y1="0.983" x2="2.973" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-1.3" y1="0.8" x2="-0.6" y2="0.8" width="0.1524" layer="21"/>
+<wire x1="-0.6" y1="0.8" x2="1.3" y2="0.8" width="0.1524" layer="21"/>
+<wire x1="-1.3" y1="-0.8" x2="-0.6" y2="-0.8" width="0.1524" layer="21"/>
+<wire x1="-0.6" y1="-0.8" x2="1.3" y2="-0.8" width="0.1524" layer="21"/>
+<wire x1="-0.6" y1="0.8" x2="-0.6" y2="-0.8" width="0.1524" layer="21"/>
+<wire x1="-1.3" y1="0.8" x2="-1.3" y2="0.6762" width="0.1524" layer="21"/>
+<wire x1="-1.3" y1="-0.8" x2="-1.3" y2="-0.6762" width="0.1524" layer="21"/>
+<wire x1="1.3" y1="-0.8" x2="1.3" y2="-0.6762" width="0.1524" layer="21"/>
+<wire x1="1.3" y1="0.8" x2="1.3" y2="0.6762" width="0.1524" layer="21"/>
+<rectangle x1="-1.9558" y1="-0.3048" x2="-1.3716" y2="0.3048" layer="51"/>
+<rectangle x1="1.3716" y1="-0.3048" x2="1.9558" y2="0.3048" layer="51"/>
+<smd name="A" x="1.7" y="0" dx="1.6" dy="0.8" layer="1"/>
+<smd name="C" x="-1.7" y="0" dx="1.6" dy="0.8" layer="1"/>
+<text x="0" y="0" size="0.6" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
 </package>
-</packages>
-</library>
-<library name="masterlib">
-<packages>
 <package name="SOT223">
 <description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;</description>
 <wire x1="3.277" y1="1.778" x2="3.277" y2="-1.778" width="0.2032" layer="21"/>
 <wire x1="3.277" y1="-1.778" x2="-3.277" y2="-1.778" width="0.2032" layer="21"/>
 <wire x1="-3.277" y1="-1.778" x2="-3.277" y2="1.778" width="0.2032" layer="21"/>
 <wire x1="-3.277" y1="1.778" x2="3.277" y2="1.778" width="0.2032" layer="21"/>
+<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
+<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
+<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
+<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
+<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
+<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
+<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
+<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
 <smd name="1" x="-2.311" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
 <smd name="2" x="0" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
 <smd name="3" x="2.311" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
 <smd name="4" x="0" y="3.099" dx="3.6" dy="2.2" layer="1"/>
 <text x="0" y="0" size="1.27" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
-<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
-<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
-<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
-<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
-<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
-<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
+</package>
+<package name="GW1584">
+<wire x1="-11.049" y1="-8.382" x2="11.049" y2="-8.382" width="0.1" layer="21"/>
+<wire x1="11.049" y1="-8.382" x2="11.049" y2="8.382" width="0.1" layer="21"/>
+<wire x1="11.049" y1="8.382" x2="-11.049" y2="8.382" width="0.1" layer="21"/>
+<wire x1="-11.049" y1="8.382" x2="-11.049" y2="-8.382" width="0.1" layer="21"/>
+<pad name="IN+@1" x="9.271" y="6.604" drill="1" diameter="1.8"/>
+<pad name="IN+@2" x="9.271" y="4.064" drill="1" diameter="1.8"/>
+<pad name="IN-@1" x="9.271" y="-6.604" drill="1" diameter="1.8"/>
+<pad name="IN-@2" x="9.271" y="-4.064" drill="1" diameter="1.8"/>
+<pad name="OUT+@1" x="-9.271" y="6.604" drill="1" diameter="1.8"/>
+<pad name="OUT+@2" x="-9.271" y="4.064" drill="1" diameter="1.8"/>
+<pad name="OUT-@1" x="-9.271" y="-4.064" drill="1" diameter="1.8"/>
+<pad name="OUT-@2" x="-9.271" y="-6.604" drill="1" diameter="1.8"/>
+<text x="0" y="0" size="1.5" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
+<text x="6.6" y="5.3" size="1.5" layer="37" font="vector" ratio="15" align="center">IN+</text>
+<text x="6.6" y="-5.3" size="1.5" layer="37" font="vector" ratio="15" align="center">IN-</text>
+<text x="-5.4" y="-5.3" size="1.5" layer="37" font="vector" ratio="15" rot="R180" align="center">OUT-</text>
+<text x="-5.4" y="5.3" size="1.5" layer="37" font="vector" ratio="15" rot="R180" align="center">OUT+</text>
+</package>
+<package name="SMB">
+<wire x1="-2.2" y1="1.6" x2="0.85" y2="1.6" width="0.127" layer="21"/>
+<wire x1="0.85" y1="1.6" x2="0.95" y2="1.6" width="0.127" layer="21"/>
+<wire x1="0.95" y1="1.6" x2="2.2" y2="1.6" width="0.127" layer="21"/>
+<wire x1="2.2" y1="-1.6" x2="0.95" y2="-1.6" width="0.127" layer="21"/>
+<wire x1="0.95" y1="-1.6" x2="0.85" y2="-1.6" width="0.127" layer="21"/>
+<wire x1="0.85" y1="-1.6" x2="-2.2" y2="-1.6" width="0.127" layer="21"/>
+<wire x1="0.95" y1="-1.6" x2="0.95" y2="1.6" width="0.127" layer="21"/>
+<wire x1="0.85" y1="1.6" x2="0.85" y2="-1.6" width="0.127" layer="21"/>
+<wire x1="-2.2" y1="1.6" x2="-2.2" y2="1.2" width="0.127" layer="21"/>
+<wire x1="-2.2" y1="-1.6" x2="-2.2" y2="-1.2" width="0.127" layer="21"/>
+<wire x1="2.2" y1="-1.6" x2="2.2" y2="-1.2" width="0.127" layer="21"/>
+<wire x1="2.2" y1="1.6" x2="2.2" y2="1.2" width="0.127" layer="21"/>
+<smd name="A" x="-2.2" y="0" dx="2" dy="2" layer="1"/>
+<smd name="C" x="2.2" y="0" dx="2" dy="2" layer="1"/>
+<text x="0" y="0" size="1.27" layer="21" font="vector" ratio="15" align="center">&gt;NAME</text>
 </package>
 </packages>
 </library>
@@ -815,32 +772,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-4.15" y1="4.15" x2="-4.15" y2="-4.15" width="0.1" layer="21"/>
 <text x="0" y="0" size="1" layer="25" font="vector" ratio="15" rot="R90" align="center">&gt;NAME</text>
 <text x="0" y="4.65" size="0.5" layer="27" font="vector" ratio="15" align="center">&gt;VALUE</text>
-</package>
-</packages>
-</library>
-<library name="valenok_master_library">
-<packages>
-<package name="5-2,5">
-<description>&lt;b&gt;THROUGH-HOLE PAD&lt;/b&gt;</description>
-<wire x1="1.524" y1="2.794" x2="-1.524" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="-1.524" y1="-2.794" x2="-1.524" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="-1.524" y1="-2.794" x2="1.524" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="1.524" y1="2.794" x2="1.524" y2="-2.794" width="0.1524" layer="21"/>
-<smd name="1" x="0" y="0" dx="2.5" dy="5" layer="1"/>
-<text x="-1.75" y="-2.75" size="0.6" layer="21" font="vector" ratio="15" rot="R90">&gt;NAME</text>
-</package>
-<package name="PAD-2.5-1.8">
-<wire x1="-0.9" y1="1.5" x2="0" y2="1.5" width="0.2" layer="21"/>
-<wire x1="0" y1="1.5" x2="0.95" y2="1.5" width="0.2" layer="21"/>
-<wire x1="0.95" y1="1.5" x2="1.15" y2="1.3" width="0.2" layer="21" curve="-90"/>
-<wire x1="1.15" y1="1.3" x2="1.15" y2="-1.3" width="0.2" layer="21"/>
-<wire x1="1.15" y1="-1.3" x2="0.95" y2="-1.5" width="0.2" layer="21" curve="-90"/>
-<wire x1="0.95" y1="-1.5" x2="-0.95" y2="-1.5" width="0.2" layer="21"/>
-<wire x1="-0.95" y1="-1.5" x2="-1.15" y2="-1.3" width="0.2" layer="21" curve="-90"/>
-<wire x1="-1.15" y1="-1.3" x2="-1.15" y2="1.3" width="0.2" layer="21"/>
-<wire x1="-1.15" y1="1.3" x2="-0.95" y2="1.5" width="0.2" layer="21" curve="-90"/>
-<wire x1="-0.95" y1="1.5" x2="-0.9" y2="1.5" width="0.2" layer="21"/>
-<smd name="P$1" x="0" y="0" dx="1.8" dy="2.5" layer="1"/>
 </package>
 </packages>
 </library>
@@ -884,19 +815,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.2032" layer="21"/>
 <wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
 <wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 <pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
 <text x="0" y="2.032" size="1.27" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
 </package>
 <package name="1X07-PTH-2">
-<pad name="4" x="0" y="0" drill="0.8" diameter="1.5"/>
-<pad name="3" x="-2" y="0" drill="0.8" diameter="1.5"/>
-<pad name="2" x="-4" y="0" drill="0.8" diameter="1.5"/>
-<pad name="1" x="-6" y="0" drill="0.8" diameter="1.5"/>
-<pad name="5" x="2" y="0" drill="0.8" diameter="1.5"/>
-<pad name="6" x="4" y="0" drill="0.8" diameter="1.5"/>
-<pad name="7" x="6" y="0" drill="0.8" diameter="1.5"/>
 <wire x1="-6.5" y1="1" x2="-5.5" y2="1" width="0.15" layer="21"/>
 <wire x1="-5.5" y1="1" x2="-5" y2="0.5" width="0.15" layer="21"/>
 <wire x1="-5" y1="0.5" x2="-4.5" y2="1" width="0.15" layer="21"/>
@@ -941,6 +865,13 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-7" y1="-0.5" x2="-7" y2="0.5" width="0.15" layer="21"/>
 <wire x1="-7" y1="0.5" x2="-6.5" y2="1" width="0.15" layer="21"/>
 <wire x1="6.5" y1="-1" x2="7" y2="-0.5" width="0.15" layer="21"/>
+<pad name="1" x="-6" y="0" drill="0.8" diameter="1.5"/>
+<pad name="2" x="-4" y="0" drill="0.8" diameter="1.5"/>
+<pad name="3" x="-2" y="0" drill="0.8" diameter="1.5"/>
+<pad name="4" x="0" y="0" drill="0.8" diameter="1.5"/>
+<pad name="5" x="2" y="0" drill="0.8" diameter="1.5"/>
+<pad name="6" x="4" y="0" drill="0.8" diameter="1.5"/>
+<pad name="7" x="6" y="0" drill="0.8" diameter="1.5"/>
 <text x="0" y="1.6" size="1" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
 </package>
 </packages>
@@ -950,27 +881,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <package name="CONNECTION">
 <smd name="P$1" x="-0.5" y="0" dx="1" dy="1" layer="1" rot="R90" stop="no" thermals="no" cream="no"/>
 <smd name="P$2" x="0.5" y="0" dx="1" dy="1" layer="1" rot="R90" stop="no" thermals="no" cream="no"/>
-</package>
-</packages>
-</library>
-<library name="ExitControl_v2_master_library">
-<packages>
-<package name="SMB">
-<smd name="A" x="-2.2" y="0" dx="2" dy="2" layer="1"/>
-<smd name="C" x="2.2" y="0" dx="2" dy="2" layer="1"/>
-<wire x1="-2.2" y1="1.6" x2="0.85" y2="1.6" width="0.127" layer="21"/>
-<wire x1="0.95" y1="1.6" x2="2.2" y2="1.6" width="0.127" layer="21"/>
-<text x="0" y="0" size="1.27" layer="21" font="vector" ratio="15" align="center">&gt;NAME</text>
-<wire x1="0.95" y1="-1.6" x2="0.85" y2="-1.6" width="0.127" layer="21"/>
-<wire x1="0.85" y1="-1.6" x2="-2.2" y2="-1.6" width="0.127" layer="21"/>
-<wire x1="2.2" y1="-1.6" x2="0.95" y2="-1.6" width="0.127" layer="21"/>
-<wire x1="0.95" y1="-1.6" x2="0.95" y2="1.6" width="0.127" layer="21"/>
-<wire x1="0.95" y1="1.6" x2="0.85" y2="1.6" width="0.127" layer="21"/>
-<wire x1="0.85" y1="1.6" x2="0.85" y2="-1.6" width="0.127" layer="21"/>
-<wire x1="-2.2" y1="1.6" x2="-2.2" y2="1.2" width="0.127" layer="21"/>
-<wire x1="-2.2" y1="-1.6" x2="-2.2" y2="-1.2" width="0.127" layer="21"/>
-<wire x1="2.2" y1="-1.6" x2="2.2" y2="-1.2" width="0.127" layer="21"/>
-<wire x1="2.2" y1="1.6" x2="2.2" y2="1.2" width="0.127" layer="21"/>
 </package>
 </packages>
 </library>
@@ -4783,6 +4693,69 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </package>
 </packages>
 </library>
+<library name="wirepad">
+<packages>
+<package name="PAD-2.5-1.8">
+<wire x1="-0.95" y1="1.5" x2="0.95" y2="1.5" width="0.2" layer="21"/>
+<wire x1="0.95" y1="1.5" x2="1.15" y2="1.3" width="0.2" layer="21" curve="-90"/>
+<wire x1="1.15" y1="1.3" x2="1.15" y2="-1.3" width="0.2" layer="21"/>
+<wire x1="1.15" y1="-1.3" x2="0.95" y2="-1.5" width="0.2" layer="21" curve="-90"/>
+<wire x1="0.95" y1="-1.5" x2="-0.95" y2="-1.5" width="0.2" layer="21"/>
+<wire x1="-0.95" y1="-1.5" x2="-1.15" y2="-1.3" width="0.2" layer="21" curve="-90"/>
+<wire x1="-1.15" y1="-1.3" x2="-1.15" y2="1.3" width="0.2" layer="21"/>
+<wire x1="-1.15" y1="1.3" x2="-0.95" y2="1.5" width="0.2" layer="21" curve="-90"/>
+<smd name="P$1" x="0" y="0" dx="1.8" dy="2.5" layer="1"/>
+</package>
+</packages>
+</library>
+<library name="misc">
+<packages>
+<package name="PAD.05X.05">
+<circle x="0" y="0" radius="0.837" width="0.1" layer="21"/>
+<smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
+<text x="1.004" y="-0.25" size="0.5" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+</packages>
+</library>
+<library name="crystals">
+<packages>
+<package name="OSCILLATOR-3.2X2.5">
+<description>3.2x2.5 MM Chrystal Oscillator
+
+http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
+<circle x="-2.3" y="-2" radius="0.1" width="0.3" layer="21"/>
+<wire x1="-2.1" y1="1.5508" x2="-1.8508" y2="1.8" width="0.1524" layer="21"/>
+<wire x1="-1.8508" y1="1.8" x2="1.8508" y2="1.8" width="0.1524" layer="21"/>
+<wire x1="1.8508" y1="1.8" x2="2.1" y2="1.5508" width="0.1524" layer="21"/>
+<wire x1="2.1" y1="1.5508" x2="2.1" y2="-1.5508" width="0.1524" layer="21"/>
+<wire x1="2.1" y1="-1.5508" x2="1.8508" y2="-1.8" width="0.1524" layer="21"/>
+<wire x1="1.8508" y1="-1.8" x2="-1.8508" y2="-1.8" width="0.1524" layer="21"/>
+<wire x1="-1.8508" y1="-1.8" x2="-2.1" y2="-1.5508" width="0.1524" layer="21"/>
+<wire x1="-2.1" y1="-1.5508" x2="-2.1" y2="1.5508" width="0.1524" layer="21"/>
+<wire x1="-2.1" y1="1.5" x2="-1.8" y2="1.8" width="0.0006" layer="57"/>
+<wire x1="-1.8" y1="1.8" x2="1.8" y2="1.8" width="0.0006" layer="57"/>
+<wire x1="1.8" y1="1.8" x2="2.1" y2="1.5" width="0.0006" layer="57"/>
+<wire x1="2.1" y1="1.5" x2="2.1" y2="-1.5" width="0.0006" layer="57"/>
+<wire x1="2.1" y1="-1.5" x2="1.8" y2="-1.8" width="0.0006" layer="57"/>
+<wire x1="1.8" y1="-1.8" x2="-1.8" y2="-1.8" width="0.0006" layer="57"/>
+<wire x1="-1.8" y1="-1.8" x2="-2.1" y2="-1.5" width="0.0006" layer="57"/>
+<wire x1="-2.1" y1="-1.5" x2="-2.1" y2="1.5" width="0.0006" layer="57"/>
+<wire x1="-1.2" y1="1.25" x2="1.2" y2="1.25" width="0.1" layer="51"/>
+<wire x1="1.6" y1="0.85" x2="1.6" y2="-0.85" width="0.1" layer="51"/>
+<wire x1="1.2" y1="-1.25" x2="-1.2" y2="-1.25" width="0.1" layer="51"/>
+<wire x1="-1.6" y1="-0.85" x2="-1.6" y2="0.85" width="0.1" layer="51"/>
+<wire x1="-1.6" y1="0.85" x2="-1.2" y2="1.25" width="0.1" layer="51"/>
+<wire x1="1.2" y1="1.25" x2="1.6" y2="0.85" width="0.1" layer="51"/>
+<wire x1="-1.6" y1="-0.85" x2="-1.2" y2="-1.25" width="0.1" layer="51"/>
+<wire x1="1.2" y1="-1.25" x2="1.6" y2="-0.85" width="0.1" layer="51"/>
+<smd name="1" x="-1.15" y="-0.9" dx="1.3" dy="1.1" layer="1"/>
+<smd name="2" x="1.15" y="-0.9" dx="1.3" dy="1.1" layer="1"/>
+<smd name="3" x="1.15" y="0.9" dx="1.3" dy="1.1" layer="1"/>
+<smd name="4" x="-1.15" y="0.9" dx="1.3" dy="1.1" layer="1"/>
+<text x="0" y="2.15" size="0.5" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -4989,72 +4962,112 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </pass>
 </autorouter>
 <elements>
-<element name="MODULE1" library="ali_modules" package="GW1584" value="GW1584" x="-13" y="-10.5" locked="yes"/>
+<element name="MODULE1" library="pixel_masterlib" package="GW1584" value="GW1584" x="-13" y="-10.5" locked="yes"/>
 <element name="LED2" library="rc" package="LED0603" value="LED-0603" x="-4.675" y="18.725" rot="R180">
 <attribute name="DIGIKEY#" value="160-1446-1-ND" x="-1.875" y="12.525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF" value="Lite-On Inc" x="-1.875" y="12.525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="COLOR" value="GREEN" x="-1.875" y="12.525" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF#" value="LTST-C191KGKT" x="-1.875" y="12.525" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIPDIP" value="8598509892" x="-4.675" y="18.725" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2293494" x="-4.675" y="18.725" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="LTST-C191KGKT" x="-4.675" y="18.725" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R39" library="rc" package="R0603" value="1K" x="-2.125" y="18.725">
 <attribute name="PACKAGE" value="0603" x="-4.325" y="18.725" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2303145" x="-2.125" y="18.725" size="1.778" layer="27" display="off"/>
 </element>
 <element name="IC1" library="pixel_masterlib" package="LQFP32-7X7" value="STM32F030K6TX-LQFP32(7X7)" x="-1.6" y="11.3">
 <attribute name="DIGIKEY#" value="497-14046-ND" x="-33.6" y="36.925" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="STM32F030K6T6" x="-33.6" y="36.925" size="1.778" layer="27" display="off"/>
 <attribute name="MANF" value="STMicroelectronics" x="-33.6" y="36.925" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2432085" x="-1.6" y="11.3" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="STM32F030K6T6" x="-1.6" y="11.3" size="1.778" layer="27" display="off"/>
+<attribute name="CHIPDIP#" value="9000250493" x="-1.6" y="11.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C13" library="rc" package="C0603" value="100 nF" x="-6.975" y="15.55">
 <attribute name="PACKAGE" value="0603" x="-6.975" y="50.725" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="-6.975" y="15.55" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C14" library="rc" package="C0603" value="1 uF" x="-7.975" y="8.525">
 <attribute name="PACKAGE" value="0603" x="-31.075" y="40.675" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496917" x="-7.975" y="8.525" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C15" library="rc" package="C0603" value="10 nF" x="-7.975" y="9.8">
 <attribute name="PACKAGE" value="0603" x="-26.15" y="38.925" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496827" x="-7.975" y="9.8" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C16" library="rc" package="C0603" value="4.7 uF" x="3.675" y="6.075" rot="R180">
 <attribute name="PACKAGE" value="0603" x="19.075" y="-20.025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2496930" x="3.675" y="6.075" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C17" library="rc" package="C0603" value="100 nF" x="3.675" y="7.425" rot="R180">
 <attribute name="PACKAGE" value="0603" x="6.775" y="-15.65" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="3.675" y="7.425" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C19" library="rc" package="C0603" value="" x="-9.4" y="15.55">
+<element name="C19" library="rc" package="C0603" value="10 pF" x="-9.4" y="15.55">
 <attribute name="PACKAGE" value="0603" x="-44.25" y="32.55" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="1414601" x="-9.4" y="15.55" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C20" library="rc" package="C0603" value="" x="-9.825" y="9.225" rot="R270">
+<element name="C20" library="rc" package="C0603" value="10 pF" x="-9.825" y="9.225" rot="R270">
 <attribute name="PACKAGE" value="0603" x="4.15" y="46.425" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="1414601" x="-9.825" y="9.225" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="Z1" library="watchdog_master_library" package="OSCILLATOR-3.2X2.5" value="16MHz" x="-8.825" y="12.675" rot="R270">
-<attribute name="DIGIKEY#" value="1253-1182-1-ND" x="-2.775" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANF#" value="CX3225GB16000P0HPQCC" x="-2.775" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANF" value="AVX Corp/Kyocera Corp" x="-2.775" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="Y1" library="crystals" package="OSCILLATOR-3.2X2.5" value="16MHz" x="-8.825" y="12.675" rot="R270">
+<attribute name="CHIPDIP#" value="8596067027" x="-8.825" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DIGIKEY#" value="SER4069CT-ND" x="-8.825" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="1712841" x="-8.825" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANF" value="Epson" x="-8.825" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANF#" value="X1E0000210013 TSX-3225 16 MHZ 9.0PF" x="-8.825" y="12.675" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="CON1" library="pixel_masterlib" package="DS1066-08M_SIDE" value="DS1066-07M-SIDE" x="-16.7" y="12" rot="R90"/>
-<element name="CON2" library="pixel_masterlib" package="DS1066-08M_SIDE" value="DS1066-07M-SIDE" x="16.7" y="12" rot="R270"/>
+<element name="CON1" library="pixel_masterlib" package="B7B-PH-K-S_SIDE" value="B7B-PH-K-S-SIDE" x="-16.7" y="12" rot="R90">
+<attribute name="TME#" value="B7B-PH-K-S" x="-16.7" y="12" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DIGIKEY#" value="455-1709-ND" x="-16.7" y="12" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FARNELL#" value="9491864" x="-16.7" y="12" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="CHIPDIP#" value="9000325604" x="-16.7" y="12" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANF#" value="B7B-PH-K-S(LF)(SN)" x="-16.7" y="12" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="CON2" library="pixel_masterlib" package="B7B-PH-K-S_SIDE" value="B7B-PH-K-S-SIDE" x="16.7" y="12" rot="R270">
+<attribute name="TME#" value="B7B-PH-K-S" x="16.7" y="12" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DIGIKEY#" value="455-1709-ND" x="16.7" y="12" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="9491864" x="16.7" y="12" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="9000325604" x="16.7" y="12" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANF#" value="B7B-PH-K-S(LF)(SN)" x="16.7" y="12" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
 <element name="D1" library="pixel_masterlib" package="SC70_6L" value="SMF05C" x="-12.4" y="11.55">
 <attribute name="DIGIKEY#" value="SMF05CCT-ND" x="-24.725" y="-6.475" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="SMF05C.TCT" x="-24.725" y="-6.475" size="1.778" layer="27" display="off"/>
 <attribute name="MANF" value="Semtech Corporation" x="-24.725" y="-6.475" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2059033" x="-12.4" y="11.55" size="1.778" layer="27" display="off"/>
+<attribute name="CHIPDIP" value="9000048448" x="-12.4" y="11.55" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="SMF05CT1G" x="-12.4" y="11.55" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C21" library="rc" package="C0603" value="0.1uF" x="-11.95" y="1.5" rot="R180">
+<element name="C21" library="rc" package="C0603" value="100 nF" x="-11.95" y="1.5" rot="R180">
 <attribute name="PACKAGE" value="0603" x="8.75" y="24.85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="-11.95" y="1.5" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="IC3" library="pixel_masterlib" package="SOIC8" value="ST3485SOIC8" x="-9.75" y="4.7" rot="R180">
 <attribute name="DIGIKEY#" value="497-2080-1-ND" x="21.75" y="42.6" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF#" value="ST3485EBDR" x="21.75" y="42.6" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF" value="STMicroelectronics" x="21.75" y="42.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2253266" x="-9.75" y="4.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="ST3485EBDR" x="-9.75" y="4.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIPDIP#" value="9000220421" x="-9.75" y="4.7" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R5" library="rc" package="R0603" value="120R" x="-11.575" y="8.75" rot="R90">
 <attribute name="PACKAGE" value="0603" x="19.825" y="-16.7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FARNELL#" value="2303067" x="-11.575" y="8.75" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R11" library="rc" package="R0603" value="100R" x="-13.45" y="9.7" rot="R180">
 <attribute name="PACKAGE" value="0603" x="8.1" y="57.575" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2303059" x="-13.45" y="9.7" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R12" library="rc" package="R0603" value="100R" x="-13.45" y="8.25" rot="R180">
 <attribute name="PACKAGE" value="0603" x="15" y="56.125" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2303059" x="-13.45" y="8.25" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="SJ2" library="eth_conv_master_lib" package="RES_0" value="" x="-12.675" y="9.075" smashed="yes" rot="MR180"/>
+<element name="SJ2" library="eth_conv_master_lib" package="RES_0" value="" x="-12.675" y="9.075" smashed="yes" rot="MR180">
+<attribute name="BOM" value="EXCLUDE" x="-12.675" y="9.075" size="1.778" layer="28" rot="MR180" display="off"/>
+</element>
 <element name="RN1" library="pixel_masterlib" package="CAT16-J4" value="510R" x="-12.85" y="15.05" rot="R90">
 <attribute name="DIGIKEY#" value="CAT16-511J4LF-ND" x="55.925" y="-4.625" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANF#" value="CAT16-511J4LF" x="55.925" y="-4.625" size="1.778" layer="27" rot="R90" display="off"/>
@@ -5071,117 +5084,162 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="DIGIKEY#" value="MC74VHC1GT125DT1GOSDKR-ND " x="-63.7" y="25.325" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF#" value="MC74VHC1GT125" x="-63.7" y="25.325" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="ON Semiconductor" x="-63.7" y="25.325" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2101847" x="9.875" y="10.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="9000014391" x="9.875" y="10.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC7" library="pixel_masterlib" package="SOT23-5" value="MC74VHC1GT125" x="9.875" y="15.05" rot="R270">
 <attribute name="DIGIKEY#" value="MC74VHC1GT125DT1GOSDKR-ND " x="-63.7" y="36.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF#" value="MC74VHC1GT125" x="-63.7" y="36.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="ON Semiconductor" x="-63.7" y="36.225" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2101847" x="9.875" y="15.05" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="9000014391" x="9.875" y="15.05" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C23" library="rc" package="C0603" value="100 nF" x="9.875" y="12.75">
 <attribute name="PACKAGE" value="0603" x="-17.575" y="-55.9" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="9.875" y="12.75" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C24" library="rc" package="C0603" value="100 nF" x="12.725" y="15.275" rot="R90">
 <attribute name="PACKAGE" value="0603" x="84.4" y="-15.275" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="12.725" y="15.275" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="L102" library="power_inductors" package="SDR0805" value="47UH" x="20.75" y="-9.5" rot="R270">
 <attribute name="MANF#" value="SDR0805-470KL" x="20.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Bourns Inc" x="20.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="SDR0805-470KLCT-ND" x="20.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="1828030" x="20.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="8980699057" x="20.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R101" library="rc" package="R0603" value="22R" x="18.65" y="-0.35">
 <attribute name="PACKAGE" value="0603" x="18.65" y="-0.35" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2302996" x="18.65" y="-0.35" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R102" library="rc" package="R1206" value="2R" x="15.95" y="-2.2">
 <attribute name="PACKAGE" value="1206" x="15.95" y="-2.2" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2328120" x="15.95" y="-2.2" size="1.778" layer="27" display="off"/>
 </element>
-<element name="D101" library="FMU_masterlib" package="SOD123" value="CRS08-SOD123" x="16.2" y="-4.3">
-<attribute name="MANF#" value="CRS08(TE85L,Q,M)" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
-<attribute name="MANF" value="Toshiba Semiconductor and Storage" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
-<attribute name="DIGIKEY#" value="CRS08QMCT-ND" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
+<element name="D101" library="pixel_masterlib" package="SOD123" value="DIODE-SOD123" x="16.2" y="-4.3">
+<attribute name="CHIPDIP" value="MBRS1100T3G" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="9555862" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="MANF" value="ON Semiconductor" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="MANF#" value="MBRS1100T3G" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="MBRS1100T3G" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="DIGIKEY#" value="MBRS1100T3GOSCT-ND" x="16.2" y="-4.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="IC101" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="16.675" y="1.875" smashed="yes" rot="R270">
 <attribute name="MANF#" value="IRS44273LTRPBF" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Infineon Technologies" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="IRS44273LTRPBFTR-ND" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="16.675" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
+<attribute name="FARNELL#" value="2580779" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="IRS44273LTRPBF" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="9000204261" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C102" library="rc" package="C0805" value="1 uF" x="20.375" y="2.975" rot="R180">
 <attribute name="PACKAGE" value="0805" x="20.375" y="2.975" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="1735541" x="20.375" y="2.975" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R103" library="rc" package="R0603" value="22R" x="16.675" y="1.875" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="0603" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="16.675" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
 <attribute name="VALUE" x="17.675" y="1.875" size="0.5" layer="27" font="vector" ratio="15" rot="R270" align="center"/>
+<attribute name="FARNELL#" value="2302996" x="16.675" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C103" library="rc" package="C0603" value="100 nF" x="16.2" y="-0.35">
 <attribute name="PACKAGE" value="0603" x="14.325" y="-0.35" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="16.2" y="-0.35" size="1.778" layer="27" display="off"/>
 </element>
-<element name="LED_CATHODE1" library="valenok_master_library" package="5-2,5" value="WIREPADSMD5-2,5" x="22.2" y="-17" smashed="yes"/>
+<element name="LED_CATHODE1" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="22.2" y="-17" smashed="yes"/>
 <element name="C203" library="rc" package="C0603" value="100 nF" x="9.675" y="-0.4">
 <attribute name="PACKAGE" value="0603" x="-8.75" y="30.875" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="9.675" y="-0.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C202" library="rc" package="C0805" value="1 uF" x="12.925" y="2.075" rot="R90">
 <attribute name="PACKAGE" value="0805" x="-15.325" y="-25.1" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FARNELL#" value="1735541" x="12.925" y="2.075" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="D201" library="FMU_masterlib" package="SOD123" value="CRS08-SOD123" x="8.3" y="-4.3">
-<attribute name="MANF#" value="CRS08(TE85L,Q,M)" x="-3.85" y="25.3" size="1.778" layer="27" display="off"/>
-<attribute name="MANF" value="Toshiba Semiconductor and Storage" x="-3.85" y="25.3" size="1.778" layer="27" display="off"/>
-<attribute name="DIGIKEY#" value="CRS08QMCT-ND" x="-3.85" y="25.3" size="1.778" layer="27" display="off"/>
+<element name="D201" library="pixel_masterlib" package="SOD123" value="DIODE-SOD123" x="8.3" y="-4.3">
+<attribute name="CHIPDIP" value="MBRS1100T3G" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="9555862" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="MANF" value="ON Semiconductor" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="MANF#" value="MBRS1100T3G" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="MBRS1100T3G" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="DIGIKEY#" value="MBRS1100T3GOSCT-ND" x="8.3" y="-4.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="IC201" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="9.95" y="1.875" smashed="yes" rot="R270">
 <attribute name="MANF#" value="IRS44273LTRPBF" x="27.825" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Infineon Technologies" x="27.825" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="IRS44273LTRPBFTR-ND" x="27.825" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="9.95" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
+<attribute name="FARNELL#" value="2580779" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="IRS44273LTRPBF" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="9000204261" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="L202" library="power_inductors" package="SDR0805" value="47UH" x="12.25" y="-9.5" rot="R270">
 <attribute name="MANF#" value="SDR0805-470KL" x="23.525" y="15.6" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Bourns Inc" x="23.525" y="15.6" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="SDR0805-470KLCT-ND" x="23.525" y="15.6" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="1828030" x="12.25" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="8980699057" x="12.25" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R203" library="rc" package="R0603" value="22R" x="9.95" y="1.875" rot="R270">
 <attribute name="PACKAGE" value="0603" x="32.175" y="49.85" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2302996" x="9.95" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R202" library="rc" package="R1206" value="2R" x="8.05" y="-2.2">
 <attribute name="PACKAGE" value="1206" x="-36.975" y="21.025" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2328120" x="8.05" y="-2.2" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R201" library="rc" package="R0603" value="22R" x="12.125" y="-0.4">
 <attribute name="PACKAGE" value="0603" x="-38.7" y="27.175" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2302996" x="12.125" y="-0.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C303" library="rc" package="C0603" value="100 nF" x="2.4" y="-0.4">
 <attribute name="PACKAGE" value="0603" x="-16.025" y="30.9" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="2.4" y="-0.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C302" library="rc" package="C0805" value="1 uF" x="6.2" y="2.025" rot="R90">
 <attribute name="PACKAGE" value="0805" x="-22.075" y="-25.15" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FARNELL#" value="1735541" x="6.2" y="2.025" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="D301" library="FMU_masterlib" package="SOD123" value="CRS08-SOD123" x="0.45" y="-4.3">
-<attribute name="MANF#" value="CRS08(TE85L,Q,M)" x="-11.7" y="25.325" size="1.778" layer="27" display="off"/>
-<attribute name="MANF" value="Toshiba Semiconductor and Storage" x="-11.7" y="25.325" size="1.778" layer="27" display="off"/>
-<attribute name="DIGIKEY#" value="CRS08QMCT-ND" x="-11.7" y="25.325" size="1.778" layer="27" display="off"/>
+<element name="D301" library="pixel_masterlib" package="SOD123" value="DIODE-SOD123" x="0.45" y="-4.3">
+<attribute name="CHIPDIP" value="MBRS1100T3G" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="9555862" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="MANF" value="ON Semiconductor" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="MANF#" value="MBRS1100T3G" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="MBRS1100T3G" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
+<attribute name="DIGIKEY#" value="MBRS1100T3GOSCT-ND" x="0.45" y="-4.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="IC301" library="pixel_masterlib" package="SOT23-5" value="IRS44273L" x="3.2" y="1.875" smashed="yes" rot="R270">
 <attribute name="MANF#" value="IRS44273LTRPBF" x="21.1" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Infineon Technologies" x="21.1" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="IRS44273LTRPBFTR-ND" x="21.1" y="20.575" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="3.2" y="1.875" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
+<attribute name="FARNELL#" value="2580779" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TME#" value="IRS44273LTRPBF" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="9000204261" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="L302" library="power_inductors" package="SDR0805" value="47UH" x="3.75" y="-9.5" rot="R270">
 <attribute name="MANF#" value="SDR0805-470KL" x="15.05" y="15.6" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANF" value="Bourns Inc" x="15.05" y="15.6" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DIGIKEY#" value="SDR0805-470KLCT-ND" x="15.05" y="15.6" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="1828030" x="3.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="CHIPDIP#" value="8980699057" x="3.75" y="-9.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R303" library="rc" package="R0603" value="22R" x="3.2" y="1.875" rot="R270">
 <attribute name="PACKAGE" value="0603" x="25.45" y="49.85" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2302996" x="3.2" y="1.875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R302" library="rc" package="R1206" value="2R" x="0.1" y="-2.2">
 <attribute name="PACKAGE" value="1206" x="-44.925" y="21.05" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2328120" x="0.1" y="-2.2" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R301" library="rc" package="R0603" value="22R" x="4.875" y="-0.4" rot="R180">
 <attribute name="PACKAGE" value="0603" x="55.7" y="-28" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2302996" x="4.875" y="-0.4" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="LED_CATHODE2" library="valenok_master_library" package="5-2,5" value="WIREPADSMD5-2,5" x="14.8" y="-17" smashed="yes"/>
-<element name="LED_CATHODE3" library="valenok_master_library" package="5-2,5" value="WIREPADSMD5-2,5" x="7.4" y="-17" smashed="yes"/>
-<element name="LED_ANODE" library="valenok_master_library" package="5-2,5" value="WIREPADSMD5-2,5" x="0" y="-17" smashed="yes"/>
+<element name="LED_CATHODE2" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="14.8" y="-17" smashed="yes"/>
+<element name="LED_CATHODE3" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="7.4" y="-17" smashed="yes"/>
+<element name="LED_ANODE" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="0" y="-17" smashed="yes"/>
 <element name="TP101" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="12.55" y="4.65" smashed="yes" rot="MR270">
 <attribute name="BOM" value="EXCLUDE" x="12.425" y="4.65" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="PARTNO" value="*" x="12.425" y="4.65" size="1.778" layer="28" rot="MR270" display="off"/>
@@ -5218,9 +5276,30 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="BOM" value="EXCLUDE" x="0.775" y="-2.05" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="PARTNO" value="*" x="0.775" y="-2.05" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="Q101" library="pixel_masterlib" package="SOT23-3" value="" x="19.85" y="-3.1" rot="R180"/>
-<element name="Q201" library="pixel_masterlib" package="SOT23-3" value="" x="11.95" y="-3.1" rot="R180"/>
-<element name="Q301" library="pixel_masterlib" package="SOT23-3" value="" x="4" y="-3.1" rot="R180"/>
+<element name="Q101" library="pixel_masterlib" package="SOT23-3" value="" x="19.85" y="-3.1" rot="R180">
+<attribute name="CHIPDIP#" value="IRLML0040TRPBF" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DIGIKEY#" value="IRLML0040TRPBFCT-ND" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="1831088" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANF" value="Infineon Technologies " x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANF#" value="IRLML0040TRPBF" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="IRLML0040TRPBF" x="19.85" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="Q201" library="pixel_masterlib" package="SOT23-3" value="" x="11.95" y="-3.1" rot="R180">
+<attribute name="CHIPDIP#" value="IRLML0040TRPBF" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DIGIKEY#" value="IRLML0040TRPBFCT-ND" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="1831088" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANF" value="Infineon Technologies " x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANF#" value="IRLML0040TRPBF" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="IRLML0040TRPBF" x="11.95" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="Q301" library="pixel_masterlib" package="SOT23-3" value="" x="4" y="-3.1" rot="R180">
+<attribute name="CHIPDIP#" value="IRLML0040TRPBF" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DIGIKEY#" value="IRLML0040TRPBFCT-ND" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="1831088" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANF" value="Infineon Technologies " x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANF#" value="IRLML0040TRPBF" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="IRLML0040TRPBF" x="4" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="U$2" library="pixel_masterlib" package="BOARD_OUTLINE" value="" x="0" y="0"/>
 <element name="C101" library="rc" package="C1812" value="10 uF" x="18.5" y="-16.825" rot="R270">
 <attribute name="PACKAGE" value="1812" x="18.5" y="-16.825" size="1.778" layer="27" rot="R270" display="off"/>
@@ -5233,10 +5312,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </element>
 <element name="R8" library="rc" package="R0603" value="10K" x="-6.2" y="1.3" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-6.2" y="1.3" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2008341" x="-6.2" y="1.3" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="CON3" library="pinhead" package="1X02-PTH-2.54" value="PINHEAD_1X02-2.54" x="-7.475" y="-14.55" rot="R180"/>
 <element name="C26" library="rc" package="C0603" value="100 nF" x="-6.2" y="0.05" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-6.2" y="0.05" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="-6.2" y="0.05" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="U$4" library="pixel_masterlib" package="MOUNTING_HOLE_M2" value="" x="-22.8" y="0" locked="yes"/>
 <element name="U$5" library="pixel_masterlib" package="MOUNTING_HOLE_M2" value="" x="22.8" y="0" locked="yes"/>
@@ -5248,74 +5329,89 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </element>
 <element name="C18" library="rc" package="C0603" value="100 nF" x="-3.775" y="1.95" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-3.775" y="1.95" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="-3.775" y="1.95" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="IC8" library="masterlib" package="SOT223" value="LM317" x="-13" y="-11.5" rot="R180">
-<attribute name="DIGIKEY#" value="LM317MSTT3GOSTR-ND" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANF" value="ON Semiconductor" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="IC8" library="pixel_masterlib" package="SOT223" value="LM317" x="-13" y="-11.5" rot="R180">
+<attribute name="DIGIKEY#" value="296-23224-5-ND" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANF" value="Texas Instruments" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANF#" value="LM317MSTT3G" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2112605" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="LM317DCY" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIPDIP#" value="LM317DCY" x="-13" y="-11.5" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R6" library="rc" package="R0805" value="1K" x="-8.35" y="-9.25" smashed="yes" rot="R270">
-<attribute name="PACKAGE" value="0805" x="-4" y="1.1" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="-8.35" y="-9.25" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
+<element name="R6" library="rc" package="R0603" value="1K" x="-8.35" y="-9.475" rot="R270">
+<attribute name="PACKAGE" value="0603" x="-4" y="0.875" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2303145" x="-8.35" y="-9.475" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R7" library="rc" package="R0805" value="5K6" x="-8.35" y="-5.775" smashed="yes" rot="R270">
-<attribute name="PACKAGE" value="0805" x="-4" y="11.475" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="-8.35" y="-5.775" size="0.8" layer="25" font="vector" ratio="15" rot="R270" align="center"/>
+<element name="R7" library="rc" package="R0603" value="1K6" x="-8.35" y="-6.9" rot="R270">
+<attribute name="PACKAGE" value="0603" x="-4" y="10.35" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2303159" x="-8.35" y="-6.9" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R9" library="rc" package="R0603" value="10K" x="13.675" y="5.85" rot="R270">
 <attribute name="PACKAGE" value="0603" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FARNELL#" value="2008341" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R14" library="rc" package="R0603" value="10K" x="7.525" y="4.625" smashed="yes">
 <attribute name="PACKAGE" value="0603" x="7.525" y="4.625" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="7.525" y="4.625" size="0.8" layer="25" font="vector" ratio="15" align="center"/>
 <attribute name="VALUE" x="7.525" y="5.625" size="0.5" layer="27" font="vector" ratio="15" align="center"/>
+<attribute name="FARNELL#" value="2008341" x="7.525" y="4.625" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R15" library="rc" package="R0603" value="10K" x="2.7" y="4.075">
 <attribute name="PACKAGE" value="0603" x="2.7" y="4.075" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2008341" x="2.7" y="4.075" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$6" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="15.55" y="10.975" rot="MR0">
 <attribute name="BOM" value="EXCLUDE" x="17.575" y="14.325" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="SJ1" library="eth_conv_master_lib" package="RES_0" value="" x="-17.45" y="-1.025" smashed="yes"/>
-<element name="SJ3" library="eth_conv_master_lib" package="RES_0" value="" x="-15.725" y="-1.025" smashed="yes" rot="R180"/>
+<element name="SJ1" library="eth_conv_master_lib" package="RES_0" value="" x="-17.45" y="-1.025" smashed="yes">
+<attribute name="BOM" value="EXCLUDE" x="-17.45" y="-1.025" size="1.778" layer="27" display="off"/>
+</element>
+<element name="SJ3" library="eth_conv_master_lib" package="RES_0" value="" x="-15.725" y="-1.025" smashed="yes" rot="R180">
+<attribute name="BOM" value="EXCLUDE" x="-15.725" y="-1.025" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="C1" library="rc" package="C0603" value="4.7 uF" x="-14.2" y="-5.025">
 <attribute name="PACKAGE" value="0603" x="-14.075" y="-5.025" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496930" x="-14.2" y="-5.025" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C2" library="rc" package="C0603" value="4.7 uF" x="-14.2" y="-6.275">
 <attribute name="PACKAGE" value="0603" x="-14.2" y="-6.275" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496930" x="-14.2" y="-6.275" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C3" library="rc" package="C0603" value="4.7 uF" x="-11.8" y="-5.025" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-11.8" y="-5.025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2496930" x="-11.8" y="-5.025" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C4" library="rc" package="C0603" value="4.7 uF" x="-11.8" y="-6.275" rot="R180">
 <attribute name="PACKAGE" value="0603" x="-11.8" y="-6.275" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2496930" x="-11.8" y="-6.275" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C5" library="rc" package="C1812" value="" x="-20.1" y="-9.65">
+<element name="C5" library="rc" package="C1812" value="10 uF" x="-20.1" y="-9.65">
 <attribute name="PACKAGE" value="1812" x="-20.1" y="-9.65" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R1" library="rc" package="R0603" value="100R" x="0.975" y="5.5">
 <attribute name="PACKAGE" value="0603" x="0.975" y="5.5" size="1.778" layer="27" display="off"/>
-<attribute name="ASSY" value="DO NOT PLACE" x="0.975" y="5.5" size="1.778" layer="27" display="off"/>
+<attribute name="ASSY" value="DO NOT MOUNT" x="0.975" y="5.5" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R2" library="rc" package="R0603" value="100R" x="0.4" y="3.7" rot="R270">
 <attribute name="PACKAGE" value="0603" x="0.4" y="3.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="ASSY" value="DO NOT PLACE" x="0.4" y="3.7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="ASSY" value="DO NOT MOUNT" x="0.4" y="3.7" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="TP4" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="5.6" y="14.35" smashed="yes" rot="MR90">
-<attribute name="BOM" value="EXCLUDE" x="5.6" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PARTNO" value="*" x="5.6" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="TP4" library="misc" package="PAD.05X.05" value="PAD.05" x="5.075" y="14.35" smashed="yes" rot="MR90">
+<attribute name="BOM" value="EXCLUDE" x="5.075" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PARTNO" value="*" x="5.075" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="TP1" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="7.85" y="14.35" smashed="yes" rot="MR90">
-<attribute name="BOM" value="EXCLUDE" x="7.85" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PARTNO" value="*" x="7.85" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="TP1" library="misc" package="PAD.05X.05" value="PAD.05" x="7.725" y="14.35" smashed="yes" rot="MR90">
+<attribute name="BOM" value="EXCLUDE" x="7.725" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PARTNO" value="*" x="7.725" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="TP2" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="12.45" y="14.35" smashed="yes" rot="MR90">
-<attribute name="BOM" value="EXCLUDE" x="12.45" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PARTNO" value="*" x="12.45" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="TP2" library="misc" package="PAD.05X.05" value="PAD.05" x="13.025" y="14.35" smashed="yes" rot="MR90">
+<attribute name="BOM" value="EXCLUDE" x="13.025" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PARTNO" value="*" x="13.025" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="TP3" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="10.075" y="14.35" smashed="yes" rot="MR90">
-<attribute name="BOM" value="EXCLUDE" x="10.075" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PARTNO" value="*" x="10.075" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="TP3" library="misc" package="PAD.05X.05" value="PAD.05" x="10.375" y="14.35" smashed="yes" rot="MR90">
+<attribute name="BOM" value="EXCLUDE" x="10.375" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PARTNO" value="*" x="10.375" y="14.35" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
 <element name="TP104" library="pixhawk2" package="PAD.05X.05" value="PAD.05" x="20.5" y="-8.7" smashed="yes" rot="MR180">
 <attribute name="BOM" value="EXCLUDE" x="20.5" y="-8.7" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -5329,40 +5425,48 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="BOM" value="EXCLUDE" x="3.5" y="-8.7" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="PARTNO" value="*" x="3.5" y="-8.7" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="PAD1" library="valenok_master_library" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="3.82" y="18.3">
-<attribute name="BOM" value="EXCLUDE" x="3.82" y="18.3" size="1.778" layer="27" display="off"/>
+<element name="PAD1" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="2.97" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="2.97" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
-<element name="PAD2" library="valenok_master_library" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="6.36" y="18.3">
-<attribute name="BOM" value="EXCLUDE" x="6.36" y="18.3" size="1.778" layer="27" display="off"/>
+<element name="PAD2" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="5.51" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="5.51" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
-<element name="PAD4" library="valenok_master_library" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="8.9" y="18.3">
-<attribute name="BOM" value="EXCLUDE" x="8.9" y="18.3" size="1.778" layer="27" display="off"/>
+<element name="PAD4" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="8.1" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="8.1" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="CON4" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="0" y="-16" rot="MR90"/>
 <element name="CON5" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="22.2" y="-16" rot="MR90"/>
 <element name="CON6" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="14.8" y="-16" rot="MR90"/>
 <element name="CON7" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="7.4" y="-16" rot="MR90"/>
-<element name="SJ4" library="eth_conv_master_lib" package="RES_0" value="" x="-13.025" y="-2.125" rot="MR270"/>
+<element name="SJ4" library="eth_conv_master_lib" package="RES_0" value="" x="-13.025" y="-2.125" rot="MR270">
+<attribute name="BOM" value="EXCLUDE" x="-13.025" y="-2.125" size="1.778" layer="28" rot="MR270" display="off"/>
+</element>
 <element name="U$3" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="15.55" y="11.975" rot="MR0">
 <attribute name="BOM" value="EXCLUDE" x="15.55" y="11.975" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="PAD3" library="valenok_master_library" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="11.44" y="18.3">
-<attribute name="BOM" value="EXCLUDE" x="11.44" y="18.3" size="1.778" layer="27" display="off"/>
+<element name="PAD3" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="10.69" y="18.3">
+<attribute name="BOM" value="EXCLUDE" x="10.69" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="CON8" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="0" y="-19.99"/>
 <element name="CON9" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="22.2" y="-19.99"/>
 <element name="CON10" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="14.8" y="-19.99"/>
 <element name="CON11" library="pinhead" package="1X01-PTH-2.54" value="PINHEAD_1X01-2.54" x="7.4" y="-19.99"/>
 <element name="CON12" library="pinhead" package="1X02-PTH-2.54" value="PINHEAD_1X02-2.54" x="-6.35" y="-19.99" rot="R180"/>
-<element name="D5" library="ExitControl_v2_master_library" package="SMB" value="SMBJ26CA-SMB" x="-17.1" y="2.1">
-<attribute name="DIGIKEY#" value="SMBJ26CABTR-ND" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
-<attribute name="LINK" value="http://www.compel.ru/infosheet/LTL/SMBJ26CA/" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
+<element name="D5" library="pixel_masterlib" package="SMB" value="TVS_DIODE-SMB" x="-17.1" y="2.1">
+<attribute name="CHIPDIP" value="8023193826" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
+<attribute name="DIGIKEY#" value="497-15658-2-ND " x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
+<attribute name="MANF" value="STMicroelectronics" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
 <attribute name="MANF#" value="SMBJ26CA" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
-<attribute name="MANF" value="Bourns Inc" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
+<attribute name="TME#" value="SMBJ26CA" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="1749366" x="-17.1" y="2.1" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$1" library="logo" package="RTU" value="" x="5.125" y="9.25" rot="MR0"/>
 <element name="CON13" library="pinhead" package="1X07-PTH-2" value="PINHEAD_1X07-2" x="-18.44" y="12" rot="R270"/>
 <element name="CON14" library="pinhead" package="1X07-PTH-2" value="PINHEAD_1X07-2" x="18.44" y="12" rot="R90"/>
+<element name="C6" library="rc" package="C0603" value="100 nF" x="-18.825" y="-6.975">
+<attribute name="PACKAGE" value="0603" x="-18.825" y="-6.975" size="1.778" layer="27" display="off"/>
+<attribute name="FARNELL#" value="2496834" x="-18.825" y="-6.975" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -5396,8 +5500,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <vertex x="-22.5" y="-20"/>
 <vertex x="22.5" y="-20" curve="90"/>
 </polygon>
-<contactref element="Z1" pad="4"/>
-<contactref element="Z1" pad="2"/>
+<contactref element="Y1" pad="4"/>
+<contactref element="Y1" pad="2"/>
 <contactref element="C302" pad="1"/>
 <contactref element="R302" pad="P$1"/>
 <contactref element="IC301" pad="2"/>
@@ -5417,7 +5521,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="7.45" y="1.875" extent="1-16" drill="0.3"/>
 <wire x1="8.95" y1="-0.4" x2="8.225" y2="-0.4" width="0.3" layer="1"/>
 <via x="8.225" y="-0.4" extent="1-16" drill="0.3"/>
-<wire x1="20.475" y1="3" x2="20.475" y2="3" width="0" layer="19" extent="1-16"/>
 <via x="6.4" y="0.05" extent="1-16" drill="0.3"/>
 <contactref element="R7" pad="1"/>
 <contactref element="R9" pad="1"/>
@@ -5467,8 +5570,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <vertex x="-22.5" y="-20" curve="-90"/>
 </polygon>
 <via x="19.025" y="1.75" extent="1-16" drill="0.3"/>
-<via x="-9.9" y="-5.975" extent="1-16" drill="0.3"/>
-<via x="-9.825" y="-4.35" extent="1-16" drill="0.3"/>
+<via x="-9.275" y="-6.15" extent="1-16" drill="0.3"/>
+<via x="-8.375" y="-5.4" extent="1-16" drill="0.3"/>
 <contactref element="TP2" pad="P$1"/>
 <contactref element="TP104" pad="P$1"/>
 <contactref element="TP204" pad="P$1"/>
@@ -5506,9 +5609,9 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="-17.075" y="4.425" extent="1-16" drill="0.3"/>
 <via x="12.275" y="7.175" extent="1-16" drill="0.3"/>
 <via x="23.475" y="2.975" extent="1-16" drill="0.3"/>
-<via x="5.9" y="12.675" extent="1-16" drill="0.3"/>
-<via x="7.075" y="13.425" extent="1-16" drill="0.3"/>
-<via x="8.275" y="13.225" extent="1-16" drill="0.3"/>
+<via x="6" y="12.575" extent="1-16" drill="0.3"/>
+<via x="7.125" y="12.85" extent="1-16" drill="0.3"/>
+<via x="7.325" y="12.1" extent="1-16" drill="0.3"/>
 <via x="7.3" y="11.325" extent="1-16" drill="0.3"/>
 <via x="8.2" y="12.25" extent="1-16" drill="0.3"/>
 <contactref element="R2" pad="2"/>
@@ -5546,11 +5649,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="9.55" y1="9.55" x2="10.1" y2="9.55" width="0.55" layer="1"/>
 <via x="10.1" y="9.55" extent="1-16" drill="0.3"/>
 <via x="12.475" y="13" extent="1-16" drill="0.3"/>
-<via x="13.625" y="13.95" extent="1-16" drill="0.3"/>
-<wire x1="8.9" y1="18.3" x2="9.575" y2="17.625" width="0.4" layer="1"/>
-<wire x1="9.575" y1="17.625" x2="9.575" y2="14.525" width="0.4" layer="1"/>
-<wire x1="9.575" y1="14.525" x2="9.15" y2="14.1" width="0.4" layer="1"/>
-<wire x1="9.15" y1="14.1" x2="8.575" y2="14.1" width="0.4" layer="1"/>
+<via x="13.4" y="13.05" extent="1-16" drill="0.3"/>
 <via x="8.775" y="8.2" extent="1-16" drill="0.3"/>
 <via x="13.775" y="8.95" extent="1-16" drill="0.3"/>
 <polygon width="0.2" layer="1" thermals="no">
@@ -5575,10 +5674,17 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="-11.3" y="-0.075" extent="1-16" drill="0.3"/>
 <via x="-10.35" y="-0.075" extent="1-16" drill="0.3"/>
 <via x="-19.875" y="-3.575" extent="1-16" drill="0.3"/>
-<via x="-19.875" y="-6.475" extent="1-16" drill="0.3"/>
+<via x="-20.55" y="-6.9" extent="1-16" drill="0.3"/>
 <via x="-19.875" y="-4.975" extent="1-16" drill="0.3"/>
 <via x="-14.325" y="11.675" extent="1-16" drill="0.3" diameter="0.55"/>
 <via x="23.075" y="-4.325" extent="1-16" drill="0.3"/>
+<polygon width="0.2" layer="1" thermals="no">
+<vertex x="6.725" y="17.375"/>
+<vertex x="9.25" y="17.375"/>
+<vertex x="9.25" y="16.575"/>
+<vertex x="6.725" y="16.575"/>
+</polygon>
+<contactref element="C6" pad="1"/>
 </signal>
 <signal name="N$49">
 </signal>
@@ -5664,20 +5770,15 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="9.875" y1="11.4" x2="9.875" y2="10.875" width="0.4" layer="1"/>
 <wire x1="11.175" y1="11.45" x2="10.6" y2="11.45" width="0.4" layer="1"/>
 <wire x1="10.6" y1="11.45" x2="10.6" y2="12.75" width="0.4" layer="1"/>
-<wire x1="10.6" y1="12.75" x2="10.6" y2="13" width="0.4" layer="1"/>
+<wire x1="10.6" y1="12.75" x2="10.6" y2="12.9" width="0.4" layer="1"/>
 <via x="11.175" y="14.975" extent="1-16" drill="0.3"/>
-<wire x1="11.175" y1="16" x2="10.85" y2="16" width="0.4" layer="1"/>
 <wire x1="12.725" y1="16" x2="11.175" y2="16" width="0.4" layer="1"/>
-<wire x1="11.44" y1="18.3" x2="11.44" y2="16" width="0.4" layer="1"/>
-<wire x1="11.44" y1="16" x2="11.175" y2="16" width="0.4" layer="1"/>
-<wire x1="10.6" y1="13" x2="10.175" y2="13.425" width="0.4" layer="1"/>
-<wire x1="10.175" y1="13.425" x2="10.175" y2="14.975" width="0.4" layer="1"/>
-<wire x1="10.175" y1="14.975" x2="10.175" y2="15.4" width="0.4" layer="1"/>
-<wire x1="10.175" y1="15.4" x2="10.775" y2="16" width="0.4" layer="1"/>
-<wire x1="10.775" y1="16" x2="11.175" y2="16" width="0.4" layer="1"/>
-<wire x1="10.075" y1="14.35" x2="10.7" y2="14.975" width="0.4" layer="16"/>
-<wire x1="10.7" y1="14.975" x2="11.175" y2="14.975" width="0.4" layer="16"/>
-<wire x1="11.175" y1="14.975" x2="10.175" y2="14.975" width="0.4" layer="1"/>
+<wire x1="10.6" y1="12.9" x2="10.125" y2="13.375" width="0.4" layer="1"/>
+<wire x1="10.125" y1="13.375" x2="10.125" y2="14.7" width="0.4" layer="1"/>
+<wire x1="10.125" y1="14.7" x2="10.4" y2="14.975" width="0.4" layer="1"/>
+<wire x1="10.375" y1="14.35" x2="11" y2="14.975" width="0.4" layer="16"/>
+<wire x1="11" y1="14.975" x2="11.175" y2="14.975" width="0.4" layer="16"/>
+<wire x1="11.175" y1="14.975" x2="10.4" y2="14.975" width="0.4" layer="1"/>
 <wire x1="-9.225" y1="5.925" x2="-10.65" y2="4.5" width="0.4" layer="1"/>
 <contactref element="R8" pad="2"/>
 <wire x1="-10.955" y1="2.795" x2="-12.35" y2="2.795" width="0.4" layer="1"/>
@@ -5687,6 +5788,9 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-10.375" y1="0.95" x2="-10.65" y2="0.675" width="0.2" layer="1"/>
 <wire x1="-10.65" y1="0.675" x2="-12.5" y2="0.675" width="0.2" layer="1"/>
 <wire x1="-12.5" y1="0.675" x2="-12.5" y2="0.575" width="0.2" layer="1"/>
+<wire x1="11.175" y1="16" x2="11.175" y2="14.975" width="0.4" layer="1"/>
+<wire x1="11.175" y1="16" x2="11.175" y2="17.815" width="0.4" layer="1"/>
+<wire x1="11.175" y1="17.815" x2="10.69" y2="18.3" width="0.4" layer="1"/>
 </signal>
 <signal name="N$22">
 <contactref element="LED2" pad="A"/>
@@ -5696,7 +5800,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <signal name="N$4">
 <contactref element="IC1" pad="2"/>
 <contactref element="C19" pad="1"/>
-<contactref element="Z1" pad="1"/>
+<contactref element="Y1" pad="1"/>
 <wire x1="-5.85" y1="13.3" x2="-6.625" y2="13.3" width="0.2" layer="1"/>
 <wire x1="-6.625" y1="13.3" x2="-7.3" y2="12.625" width="0.2" layer="1"/>
 <wire x1="-7.3" y1="12.625" x2="-8.7" y2="12.625" width="0.2" layer="1"/>
@@ -5709,7 +5813,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <signal name="N$9">
 <contactref element="IC1" pad="3"/>
 <contactref element="C20" pad="1"/>
-<contactref element="Z1" pad="3"/>
+<contactref element="Y1" pad="3"/>
 <wire x1="-5.85" y1="12.5" x2="-6.85" y2="12.5" width="0.2" layer="1"/>
 <wire x1="-7.975" y1="11.2" x2="-7.925" y2="11.525" width="0.2" layer="1"/>
 <wire x1="-7.975" y1="11.4" x2="-7.925" y2="11.525" width="0.2" layer="1"/>
@@ -5929,16 +6033,15 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-11.3" y1="15.45" x2="-11.3" y2="12.2" width="0.2" layer="1"/>
 <wire x1="0.4" y1="15.55" x2="0.4" y2="14.325" width="0.2" layer="1"/>
 <via x="0.4" y="14.325" extent="1-16" drill="0.3"/>
-<via x="4.7" y="13.5" extent="1-16" drill="0.3"/>
-<wire x1="4.7" y1="13.5" x2="4.7" y2="12.975" width="0.2" layer="1"/>
+<via x="4.5" y="13.325" extent="1-16" drill="0.3"/>
+<wire x1="4.5" y1="13.325" x2="4.5" y2="12.775" width="0.2" layer="1"/>
 <wire x1="4.025" y1="13.325" x2="3.2" y2="14.15" width="0.2" layer="16"/>
 <wire x1="3.2" y1="14.15" x2="0.575" y2="14.15" width="0.2" layer="16"/>
 <wire x1="0.575" y1="14.15" x2="0.4" y2="14.325" width="0.2" layer="16"/>
-<wire x1="4.025" y1="13.325" x2="4.525" y2="13.325" width="0.2" layer="16"/>
-<wire x1="4.525" y1="13.325" x2="4.7" y2="13.5" width="0.2" layer="16"/>
+<wire x1="4.025" y1="13.325" x2="4.5" y2="13.325" width="0.2" layer="16"/>
 <wire x1="8.575" y1="10.5" x2="8.4" y2="10.675" width="0.2" layer="1"/>
-<wire x1="8.4" y1="10.675" x2="7" y2="10.675" width="0.2" layer="1"/>
-<wire x1="7" y1="10.675" x2="4.7" y2="12.975" width="0.2" layer="1"/>
+<wire x1="8.4" y1="10.675" x2="6.6" y2="10.675" width="0.2" layer="1"/>
+<wire x1="6.6" y1="10.675" x2="4.5" y2="12.775" width="0.2" layer="1"/>
 <wire x1="-11.3" y1="15.45" x2="-11.3" y2="16.175" width="0.2" layer="1"/>
 <wire x1="-11.3" y1="16.175" x2="-10.775" y2="16.7" width="0.2" layer="1"/>
 <wire x1="-10.775" y1="16.7" x2="-5.2" y2="16.7" width="0.2" layer="1"/>
@@ -6017,7 +6120,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="16.5" y="18.525" extent="1-16" drill="0.3"/>
 <via x="17.05" y="18.525" extent="1-16" drill="0.3"/>
 <via x="17.6" y="18.525" extent="1-16" drill="0.3"/>
-<contactref element="LED_ANODE" pad="1"/>
+<contactref element="LED_ANODE" pad="P$1"/>
 <contactref element="D101" pad="C"/>
 <contactref element="C101" pad="P$2"/>
 <contactref element="D301" pad="C"/>
@@ -6139,7 +6242,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-5.71789375" y1="-2.55710625" x2="-5.65" y2="-2.6" width="0.3" layer="1"/>
 <wire x1="-14.875" y1="-1.025" x2="-13" y2="-1.025" width="1.5" layer="1"/>
 <wire x1="-13" y1="-1.025" x2="-11.425" y2="-2.6" width="1.5" layer="1"/>
-<wire x1="-15.9" y1="6.225" x2="-14.95" y2="5.275" width="1.5" layer="1"/>
 <wire x1="-14.95" y1="5.275" x2="-14.95" y2="2.05" width="1.5" layer="1"/>
 <wire x1="-4.5" y1="-0.55" x2="-4.7" y2="-0.75" width="0.2" layer="1"/>
 <wire x1="-4.7" y1="-0.75" x2="-4.7" y2="-2.375" width="0.2" layer="1"/>
@@ -6165,22 +6267,22 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-16.6" y1="6.225" x2="-17" y2="6.225" width="1.65" layer="16"/>
 <wire x1="-18.44" y1="6" x2="-16.55" y2="6" width="1" layer="1"/>
 <wire x1="-16.55" y1="6" x2="-16.55" y2="6.15" width="1" layer="1"/>
+<wire x1="-15.9" y1="6.225" x2="-14.95" y2="5.275" width="1.5" layer="1"/>
 </signal>
 <signal name="RS485_B">
 <contactref element="CON1" pad="3"/>
 <contactref element="CON2" pad="3"/>
 <contactref element="R11" pad="2"/>
 <wire x1="-16.45" y1="10" x2="-16.45" y2="10.325" width="0.2" layer="1"/>
-<via x="14" y="14.775" extent="1-16" drill="0.3"/>
+<via x="14.7" y="14.775" extent="1-16" drill="0.3"/>
 <via x="-14.375" y="10.775" extent="1-16" drill="0.3"/>
 <wire x1="-15.275" y1="10.15" x2="-15.45" y2="10" width="0.2" layer="1"/>
 <wire x1="-15.45" y1="10" x2="-16.45" y2="10" width="0.2" layer="1"/>
 <wire x1="16.45" y1="14" x2="15.475" y2="14" width="0.3" layer="1"/>
 <wire x1="15.475" y1="14" x2="14.7" y2="14.775" width="0.3" layer="1"/>
-<wire x1="14.7" y1="14.775" x2="14" y2="14.775" width="0.3" layer="1"/>
-<wire x1="13.075" y1="15.575" x2="13.875" y2="14.775" width="0.2" layer="16"/>
-<wire x1="13.875" y1="14.775" x2="14" y2="14.775" width="0.2" layer="16"/>
-<wire x1="13.075" y1="15.575" x2="-12.175" y2="15.575" width="0.2" layer="16"/>
+<wire x1="13.15" y1="15.575" x2="13.95" y2="14.775" width="0.2" layer="16"/>
+<wire x1="13.95" y1="14.775" x2="14.7" y2="14.775" width="0.2" layer="16"/>
+<wire x1="13.15" y1="15.575" x2="-12.175" y2="15.575" width="0.2" layer="16"/>
 <contactref element="CON13" pad="5"/>
 <contactref element="CON14" pad="5"/>
 <wire x1="16.45" y1="14" x2="18.44" y2="14" width="1" layer="1"/>
@@ -6197,17 +6299,17 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="CON1" pad="2"/>
 <contactref element="CON2" pad="2"/>
 <contactref element="R12" pad="2"/>
-<via x="14" y="15.525" extent="1-16" drill="0.3"/>
+<via x="14.075" y="15.525" extent="1-16" drill="0.3"/>
 <wire x1="16.2" y1="15.75" x2="16.45" y2="16" width="0.2" layer="1"/>
 <via x="-15.275" y="8.775" extent="1-16" drill="0.3"/>
 <wire x1="-15.275" y1="8.775" x2="-15.275" y2="7.975" width="0.2" layer="1"/>
 <wire x1="-16.45" y1="8" x2="-15.8" y2="8" width="0.2" layer="1"/>
 <wire x1="-15.8" y1="8" x2="-15.275" y2="7.975" width="0.2" layer="1"/>
 <wire x1="16.2" y1="15.75" x2="16.2" y2="15.65" width="0.3" layer="1"/>
-<wire x1="16.2" y1="15.65" x2="14.125" y2="15.65" width="0.3" layer="1"/>
-<wire x1="14.125" y1="15.65" x2="14" y2="15.525" width="0.3" layer="1"/>
+<wire x1="16.2" y1="15.65" x2="14.2" y2="15.65" width="0.3" layer="1"/>
+<wire x1="14.2" y1="15.65" x2="14.075" y2="15.525" width="0.3" layer="1"/>
 <wire x1="13.35" y1="15.975" x2="13.8" y2="15.525" width="0.2" layer="16"/>
-<wire x1="13.8" y1="15.525" x2="14" y2="15.525" width="0.2" layer="16"/>
+<wire x1="13.8" y1="15.525" x2="14.075" y2="15.525" width="0.2" layer="16"/>
 <wire x1="13.35" y1="15.975" x2="-12.4" y2="15.975" width="0.2" layer="16"/>
 <contactref element="CON13" pad="6"/>
 <contactref element="CON14" pad="6"/>
@@ -6492,7 +6594,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="3.2" y1="0.975" x2="3.15" y2="0.925" width="0.3" layer="1"/>
 </signal>
 <signal name="N$10">
-<contactref element="LED_CATHODE1" pad="1"/>
+<contactref element="LED_CATHODE1" pad="P$1"/>
 <contactref element="L102" pad="2"/>
 <contactref element="C101" pad="P$1"/>
 <polygon width="0.2" layer="1" thermals="no">
@@ -6508,7 +6610,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="22.2" y1="-19.99" x2="22.2" y2="-16" width="2.5" layer="1"/>
 </signal>
 <signal name="N$21">
-<contactref element="LED_CATHODE2" pad="1"/>
+<contactref element="LED_CATHODE2" pad="P$1"/>
 <contactref element="L202" pad="2"/>
 <contactref element="C201" pad="P$1"/>
 <wire x1="12.25" y1="-12.15" x2="13.6" y2="-12.15" width="0.3" layer="1"/>
@@ -6529,7 +6631,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="14.8" y1="-19.99" x2="14.8" y2="-16" width="2.5" layer="1"/>
 </signal>
 <signal name="N$23">
-<contactref element="LED_CATHODE3" pad="1"/>
+<contactref element="LED_CATHODE3" pad="P$1"/>
 <contactref element="L302" pad="2"/>
 <contactref element="C301" pad="P$1"/>
 <polygon width="0.2" layer="1" thermals="no">
@@ -6608,24 +6710,20 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-11.75" y1="14.65" x2="-12.05" y2="14.65" width="0.2" layer="1"/>
 <wire x1="-12.125" y1="11.75" x2="-12.125" y2="14.65" width="0.2" layer="1"/>
 <wire x1="-12.125" y1="14.65" x2="-12.05" y2="14.65" width="0.2" layer="1"/>
-<via x="-0.775" y="14.325" extent="1-16" drill="0.3"/>
+<via x="-0.775" y="14.3" extent="1-16" drill="0.3"/>
 <wire x1="-1.2" y1="14.725" x2="-1.2" y2="15.55" width="0.2" layer="1"/>
-<wire x1="-0.775" y1="14.325" x2="-0.775" y2="14.3" width="0.2" layer="16"/>
 <wire x1="-0.775" y1="14.3" x2="-0.225" y2="13.75" width="0.2" layer="16"/>
-<via x="6.725" y="14.25" extent="1-16" drill="0.3"/>
-<wire x1="-1.2" y1="14.725" x2="-0.775" y2="14.325" width="0.2" layer="1"/>
-<wire x1="3.875" y1="12.9" x2="5.025" y2="12.9" width="0.2" layer="16"/>
-<wire x1="5.025" y1="12.9" x2="5.45" y2="13.325" width="0.2" layer="16"/>
-<wire x1="3.875" y1="12.9" x2="3.025" y2="13.75" width="0.2" layer="16"/>
+<via x="9.475" y="15" extent="1-16" drill="0.3"/>
+<wire x1="-1.2" y1="14.725" x2="-0.775" y2="14.3" width="0.2" layer="1"/>
+<wire x1="4.025" y1="12.75" x2="5" y2="12.75" width="0.2" layer="16"/>
+<wire x1="5" y1="12.75" x2="5.6" y2="13.325" width="0.2" layer="16"/>
+<wire x1="4.025" y1="12.75" x2="3.025" y2="13.75" width="0.2" layer="16"/>
 <wire x1="3.025" y1="13.75" x2="-0.225" y2="13.75" width="0.2" layer="16"/>
 <wire x1="-1.2" y1="16.425" x2="-1.2" y2="15.55" width="0.2" layer="1"/>
 <wire x1="8.575" y1="15.05" x2="8.4" y2="14.875" width="0.2" layer="1"/>
-<wire x1="8.4" y1="14.875" x2="7.725" y2="14.875" width="0.2" layer="1"/>
-<wire x1="7.725" y1="14.875" x2="7.1" y2="14.25" width="0.2" layer="1"/>
-<wire x1="5.45" y1="13.325" x2="6" y2="13.325" width="0.2" layer="16"/>
-<wire x1="6" y1="13.325" x2="6.725" y2="14.05" width="0.2" layer="16"/>
-<wire x1="6.725" y1="14.05" x2="6.725" y2="14.25" width="0.2" layer="16"/>
-<wire x1="7.1" y1="14.25" x2="6.725" y2="14.25" width="0.2" layer="1"/>
+<wire x1="5.6" y1="13.325" x2="8.15" y2="13.325" width="0.2" layer="16"/>
+<wire x1="8.15" y1="13.325" x2="9.475" y2="14.65" width="0.2" layer="16"/>
+<wire x1="9.475" y1="14.65" x2="9.475" y2="15" width="0.2" layer="16"/>
 <wire x1="-10.9" y1="16" x2="-10.6" y2="16.3" width="0.2" layer="1"/>
 <wire x1="-10.6" y1="16.3" x2="-5.025" y2="16.3" width="0.2" layer="1"/>
 <wire x1="-5.025" y1="16.3" x2="-4.775" y2="16.55" width="0.2" layer="1"/>
@@ -6637,6 +6735,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-10.7" y1="12.55" x2="-10.7" y2="11.75" width="0.2" layer="1"/>
 <wire x1="-10.7" y1="11.75" x2="-10.9" y2="11.55" width="0.2" layer="1"/>
 <wire x1="-10.9" y1="11.55" x2="-11.425" y2="11.55" width="0.2" layer="1"/>
+<wire x1="8.575" y1="15.05" x2="9.425" y2="15.05" width="0.2" layer="1"/>
+<wire x1="9.425" y1="15.05" x2="9.475" y2="15" width="0.2" layer="1"/>
 </signal>
 <signal name="CS_OUT">
 <contactref element="RN2" pad="4"/>
@@ -6670,9 +6770,9 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="R6" pad="1"/>
 <contactref element="R7" pad="2"/>
 <contactref element="IC8" pad="1"/>
-<wire x1="-8.35" y1="-8.25" x2="-8.35" y2="-6.775" width="0.2" layer="1"/>
-<wire x1="-8.35" y1="-8.25" x2="-10.689" y2="-8.25" width="0.2" layer="1"/>
-<wire x1="-10.689" y1="-8.25" x2="-10.689" y2="-8.401" width="0.2" layer="1"/>
+<wire x1="-8.35" y1="-8.75" x2="-10.34" y2="-8.75" width="0.3" layer="1"/>
+<wire x1="-10.34" y1="-8.75" x2="-10.689" y2="-8.401" width="0.3" layer="1"/>
+<wire x1="-8.35" y1="-8.75" x2="-8.35" y2="-7.625" width="0.3" layer="1"/>
 </signal>
 <signal name="N$1">
 <contactref element="R5" pad="1"/>
@@ -6777,39 +6877,39 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="SJ3" pad="2"/>
 <contactref element="C5" pad="P$2"/>
 <wire x1="-15.311" y1="-8.401" x2="-15.51" y2="-8.6" width="1" layer="1"/>
-<wire x1="-18.1" y1="-7.1" x2="-18.1" y2="-8.425" width="1" layer="1"/>
 <wire x1="-18.1" y1="-8.425" x2="-18.1" y2="-9.65" width="1" layer="1"/>
 <wire x1="-15.51" y1="-8.6" x2="-17.925" y2="-8.6" width="1" layer="1"/>
 <wire x1="-17.925" y1="-8.6" x2="-18.1" y2="-8.425" width="1" layer="1"/>
-<wire x1="-16.6" y1="-1.025" x2="-16.6" y2="-5.6" width="1" layer="1"/>
-<wire x1="-16.6" y1="-5.6" x2="-18.1" y2="-7.1" width="1" layer="1"/>
+<wire x1="-16.6" y1="-1.025" x2="-16.6" y2="-5.075" width="1" layer="1"/>
+<wire x1="-16.6" y1="-5.075" x2="-18.1" y2="-6.575" width="1" layer="1"/>
 <wire x1="-16.6" y1="-1.025" x2="-16.575" y2="-1.025" width="0.4064" layer="1"/>
+<contactref element="C6" pad="2"/>
+<wire x1="-18.1" y1="-6.575" x2="-18.1" y2="-6.975" width="1" layer="1"/>
+<wire x1="-18.1" y1="-8.425" x2="-18.1" y2="-6.975" width="1" layer="1"/>
 </signal>
 <signal name="SWCLK">
 <contactref element="IC1" pad="24"/>
 <contactref element="TP4" pad="P$1"/>
 <via x="3.875" y="14.35" extent="1-16" drill="0.3"/>
-<wire x1="3.875" y1="14.35" x2="5.6" y2="14.35" width="0.2" layer="16"/>
+<wire x1="3.875" y1="14.35" x2="5.075" y2="14.35" width="0.2" layer="16"/>
 <contactref element="PAD1" pad="P$1"/>
 <wire x1="2.65" y1="14.1" x2="3.625" y2="14.1" width="0.2" layer="1"/>
 <wire x1="3.625" y1="14.1" x2="3.875" y2="14.35" width="0.2" layer="1"/>
-<wire x1="3.875" y1="14.35" x2="3.875" y2="18.245" width="0.2" layer="1"/>
-<wire x1="3.875" y1="18.245" x2="3.82" y2="18.3" width="0.2" layer="1"/>
+<wire x1="3.875" y1="14.35" x2="3.875" y2="17.395" width="0.2" layer="1"/>
+<wire x1="3.875" y1="17.395" x2="2.97" y2="18.3" width="0.2" layer="1"/>
 </signal>
 <signal name="SWIO">
 <contactref element="IC1" pad="23"/>
 <contactref element="TP1" pad="P$1"/>
 <wire x1="2.65" y1="13.3" x2="3.65" y2="13.3" width="0.2" layer="1"/>
-<via x="6.8" y="15" extent="1-16" drill="0.3"/>
+<via x="5.975" y="15" extent="1-16" drill="0.3"/>
 <contactref element="PAD2" pad="P$1"/>
-<wire x1="3.65" y1="13.3" x2="5.575" y2="15.225" width="0.2" layer="1"/>
-<wire x1="6.775" y1="17.885" x2="6.36" y2="18.3" width="0.2" layer="1"/>
-<wire x1="6.36" y1="18.3" x2="5.575" y2="17.515" width="0.2" layer="1"/>
-<wire x1="5.575" y1="17.515" x2="5.575" y2="15.225" width="0.2" layer="1"/>
-<wire x1="7.85" y1="14.35" x2="7.2" y2="15" width="0.2" layer="16"/>
-<wire x1="7.2" y1="15" x2="6.8" y2="15" width="0.2" layer="16"/>
-<wire x1="5.575" y1="15.225" x2="6.575" y2="15.225" width="0.2" layer="1"/>
-<wire x1="6.575" y1="15.225" x2="6.8" y2="15" width="0.2" layer="1"/>
+<wire x1="7.725" y1="14.35" x2="7.05" y2="15" width="0.2" layer="16"/>
+<wire x1="7.05" y1="15" x2="5.975" y2="15" width="0.2" layer="16"/>
+<wire x1="3.65" y1="13.3" x2="5.35" y2="15" width="0.2" layer="1"/>
+<wire x1="5.35" y1="15" x2="5.975" y2="15" width="0.2" layer="1"/>
+<wire x1="5.35" y1="15" x2="5.35" y2="18.14" width="0.2" layer="1"/>
+<wire x1="5.35" y1="18.14" x2="5.51" y2="18.3" width="0.2" layer="1"/>
 </signal>
 <signal name="STAT_LED">
 <contactref element="IC1" pad="21"/>
