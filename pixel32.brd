@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.025" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
+<grid distance="0.05" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -23,17 +23,17 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="6" visible="no" active="yes"/>
@@ -59,7 +59,7 @@
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
@@ -105,9 +105,9 @@
 <layer number="130" name="bLogo" color="7" fill="1" visible="no" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
-<layer number="144" name="DrillLegend" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="145" name="DrillLegend_01-16" color="2" fill="9" visible="yes" active="yes"/>
-<layer number="146" name="DrillLegend_01-20" color="3" fill="9" visible="yes" active="yes"/>
+<layer number="144" name="DrillLegend" color="7" fill="1" visible="no" active="yes"/>
+<layer number="145" name="DrillLegend_01-16" color="2" fill="9" visible="no" active="yes"/>
+<layer number="146" name="DrillLegend_01-20" color="3" fill="9" visible="no" active="yes"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="yes"/>
@@ -6046,10 +6046,10 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="FARNELL#" value="2303159" x="-8.35" y="-6.9" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="TME#" value="RC0603FR-071K6" x="-8.35" y="-6.9" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R9" library="rc" package="R0603" value="10K" x="13.675" y="5.85" rot="R270">
-<attribute name="PACKAGE" value="0603" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="FARNELL#" value="2008341" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="TME#" value="RC0603FR-0710K" x="13.675" y="5.85" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="R9" library="rc" package="R0603" value="10K" x="9.45" y="8.025" rot="R180">
+<attribute name="PACKAGE" value="0603" x="9.45" y="8.025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="FARNELL#" value="2008341" x="9.45" y="8.025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TME#" value="RC0603FR-0710K" x="9.45" y="8.025" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R14" library="rc" package="R0603" value="10K" x="7.525" y="4.625">
 <attribute name="PACKAGE" value="0603" x="7.525" y="4.625" size="1.778" layer="27" display="off"/>
@@ -6061,8 +6061,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="FARNELL#" value="2008341" x="2.7" y="4.075" size="1.778" layer="27" display="off"/>
 <attribute name="TME#" value="RC0603FR-0710K" x="2.7" y="4.075" size="1.778" layer="27" display="off"/>
 </element>
-<element name="U$6" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="15.55" y="10.975" rot="MR0">
-<attribute name="BOM" value="EXCLUDE" x="17.575" y="14.325" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="U$6" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="14.975" y="6.5" rot="R180">
+<attribute name="BOM" value="EXCLUDE" x="17" y="3.15" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="SJ1" library="eth_conv_master_lib" package="RES_0" value="" x="-17.45" y="-1.025" smashed="yes">
 <attribute name="BOM" value="EXCLUDE" x="-17.45" y="-1.025" size="1.778" layer="27" display="off"/>
@@ -6147,8 +6147,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <element name="SJ4" library="eth_conv_master_lib" package="RES_0" value="" x="-13.025" y="-2.125" rot="MR270">
 <attribute name="BOM" value="EXCLUDE" x="-13.025" y="-2.125" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="U$3" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="15.55" y="11.975" rot="MR0">
-<attribute name="BOM" value="EXCLUDE" x="15.55" y="11.975" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="U$3" library="usb2can_master_lib" package="CONNECTION" value="CONNECTION" x="14.975" y="5.5" rot="R180">
+<attribute name="BOM" value="EXCLUDE" x="14.975" y="5.5" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="PAD3" library="wirepad" package="PAD-2.5-1.8" value="WIREPADSMD2.5-1.8" x="12.8" y="18.3">
 <attribute name="BOM" value="EXCLUDE" x="12.8" y="18.3" size="1.778" layer="27" display="off"/>
@@ -6183,6 +6183,9 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="BOM" value="EXCLUDE" x="2.6" y="18.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="DRILEGEND" library="drilegend" package="DRILEGEND" value="" x="-37.042675" y="-33.198003125"/>
+<element name="SJ5" library="eth_conv_master_lib" package="RES_0" value="" x="-6.4" y="4.35" rot="MR180">
+<attribute name="BOM" value="EXCLUDE" x="-6.4" y="4.35" size="1.778" layer="28" rot="MR180" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -6323,7 +6326,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="14.2" y="0.775" extent="1-16" drill="0.3"/>
 <via x="5.225" y="6.1" extent="1-16" drill="0.3"/>
 <via x="-16.975" y="4.425" extent="1-16" drill="0.3"/>
-<via x="12.275" y="7.175" extent="1-16" drill="0.3"/>
 <via x="23.475" y="2.975" extent="1-16" drill="0.3"/>
 <via x="6" y="12.575" extent="1-16" drill="0.3"/>
 <via x="7.3" y="11.325" extent="1-16" drill="0.3"/>
@@ -6340,8 +6342,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="0.575" y="9.35" extent="1-16" drill="0.3"/>
 <via x="-3.025" y="9.875" extent="1-16" drill="0.3"/>
 <via x="9.55" y="5.775" extent="1-16" drill="0.3"/>
-<via x="11.35" y="5.775" extent="1-16" drill="0.3"/>
-<via x="10.925" y="6.275" extent="1-16" drill="0.3"/>
 <via x="10.5" y="5.775" extent="1-16" drill="0.3"/>
 <via x="9.1" y="6.25" extent="1-16" drill="0.3"/>
 <via x="10" y="6.25" extent="1-16" drill="0.3"/>
@@ -6362,8 +6362,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="10.1" y="9.55" extent="1-16" drill="0.3"/>
 <via x="12.475" y="13" extent="1-16" drill="0.3"/>
 <via x="13.4" y="13.05" extent="1-16" drill="0.3"/>
-<via x="8.775" y="8.2" extent="1-16" drill="0.3"/>
-<via x="13.775" y="8.95" extent="1-16" drill="0.3"/>
 <contactref element="C26" pad="1"/>
 <contactref element="D5" pad="A"/>
 <via x="-17.775" y="4.425" extent="1-16" drill="0.3"/>
@@ -6376,8 +6374,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="-5.35" y="-1.125" extent="1-16" drill="0.3"/>
 <via x="-9.025" y="-1.35" extent="1-16" drill="0.3"/>
 <via x="-8.075" y="-1.35" extent="1-16" drill="0.3"/>
-<via x="-11.3" y="-0.075" extent="1-16" drill="0.3"/>
-<via x="-10.35" y="-0.075" extent="1-16" drill="0.3"/>
+<via x="-10.325" y="0.05" extent="1-16" drill="0.3"/>
+<via x="-9.45" y="0.075" extent="1-16" drill="0.3"/>
 <via x="-19.875" y="-3.575" extent="1-16" drill="0.3"/>
 <via x="-20.55" y="-6.9" extent="1-16" drill="0.3"/>
 <via x="-19.875" y="-4.975" extent="1-16" drill="0.3"/>
@@ -6400,6 +6398,21 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="-1" y="9.9" extent="1-16" drill="0.3"/>
 <via x="-0.6" y="12.975" extent="1-16" drill="0.3"/>
 <via x="1.025" y="10.75" extent="1-16" drill="0.3"/>
+<via x="14.05" y="5.125" extent="1-16" drill="0.3"/>
+<via x="14.05" y="6.225" extent="1-16" drill="0.3"/>
+<via x="14.05" y="7.325" extent="1-16" drill="0.3"/>
+<via x="14.05" y="8.425" extent="1-16" drill="0.3"/>
+<via x="13.5" y="7.875" extent="1-16" drill="0.3"/>
+<via x="13.5" y="6.775" extent="1-16" drill="0.3"/>
+<via x="13.5" y="5.675" extent="1-16" drill="0.3"/>
+<via x="12.95" y="6.225" extent="1-16" drill="0.3"/>
+<via x="12.95" y="7.325" extent="1-16" drill="0.3"/>
+<via x="12.95" y="8.425" extent="1-16" drill="0.3"/>
+<via x="17.5" y="4.475" extent="1-16" drill="0.3"/>
+<via x="16.7" y="4.475" extent="1-16" drill="0.3"/>
+<via x="15.85" y="4.475" extent="1-16" drill="0.3"/>
+<via x="14.85" y="4.475" extent="1-16" drill="0.3"/>
+<via x="-4.325" y="-8.6" extent="1-16" drill="0.3"/>
 </signal>
 <signal name="N$49">
 </signal>
@@ -6433,12 +6446,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <polygon width="0.2" layer="1" thermals="no">
 <vertex x="-13.35" y="3"/>
 <vertex x="-13.35" y="0.35"/>
-<vertex x="-12.325" y="0.35"/>
-<vertex x="-12.325" y="2.6"/>
+<vertex x="-11.825" y="0.35"/>
+<vertex x="-11.825" y="2.6"/>
 <vertex x="-11.275" y="2.6"/>
 <vertex x="-11.275" y="3"/>
 </polygon>
-<via x="-13.05" y="0.575" extent="1-16" drill="0.3"/>
+<via x="-13.175" y="0.575" extent="1-16" drill="0.3"/>
 <wire x1="-5.85" y1="14.1" x2="-6.25" y2="14.125" width="0.4" layer="1"/>
 <wire x1="-6.25" y1="14.125" x2="-6.25" y2="15.55" width="0.4" layer="1"/>
 <wire x1="-2.7" y1="8.5" x2="-4.1" y2="9.9" width="0.4" layer="1"/>
@@ -6447,7 +6460,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="9.875" y="11.4" extent="1-16" drill="0.3"/>
 <contactref element="TP3" pad="P$1"/>
 <wire x1="-7.25" y1="9.85" x2="-7.25" y2="9.8" width="0.4" layer="1"/>
-<via x="-12.5" y="0.575" extent="1-16" drill="0.3"/>
+<via x="-12.625" y="0.575" extent="1-16" drill="0.3"/>
 <wire x1="-4.1" y1="9.9" x2="-4.1" y2="10.9" width="0.4" layer="1"/>
 <wire x1="-4.1" y1="10.9" x2="-4.1" y2="13.1" width="0.4" layer="1"/>
 <wire x1="-5.85" y1="10.9" x2="-4.1" y2="10.9" width="0.4" layer="1"/>
@@ -6455,9 +6468,9 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-5.1" y1="14.1" x2="-5.85" y2="14.1" width="0.4" layer="1"/>
 <contactref element="SJ4" pad="1"/>
 <polygon width="0.2" layer="16" thermals="no">
-<vertex x="-12.325" y="0.8"/>
-<vertex x="-12.325" y="-1.825"/>
-<vertex x="-13.675" y="-1.825"/>
+<vertex x="-11.875" y="0.8"/>
+<vertex x="-11.875" y="-1.925"/>
+<vertex x="-13.675" y="-1.925"/>
 <vertex x="-13.675" y="0.8"/>
 </polygon>
 <wire x1="-6.575" y1="10.9" x2="-7.25" y2="10.225" width="0.4" layer="1"/>
@@ -6466,8 +6479,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="2.95" y1="6.075" x2="2.275" y2="6.075" width="0.2" layer="1"/>
 <wire x1="2.275" y1="6.075" x2="1.7" y2="5.5" width="0.2" layer="1"/>
 <wire x1="-10.65" y1="3.1" x2="-10.65" y2="4.5" width="0.4" layer="1"/>
-<wire x1="-9.225" y1="5.925" x2="-9.225" y2="6.85" width="0.4" layer="1"/>
-<wire x1="-9.225" y1="6.85" x2="-8.575" y2="7.5" width="0.4" layer="1"/>
+<wire x1="-9.65" y1="6.425" x2="-8.575" y2="7.5" width="0.4" layer="1"/>
 <wire x1="-8.575" y1="7.5" x2="-7.7" y2="7.5" width="0.4" layer="1"/>
 <wire x1="-7.7" y1="7.5" x2="-7.25" y2="7.95" width="0.4" layer="1"/>
 <wire x1="-7.25" y1="7.95" x2="-7.25" y2="8.525" width="0.4" layer="1"/>
@@ -6494,18 +6506,20 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="10.375" y1="14.35" x2="11" y2="14.975" width="0.4" layer="16"/>
 <wire x1="11" y1="14.975" x2="11.175" y2="14.975" width="0.4" layer="16"/>
 <wire x1="11.175" y1="14.975" x2="10.45" y2="14.975" width="0.4" layer="1"/>
-<wire x1="-9.225" y1="5.925" x2="-10.65" y2="4.5" width="0.4" layer="1"/>
 <contactref element="R8" pad="2"/>
 <wire x1="-10.955" y1="2.795" x2="-12.35" y2="2.795" width="0.4" layer="1"/>
 <wire x1="-10.65" y1="3.1" x2="-10.955" y2="2.795" width="0.4" layer="1"/>
 <wire x1="-6.925" y1="1.3" x2="-6.925" y2="0.95" width="0.2" layer="1"/>
 <wire x1="-6.925" y1="0.95" x2="-10.375" y2="0.95" width="0.2" layer="1"/>
 <wire x1="-10.375" y1="0.95" x2="-10.65" y2="0.675" width="0.2" layer="1"/>
-<wire x1="-10.65" y1="0.675" x2="-12.5" y2="0.675" width="0.2" layer="1"/>
-<wire x1="-12.5" y1="0.675" x2="-12.5" y2="0.575" width="0.2" layer="1"/>
 <wire x1="11.175" y1="16" x2="11.175" y2="14.975" width="0.4" layer="1"/>
 <wire x1="12.725" y1="16" x2="12.725" y2="18.225" width="0.4" layer="1"/>
 <wire x1="12.725" y1="18.225" x2="12.8" y2="18.3" width="0.4" layer="1"/>
+<wire x1="-9.65" y1="6.425" x2="-9.65" y2="5.5" width="0.4" layer="1"/>
+<wire x1="-9.65" y1="5.5" x2="-10.65" y2="4.5" width="0.4" layer="1"/>
+<via x="-12.075" y="0.575" extent="1-16" drill="0.3"/>
+<wire x1="-10.65" y1="0.675" x2="-12.075" y2="0.675" width="0.2" layer="1"/>
+<wire x1="-12.075" y1="0.675" x2="-12.075" y2="0.575" width="0.2" layer="1"/>
 </signal>
 <signal name="N$22">
 <contactref element="LED2" pad="A"/>
@@ -6550,18 +6564,31 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="IC1" pad="8"/>
 <contactref element="IC3" pad="4"/>
 <wire x1="-5.85" y1="8.5" x2="-6.15" y2="8.5" width="0.2" layer="1"/>
-<wire x1="-6.15" y1="8.5" x2="-6.15" y2="6.8" width="0.2" layer="1"/>
-<wire x1="-6.15" y1="6.8" x2="-6.345" y2="6.605" width="0.2" layer="1"/>
 <wire x1="-6.345" y1="6.605" x2="-7.15" y2="6.605" width="0.2" layer="1"/>
+<contactref element="SJ5" pad="1"/>
+<wire x1="-7.15" y1="6.605" x2="-7.97" y2="6.605" width="0.2" layer="1"/>
+<wire x1="-7.97" y1="6.605" x2="-8.8" y2="5.775" width="0.2" layer="1"/>
+<wire x1="-8.8" y1="5.775" x2="-8.8" y2="5.325" width="0.2" layer="1"/>
+<via x="-8.8" y="5.325" extent="1-16" drill="0.3"/>
+<wire x1="-8.8" y1="5.325" x2="-8.475" y2="5" width="0.2" layer="16"/>
+<wire x1="-8.475" y1="5" x2="-7.9" y2="5" width="0.2" layer="16"/>
+<wire x1="-7.9" y1="5" x2="-7.9" y2="4.35" width="0.2" layer="16"/>
+<wire x1="-7.9" y1="4.35" x2="-7.25" y2="4.35" width="0.2" layer="16"/>
+<wire x1="-6.345" y1="6.605" x2="-5.85" y2="7.1" width="0.2" layer="1"/>
+<wire x1="-5.85" y1="7.1" x2="-5.85" y2="8.5" width="0.2" layer="1"/>
 </signal>
 <signal name="RX">
 <contactref element="IC1" pad="9"/>
 <contactref element="IC3" pad="1"/>
-<wire x1="-4.4" y1="6.625" x2="-5.7" y2="5.325" width="0.2" layer="1"/>
 <wire x1="-4.4" y1="7.05" x2="-4.4" y2="6.625" width="0.2" layer="1"/>
 <wire x1="-7.15" y1="2.795" x2="-6.355" y2="2.795" width="0.2" layer="1"/>
-<wire x1="-6.355" y1="2.795" x2="-5.7" y2="3.45" width="0.2" layer="1"/>
-<wire x1="-5.7" y1="3.45" x2="-5.7" y2="5.325" width="0.2" layer="1"/>
+<wire x1="-6.355" y1="2.795" x2="-5.55" y2="3.6" width="0.2" layer="1"/>
+<contactref element="SJ5" pad="2"/>
+<wire x1="-4.4" y1="6.625" x2="-5.55" y2="5.475" width="0.2" layer="1"/>
+<wire x1="-5.55" y1="5.475" x2="-5.55" y2="4.7" width="0.2" layer="1"/>
+<via x="-5.55" y="4.7" extent="1-16" drill="0.3"/>
+<wire x1="-5.55" y1="3.6" x2="-5.55" y2="4.7" width="0.2" layer="1"/>
+<wire x1="-5.55" y1="4.35" x2="-5.55" y2="4.7" width="0.2" layer="16"/>
 </signal>
 <signal name="LED1_CURRENT">
 <contactref element="TP103" pad="P$1"/>
@@ -6644,9 +6671,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </signal>
 <signal name="TEMP">
 <contactref element="IC1" pad="10"/>
-<wire x1="-5.05" y1="4.85" x2="-3.6" y2="6.3" width="0.2" layer="1"/>
-<wire x1="-3.6" y1="7.05" x2="-3.6" y2="6.3" width="0.2" layer="1"/>
-<wire x1="-5.05" y1="4.85" x2="-5.05" y2="3.05" width="0.2" layer="1"/>
+<wire x1="-3.6" y1="7.05" x2="-3.6" y2="6.175" width="0.2" layer="1"/>
 <contactref element="R8" pad="1"/>
 <contactref element="CON12" pad="2"/>
 <contactref element="C26" pad="2"/>
@@ -6657,8 +6682,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="-7.15" y="-1.35" extent="1-16" drill="0.3"/>
 <wire x1="-6.925" y1="0.05" x2="-6.925" y2="-1.125" width="0.2" layer="1"/>
 <wire x1="-6.925" y1="-1.125" x2="-7.15" y2="-1.35" width="0.2" layer="1"/>
-<wire x1="-5.05" y1="3.05" x2="-5.475" y2="2.625" width="0.2" layer="1"/>
-<wire x1="-5.475" y1="2.625" x2="-5.475" y2="1.3" width="0.2" layer="1"/>
 <wire x1="-5.475" y1="1.3" x2="-5.475" y2="0.95" width="0.2" layer="1"/>
 <wire x1="-5.475" y1="0.95" x2="-5.925" y2="0.95" width="0.2" layer="1"/>
 <wire x1="-6.475" y1="0.4" x2="-6.925" y2="0.4" width="0.2" layer="1"/>
@@ -6670,6 +6693,11 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-8.745" y1="-14.55" x2="-7.5" y2="-13.305" width="0.2" layer="1"/>
 <wire x1="-7.5" y1="-13.305" x2="-7.5" y2="-4.925" width="0.2" layer="1"/>
 <wire x1="-7.5" y1="-4.925" x2="-7.15" y2="-4.575" width="0.2" layer="1"/>
+<wire x1="-5.475" y1="1.3" x2="-5.275" y2="1.5" width="0.2" layer="1"/>
+<wire x1="-5.275" y1="1.5" x2="-5.275" y2="2.6" width="0.2" layer="1"/>
+<wire x1="-5.275" y1="2.6" x2="-4.7" y2="3.175" width="0.2" layer="1"/>
+<wire x1="-4.7" y1="3.175" x2="-4.7" y2="5.075" width="0.2" layer="1"/>
+<wire x1="-4.7" y1="5.075" x2="-3.6" y2="6.175" width="0.2" layer="1"/>
 </signal>
 <signal name="LED1_PWM">
 <contactref element="TP101" pad="P$1"/>
@@ -6682,18 +6710,23 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="IC1" pad="20"/>
 <wire x1="2.65" y1="10.9" x2="5.05" y2="10.9" width="0.3" layer="1"/>
 <wire x1="15.375" y1="2.825" x2="15.1" y2="2.825" width="0.3" layer="1"/>
-<wire x1="5.05" y1="10.9" x2="8.925" y2="7" width="0.3" layer="1"/>
-<via x="12.575" y="5.85" extent="1-16" drill="0.3"/>
-<wire x1="12.575" y1="5.85" x2="12.55" y2="4.65" width="0.3" layer="16"/>
-<wire x1="8.925" y1="7" x2="11.425" y2="7" width="0.3" layer="1"/>
-<wire x1="11.425" y1="7" x2="12.575" y2="5.85" width="0.3" layer="1"/>
-<wire x1="13.675" y1="5.125" x2="13.325" y2="5.1" width="0.3" layer="1"/>
-<wire x1="13.325" y1="5.1" x2="12.575" y2="5.85" width="0.3" layer="1"/>
-<wire x1="15.1" y1="2.825" x2="14.925" y2="3" width="0.3" layer="1"/>
-<wire x1="14.925" y1="3" x2="14.925" y2="4.5" width="0.3" layer="1"/>
-<wire x1="14.925" y1="4.5" x2="14.45" y2="4.975" width="0.3" layer="1"/>
-<wire x1="14.45" y1="4.975" x2="13.675" y2="4.975" width="0.3" layer="1"/>
-<wire x1="13.675" y1="4.975" x2="13.675" y2="5.125" width="0.3" layer="1"/>
+<via x="11.5" y="5.15" extent="1-16" drill="0.3"/>
+<wire x1="10.375" y1="7" x2="11.525" y2="5.85" width="0.3" layer="1"/>
+<wire x1="15.1" y1="2.825" x2="13.775" y2="4.15" width="0.3" layer="1"/>
+<wire x1="10.375" y1="7" x2="9.5" y2="7" width="0.3" layer="1"/>
+<wire x1="9.5" y1="7" x2="8.725" y2="7.775" width="0.3" layer="1"/>
+<wire x1="8.725" y1="7.775" x2="8.725" y2="8.025" width="0.3" layer="1"/>
+<wire x1="5.05" y1="10.9" x2="7.65" y2="8.3" width="0.3" layer="1"/>
+<wire x1="7.65" y1="8.3" x2="8.725" y2="8.3" width="0.3" layer="1"/>
+<wire x1="8.725" y1="8.3" x2="8.725" y2="8.025" width="0.3" layer="1"/>
+<wire x1="13.775" y1="4.15" x2="12.5" y2="4.15" width="0.3" layer="1"/>
+<wire x1="12.5" y1="4.15" x2="11.5" y2="5.15" width="0.3" layer="1"/>
+<wire x1="11.525" y1="5.85" x2="11.525" y2="5.175" width="0.3" layer="1"/>
+<wire x1="11.525" y1="5.175" x2="11.5" y2="5.15" width="0.3" layer="1"/>
+<wire x1="12.55" y1="4.65" x2="12.25" y2="4.65" width="0.3" layer="16"/>
+<wire x1="11.95" y1="5.15" x2="11.5" y2="5.15" width="0.3" layer="16"/>
+<wire x1="11.95" y1="5.15" x2="12.45" y2="4.65" width="0.3" layer="16"/>
+<wire x1="12.45" y1="4.65" x2="12.55" y2="4.65" width="0.3" layer="16"/>
 </signal>
 <signal name="LED2_PWM">
 <contactref element="IC1" pad="19"/>
@@ -6772,12 +6805,11 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-7.15" y1="4.065" x2="-7.15" y2="5.335" width="0.2" layer="1"/>
 <wire x1="-5.85" y1="9.3" x2="-5.1" y2="9.3" width="0.2" layer="1"/>
 <wire x1="-5.1" y1="9.3" x2="-4.95" y2="9.15" width="0.2" layer="1"/>
-<wire x1="-4.95" y1="9.15" x2="-4.95" y2="7.65" width="0.2" layer="1"/>
-<wire x1="-4.95" y1="7.65" x2="-4.95" y2="7.425" width="0.2" layer="1"/>
 <wire x1="-6.19" y1="5.335" x2="-7.15" y2="5.335" width="0.2" layer="1"/>
 <wire x1="-6.19" y1="5.51" x2="-6.19" y2="5.335" width="0.2" layer="1"/>
-<wire x1="-6.19" y1="5.51" x2="-4.95" y2="6.75" width="0.2" layer="1"/>
-<wire x1="-4.95" y1="6.75" x2="-4.95" y2="7.425" width="0.2" layer="1"/>
+<wire x1="-6.14" y1="5.51" x2="-6.19" y2="5.51" width="0.2" layer="1"/>
+<wire x1="-4.95" y1="9.15" x2="-4.95" y2="6.7" width="0.2" layer="1"/>
+<wire x1="-4.95" y1="6.7" x2="-6.14" y2="5.51" width="0.2" layer="1"/>
 </signal>
 <signal name="VDD_24V">
 <contactref element="CON1" pad="1"/>
@@ -7434,7 +7466,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-10.9" y1="16" x2="-10.6" y2="16.3" width="0.2" layer="1"/>
 <wire x1="-10.6" y1="16.3" x2="-5.025" y2="16.3" width="0.2" layer="1"/>
 <wire x1="-5.025" y1="16.3" x2="-4.775" y2="16.55" width="0.2" layer="1"/>
-<wire x1="-4.775" y1="16.55" x2="-1.525" y2="16.55" width="0.2" layer="1"/>
+<wire x1="-4.775" y1="16.55" x2="-1.45" y2="16.55" width="0.2" layer="1"/>
 <wire x1="-11.925" y1="11.55" x2="-12.125" y2="11.75" width="0.2" layer="1"/>
 <wire x1="-10.9" y1="16" x2="-10.9" y2="12.75" width="0.2" layer="1"/>
 <wire x1="-10.9" y1="12.75" x2="-10.7" y2="12.55" width="0.2" layer="1"/>
@@ -7443,12 +7475,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-10.9" y1="11.55" x2="-11.425" y2="11.55" width="0.2" layer="1"/>
 <wire x1="8.575" y1="15.05" x2="7.35" y2="15.05" width="0.2" layer="1"/>
 <wire x1="7.35" y1="15.05" x2="6.425" y2="14.15" width="0.2" layer="1"/>
-<wire x1="-1.525" y1="16.55" x2="-1.2" y2="16.225" width="0.2" layer="1"/>
-<wire x1="-1.2" y1="16.225" x2="-1.2" y2="15.55" width="0.2" layer="1"/>
+<wire x1="-1.2" y1="16.3" x2="-1.2" y2="15.55" width="0.2" layer="1"/>
 <wire x1="5.025" y1="12.75" x2="6.425" y2="14.15" width="0.2" layer="16"/>
 <contactref element="RN1" pad="1"/>
 <wire x1="-12.125" y1="11.75" x2="-12.125" y2="13.775" width="0.2" layer="1"/>
 <wire x1="-12.125" y1="13.775" x2="-12.05" y2="13.85" width="0.2" layer="1"/>
+<wire x1="-1.45" y1="16.55" x2="-1.2" y2="16.3" width="0.2" layer="1"/>
 </signal>
 <signal name="CS_OUT">
 <contactref element="RN2" pad="4"/>
@@ -7468,8 +7500,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="C18" pad="2"/>
 <contactref element="IC1" pad="11"/>
 <wire x1="-2.8" y1="7.05" x2="-2.8" y2="6.25" width="0.2" layer="1"/>
-<wire x1="-2.8" y1="6.25" x2="-4.5" y2="4.55" width="0.2" layer="1"/>
-<wire x1="-4.5" y1="4.55" x2="-4.5" y2="1.95" width="0.2" layer="1"/>
 <wire x1="-4.5" y1="1.95" x2="-4.5" y2="0.7" width="0.2" layer="1"/>
 <wire x1="-4.675" y1="0.525" x2="-4.5" y2="0.7" width="0.2" layer="1"/>
 <wire x1="-3.05" y1="-0.55" x2="-3.05" y2="-0.2" width="0.2" layer="1"/>
@@ -7477,6 +7507,10 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-3.475" y1="-0.2" x2="-4.025" y2="0.35" width="0.2" layer="1"/>
 <wire x1="-4.025" y1="0.35" x2="-4.5" y2="0.35" width="0.2" layer="1"/>
 <wire x1="-4.5" y1="0.35" x2="-4.5" y2="0.7" width="0.2" layer="1"/>
+<wire x1="-2.8" y1="6.25" x2="-4.2" y2="4.85" width="0.2" layer="1"/>
+<wire x1="-4.2" y1="4.85" x2="-4.2" y2="2.4" width="0.2" layer="1"/>
+<wire x1="-4.2" y1="2.4" x2="-4.5" y2="2.1" width="0.2" layer="1"/>
+<wire x1="-4.5" y1="2.1" x2="-4.5" y2="1.95" width="0.2" layer="1"/>
 </signal>
 <signal name="N$20">
 <contactref element="R6" pad="1"/>
@@ -7521,10 +7555,10 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <via x="-14.725" y="17.65" extent="1-16" drill="0.3"/>
 <via x="-15.275" y="17.65" extent="1-16" drill="0.3"/>
 <polygon width="0.2" layer="1" thermals="no">
-<vertex x="15.05" y="6.75"/>
+<vertex x="15.175" y="6.75"/>
 <vertex x="18.4" y="6.75"/>
 <vertex x="18.4" y="5.25"/>
-<vertex x="15.05" y="5.25"/>
+<vertex x="15.175" y="5.25"/>
 </polygon>
 <via x="15.225" y="6" extent="1-16" drill="0.3"/>
 <via x="16.325" y="5.45" extent="1-16" drill="0.3"/>
@@ -7566,9 +7600,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="16.375" y1="15.075" x2="16.375" y2="15" width="1.65" layer="16"/>
 <wire x1="16.375" y1="15" x2="16.375" y2="6.075" width="1.65" layer="16"/>
 <wire x1="16.375" y1="6.075" x2="16.45" y2="6" width="1.65" layer="16"/>
-<wire x1="16.05" y1="10.975" x2="16.05" y2="11.975" width="0.3" layer="16"/>
 <wire x1="16.05" y1="14.675" x2="16.375" y2="15" width="0.3" layer="16"/>
-<wire x1="16.05" y1="14.675" x2="16.05" y2="11.975" width="0.3" layer="16"/>
 <wire x1="-18.44" y1="18" x2="-15.1" y2="18" width="1" layer="1"/>
 <wire x1="-15.1" y1="18" x2="-15.1" y2="17.7" width="1" layer="1"/>
 <wire x1="-11.975" y1="18.15" x2="-11.975" y2="18.375" width="0.2" layer="1"/>

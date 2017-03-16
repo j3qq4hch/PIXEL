@@ -3776,6 +3776,9 @@ Maybe should split it in 2 resistors</text>
 <part name="PAD5" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8">
 <attribute name="BOM" value="EXCLUDE"/>
 </part>
+<part name="SJ5" library="eth_conv_master_lib" deviceset="SOLDER_JOINT" device="">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -3797,6 +3800,7 @@ Maybe should split it in 2 resistors</text>
 <text x="20.32" y="236.22" size="1.778" layer="97">Crystal load capacitance is 9 pF,
 otherwise recalculate C19 and C20</text>
 <text x="309.88" y="251.46" size="1.778" layer="97" rot="R180">No 510 Ohm resistor arrays are available on Farnell nor TME</text>
+<text x="38.1" y="162.56" size="1.778" layer="97">SJ5 is for educational purposes only. DO NOT SHORT IT</text>
 </plain>
 <moduleinsts>
 <moduleinst name="LED_DRIVER1" module="LED_DRIVER" x="68.58" y="119.38" offset="100" smashed="yes">
@@ -4032,8 +4036,8 @@ otherwise recalculate C19 and C20</text>
 <instance part="PAD3" gate="G$1" x="129.54" y="228.6">
 <attribute name="BOM" x="129.54" y="228.6" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="CON8" gate="G$1" x="101.6" y="104.14" rot="R90"/>
-<instance part="CON9" gate="G$1" x="109.22" y="104.14" rot="R90"/>
+<instance part="CON8" gate="G$1" x="101.6" y="101.6" rot="R90"/>
+<instance part="CON9" gate="G$1" x="109.22" y="101.6" rot="R90"/>
 <instance part="CON10" gate="G$1" x="116.84" y="45.72" rot="R90"/>
 <instance part="CON11" gate="G$1" x="124.46" y="45.72" rot="R90"/>
 <instance part="CON12" gate="G$1" x="365.76" y="58.42" rot="MR0"/>
@@ -4058,6 +4062,9 @@ otherwise recalculate C19 and C20</text>
 <instance part="GND15" gate="1" x="78.74" y="248.92" rot="MR180"/>
 <instance part="PAD5" gate="G$1" x="114.3" y="238.76" rot="R180">
 <attribute name="BOM" x="114.3" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="SJ5" gate="G$1" x="60.96" y="175.26" rot="R270">
+<attribute name="BOM" x="60.96" y="175.26" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
 </instances>
 <busses>
@@ -4366,6 +4373,9 @@ otherwise recalculate C19 and C20</text>
 <wire x1="63.5" y1="198.12" x2="60.96" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="198.12" x2="60.96" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="185.42" x2="45.72" y2="185.42" width="0.1524" layer="91"/>
+<pinref part="SJ5" gate="G$1" pin="1"/>
+<wire x1="60.96" y1="185.42" x2="60.96" y2="180.34" width="0.1524" layer="91"/>
+<junction x="60.96" y="185.42"/>
 </segment>
 <segment>
 <wire x1="210.82" y1="109.22" x2="205.74" y2="109.22" width="0.1524" layer="91"/>
@@ -4379,6 +4389,11 @@ otherwise recalculate C19 and C20</text>
 <label x="45.72" y="182.88" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <wire x1="76.2" y1="185.42" x2="76.2" y2="182.88" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="182.88" x2="45.72" y2="182.88" width="0.1524" layer="91"/>
+<pinref part="SJ5" gate="G$1" pin="2"/>
+<wire x1="60.96" y1="170.18" x2="60.96" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="167.64" x2="76.2" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="167.64" x2="76.2" y2="182.88" width="0.1524" layer="91"/>
+<junction x="76.2" y="182.88"/>
 </segment>
 <segment>
 <wire x1="210.82" y1="116.84" x2="205.74" y2="116.84" width="0.1524" layer="91"/>
@@ -4582,7 +4597,7 @@ otherwise recalculate C19 and C20</text>
 <wire x1="99.06" y1="132.08" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
 <junction x="99.06" y="124.46"/>
 <pinref part="CON8" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="111.76" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="109.22" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RS485_B" class="0">
@@ -4791,7 +4806,7 @@ otherwise recalculate C19 and C20</text>
 <wire x1="106.68" y1="132.08" x2="106.68" y2="114.3" width="0.1524" layer="91"/>
 <junction x="106.68" y="114.3"/>
 <pinref part="CON9" gate="G$1" pin="1"/>
-<wire x1="106.68" y1="111.76" x2="106.68" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="109.22" x2="106.68" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$21" class="0">
