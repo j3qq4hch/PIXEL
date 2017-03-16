@@ -23,17 +23,17 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="6" visible="no" active="yes"/>
@@ -59,7 +59,7 @@
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
@@ -6002,11 +6002,6 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <contactref element="C26" pad="2"/>
 <contactref element="CON3" pad="2"/>
 <wire x1="-7.62" y1="-19.99" x2="-7.475" y2="-19.845" width="0.2" layer="1"/>
-<wire x1="-7.475" y1="-19.845" x2="-7.475" y2="-14.55" width="0.2" layer="1"/>
-<wire x1="-8.745" y1="-14.55" x2="-7.475" y2="-14.55" width="0.2" layer="1"/>
-<wire x1="-7.475" y1="-14.55" x2="-7.475" y2="-13.2" width="0.2" layer="1"/>
-<wire x1="-7.475" y1="-13.2" x2="-7.15" y2="-12.875" width="0.2" layer="1"/>
-<wire x1="-7.15" y1="-12.875" x2="-7.15" y2="-4.575" width="0.2" layer="1"/>
 <via x="-7.15" y="-4.575" extent="1-16" drill="0.3"/>
 <wire x1="-7.15" y1="-4.575" x2="-7.15" y2="-1.35" width="0.2" layer="16"/>
 <via x="-7.15" y="-1.35" extent="1-16" drill="0.3"/>
@@ -6019,6 +6014,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-6.475" y1="0.4" x2="-6.925" y2="0.4" width="0.2" layer="1"/>
 <wire x1="-6.925" y1="0.4" x2="-6.925" y2="0.05" width="0.2" layer="1"/>
 <wire x1="-6.475" y1="0.4" x2="-5.925" y2="0.95" width="0.2" layer="1"/>
+<wire x1="-7.475" y1="-4.9" x2="-7.15" y2="-4.575" width="0.2" layer="1"/>
+<wire x1="-7.475" y1="-19.845" x2="-7.475" y2="-15.82" width="0.2" layer="1"/>
+<wire x1="-7.475" y1="-15.82" x2="-8.745" y2="-14.55" width="0.2" layer="1"/>
+<wire x1="-8.745" y1="-14.55" x2="-7.5" y2="-13.305" width="0.2" layer="1"/>
+<wire x1="-7.5" y1="-13.305" x2="-7.5" y2="-4.925" width="0.2" layer="1"/>
+<wire x1="-7.5" y1="-4.925" x2="-7.15" y2="-4.575" width="0.2" layer="1"/>
 </signal>
 <signal name="LED1_PWM">
 <contactref element="TP101" pad="P$1"/>
@@ -6112,7 +6113,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-10.775" y1="16.7" x2="-5.2" y2="16.7" width="0.2" layer="1"/>
 <wire x1="-5.2" y1="16.7" x2="-4.95" y2="16.95" width="0.2" layer="1"/>
 <wire x1="-4.95" y1="16.95" x2="-0.125" y2="16.95" width="0.2" layer="1"/>
-<wire x1="-11.3" y1="12.2" x2="-11.35" y2="12.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-11.3" y1="12.2" x2="-11.425" y2="12.2" width="0.2" layer="1"/>
 </signal>
 <signal name="RE/DE">
 <contactref element="IC1" pad="7"/>
@@ -7074,24 +7075,23 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="-2.55" y1="4.975" x2="-2.4" y2="4.975" width="0.2" layer="1"/>
 <wire x1="-2.4" y1="4.975" x2="-2.4" y2="5.7" width="0.2" layer="1"/>
 <via x="-2.4" y="5.7" extent="1-16" drill="0.3"/>
-<wire x1="-2.4" y1="5.7" x2="-2.4" y2="12.25" width="0.2" layer="16"/>
-<wire x1="-2.4" y1="12.25" x2="-2.4" y2="13.2" width="0.2" layer="1"/>
+<wire x1="-2.4" y1="5.7" x2="-2.4" y2="10.75" width="0.2" layer="16"/>
+<wire x1="-2.4" y1="10.75" x2="-2.4" y2="13.2" width="0.2" layer="1"/>
 <wire x1="-2.4" y1="13.2" x2="-3.575" y2="14.375" width="0.2" layer="1"/>
 <wire x1="-3.575" y1="14.375" x2="-3.6" y2="15.55" width="0.2" layer="1"/>
-<via x="-2.4" y="12.25" extent="1-16" drill="0.3"/>
+<via x="-2.4" y="10.75" extent="1-16" drill="0.3"/>
 </signal>
 <signal name="RST">
 <contactref element="IC1" pad="4"/>
 <contactref element="PAD5" pad="P$1"/>
 <wire x1="-5.85" y1="11.7" x2="-4.8" y2="11.7" width="0.2" layer="1"/>
 <via x="-4.8" y="11.7" extent="1-16" drill="0.3"/>
-<wire x1="-4.8" y1="11.7" x2="-3.7" y2="12.8" width="0.2" layer="16"/>
-<wire x1="-3.7" y1="12.8" x2="-3.7" y2="14.325" width="0.2" layer="16"/>
-<wire x1="-3.7" y1="14.325" x2="-3.025" y2="15" width="0.2" layer="16"/>
 <wire x1="-3.025" y1="15" x2="2.7" y2="14.975" width="0.2" layer="16"/>
 <via x="2.7" y="14.975" extent="1-16" drill="0.3"/>
 <wire x1="2.7" y1="14.975" x2="2.7" y2="18.2" width="0.2" layer="1"/>
 <wire x1="2.7" y1="18.2" x2="2.6" y2="18.3" width="0.2" layer="1"/>
+<wire x1="-3.025" y1="15" x2="-4.8" y2="13.225" width="0.2" layer="16"/>
+<wire x1="-4.8" y1="13.225" x2="-4.8" y2="11.7" width="0.2" layer="16"/>
 </signal>
 </signals>
 <errors>
