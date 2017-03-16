@@ -1591,7 +1591,7 @@ package type OT</description>
 <attribute name="FARNELL#" value="2253266" constant="no"/>
 <attribute name="MANF" value="STMicroelectronics" constant="no"/>
 <attribute name="MANF#" value="ST3485EBDR" constant="no"/>
-<attribute name="TME#" value="ST3485EBDR" constant="no"/>
+<attribute name="TME#" value="ST3485EBD" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -2064,8 +2064,8 @@ This footprint includes three classes: The actual test pads, a pogo-pin footprin
 <wire x1="2.54" y1="0.635" x2="2.54" y2="-0.635" width="0.2032" layer="21"/>
 <rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="37"/>
 <rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="37"/>
-<pad name="1" x="-1.27" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="1" x="-1.27" y="0" drill="1" diameter="1.8796" rot="R90"/>
+<pad name="2" x="1.27" y="0" drill="1" diameter="1.8796" rot="R90"/>
 <text x="0" y="0" size="1" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
 </package>
 <package name="1X01-PTH-2.54">
@@ -2078,7 +2078,7 @@ This footprint includes three classes: The actual test pads, a pogo-pin footprin
 <wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
 <wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="1" x="0" y="0" drill="1" diameter="1.8796" rot="R90"/>
 <text x="0" y="2.032" size="1.27" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
 </package>
 <package name="1X07-PTH-2">
