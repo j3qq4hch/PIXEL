@@ -3779,6 +3779,10 @@ Maybe should split it in 2 resistors</text>
 <part name="SJ5" library="eth_conv_master_lib" deviceset="SOLDER_JOINT" device="">
 <attribute name="BOM" value="EXCLUDE"/>
 </part>
+<part name="U$7" library="usb2can_master_lib" deviceset="CONNECTION" device=""/>
+<part name="U$8" library="usb2can_master_lib" deviceset="CONNECTION" device=""/>
+<part name="U$9" library="usb2can_master_lib" deviceset="CONNECTION" device=""/>
+<part name="U$10" library="usb2can_master_lib" deviceset="CONNECTION" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3987,9 +3991,9 @@ otherwise recalculate C19 and C20</text>
 <attribute name="TME#" x="38.1" y="53.34" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND42" gate="1" x="38.1" y="43.18" rot="MR0"/>
-<instance part="U$6" gate="G$1" x="294.64" y="114.3" rot="MR0"/>
-<instance part="GND43" gate="G$1" x="299.72" y="109.22" rot="MR0"/>
-<instance part="GND44" gate="1" x="289.56" y="109.22" rot="MR0"/>
+<instance part="U$6" gate="G$1" x="297.18" y="93.98" rot="MR0"/>
+<instance part="GND43" gate="G$1" x="302.26" y="88.9" rot="MR0"/>
+<instance part="GND44" gate="1" x="292.1" y="88.9" rot="MR0"/>
 <instance part="GND22" gate="G$1" x="325.12" y="134.62" rot="MR0"/>
 <instance part="GND23" gate="G$1" x="325.12" y="210.82" rot="MR0"/>
 <instance part="GND1" gate="1" x="137.16" y="200.66" rot="MR0"/>
@@ -4032,7 +4036,7 @@ otherwise recalculate C19 and C20</text>
 <instance part="CON6" gate="G$1" x="111.76" y="139.7" rot="R270"/>
 <instance part="CON7" gate="G$1" x="119.38" y="139.7" rot="R270"/>
 <instance part="+P18" gate="G$1" x="109.22" y="190.5"/>
-<instance part="U$3" gate="G$1" x="294.64" y="116.84" rot="MR0"/>
+<instance part="U$3" gate="G$1" x="297.18" y="96.52" rot="MR0"/>
 <instance part="PAD3" gate="G$1" x="129.54" y="228.6">
 <attribute name="BOM" x="129.54" y="228.6" size="1.778" layer="96" display="off"/>
 </instance>
@@ -4066,6 +4070,10 @@ otherwise recalculate C19 and C20</text>
 <instance part="SJ5" gate="G$1" x="60.96" y="175.26" rot="R270">
 <attribute name="BOM" x="60.96" y="175.26" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
+<instance part="U$7" gate="G$1" x="297.18" y="99.06" rot="MR0"/>
+<instance part="U$8" gate="G$1" x="297.18" y="101.6" rot="MR0"/>
+<instance part="U$9" gate="G$1" x="297.18" y="104.14" rot="MR0"/>
+<instance part="U$10" gate="G$1" x="297.18" y="106.68" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -4288,13 +4296,29 @@ otherwise recalculate C19 and C20</text>
 </segment>
 <segment>
 <pinref part="U$6" gate="G$1" pin="P$2"/>
-<wire x1="292.1" y1="114.3" x2="289.56" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="93.98" x2="292.1" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="GND44" gate="1" pin="GND"/>
-<wire x1="289.56" y1="114.3" x2="289.56" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="114.3" x2="289.56" y2="116.84" width="0.1524" layer="91"/>
-<junction x="289.56" y="114.3"/>
+<wire x1="292.1" y1="93.98" x2="292.1" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="93.98" x2="292.1" y2="96.52" width="0.1524" layer="91"/>
+<junction x="292.1" y="93.98"/>
 <pinref part="U$3" gate="G$1" pin="P$2"/>
-<wire x1="292.1" y1="116.84" x2="289.56" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="96.52" x2="292.1" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="P$2"/>
+<wire x1="294.64" y1="104.14" x2="292.1" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="104.14" x2="292.1" y2="101.6" width="0.1524" layer="91"/>
+<junction x="292.1" y="96.52"/>
+<pinref part="U$7" gate="G$1" pin="P$2"/>
+<wire x1="292.1" y1="101.6" x2="292.1" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="99.06" x2="292.1" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="99.06" x2="292.1" y2="99.06" width="0.1524" layer="91"/>
+<junction x="292.1" y="99.06"/>
+<pinref part="U$8" gate="G$1" pin="P$2"/>
+<wire x1="294.64" y1="101.6" x2="292.1" y2="101.6" width="0.1524" layer="91"/>
+<junction x="292.1" y="101.6"/>
+<pinref part="U$10" gate="G$1" pin="P$2"/>
+<wire x1="294.64" y1="106.68" x2="292.1" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="106.68" x2="292.1" y2="104.14" width="0.1524" layer="91"/>
+<junction x="292.1" y="104.14"/>
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
@@ -4930,13 +4954,29 @@ otherwise recalculate C19 and C20</text>
 <net name="GNDD" class="0">
 <segment>
 <pinref part="GND43" gate="G$1" pin="GNDD"/>
-<wire x1="299.72" y1="111.76" x2="299.72" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="91.44" x2="302.26" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="P$1"/>
-<wire x1="299.72" y1="114.3" x2="297.18" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="93.98" x2="299.72" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="P$1"/>
-<wire x1="297.18" y1="116.84" x2="299.72" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="299.72" y1="116.84" x2="299.72" y2="114.3" width="0.1524" layer="91"/>
-<junction x="299.72" y="114.3"/>
+<wire x1="299.72" y1="96.52" x2="302.26" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="96.52" x2="302.26" y2="93.98" width="0.1524" layer="91"/>
+<junction x="302.26" y="93.98"/>
+<pinref part="U$9" gate="G$1" pin="P$1"/>
+<wire x1="299.72" y1="104.14" x2="302.26" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="104.14" x2="302.26" y2="101.6" width="0.1524" layer="91"/>
+<junction x="302.26" y="96.52"/>
+<pinref part="U$8" gate="G$1" pin="P$1"/>
+<wire x1="302.26" y1="101.6" x2="302.26" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="99.06" x2="302.26" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="101.6" x2="302.26" y2="101.6" width="0.1524" layer="91"/>
+<junction x="302.26" y="101.6"/>
+<pinref part="U$7" gate="G$1" pin="P$1"/>
+<wire x1="299.72" y1="99.06" x2="302.26" y2="99.06" width="0.1524" layer="91"/>
+<junction x="302.26" y="99.06"/>
+<pinref part="U$10" gate="G$1" pin="P$1"/>
+<wire x1="299.72" y1="106.68" x2="302.26" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="106.68" x2="302.26" y2="104.14" width="0.1524" layer="91"/>
+<junction x="302.26" y="104.14"/>
 </segment>
 <segment>
 <wire x1="358.14" y1="139.7" x2="332.74" y2="139.7" width="0.1524" layer="91"/>
