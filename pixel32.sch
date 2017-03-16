@@ -3796,7 +3796,6 @@ Maybe should split it in 2 resistors</text>
 <text x="114.3" y="172.72" size="1.778" layer="97">Do not mount</text>
 <text x="20.32" y="236.22" size="1.778" layer="97">Crystal load capacitance is 9 pF,
 otherwise recalculate C19 and C20</text>
-<text x="170.18" y="68.58" size="1.778" layer="97">R10, R13 are not defined</text>
 <text x="309.88" y="251.46" size="1.778" layer="97" rot="R180">No 510 Ohm resistor arrays are available on Farnell nor TME</text>
 </plain>
 <moduleinsts>
