@@ -1637,7 +1637,7 @@ min dev board</text>
 <attribute name="FARNELL#" value="2253266" constant="no"/>
 <attribute name="MANF" value="STMicroelectronics" constant="no"/>
 <attribute name="MANF#" value="ST3485EBDR" constant="no"/>
-<attribute name="TME#" value="ST3485EBDR" constant="no"/>
+<attribute name="TME#" value="ST3485EBD" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -2014,7 +2014,7 @@ min dev board</text>
 </device>
 </devices>
 </deviceset>
-<deviceset name="N-FET" prefix="Q" uservalue="yes">
+<deviceset name="N-FET" prefix="Q">
 <gates>
 <gate name="G$1" symbol="N-FET" x="0" y="0"/>
 </gates>

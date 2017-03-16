@@ -1530,7 +1530,7 @@ package type OT</description>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="CHIPDIP#" value="9000325604" constant="no"/>
+<attribute name="CHIPDIP#" value="9000325603" constant="no"/>
 <attribute name="DIGIKEY#" value="455-1709-ND" constant="no"/>
 <attribute name="FARNELL#" value="9491864" constant="no"/>
 <attribute name="MANF#" value="B7B-PH-K-S(LF)(SN)" constant="no"/>
@@ -1672,7 +1672,7 @@ package type OT</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="N-FET" prefix="Q" uservalue="yes">
+<deviceset name="N-FET" prefix="Q">
 <gates>
 <gate name="G$1" symbol="N-FET" x="0" y="0"/>
 </gates>
@@ -3197,8 +3197,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <attribute name="TME#" value="CRCW060322R0FKEA"/>
 </part>
 <part name="R2" library="rc" deviceset="R" device="-R1206" value="2R">
-<attribute name="FARNELL#" value="2328120"/>
-<attribute name="TME#" value="RC1206FR-072RL"/>
+<attribute name="FARNELL#" value="2502621"/>
+<attribute name="TME#" value="RC1206FR-072R"/>
 </part>
 <part name="D1" library="pixel_masterlib" deviceset="DIODE" device="-SOD123">
 <attribute name="CHIPDIP#" value="MBRS1100T3G"/>
@@ -3211,7 +3211,7 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="IC1" library="pixel_masterlib" deviceset="IRS44273L" device=""/>
 <part name="C2" library="rc" deviceset="C" device="-0805" value="1 uF">
 <attribute name="FARNELL#" value="1735541"/>
-<attribute name="TME#" value="GRM21BR71H105KA12K"/>
+<attribute name="TME#" value="GRM21BR71H105KA12L"/>
 </part>
 <part name="GND18" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND32" library="supply_symbols" deviceset="GND" device="" value="GND"/>
@@ -3483,7 +3483,7 @@ Maybe should split it in 2 resistors</text>
 </part>
 <part name="R39" library="rc" deviceset="R" device="-0603" value="1K">
 <attribute name="FARNELL#" value="2303145"/>
-<attribute name="TME#" value="RC0603FR-071KL"/>
+<attribute name="TME#" value="RC0603FR-071K"/>
 </part>
 <part name="IC1" library="pixel_masterlib" deviceset="STM32F030K6TX" device="-LQFP32(7X7)"/>
 <part name="GND2" library="supply_symbols" deviceset="GND" device="" value="GND"/>
@@ -3497,7 +3497,7 @@ Maybe should split it in 2 resistors</text>
 </part>
 <part name="C15" library="rc" deviceset="C" device="-0603" value="10 nF">
 <attribute name="FARNELL#" value="2496827"/>
-<attribute name="TME#" value="C0603C103K3RACTU"/>
+<attribute name="TME#" value="C0603C103K3RAC"/>
 </part>
 <part name="GND5" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P5" library="supply_symbols" deviceset="3.3V" device=""/>
@@ -3548,11 +3548,11 @@ Maybe should split it in 2 resistors</text>
 </part>
 <part name="R11" library="rc" deviceset="R" device="-0603" value="100R">
 <attribute name="FARNELL#" value="2303059"/>
-<attribute name="TME#" value="RC0603FR-07100RL"/>
+<attribute name="TME#" value="RC0603FR-07100R"/>
 </part>
 <part name="R12" library="rc" deviceset="R" device="-0603" value="100R">
 <attribute name="FARNELL#" value="2303059"/>
-<attribute name="TME#" value="RC0603FR-07100RL"/>
+<attribute name="TME#" value="RC0603FR-07100R"/>
 </part>
 <part name="GND26" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P9" library="supply_symbols" deviceset="3.3V" device=""/>
@@ -3607,7 +3607,7 @@ Maybe should split it in 2 resistors</text>
 </part>
 <part name="R8" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
-<attribute name="TME#" value="RC0603FR-0710KL"/>
+<attribute name="TME#" value="RC0603FR-0710K"/>
 </part>
 <part name="CON3" library="pinhead" deviceset="PINHEAD_1X02" device="-2.54"/>
 <part name="GND18" library="supply_symbols" deviceset="GND" device="" value="GND"/>
@@ -3619,11 +3619,11 @@ Maybe should split it in 2 resistors</text>
 <part name="+P16" library="supply_symbols" deviceset="24V" device=""/>
 <part name="R10" library="rc" deviceset="R" device="-0603" value="100K">
 <attribute name="FARNELL#" value="2303232"/>
-<attribute name="TME#" value="RC0603FR-07100KL"/>
+<attribute name="TME#" value="RC0603FR-07100K"/>
 </part>
 <part name="R13" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
-<attribute name="TME#" value="RC0603FR-0710KL"/>
+<attribute name="TME#" value="RC0603FR-0710K"/>
 </part>
 <part name="GND37" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="C18" library="rc" deviceset="C" device="-0603" value="100 nF">
@@ -3635,28 +3635,28 @@ Maybe should split it in 2 resistors</text>
 <part name="IC8" library="pixel_masterlib" deviceset="LM317" device=""/>
 <part name="R6" library="rc" deviceset="R" device="-0603" value="1K">
 <attribute name="FARNELL#" value="2303145"/>
-<attribute name="TME#" value="RC0603FR-071KL"/>
+<attribute name="TME#" value="RC0603FR-071K"/>
 </part>
 <part name="R7" library="rc" deviceset="R" device="-0603" value="1K6">
 <attribute name="FARNELL#" value="2303159"/>
-<attribute name="TME#" value="RC0603FR-071K6L"/>
+<attribute name="TME#" value="RC0603FR-071K6"/>
 </part>
 <part name="GND30" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND39" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND41" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R9" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
-<attribute name="TME#" value="RC0603FR-0710KL"/>
+<attribute name="TME#" value="RC0603FR-0710K"/>
 </part>
 <part name="GND27" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R14" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
-<attribute name="TME#" value="RC0603FR-0710KL"/>
+<attribute name="TME#" value="RC0603FR-0710K"/>
 </part>
 <part name="GND28" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R15" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
-<attribute name="TME#" value="RC0603FR-0710KL"/>
+<attribute name="TME#" value="RC0603FR-0710K"/>
 </part>
 <part name="GND42" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="U$6" library="usb2can_master_lib" deviceset="CONNECTION" device=""/>
@@ -3755,7 +3755,7 @@ Maybe should split it in 2 resistors</text>
 <attribute name="FARNELL#" value="1749366"/>
 <attribute name="MANF" value="STMicroelectronics"/>
 <attribute name="MANF#" value="SMBJ26CA"/>
-<attribute name="TME#" value="SMBJ26CA"/>
+<attribute name="TME#" value="SMBJ26CA-LF"/>
 </part>
 <part name="GND11" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="FRAME1" library="frames" deviceset="A3L-LOC" device=""/>
@@ -3770,7 +3770,7 @@ Maybe should split it in 2 resistors</text>
 <part name="GND14" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="R3" library="rc" deviceset="R" device="-0603" value="10K">
 <attribute name="FARNELL#" value="2008341"/>
-<attribute name="TME#" value="RC0603FR-0710KL"/>
+<attribute name="TME#" value="RC0603FR-0710K"/>
 </part>
 <part name="GND15" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="PAD5" library="wirepad" deviceset="WIREPAD" device="SMD2.5-1.8">
