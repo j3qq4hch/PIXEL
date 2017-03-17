@@ -906,7 +906,7 @@ Sourced: &lt;a href="http://www.st.com/stonline/products/literature/ds/14771/stm
 <wire x1="-7.95" y1="8.25" x2="7.95" y2="8.25" width="0.1" layer="21"/>
 <wire x1="7.95" y1="8.25" x2="7.95" y2="1.75" width="0.1" layer="21"/>
 <wire x1="7.95" y1="1.75" x2="6" y2="1.75" width="0.1" layer="21"/>
-<text x="0" y="2.2" size="0.6" layer="21" font="vector" ratio="15" align="center">PCB_EDGE</text>
+<text x="0" y="2.2" size="0.6" layer="51" font="vector" ratio="15" align="center">PCB_EDGE</text>
 <wire x1="-6" y1="1.75" x2="6" y2="1.75" width="0.01" layer="21"/>
 <smd name="5" x="2" y="-0.25" dx="3" dy="1" layer="1" rot="R90"/>
 <rectangle x1="1.75" y1="-1.25" x2="2.25" y2="1.75" layer="51"/>
