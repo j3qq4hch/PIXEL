@@ -3853,7 +3853,7 @@ Maybe should split it in 2 resistors</text>
 <wire x1="259.08" y1="149.86" x2="259.08" y2="200.66" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="259.08" y1="200.66" x2="200.66" y2="200.66" width="0.1524" layer="97" style="shortdash"/>
 <text x="203.2" y="203.2" size="2.54" layer="97">Maybe should get rid of it</text>
-<text x="114.3" y="175.26" size="1.778" layer="97">R1, R2 are for software version definition</text>
+<text x="114.3" y="175.26" size="1.778" layer="97">R1, R2 are for hardware version definition</text>
 <text x="114.3" y="172.72" size="1.778" layer="97">Do not mount</text>
 <text x="20.32" y="236.22" size="1.778" layer="97">Crystal load capacitance is 9 pF,
 otherwise recalculate C19 and C20</text>
