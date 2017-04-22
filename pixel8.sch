@@ -2080,6 +2080,68 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="led_matrix_master_lib">
+<packages>
+<package name="B2B-PH-K-S_SIDE_MOUNT">
+<wire x1="2.95" y1="0" x2="-2.95" y2="0" width="0.01" layer="51"/>
+<wire x1="-2.95" y1="0" x2="-2.95" y2="6" width="0.01" layer="51"/>
+<wire x1="2.95" y1="0" x2="2.95" y2="6" width="0.01" layer="51"/>
+<wire x1="-2.95" y1="6" x2="2.95" y2="6" width="0.01" layer="51"/>
+<rectangle x1="-1.25" y1="-3.4" x2="-0.75" y2="0" layer="51"/>
+<rectangle x1="0.75" y1="-3.4" x2="1.25" y2="0" layer="51"/>
+<text x="0" y="2" size="1.3" layer="51" font="vector" ratio="15" align="center">&gt;NAME</text>
+<smd name="1" x="-1" y="-2.15" dx="3.4" dy="1" layer="1" rot="R90"/>
+<smd name="2" x="1" y="-2.15" dx="3.4" dy="1" layer="1" rot="R90"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SPARKFUN-CONNECTORS_JST_2MM_MALE">
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="1.778" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="1.778" x2="-2.54" y2="3.302" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="3.302" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="3.302" width="0.254" layer="94"/>
+<wire x1="5.08" y1="3.302" x2="5.08" y2="1.778" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.778" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="4.064" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="4.064" y1="-2.54" x2="4.064" y2="0" width="0.254" layer="94"/>
+<wire x1="4.064" y1="0" x2="-1.524" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="0" x2="-1.524" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-1.524" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="1.778" x2="-1.778" y2="1.778" width="0.254" layer="94"/>
+<wire x1="-1.778" y1="3.302" x2="-2.54" y2="3.302" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.778" x2="4.318" y2="1.778" width="0.254" layer="94"/>
+<wire x1="4.318" y1="1.778" x2="4.318" y2="3.302" width="0.254" layer="94"/>
+<wire x1="4.318" y1="3.302" x2="5.08" y2="3.302" width="0.254" layer="94"/>
+<wire x1="2.032" y1="1.016" x2="3.048" y2="1.016" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0.508" x2="2.54" y2="1.524" width="0.254" layer="94"/>
+<wire x1="0" y1="0.508" x2="0" y2="1.524" width="0.254" layer="94"/>
+<pin name="+" x="2.54" y="-5.08" visible="off" length="middle" rot="R90"/>
+<pin name="-" x="0" y="-5.08" visible="off" length="middle" rot="R90"/>
+<text x="-2.54" y="5.842" size="1.778" layer="95">&gt;NAME</text>
+<wire x1="-1.778" y1="1.778" x2="-1.778" y2="3.302" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="B2B-PH-K-S" prefix="CON" uservalue="yes">
+<description>CONN HEADER PH TOP 2POS 2MM</description>
+<gates>
+<gate name="G$1" symbol="SPARKFUN-CONNECTORS_JST_2MM_MALE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="B2B-PH-K-S_SIDE_MOUNT">
+<connects>
+<connect gate="G$1" pin="+" pad="1"/>
+<connect gate="G$1" pin="-" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2268,6 +2330,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <part name="GND3" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P5" library="supply_symbols" deviceset="3.3V" device=""/>
 <part name="+P6" library="supply_symbols" deviceset="12V" device=""/>
+<part name="CON15" library="led_matrix_master_lib" deviceset="B2B-PH-K-S" device=""/>
+<part name="GND17" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 </parts>
 <sheets>
 <sheet>
@@ -2355,6 +2419,8 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <instance part="GND3" gate="1" x="33.02" y="86.36"/>
 <instance part="+P5" gate="G$1" x="38.1" y="91.44" rot="MR270"/>
 <instance part="+P6" gate="G$1" x="200.66" y="167.64"/>
+<instance part="CON15" gate="G$1" x="149.86" y="55.88" rot="R270"/>
+<instance part="GND17" gate="1" x="142.24" y="48.26"/>
 </instances>
 <busses>
 </busses>
@@ -2453,6 +2519,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <wire x1="45.72" y1="96.52" x2="33.02" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="33.02" y1="96.52" x2="33.02" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND17" gate="1" pin="GND"/>
+<pinref part="CON15" gate="G$1" pin="+"/>
+<wire x1="144.78" y1="53.34" x2="142.24" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="53.34" x2="142.24" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TEMP" class="0">
@@ -2928,6 +3000,12 @@ http://www.txccrystal.com/images/pdf/7m-accuracy.pdf</description>
 <pinref part="MODULE1" gate="G$1" pin="D5"/>
 <wire x1="45.72" y1="109.22" x2="43.18" y2="109.22" width="0.1524" layer="91"/>
 <label x="43.18" y="109.22" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="VDD_24V" class="0">
+<segment>
+<pinref part="CON15" gate="G$1" pin="-"/>
+<wire x1="144.78" y1="55.88" x2="137.16" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
