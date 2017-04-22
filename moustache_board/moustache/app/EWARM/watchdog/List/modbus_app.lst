@@ -1,0 +1,103 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:50
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus_app.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus_app.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\modbus_app.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\modbus_app.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus_app.c
+      1          
+      2          
+      3          #include "modbus_app.h"
+      4          #include "Freertos.h"
+      5          #include "task.h"
+      6          #include "uart_int.h"
+      7          #include "modbus.h"
+      8          
+      9          extern uart_desc_t RS485;
+     10          static u8 modbus_request[64];
+     11          static u8 modbus_response[64];
+     12          
+     13          void modbus_app(void * p)
+     14          {
+     15           uart_desc_t * uart = &RS485;
+     16           modbus_app_param_t * param  = p;
+     17           modbus_set_adr(param->adr);
+     18           uart_open(uart, NULL, 0, param->format, param->baudrate);
+     19           u16 datalen = 0;
+     20           while(1)
+     21           {
+     22            datalen = uart_read_block(uart, modbus_request, sizeof(modbus_request), 2000 / portTICK_PERIOD_MS );
+     23            if(datalen)
+     24            {
+     25              datalen = modbus_process_request(modbus_request, datalen, modbus_response, sizeof(modbus_response));
+     26              uart_send(uart, modbus_response, datalen);
+     27            }
+     28          }
+     29          
+     30          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   modbus_app
+        24   -> modbus_process_request
+        24   -> modbus_set_adr
+        24   -> uart_open
+        24   -> uart_read_block
+        24   -> uart_send
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     100  modbus_app
+      64  modbus_request
+      64  modbus_response
+
+ 
+ 128 bytes in section .bss
+ 100 bytes in section .text
+ 
+ 100 bytes of CODE memory
+ 128 bytes of DATA memory
+
+Errors: none
+Warnings: none

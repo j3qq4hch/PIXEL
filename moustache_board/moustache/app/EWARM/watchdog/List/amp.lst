@@ -1,0 +1,69 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:04:59
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\amp.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\amp.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\amp.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\amp.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\amp.c
+      1          #include "amp.h"
+      2          
+      3          
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none

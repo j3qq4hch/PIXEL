@@ -1,0 +1,93 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       31/Mar/2017  13:38:23
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\scheduler.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\scheduler.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\scheduler.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\scheduler.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\scheduler.c
+      1          #include "scheduler.h"
+      2          #include "time_service.h"
+      3          
+      4          
+      5          u8 timer_expired(timer_t* timer)
+      6          {
+      7            if( get_uptime() >= timer->start_time + timer->interval) 
+      8              {
+      9              return 1;
+     10              }
+     11            else
+     12              {
+     13              return 0;
+     14              }
+     15          }
+     16          
+     17          void timer_set(timer_t* timer, u32 interval)
+     18          {
+     19            timer->interval = interval;
+     20            timer->start_time = get_uptime();
+     21          }
+     22          
+     23          
+     24          
+     25          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   timer_expired
+         8   -> get_uptime
+      16   timer_set
+        16   -> get_uptime
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      26  timer_expired
+      16  timer_set
+
+ 
+ 42 bytes in section .text
+ 
+ 42 bytes of CODE memory
+
+Errors: none
+Warnings: 1

@@ -1,0 +1,319 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:05:02
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\serint\serint.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\serint\serint.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\serint.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\serint.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\serint\serint.c
+      1          #include "serint.h"
+      2          #include <string.h>
+      3          
+      4          ///////////////////////////////////////////////////////////////////////
+      5          //usart 1 hw description
+      6          const USART_hw_desc_t usart1_hw_desc = 
+      7          {
+      8            GPIO_Pin_10,           //u16 rx_pin;
+      9            GPIO_PinSource10,      
+     10            GPIOA,                //GPIO_TypeDef * rx_port
+     11            RCC_AHBPeriph_GPIOA,  //u32 rx_rcc;
+     12            GPIO_AF_1,
+     13            
+     14            GPIO_Pin_9,           //u16 tx_pin
+     15            GPIO_PinSource9,      
+     16            GPIOA,                //GPIO_TypeDef * tx_port
+     17            RCC_AHBPeriph_GPIOA,  //u32 tx_rcc;
+     18            GPIO_AF_1,
+     19            
+     20            USART1,                       //USART_TypeDef * usart
+     21            RCC_APB2Periph_USART1,        
+     22            
+     23            USART1_IRQn                   //usart_IRQn
+     24          };
+     25          
+     26          ///////////////////////////////////////////////////
+     27          
+     28          const USART_hw_desc_t usart2_hw_desc = 
+     29          {
+     30            GPIO_Pin_10,           //u16 rx_pin;
+     31            GPIO_PinSource10,      
+     32            GPIOA,                //GPIO_TypeDef * rx_port
+     33            RCC_AHBPeriph_GPIOA,  //u32 rx_rcc;
+     34            GPIO_AF_1,
+     35            
+     36            GPIO_Pin_9,           //u16 tx_pin
+     37            GPIO_PinSource9,      
+     38            GPIOA,                //GPIO_TypeDef * tx_port
+     39            RCC_AHBPeriph_GPIOA,  //u32 tx_rcc;
+     40            GPIO_AF_1,
+     41            
+     42            USART1,                       //USART_TypeDef * usart
+     43            RCC_APB2Periph_USART1,        
+     44            
+     45            USART1_IRQn                   //usart_IRQn
+     46          };
+     47          
+     48          ////////////////////////////////////////////////////////////////////////
+     49          
+     50          void usart_hw_init(const USART_hw_desc_t * d)
+     51          {
+     52          GPIO_InitTypeDef GPIO_InitStructure;
+     53          RCC_AHBPeriphClockCmd(d->rx_rcc | d->tx_rcc, ENABLE);
+     54          
+     55          GPIO_InitStructure.GPIO_Pin     = d->tx_pin;
+     56          GPIO_InitStructure.GPIO_Mode    = GPIO_Mode_AF;
+     57          GPIO_InitStructure.GPIO_Speed   = GPIO_Speed_10MHz;
+     58          GPIO_InitStructure.GPIO_OType   = GPIO_OType_PP;
+     59          GPIO_InitStructure.GPIO_PuPd    = GPIO_PuPd_UP;
+     60          GPIO_Init(d->rx_port, &GPIO_InitStructure);
+     61          
+     62          GPIO_InitStructure.GPIO_Pin = d->rx_pin;
+     63          GPIO_Init(d->rx_port, &GPIO_InitStructure);
+     64          
+     65          GPIO_PinAFConfig(d->rx_port, d->rx_af_pinsource, d->rx_af);
+     66          GPIO_PinAFConfig(d->tx_port, d->tx_af_pinsource, d->tx_af);
+     67          
+     68          if(d->usart ==  USART1) 
+     69          {
+     70          RCC_APB2PeriphClockCmd(d->usart_rcc,ENABLE);
+     71          }
+     72          else
+     73          {
+     74          RCC_APB1PeriphClockCmd(d->usart_rcc,ENABLE);
+     75          }
+     76          
+     77          NVIC_InitTypeDef NVIC_InitStructure;
+     78          NVIC_InitStructure.NVIC_IRQChannel = d->usart_IRQn;
+     79          NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+     80          NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+     81          NVIC_Init(&NVIC_InitStructure);
+     82          }
+     83          
+     84          
+     85          
+     86          void usart_sendbuf(USART_TypeDef* USARTx, const u8 *buf,u16 len)
+     87          {
+     88            while(len)
+     89            {
+     90            USARTx->TDR = *buf++;
+     91            while((USARTx->ISR & USART_FLAG_TXE) == 0){}
+     92            len--;
+     93            }
+     94            while(USARTx->ISR & USART_FLAG_TC == 0){}
+     95          }
+     96          
+     97          
+     98          
+     99          
+    100          void serint_init        (serint_desc_t* desc,
+    101          			 char* name,
+    102          			 const USART_hw_desc_t * hw_desc,
+    103          			 void(*presend_func)(const u8* data, u16 len),
+    104          			 void(*aftersend_func)(const u8* data, u16 len),
+    105          			 void(*port_open_func)(void),
+    106          			 void(*port_close_func)(void))
+    107          {	
+    108          	desc->name              = name;
+    109          	desc->hw_desc           = hw_desc;
+    110          	desc->presend_func	= presend_func;
+    111          	desc->aftersend_func    = aftersend_func;
+    112          	desc->port_open_func    = port_open_func;
+    113          	desc->port_close_func   = port_close_func;
+    114                  if(desc->hw_desc!=NULL){ usart_hw_init(desc->hw_desc);}
+    115          }
+    116          
+    117          
+    118          ErrorStatus serint_open(serint_desc_t* desc,
+    119                                  USART_InitTypeDef * settings,
+    120                                  u8* inbuf,
+    121                                  u16 buf_len)
+    122          {
+    123          if(desc->opened_flag !=0) return ERROR;
+    124          desc->opened_flag = 1;
+    125          desc->inbuf = inbuf;
+    126          desc->inbuf_len = buf_len;
+    127          desc->usart_settings = settings;
+    128          
+    129          if(desc->port_open_func!=NULL) desc->port_open_func();
+    130          if(desc->hw_desc!=NULL)
+    131          {
+    132            USART_Init(desc->hw_desc->usart, desc->usart_settings);
+    133            serint_rx_cmd(desc,ENABLE);
+    134          }
+    135          return SUCCESS;
+    136          }
+    137          
+    138          
+    139          void serint_close(serint_desc_t* desc)
+    140          {
+    141          desc->opened_flag = 0;
+    142          serint_rx_cmd(desc,DISABLE);
+    143          if(desc->port_close_func!=NULL) desc->port_close_func();
+    144          }
+    145          
+    146          
+    147          
+    148          void serint_rx_cmd(serint_desc_t* desc,FunctionalState NewState)
+    149          {
+    150            if(desc->hw_desc == NULL) return;
+    151          USART_Cmd(desc->hw_desc->usart, NewState);
+    152          USART_ITConfig(desc->hw_desc->usart, USART_IT_RXNE|USART_IT_IDLE , NewState);
+    153          //USART_ITConfig(desc->hw_desc->usart, USART_IT_RXNE, NewState);
+    154          }
+    155          
+    156          void serint_send(serint_desc_t* desc,const u8* data,u16 len)
+    157          {
+    158          if(desc->presend_func!=NULL) desc->presend_func(data, len);
+    159          if(desc->hw_desc!=NULL)
+    160          {
+    161            usart_sendbuf(desc->hw_desc->usart,data,len);
+    162          }
+    163            if(desc->aftersend_func!=NULL)desc->aftersend_func(data, len);
+    164          }
+    165          
+    166          void serint_flush_inbuf		(serint_desc_t* desc)
+    167          {
+    168          memset(desc->inbuf,0x00,desc->in_counter);
+    169          desc->in_counter = 0;
+    170          }
+    171          
+    172          ///////////////////////////////////////////////////////////////
+    173          
+    174          void serint_rx_isr(serint_desc_t* desc)
+    175          {
+    176          u32 status = desc->hw_desc->usart->ISR;
+    177          if(status & USART_FLAG_RXNE)
+    178          {
+    179          desc->receiving_flag = 1;
+    180          u8 c = desc->hw_desc->usart->RDR;              // to avoid warnings
+    181          desc->inbuf[desc->in_counter] = c;
+    182          desc->in_counter++;
+    183          if(desc->in_counter == desc->inbuf_len)
+    184          {
+    185          desc->in_counter = 0;           //to avoid overflow
+    186          desc->receiving_flag = 0;       //to avoid infinite waiting of transmission complete
+    187          }
+    188          //return;
+    189          }
+    190          if(status & USART_FLAG_IDLE)
+    191          {
+    192          desc->receiving_flag = 0;
+    193          USART_ClearFlag(desc->hw_desc->usart, USART_ICR_IDLECF);
+    194          //return;
+    195          }
+    196          if(status & USART_FLAG_ORE)
+    197          {
+    198          USART_ClearFlag(desc->hw_desc->usart, USART_ICR_ORECF);
+    199          }
+    200          
+    201          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   serint_close
+         8   -- Indirect call
+         8   -> serint_rx_cmd
+      24   serint_flush_inbuf
+        24   -> __aeabi_memset
+      32   serint_init
+        32   -> usart_hw_init
+      24   serint_open
+        24   -- Indirect call
+        24   -> USART_Init
+        24   -> serint_rx_cmd
+      16   serint_rx_cmd
+        16   -> USART_Cmd
+        16   -> USART_ITConfig
+      16   serint_rx_isr
+        16   -> USART_ClearFlag
+      16   serint_send
+        16   -- Indirect call
+        16   -> usart_sendbuf
+      24   usart_hw_init
+        24   -> GPIO_Init
+        24   -> GPIO_PinAFConfig
+        24   -> NVIC_Init
+        24   -> RCC_AHBPeriphClockCmd
+        24   -> RCC_APB1PeriphClockCmd
+        24   -> RCC_APB2PeriphClockCmd
+       4   usart_sendbuf
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+      28  serint_close
+      26  serint_flush_inbuf
+      42  serint_init
+      70  serint_open
+      40  serint_rx_cmd
+      86  serint_rx_isr
+      62  serint_send
+      44  usart1_hw_desc
+      44  usart2_hw_desc
+     140  usart_hw_init
+      28  usart_sendbuf
+
+ 
+  88 bytes in section .rodata
+ 530 bytes in section .text
+ 
+ 530 bytes of CODE  memory
+  88 bytes of CONST memory
+
+Errors: none
+Warnings: none

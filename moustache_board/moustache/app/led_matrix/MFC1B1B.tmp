@@ -1,0 +1,161 @@
+#include "5x7.h"
+#include "uptime.h"
+
+void TIM_Config(void);
+
+static const pin_t columns[COL_NUM] =
+{
+  {COL7_pin,      COL7_port,    COL7_rcc},
+  {COL6_pin,      COL6_port,    COL6_rcc},
+  {COL5_pin,      COL5_port,    COL5_rcc},
+  {COL4_pin,      COL4_port,    COL4_rcc},
+  {COL3_pin,      COL3_port,    COL3_rcc},
+  {COL2_pin,      COL2_port,    COL2_rcc},
+  {COL1_pin,      COL1_port,    COL1_rcc}
+};
+
+static const pin_t rows[ROW_NUM] =
+{
+  {ROW5_pin,      ROW5_port,    ROW5_rcc},
+  {ROW4_pin,      ROW4_port,    ROW4_rcc},
+  {ROW3_pin,      ROW3_port,    ROW3_rcc},
+  {ROW2_pin,      ROW2_port,    ROW2_rcc},
+  {ROW1_pin,      ROW1_port,    ROW1_rcc}
+};
+
+
+
+static u8 frame[ROW_NUM][COL_NUM]=
+{
+{0,     0,     0,     0,     1,         0,      0},   
+{0,     0,     0,     1,     1,         1,      0},   
+{0,     0,     1,     1,     1,         1,      1},
+{0,     1,     1,     1,     1,         1,      1},
+{1,     1,     1,     1,     1,         1,      1}
+};
+
+static u8 col = 0;
+void matrix_isr_handler(void)
+{
+columns[col].port->BRR |= columns[col].pin; //turn of column
+
+col++;
+if(col == COL_NUM) col = 0;
+
+ALL_ROWS_OFF();
+for(u8 row = 0; row < ROW_NUM; row++)
+{
+if(frame[row][col]) rows[row].port->BRR |= rows[pin];
+}
+if(frame[0][col]) ROW5_port->BRR |= ROW5_pin;
+if(frame[1][col]) ROW4_port->BRR |= ROW4_pin;
+if(frame[2][col]) ROW3_port->BRR |= ROW3_pin;
+if(frame[3][col]) ROW2_port->BRR |= ROW2_pin;
+if(frame[4][col]) ROW1_port->BRR |= ROW1_pin;
+
+columns[col].port->BSRR |= columns[col].pin;
+
+
+TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+}
+
+  
+//PWM_CHANNEL0 = frame[col][0];
+//PWM_CHANNEL1 = frame[col][1];
+//PWM_CHANNEL2 = frame[col][2];
+//PWM_CHANNEL3 = frame[col][3];
+//PWM_CHANNEL4 = frame[col][4];
+
+
+void TIM_Config(void)
+{
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+  
+  NVIC_InitTypeDef NVIC_InitStructure;
+  
+  /* Enable the TIM3 gloabal Interrupt */
+  NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+
+  
+  TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+ 
+  /* Time base configuration */
+  u32 prescaler = SystemCoreClock / 1000000;
+  prescaler *= TIMER_TICK_LEN;
+
+  
+  TIM_TimeBaseStructure.TIM_Prescaler = (uint16_t)(prescaler - 1); 
+  TIM_TimeBaseStructure.TIM_Period = GRAYSCALE_STEPS; 
+ 
+  
+  TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+  TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+  TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+  TIM_Cmd(TIM2, ENABLE);
+ 
+  // TIM_OCInitTypeDef  TIM_OCInitStructure;
+//  /* Output Compare Timing Mode configuration: Channel1 */
+//  TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
+//  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+//  TIM_OCInitStructure.TIM_Pulse = CCR1_Val;
+//  TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+//
+//  TIM_OC1Init(TIM3, &TIM_OCInitStructure);
+//
+//  TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Disable);
+//
+//  /* Output Compare Timing Mode configuration: Channel2 */
+//  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+//  TIM_OCInitStructure.TIM_Pulse = CCR2_Val;
+//
+//  TIM_OC2Init(TIM3, &TIM_OCInitStructure);
+//
+//  TIM_OC2PreloadConfig(TIM3, TIM_OCPreload_Disable);
+//
+//  /* Output Compare Timing Mode configuration: Channel3 */
+//  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+//  TIM_OCInitStructure.TIM_Pulse = CCR3_Val;
+//
+//  TIM_OC3Init(TIM3, &TIM_OCInitStructure);
+//
+//  TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Disable);
+//
+//  /* Output Compare Timing Mode configuration: Channel4 */
+//  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+//  TIM_OCInitStructure.TIM_Pulse = CCR4_Val;
+//
+//  TIM_OC4Init(TIM3, &TIM_OCInitStructure);
+//
+//  TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Disable);
+   
+}
+
+void led_matrix_init(void)
+{
+TIM_Config();
+  
+GPIO_InitTypeDef GPIO_InitStructure;
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
+GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+
+for(u8 i=0;i<ARRAY_SIZE(columns);i++)
+{
+RCC_AHBPeriphClockCmd(columns[i].rcc,ENABLE);
+GPIO_InitStructure.GPIO_Pin  = columns[i].pin;
+GPIO_Init(columns[i].port, &GPIO_InitStructure);
+columns[i].port->BRR |= columns[i].pin;
+}
+
+for(u8 i=0;i<ARRAY_SIZE(rows);i++)
+{
+RCC_AHBPeriphClockCmd(rows[i].rcc,ENABLE);
+GPIO_InitStructure.GPIO_Pin  = rows[i].pin;
+GPIO_Init(rows[i].port, &GPIO_InitStructure);
+rows[i].port->BRR |= rows[i].pin;
+}
+}

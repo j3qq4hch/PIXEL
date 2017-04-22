@@ -1,0 +1,350 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:09:34
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\FreeRTOS\portable\port.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\FreeRTOS\portable\port.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\port.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\port.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\FreeRTOS\portable\port.c
+      1          /*
+      2              FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
+      3              All rights reserved
+      4          
+      5              VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+      6          
+      7              This file is part of the FreeRTOS distribution.
+      8          
+      9              FreeRTOS is free software; you can redistribute it and/or modify it under
+     10              the terms of the GNU General Public License (version 2) as published by the
+     11              Free Software Foundation >>>> AND MODIFIED BY <<<< the FreeRTOS exception.
+     12          
+     13              ***************************************************************************
+     14              >>!   NOTE: The modification to the GPL is included to allow you to     !<<
+     15              >>!   distribute a combined work that includes FreeRTOS without being   !<<
+     16              >>!   obliged to provide the source code for proprietary components     !<<
+     17              >>!   outside of the FreeRTOS kernel.                                   !<<
+     18              ***************************************************************************
+     19          
+     20              FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+     21              WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+     22              FOR A PARTICULAR PURPOSE.  Full license text is available on the following
+     23              link: http://www.freertos.org/a00114.html
+     24          
+     25              ***************************************************************************
+     26               *                                                                       *
+     27               *    FreeRTOS provides completely free yet professionally developed,    *
+     28               *    robust, strictly quality controlled, supported, and cross          *
+     29               *    platform software that is more than just the market leader, it     *
+     30               *    is the industry's de facto standard.                               *
+     31               *                                                                       *
+     32               *    Help yourself get started quickly while simultaneously helping     *
+     33               *    to support the FreeRTOS project by purchasing a FreeRTOS           *
+     34               *    tutorial book, reference manual, or both:                          *
+     35               *    http://www.FreeRTOS.org/Documentation                              *
+     36               *                                                                       *
+     37              ***************************************************************************
+     38          
+     39              http://www.FreeRTOS.org/FAQHelp.html - Having a problem?  Start by reading
+     40              the FAQ page "My application does not run, what could be wrong?".  Have you
+     41              defined configASSERT()?
+     42          
+     43              http://www.FreeRTOS.org/support - In return for receiving this top quality
+     44              embedded software for free we request you assist our global community by
+     45              participating in the support forum.
+     46          
+     47              http://www.FreeRTOS.org/training - Investing in training allows your team to
+     48              be as productive as possible as early as possible.  Now you can receive
+     49              FreeRTOS training directly from Richard Barry, CEO of Real Time Engineers
+     50              Ltd, and the world's leading authority on the world's leading RTOS.
+     51          
+     52              http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+     53              including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+     54              compatible FAT file system, and our tiny thread aware UDP/IP stack.
+     55          
+     56              http://www.FreeRTOS.org/labs - Where new FreeRTOS products go to incubate.
+     57              Come and try FreeRTOS+TCP, our new open source TCP/IP stack for FreeRTOS.
+     58          
+     59              http://www.OpenRTOS.com - Real Time Engineers ltd. license FreeRTOS to High
+     60              Integrity Systems ltd. to sell under the OpenRTOS brand.  Low cost OpenRTOS
+     61              licenses offer ticketed support, indemnification and commercial middleware.
+     62          
+     63              http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+     64              engineered and independently SIL3 certified version for use in safety and
+     65              mission critical applications that require provable dependability.
+     66          
+     67              1 tab == 4 spaces!
+     68          */
+     69          
+     70          /*-----------------------------------------------------------
+     71           * Implementation of functions defined in portable.h for the ARM CM0 port.
+     72           *----------------------------------------------------------*/
+     73          
+     74          /* IAR includes. */
+     75          #include "intrinsics.h"
+     76          
+     77          /* Scheduler includes. */
+     78          #include "FreeRTOS.h"
+     79          #include "task.h"
+     80          
+     81          /* Constants required to manipulate the NVIC. */
+     82          #define portNVIC_SYSTICK_CTRL		( ( volatile uint32_t *) 0xe000e010 )
+     83          #define portNVIC_SYSTICK_LOAD		( ( volatile uint32_t *) 0xe000e014 )
+     84          #define portNVIC_SYSPRI2			( ( volatile uint32_t *) 0xe000ed20 )
+     85          #define portNVIC_SYSTICK_CLK		0x00000004
+     86          #define portNVIC_SYSTICK_INT		0x00000002
+     87          #define portNVIC_SYSTICK_ENABLE		0x00000001
+     88          #define portMIN_INTERRUPT_PRIORITY	( 255UL )
+     89          #define portNVIC_PENDSV_PRI			( portMIN_INTERRUPT_PRIORITY << 16UL )
+     90          #define portNVIC_SYSTICK_PRI		( portMIN_INTERRUPT_PRIORITY << 24UL )
+     91          
+     92          /* Constants required to set up the initial stack. */
+     93          #define portINITIAL_XPSR			( 0x01000000 )
+     94          
+     95          /* For backward compatibility, ensure configKERNEL_INTERRUPT_PRIORITY is
+     96          defined.  The value 255 should also ensure backward compatibility.
+     97          FreeRTOS.org versions prior to V4.3.0 did not include this definition. */
+     98          #ifndef configKERNEL_INTERRUPT_PRIORITY
+     99          	#define configKERNEL_INTERRUPT_PRIORITY 0
+    100          #endif
+    101          
+    102          /* Each task maintains its own interrupt status in the critical nesting
+    103          variable. */
+    104          static UBaseType_t uxCriticalNesting = 0xaaaaaaaa;
+    105          
+    106          /*
+    107           * Setup the timer to generate the tick interrupts.
+    108           */
+    109          static void prvSetupTimerInterrupt( void );
+    110          
+    111          /*
+    112           * Exception handlers.
+    113           */
+    114          void xPortSysTickHandler( void );
+    115          
+    116          /*
+    117           * Start first task is a separate function so it can be tested in isolation.
+    118           */
+    119          extern void vPortStartFirstTask( void );
+    120          
+    121          /*
+    122           * Used to catch tasks that attempt to return from their implementing function.
+    123           */
+    124          static void prvTaskExitError( void );
+    125          
+    126          /*-----------------------------------------------------------*/
+    127          
+    128          /*
+    129           * See header file for description.
+    130           */
+    131          StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t pxCode, void *pvParameters )
+    132          {
+    133          	/* Simulate the stack frame as it would be created by a context switch
+    134          	interrupt. */
+    135          	pxTopOfStack--; /* Offset added to account for the way the MCU uses the stack on entry/exit of interrupts. */
+    136          	*pxTopOfStack = portINITIAL_XPSR;	/* xPSR */
+    137          	pxTopOfStack--;
+    138          	*pxTopOfStack = ( StackType_t ) pxCode;	/* PC */
+    139          	pxTopOfStack--;
+    140          	*pxTopOfStack = ( StackType_t ) prvTaskExitError;	/* LR */
+    141          	pxTopOfStack -= 5;	/* R12, R3, R2 and R1. */
+    142          	*pxTopOfStack = ( StackType_t ) pvParameters;	/* R0 */
+    143          	pxTopOfStack -= 8; /* R11..R4. */
+    144          
+    145          	return pxTopOfStack;
+    146          }
+    147          /*-----------------------------------------------------------*/
+    148          
+    149          static void prvTaskExitError( void )
+    150          {
+    151          	/* A function that implements a task must not exit or attempt to return to
+    152          	its caller as there is nothing to return to.  If a task wants to exit it
+    153          	should instead call vTaskDelete( NULL ).
+    154          
+    155          	Artificially force an assert() to be triggered if configASSERT() is
+    156          	defined, then stop here so application writers can catch the error. */
+    157          	configASSERT( uxCriticalNesting == ~0UL );
+    158          	portDISABLE_INTERRUPTS();
+    159          	for( ;; );
+    160          }
+    161          /*-----------------------------------------------------------*/
+    162          
+    163          /*
+    164           * See header file for description.
+    165           */
+    166          BaseType_t xPortStartScheduler( void )
+    167          {
+    168          	/* Make PendSV and SysTick the lowest priority interrupts. */
+    169          	*(portNVIC_SYSPRI2) |= portNVIC_PENDSV_PRI;
+    170          	*(portNVIC_SYSPRI2) |= portNVIC_SYSTICK_PRI;
+    171          
+    172          	/* Start the timer that generates the tick ISR.  Interrupts are disabled
+    173          	here already. */
+    174          	prvSetupTimerInterrupt();
+    175          
+    176          	/* Initialise the critical nesting count ready for the first task. */
+    177          	uxCriticalNesting = 0;
+    178          
+    179          	/* Start the first task. */
+    180          	vPortStartFirstTask();
+    181          
+    182          	/* Should not get here! */
+    183          	return 0;
+    184          }
+    185          /*-----------------------------------------------------------*/
+    186          
+    187          void vPortEndScheduler( void )
+    188          {
+    189          	/* Not implemented in ports where there is nothing to return to.
+    190          	Artificially force an assert. */
+    191          	configASSERT( uxCriticalNesting == 1000UL );
+    192          }
+    193          /*-----------------------------------------------------------*/
+    194          
+    195          void vPortYield( void )
+    196          {
+    197          	/* Set a PendSV to request a context switch. */
+    198          	*(portNVIC_INT_CTRL) = portNVIC_PENDSVSET;
+    199          
+    200          	/* Barriers are normally not required but do ensure the code is completely
+    201          	within the specified behaviour for the architecture. */
+    202          	__DSB();
+    203          	__ISB();
+    204          }
+    205          /*-----------------------------------------------------------*/
+    206          
+    207          void vPortEnterCritical( void )
+    208          {
+    209          	portDISABLE_INTERRUPTS();
+    210          	uxCriticalNesting++;
+    211          	__DSB();
+    212          	__ISB();
+    213          }
+    214          /*-----------------------------------------------------------*/
+    215          
+    216          void vPortExitCritical( void )
+    217          {
+    218          	configASSERT( uxCriticalNesting );
+    219          	uxCriticalNesting--;
+    220          	if( uxCriticalNesting == 0 )
+    221          	{
+    222          		portENABLE_INTERRUPTS();
+    223          	}
+    224          }
+    225          /*-----------------------------------------------------------*/
+    226          
+    227          void xPortSysTickHandler( void )
+    228          {
+    229          uint32_t ulPreviousMask;
+    230          
+    231          	ulPreviousMask = portSET_INTERRUPT_MASK_FROM_ISR();
+    232          	{
+    233          		/* Increment the RTOS tick. */
+    234          		if( xTaskIncrementTick() != pdFALSE )
+    235          		{
+    236          			/* Pend a context switch. */
+    237          			*(portNVIC_INT_CTRL) = portNVIC_PENDSVSET;
+    238          		}
+    239          	}
+    240          	portCLEAR_INTERRUPT_MASK_FROM_ISR( ulPreviousMask );
+    241          }
+    242          /*-----------------------------------------------------------*/
+    243          
+    244          /*
+    245           * Setup the systick timer to generate the tick interrupts at the required
+    246           * frequency.
+    247           */
+    248          static void prvSetupTimerInterrupt( void )
+    249          {
+    250          	/* Configure SysTick to interrupt at the requested rate. */
+    251          	*(portNVIC_SYSTICK_LOAD) = ( configCPU_CLOCK_HZ / configTICK_RATE_HZ ) - 1UL;
+    252          	*(portNVIC_SYSTICK_CTRL) = portNVIC_SYSTICK_CLK | portNVIC_SYSTICK_INT | portNVIC_SYSTICK_ENABLE;
+    253          }
+    254          /*-----------------------------------------------------------*/
+    255          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   SysTick_Handler
+         8   -> ulSetInterruptMaskFromISR
+         8   -> vClearInterruptMaskFromISR
+         8   -> xTaskIncrementTick
+       0   prvSetupTimerInterrupt
+       4   prvTaskExitError
+       0   pxPortInitialiseStack
+       4   vPortEndScheduler
+       0   vPortEnterCritical
+       4   vPortExitCritical
+       0   vPortYield
+       8   xPortStartScheduler
+         8   -> prvSetupTimerInterrupt
+         8   -> vPortStartFirstTask
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable8
+       4  ??DataTable8_1
+       4  ??DataTable8_2
+       4  ??DataTable8_3
+       4  ??DataTable8_4
+       4  ??DataTable8_5
+       4  ??DataTable8_6
+      32  SysTick_Handler
+      14  prvSetupTimerInterrupt
+      22  prvTaskExitError
+      26  pxPortInitialiseStack
+       4  uxCriticalNesting
+      20  vPortEndScheduler
+      22  vPortEnterCritical
+      36  vPortExitCritical
+      18  vPortYield
+      48  xPortStartScheduler
+
+ 
+   4 bytes in section .data
+ 266 bytes in section .text
+ 
+ 266 bytes of CODE memory
+   4 bytes of DATA memory
+
+Errors: none
+Warnings: none

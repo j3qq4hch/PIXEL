@@ -1,0 +1,318 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:05:00
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\cmd_handlers.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\cmd_handlers.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\cmd_handlers.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\cmd_handlers.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\cmd_handlers.c
+      1          #include "cmd_handlers.h"
+      2          #include "lis302dl.h"
+      3          #include "5x7.h"
+      4          #include <stdio.h>
+      5          #include "test.h"
+      6          #include "5x7_font.h"
+      7          #include "uptime.h"
+      8          #include "bootloader.h"
+      9          cmd_retval_t cli_name_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+     10          {
+     11            *response_len = sprintf(response,"Wattmeter");
+     12            return CLI_cmd_OK;
+     13          }
+     14          
+     15          ///////////////////////////////////////////////
+     16          
+     17          cmd_retval_t cli_lis_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+     18          {
+     19            s8 r[6] = {0,0,0,0,0,0};
+     20            lis_get_readings(r);
+     21            *response_len = sprintf(response, "%i %i %i", r[1],r[3],r[5]);
+     22            return CLI_cmd_OK;
+     23          }
+     24          
+     25          
+     26          cmd_retval_t cli_lisreg_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+     27          {
+     28            u8 reg = 0;
+     29            u8 val = 0;
+     30            u8 k = sscanf(cmd,"%hhu %hhu",&reg,&val);
+     31            if(k==2)
+     32            {
+     33            lis302d_regwrite(reg,val);
+     34            return CLI_cmd_OK;
+     35            }
+     36            if(k==1)
+     37            {
+     38              val = lis302d_regread(reg);
+     39              *response_len = sprintf(response, "%i = %i",reg,val);
+     40              return CLI_cmd_OK;
+     41            }
+     42            return CLI_cmd_INVALID_PARAMETERS;
+     43          }
+     44          
+     45          cmd_retval_t cli_test_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+     46          {
+     47             return CLI_cmd_OK;
+     48          }
+     49          
+     50          ///////////////
+     51          
+     52          cmd_retval_t cli_char_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+     53          {
+     54          char c = 0;
+     55          if(sscanf(cmd,"%c",&c)!=1)       return CLI_cmd_INVALID_PARAMETERS;
+     56          if((c<'a')||(c>'z'))            return CLI_cmd_INVALID_PARAMETERS;
+     57          
+     58          //led_matrix_set_frame(char2font(c));
+     59          delay_ms__(1000);
+     60          return CLI_cmd_OK;
+     61          }
+     62          
+     63          cmd_retval_t cli_listhrsh_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+     64          {
+     65            u8 x,y,z;
+     66           u8 k = sscanf(cmd,"%hhu %hhu %hhu", &x,&y,&z);
+     67           if(k==3) 
+     68           {
+     69             lis302d_set_thresholds(x,y,z);
+     70           }
+     71           else
+     72            {
+     73             z = lis302d_regread(LIS302DL_CLICK_THSY_X);
+     74             y = z>>4;
+     75             x = z & 0x0F;
+     76             z = lis302d_regread(LIS302DL_CLICK_THSZ);
+     77             *response_len = sprintf(response,"Thresholds: x = %i y = %i z= %i",x,y,z);
+     78             return CLI_cmd_OK;
+     79            }
+     80           
+     81            return CLI_cmd_OK;
+     82          }
+     83          
+     84          cmd_retval_t cli_lislat_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+     85          {
+     86            u8 lat = 0;
+     87            if(sscanf(cmd,"%hhu",&lat)==1)
+     88            {
+     89            lis302d_regwrite(LIS302DL_CLICK_latency,lat);
+     90            }
+     91            else
+     92            {
+     93            lat = lis302d_regread(LIS302DL_CLICK_latency);
+     94            *response_len = sprintf(response,"Latency=%i",lat);
+     95          
+     96            }
+     97            return CLI_cmd_OK;
+     98          }
+     99          
+    100          cmd_retval_t cli_listime_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+    101          {
+    102            u8 lat = 0;
+    103            if(sscanf(cmd,"%hhu",&lat)==1)
+    104            {
+    105            lis302d_regwrite(LIS302DL_CLICK_timelimit,lat);
+    106            }
+    107            else
+    108            {
+    109            lat = lis302d_regread(LIS302DL_CLICK_timelimit);
+    110            *response_len = sprintf(response,"Time=%i",lat);
+    111            }
+    112            return CLI_cmd_OK;
+    113          }
+    114          
+    115          
+    116          cmd_retval_t cli_liswin_cmd_handler     (char *cmd, u16 cmdlen, char *response, u16 *response_len)
+    117          {
+    118            u8 lat = 0;
+    119            if(sscanf(cmd,"%hhu",&lat)==1)
+    120            {
+    121            lis302d_regwrite(LIS302DL_CLICK_window,lat);
+    122            }
+    123            else
+    124            {
+    125            lat = lis302d_regread(LIS302DL_CLICK_window);
+    126            *response_len = sprintf(response,"Window=%i",lat);
+    127            }
+    128            return CLI_cmd_OK;
+    129          }
+    130          
+    131          cmd_retval_t cli_pixel_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+    132          {
+    133          u8 x,y;
+    134          u16 b;
+    135          
+    136          u8 k =sscanf(cmd,"%hhu %hhu %hu",&x,&y,&b);
+    137          if(k==3)
+    138          {
+    139          led_matrix_putpixel(x,y,b,NULL);
+    140          return CLI_cmd_OK;
+    141          }
+    142          if(k==2)
+    143          {
+    144          b=0xFF;
+    145          led_matrix_putpixel(x,y,b,NULL);
+    146          return CLI_cmd_OK;
+    147          }
+    148          return  CLI_cmd_INVALID_PARAMETERS;
+    149          }
+    150          
+    151          
+    152          
+    153          cmd_retval_t cli_boot_cmd_handler       (char *cmd, u16 cmdlen, char *response, u16 *response_len)
+    154          {
+    155          u32 *z = (u32*)BOOT_SIGN_ADR;
+    156          *z = BOOT_SIGN;
+    157          NVIC_SystemReset();
+    158          return CLI_cmd_OK;
+    159          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       4   NVIC_SystemReset
+      24   cli_boot_cmd_handler
+        24   -> NVIC_SystemReset
+      24   cli_char_cmd_handler
+        24   -> delay_ms__
+        24   -> sscanf
+      32   cli_lis_cmd_handler
+        32   -> lis_get_readings
+        32   -> sprintf
+      24   cli_lislat_cmd_handler
+        24   -> lis302d_regread
+        24   -> lis302d_regwrite
+        24   -> sprintf
+        24   -> sscanf
+      32   cli_lisreg_cmd_handler
+        32   -> lis302d_regread
+        32   -> lis302d_regwrite
+        32   -> sprintf
+        32   -> sscanf
+      32   cli_listhrsh_cmd_handler
+        32   -> lis302d_regread
+        32   -> lis302d_set_thresholds
+        32   -> sprintf
+        32   -> sscanf
+      24   cli_listime_cmd_handler
+        24   -> lis302d_regread
+        24   -> lis302d_regwrite
+        24   -> sprintf
+        24   -> sscanf
+      24   cli_liswin_cmd_handler
+        24   -> lis302d_regread
+        24   -> lis302d_regwrite
+        24   -> sprintf
+        24   -> sscanf
+      24   cli_name_cmd_handler
+        24   -> sprintf
+      32   cli_pixel_cmd_handler
+        32   -> led_matrix_putpixel
+        32   -> sscanf
+       4   cli_test_cmd_handler
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable10
+       4  ??DataTable10_1
+       4  ??DataTable10_10
+       4  ??DataTable10_11
+       4  ??DataTable10_12
+       4  ??DataTable10_13
+       4  ??DataTable10_14
+       4  ??DataTable10_15
+       4  ??DataTable10_2
+       4  ??DataTable10_3
+       4  ??DataTable10_4
+       4  ??DataTable10_5
+       4  ??DataTable10_6
+       4  ??DataTable10_7
+       4  ??DataTable10_8
+       4  ??DataTable10_9
+      12  ?_0
+       8  ?_1
+       8  ?_10
+      12  ?_11
+      16  ?_12
+      12  ?_2
+      12  ?_3
+       8  ?_4
+       4  ?_5
+      16  ?_6
+      32  ?_7
+       8  ?_8
+      12  ?_9
+      20  NVIC_SystemReset
+      22  cli_boot_cmd_handler
+      70  cli_char_cmd_handler
+      60  cli_lis_cmd_handler
+      70  cli_lislat_cmd_handler
+     104  cli_lisreg_cmd_handler
+     130  cli_listhrsh_cmd_handler
+      70  cli_listime_cmd_handler
+      70  cli_liswin_cmd_handler
+      24  cli_name_cmd_handler
+      98  cli_pixel_cmd_handler
+      10  cli_test_cmd_handler
+
+ 
+ 160 bytes in section .rodata
+ 812 bytes in section .text
+ 
+ 812 bytes of CODE  memory
+ 160 bytes of CONST memory
+
+Errors: none
+Warnings: none

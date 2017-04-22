@@ -1,0 +1,528 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.30.4.8167/W32 for ARM        05/Feb/2016  14:13:00
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  C:\led_zeppelin_5x7\app\led_matrix\5x7.c
+#    Command line =  
+#        C:\led_zeppelin_5x7\app\led_matrix\5x7.c -D USE_STDPERIPH_DRIVER -D
+#        USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\led_zeppelin_5x7\app\EWARM\watchdog\List\ -o
+#        C:\led_zeppelin_5x7\app\EWARM\watchdog\Obj\ --no_cse --no_unroll
+#        --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling
+#        --debug --endian=little --cpu=Cortex-M0 --char_is_signed --fpu=None
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\led_matrix\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\serint\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\usb\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\inc\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\CLI\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\Common\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.0\arm\CMSIS\Include\"
+#    List file    =  C:\led_zeppelin_5x7\app\EWARM\watchdog\List\5x7.lst
+#    Object file  =  C:\led_zeppelin_5x7\app\EWARM\watchdog\Obj\5x7.o
+#
+###############################################################################
+
+C:\led_zeppelin_5x7\app\led_matrix\5x7.c
+      1          #include "5x7.h"
+      2          #include "bitdef.h"
+      3          #include "5x7_font.h"
+      4          #include "uptime.h"
+      5          #include <string.h>
+      6          static const pin_init_t col_pins[COL_NUM] =
+      7          {
+      8           {COL1_pin,      COL1_port,    COL1_rcc,        0},
+      9           {COL2_pin,      COL2_port,    COL2_rcc,        0},
+     10           {COL3_pin,      COL3_port,    COL3_rcc,        0},
+     11           {COL4_pin,      COL4_port,    COL4_rcc,        0},
+     12           {COL5_pin,      COL5_port,    COL5_rcc,        0},
+     13           {COL6_pin,      COL6_port,    COL6_rcc,        0},
+     14           {COL7_pin,      COL7_port,    COL7_rcc,        0},
+     15          };
+     16          
+     17          static const pin_init_t row_pins[ROW_NUM] =
+     18          {
+     19            {ROW1_pin,      ROW1_port,    ROW1_rcc,       ROW1_AF},
+     20            {ROW2_pin,      ROW2_port,    ROW2_rcc,       ROW2_AF},
+     21            {ROW3_pin,      ROW3_port,    ROW3_rcc,       ROW3_AF},
+     22            {ROW4_pin,      ROW4_port,    ROW4_rcc,       ROW4_AF},
+     23            {ROW5_pin,      ROW5_port,    ROW5_rcc,       ROW5_AF}
+     24          };
+     25          
+     26          
+     27          static const pin_t col_scan_straight[COL_NUM] =
+     28          {
+     29            {COL7_pin,      COL7_port},
+     30            {COL6_pin,      COL6_port},
+     31            {COL5_pin,      COL5_port},
+     32            {COL4_pin,      COL4_port},
+     33            {COL3_pin,      COL3_port},
+     34            {COL2_pin,      COL2_port},
+     35            {COL1_pin,      COL1_port}
+     36          };
+     37          
+     38          static const pin_t col_scan_reverse[COL_NUM] =
+     39          {
+     40           {COL1_pin,      COL1_port},
+     41           {COL2_pin,      COL2_port},
+     42           {COL3_pin,      COL3_port},
+     43           {COL4_pin,      COL4_port},
+     44           {COL5_pin,      COL5_port},
+     45           {COL6_pin,      COL6_port},
+     46           {COL7_pin,      COL7_port}
+     47          };
+     48          
+     49          volatile u32 * row_scan_pwm_straight[]=
+     50          {
+     51           &PWM_CHANNEL_0,
+     52           &PWM_CHANNEL_1,
+     53           &PWM_CHANNEL_2,
+     54           &PWM_CHANNEL_3,
+     55           &PWM_CHANNEL_4
+     56          };
+     57          
+     58          volatile u32 *   row_scan_pwm_reverse[]=
+     59          {
+     60           &PWM_CHANNEL_4,
+     61           &PWM_CHANNEL_3, 
+     62           &PWM_CHANNEL_2,
+     63           &PWM_CHANNEL_1,
+     64           &PWM_CHANNEL_0,
+     65          };
+     66          
+     67          volatile u32** row_scan;
+     68          static const pin_t*  col_scan;
+     69          void(*scan_complete)(void);
+     70          static u8 opened_flag = 0;
+     71          static u8* frame;
+     72          static u8 col = 0;
+     73          
+     74          void led_matrix_isr_handler(void)
+     75          {
+     76          col_scan[col].port->BRR |= col_scan[col].pin; //turn of column
+     77          col++;
+     78          if(col == COL_NUM)
+     79          {
+     80            col = 0;
+     81            scan_complete();
+     82          }
+     83          
+     84          for(u8 row = 0; row < ROW_NUM; row++)
+     85          {
+     86          *row_scan[row] = frame[col+row*COL_NUM];
+     87          }
+     88          col_scan[col].port->BSRR |= col_scan[col].pin;
+     89          TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+     90          }
+     91          
+     92          
+     93          void led_matrix_init(void)
+     94          {
+     95          led_matrix_gpio_columns_init();
+     96          led_matrix_gpio_rows_init();
+     97          led_matrix_timers_init();
+     98          }
+     99          
+    100          //////////////////////////////////////
+    101          
+    102          void led_matrix_set_mode(matrix_mode_t mode)
+    103          {
+    104          if(mode == REVERSE)
+    105            {
+    106            row_scan      = row_scan_pwm_reverse;
+    107            col_scan      = col_scan_reverse;
+    108            }
+    109            else
+    110            {
+    111            row_scan      = row_scan_pwm_straight;
+    112            col_scan      = col_scan_straight;
+    113            }
+    114          }
+    115          
+    116          //////////////////////////////////////////
+    117          
+    118          void led_matrix_gpio_columns_init(void)
+    119          {
+    120          GPIO_InitTypeDef GPIO_InitStructure;
+    121          GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    122          GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
+    123          GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    124          
+    125          for(u8 i=0;i<COL_NUM;i++)
+    126          {
+    127          RCC_AHBPeriphClockCmd(col_pins[i].rcc,ENABLE);
+    128          GPIO_InitStructure.GPIO_Pin  = col_pins[i].pin;
+    129          GPIO_Init(col_pins[i].port, &GPIO_InitStructure);
+    130          col_pins[i].port->BRR |= col_pins[i].pin;
+    131          }
+    132          }
+    133          
+    134          ///////////////////////////////////////////////////////////
+    135          
+    136          void led_matrix_gpio_rows_init(void)
+    137          {
+    138          GPIO_InitTypeDef GPIO_InitStructure;
+    139          GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    140          GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
+    141          GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    142          for(u8 i=0;i<ROW_NUM;i++)
+    143          {
+    144          RCC_AHBPeriphClockCmd(row_pins[i].rcc,ENABLE);
+    145          GPIO_InitStructure.GPIO_Pin  = row_pins[i].pin;
+    146          GPIO_Init(row_pins[i].port, &GPIO_InitStructure);
+    147          GPIO_PinAFConfig(row_pins[i].port, row_pins[i].af, GPIO_AF_2); 
+    148          }
+    149          }
+    150          
+    151          //////////////////////////////////////////////////////////////
+    152          //////////////////////////////////////////////////////////////
+    153          //////////////////////////////////////////////////////////////
+    154          
+    155          void led_matrix_timers_init(void)
+    156          {
+    157            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,   ENABLE);
+    158            RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1,   ENABLE);
+    159            
+    160            NVIC_InitTypeDef NVIC_InitStructure;
+    161            NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+    162            NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+    163            NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    164            NVIC_Init(&NVIC_InitStructure);
+    165          
+    166          /////////////////////////////////////////////////
+    167            
+    168            TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+    169            u32 prescaler = TIMER_TICK_LEN*SYSCLK_HZ/1000000; 
+    170            TIM_TimeBaseStructure.TIM_Prescaler           = (uint16_t)(prescaler - 1); 
+    171            TIM_TimeBaseStructure.TIM_Period              = GRAYSCALE_STEPS; 
+    172            TIM_TimeBaseStructure.TIM_ClockDivision       = 0;
+    173            TIM_TimeBaseStructure.TIM_CounterMode         = TIM_CounterMode_Up;
+    174            TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+    175            TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+    176          
+    177            /////////////////////////////////////////////////
+    178            
+    179            TIM_OCInitTypeDef     TIM_OCInitStructure;
+    180            TIM_OCInitStructure.TIM_OCMode        = TIM_OCMode_PWM1;
+    181            TIM_OCInitStructure.TIM_OutputState   = TIM_OutputState_Enable;
+    182            TIM_OCInitStructure.TIM_OutputNState  = TIM_OutputNState_Disable;
+    183            TIM_OCInitStructure.TIM_OCPolarity    = TIM_OCPolarity_Low;
+    184            TIM_OCInitStructure.TIM_OCIdleState   = TIM_OCIdleState_Set;
+    185            TIM_OCInitStructure.TIM_Pulse         = 0;
+    186            
+    187            TIM_OC1Init(TIM2, &TIM_OCInitStructure);
+    188            TIM_OC2Init(TIM2, &TIM_OCInitStructure);
+    189            TIM_OC3Init(TIM2, &TIM_OCInitStructure);
+    190            TIM_OC4Init(TIM2, &TIM_OCInitStructure);
+    191            TIM_OC3Init(TIM1, &TIM_OCInitStructure);
+    192            
+    193            TIM_CtrlPWMOutputs(TIM2, ENABLE); 
+    194            TIM_CtrlPWMOutputs(TIM1, ENABLE); 
+    195            
+    196          }
+    197          
+    198          //////////////////////////////////////////////////////////////
+    199          //////////////////////////////////////////////////////////////
+    200          //////////////////////////////////////////////////////////////
+    201          
+    202          static void do_nothing(void){}
+    203          
+    204          //////////////////////////////////////////////////////////////
+    205          
+    206          void led_matrix_set_frame(u8* new_frame)
+    207          {
+    208            frame = new_frame;
+    209          }
+    210          
+    211          /////////////////////////////////////////////////////////////
+    212          //returns 0 if everything is OK
+    213          //1 if already opened
+    214          u8 led_matrix_open(matrix_mode_t mode, 
+    215                             void(*scan_complete_handler)(void),
+    216                             frame_t first_frame)
+    217          {
+    218          if(opened_flag) return 1;
+    219          if(scan_complete_handler == NULL)scan_complete_handler  = do_nothing;
+    220          
+    221          led_matrix_set_mode             (mode); 
+    222          led_matrix_set_scan_handler     (scan_complete_handler);
+    223          led_matrix_set_frame            (first_frame);
+    224          
+    225          TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+    226          TIM_Cmd(TIM2, ENABLE);
+    227          TIM_Cmd(TIM1, ENABLE);
+    228          opened_flag = 1;
+    229          return 0;
+    230          }
+    231          
+    232          void led_matrix_set_scan_handler(void(*scan_complete_handler)(void))
+    233          {
+    234          scan_complete = scan_complete_handler;
+    235          }
+    236          
+    237          void led_matrix_close(void)
+    238          {
+    239          opened_flag = 0;
+    240          TIM_ITConfig(TIM2, TIM_IT_Update, DISABLE);
+    241          TIM_Cmd(TIM2, ENABLE);
+    242          TIM_Cmd(TIM1, ENABLE);
+    243          }
+    244          
+    245          ///////////////////////////////////////////////////////////////////
+    246          
+    247          void led_matrix_putpixel(int x, int y, u16 br,frame_t fr)
+    248          {
+    249            if(!opened_flag) return; //not to modify invalid frame
+    250            if((x >= COL_NUM)||(y >= ROW_NUM)||(x<0)||(y<0)) return;  
+    251            if(fr == NULL) fr=frame;
+    252            fr[x + y*COL_NUM] = br;
+    253          }
+    254          
+    255          ////////////////////////////////////////////////////////////////////
+    256          ///this is for faster FFT visualization.
+    257          //values is 
+    258          
+    259          void led_matrix_putbars(u16* values, u8 values_len,frame_t fr)
+    260          {
+    261            if(!opened_flag) return; //not to modify invalid frame
+    262            if(fr == NULL) fr=frame;
+    263            if(values_len > MATRIX_RES_X) values_len = MATRIX_RES_X;
+    264            for(u8 x = 0; x < values_len ; x++)
+    265            {
+    266              u16 z = values[x];
+    267              if(z > MAX_BAR_VALUE) z = MAX_BAR_VALUE;
+    268              for(u8 y = 0; y < MATRIX_RES_Y;y++)
+    269              {  
+    270                u16 br = z;
+    271                if(br > MAX_BRIGHTNESS) br = MAX_BRIGHTNESS;
+    272                fr[x + y*COL_NUM] = br;
+    273                z -= br;
+    274              }
+    275            }
+    276          }
+    277          
+    278          //returns length of a char 
+    279          //returns 0 if 
+    280          
+    281          
+    282          
+    283          void led_matrix_clear(frame_t fr)
+    284          {
+    285          if(fr==NULL) fr = frame;
+    286          memset(frame,0x00,sizeof(frame_t));
+    287          }
+    288          
+    289          
+    290          u8 led_matrix_putchar ( int x, 
+    291                                  int y, 
+    292                                  char c, 
+    293                                  u16 br,
+    294                                  frame_t fr)
+    295          {
+    296          c -= ' ';
+    297          u8 width =  font_pos[c+1] - font_pos[c];
+    298          u8 pos =  font_pos[c];
+    299          if((x+width < 0)||(x > MATRIX_RES_X)||(x >MATRIX_RES_Y)) return width; //to speed everything up a little bit
+    300          for(u8 i=0; i < width; i++)
+    301          {
+    302            if (font_data[pos] & BIT0) led_matrix_putpixel(x, y, br, fr);
+    303            if (font_data[pos] & BIT1) led_matrix_putpixel(x, y+1, br, fr);
+    304            if (font_data[pos] & BIT2) led_matrix_putpixel(x, y+2, br, fr);
+    305            if (font_data[pos] & BIT3) led_matrix_putpixel(x, y+3, br, fr);
+    306            if (font_data[pos] & BIT4) led_matrix_putpixel(x, y+4, br, fr);
+    307            x++;
+    308            pos++;
+    309          }
+    310          return width;
+    311          }
+    312          
+    313          void led_matrix_putstring(int x, 
+    314                                    int y, 
+    315                                    char *c, //string
+    316                                    u16 len, //lenght
+    317                                    u16 br,
+    318                                    frame_t fr)
+    319          {
+    320            while(len)
+    321            {  
+    322            x+=led_matrix_putchar(x,y,*c,br,fr);
+    323            x++; //intercharacter interval
+    324            c++;
+    325            len--;
+    326            }
+    327            }
+    328          
+    329          
+    330          u16 led_matrix_get_string_len(char *c, u16 len)
+    331          {
+    332          u16 l = 0;
+    333            while(len)
+    334            {  
+    335            l+=led_matrix_putchar(-1,-1,*c,0xFF,NULL);
+    336            l++; 
+    337            c++;
+    338            len--;
+    339            }
+    340          return l;
+    341          }
+    342          
+    343          void led_matrix_scroll_text(char* text,u16 len, u16 timeout,u16 br )
+    344          {
+    345          
+    346            int k = 0 - led_matrix_get_string_len(text,len);
+    347            
+    348            for(int z = MATRIX_RES_X; z > k; z--)
+    349            {
+    350          
+    351          led_matrix_clear(NULL);
+    352          led_matrix_putstring(z, 
+    353                               0, 
+    354                               text, 
+    355                               len, 
+    356                               br,
+    357                               NULL);
+    358            delay_ms__(timeout);
+    359            }
+    360          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   do_nothing
+      24   led_matrix_clear
+        24   -> __aeabi_memset
+       8   led_matrix_close
+         8   -> TIM_Cmd
+         8   -> TIM_ITConfig
+      24   led_matrix_get_string_len
+        24   -> led_matrix_putchar
+      16   led_matrix_gpio_columns_init
+        16   -> GPIO_Init
+        16   -> RCC_AHBPeriphClockCmd
+      16   led_matrix_gpio_rows_init
+        16   -> GPIO_Init
+        16   -> GPIO_PinAFConfig
+        16   -> RCC_AHBPeriphClockCmd
+       8   led_matrix_init
+         8   -> led_matrix_gpio_columns_init
+         8   -> led_matrix_gpio_rows_init
+         8   -> led_matrix_timers_init
+       8   led_matrix_isr_handler
+         8   -- Indirect call
+         8   -> TIM_ClearITPendingBit
+      16   led_matrix_open
+        16   -> TIM_Cmd
+        16   -> TIM_ITConfig
+        16   -> led_matrix_set_frame
+        16   -> led_matrix_set_mode
+        16   -> led_matrix_set_scan_handler
+      24   led_matrix_putbars
+      32   led_matrix_putchar
+        32   -> led_matrix_putpixel
+      12   led_matrix_putpixel
+      32   led_matrix_putstring
+        32   -> led_matrix_putchar
+      40   led_matrix_scroll_text
+        40   -> delay_ms__
+        40   -> led_matrix_clear
+        40   -> led_matrix_get_string_len
+        40   -> led_matrix_putstring
+       0   led_matrix_set_frame
+       4   led_matrix_set_mode
+       0   led_matrix_set_scan_handler
+      48   led_matrix_timers_init
+        48   -> NVIC_Init
+        48   -> RCC_APB1PeriphClockCmd
+        48   -> RCC_APB2PeriphClockCmd
+        48   -> TIM_CtrlPWMOutputs
+        48   -> TIM_OC1Init
+        48   -> TIM_OC2Init
+        48   -> TIM_OC3Init
+        48   -> TIM_OC4Init
+        48   -> TIM_TimeBaseInit
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable11
+       4  ??DataTable11_1
+       4  ??DataTable12
+       4  ??DataTable12_1
+       4  ??DataTable12_2
+       4  ??DataTable12_3
+       4  ??DataTable12_4
+       4  ??DataTable12_5
+       4  ??DataTable12_6
+       4  ??DataTable12_7
+       4  ??DataTable7
+       4  ??DataTable8
+       4  ??DataTable8_1
+       4  ??DataTable8_2
+       4  ??DataTable8_3
+       4  ??DataTable9
+       4  ??DataTable9_1
+       4  ??DataTable9_2
+       4  ??DataTable9_3
+       1  col
+     112  col_pins
+       4  col_scan
+      56  col_scan_reverse
+      56  col_scan_straight
+       2  do_nothing
+       4  frame
+      34  led_matrix_clear
+      40  led_matrix_close
+      56  led_matrix_get_string_len
+     122  led_matrix_gpio_columns_init
+     114  led_matrix_gpio_rows_init
+      16  led_matrix_init
+     192  led_matrix_isr_handler
+      90  led_matrix_open
+     108  led_matrix_putbars
+     232  led_matrix_putchar
+      50  led_matrix_putpixel
+      52  led_matrix_putstring
+      72  led_matrix_scroll_text
+       6  led_matrix_set_frame
+      36  led_matrix_set_mode
+       6  led_matrix_set_scan_handler
+     196  led_matrix_timers_init
+       1  opened_flag
+      80  row_pins
+       4  row_scan
+      20  row_scan_pwm_reverse
+      20  row_scan_pwm_straight
+       4  scan_complete
+
+ 
+    18 bytes in section .bss
+    40 bytes in section .data
+   304 bytes in section .rodata
+ 1 500 bytes in section .text
+ 
+ 1 500 bytes of CODE  memory
+   304 bytes of CONST memory
+    58 bytes of DATA  memory
+
+Errors: none
+Warnings: none

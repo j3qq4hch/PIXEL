@@ -1,0 +1,280 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:05:00
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\cpm.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\cpm.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\cpm.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\cpm.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\cpm.c
+      1          //command process module is the main part of command line interface(CLI)
+      2          
+      3          #include "cpm.h"
+      4          
+      5          
+      6          #ifdef CLI_RESP_INCLUDES_CMD
+      7          
+      8          cmd_retval_t cli_cmd_process  (char *cmd,                 //command string
+      9                                         u16 cmd_len,               //command string length
+     10                                         char *response,            //char buffer for response
+     11                                         u16  *response_len,
+     12                                         const cli_map_t * map,     //cli command map
+     13                                         u16 map_size,              //cli command map length
+     14                                         u8 nest_flag)              //nesting flag. Is used if response must include command
+     15          {
+     16            
+     17          u16 l       = 0;
+     18          u16 n       = 0;
+     19          u16 resplen = 0;
+     20          cmd_retval_t retval = CLI_cmd_UNKNOWN;
+     21          
+     22          while((ISPRINTABLE(*cmd))&&(cmd_len))
+     23          {
+     24            l++;
+     25            cmd++;
+     26            cmd_len--;
+     27          }               //find lenght of the first word
+     28          if(!l) 
+     29          {
+     30          *response_len = 0;
+     31          return CLI_cmd_UNKNOWN;
+     32          }
+     33          if(l)
+     34          {
+     35          while( ( !(ISPRINTABLE(*cmd)) )&&(cmd_len) )
+     36          {
+     37            n++;
+     38            cmd++;
+     39            cmd_len--;
+     40          }               //find lenght of the first word
+     41          
+     42          
+     43          cmd -= l+n;       //go to the beginning
+     44          
+     45          
+     46          if(nest_flag)
+     47          {
+     48          *(response-1) = ' ';
+     49          }
+     50          memcpy(response,cmd,l);
+     51          response   += l;
+     52          *response++ = ':';
+     53          
+     54          const cli_map_t *q = map;
+     55          
+     56           
+     57          while(map_size--)
+     58          {
+     59            if(strncasecmp(q->cmd,cmd,l) == 0)
+     60            {
+     61              if(strlen(q->cmd) == l)
+     62              { 
+     63            retval = q->cmd_handler(cmd + l + n,cmd_len,response,&resplen);
+     64            break;
+     65              }
+     66            }
+     67            q++;
+     68          }
+     69          }
+     70          if(resplen == 0)
+     71                          {
+     72                          resplen = cli_retval_getmesage(retval,response);
+     73                          }
+     74          
+     75          response += resplen;
+     76          
+     77          if(!nest_flag)
+     78          {
+     79          *response++ = '\r';
+     80          *response++ = '\n';
+     81          resplen += 2;
+     82          }
+     83          
+     84          resplen += (l + 1);
+     85          *response_len += resplen;
+     86          return retval;
+     87          }
+     88          
+     89          #else
+     90          
+     91          cmd_retval_t cli_cmd_process  (char *cmd,                 //command string
+     92                                         u16 cmd_len,               //command string length
+     93                                         char *response,            //char buffer for response
+     94                                         u16  *response_len,
+     95                                         const cli_map_t * map,     //cli command map
+     96                                         u16 map_size,              //cli command map length
+     97                                         u8 nest_flag)              //nesting flag. Is used if response must include command
+     98          {
+     99          while(!(ISUSABLECHAR(*cmd))&&(cmd_len)) //skip everything till first usable char
+    100          {
+    101            cmd++;
+    102            cmd_len--;
+    103          }
+    104          if(cmd_len == 0) return 0;
+    105          u16 l       = 0;
+    106          u16 resplen = 0;
+    107          while((ISUSABLECHAR(*cmd))&&(cmd_len)) //find lenght of the first word
+    108          {
+    109            l++;
+    110            cmd++;
+    111            cmd_len--;
+    112          }       
+    113          cmd -= l;               //go to the beginning
+    114          
+    115          const cli_map_t *n = &cli_map[0];
+    116          cmd_retval_t retval = CLI_cmd_UNKNOWN;
+    117          
+    118          while(map_size--)
+    119          {
+    120            if(strncasecmp(n->cmd,cmd,l))
+    121            {
+    122            retval = n->cmd_handler(cmd,response,&resplen);
+    123            break;
+    124            }
+    125          }
+    126          if(resplen == 0)
+    127                          {
+    128                          resplen = cli_retval_getmesage(retval,response);
+    129                          }
+    130          response += resplen;
+    131          *response++ = '\r';
+    132          *response++ = '\n';
+    133          return retval;
+    134          }
+    135          #endif
+    136          
+    137          
+    138          static const cli_retval_map_t retval_map[] = 
+    139          {       
+    140            {CLI_cmd_OK,                  "OK"},
+    141            {CLI_cmd_UNKNOWN,             "UNKNOWNCMD"},
+    142            {CLI_cmd_INVALID_PARAMETERS,  "PARAMERROR"},
+    143            {CLI_cmd_FAIL,                "CMDFAIL"},
+    144            {CLI_cmd_INVALID_PASS,        "PASSERROR"}
+    145          };
+    146          
+    147          
+    148          //puts message to msg buf and returns its length
+    149          
+    150          u16 cli_retval_getmesage(cmd_retval_t retval,char* msg)
+    151          {
+    152          const cli_retval_map_t *map = &retval_map[0];
+    153          u16 len = 0;
+    154              for(char i=0;i<ARRAY_SIZE(retval_map);i++,map++)
+    155              {
+    156              if(retval == map->retval) 
+    157              {
+    158               len = strlen(map->msg);
+    159               memcpy(msg,  map->msg, len);
+    160               break;
+    161              }
+    162              }
+    163              
+    164              return len;
+    165          }
+    166          
+    167          ///////////////////////////////////////////
+    168          
+    169          cmd_retval_t cli_help_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+    170          {
+    171          return CLI_cmd_OK;
+    172          }
+    173          
+    174          ///////////////////////////////////////////
+    175          
+    176          cmd_retval_t cli_cli_cmd_handler(char *cmd, u16 cmdlen, char *response, u16 *response_len)
+    177          {
+    178          return CLI_cmd_OK;
+    179          }
+    180          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       4   cli_cli_cmd_handler
+      40   cli_cmd_process
+        40   -- Indirect call
+        40   -> __aeabi_memcpy
+        40   -> cli_retval_getmesage
+        40   -> strlen
+        40   -> strncasecmp
+       4   cli_help_cmd_handler
+      24   cli_retval_getmesage
+        24   -> __aeabi_memcpy
+        24   -> strlen
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable0
+       4  ?_0
+      12  ?_1
+      12  ?_2
+       8  ?_3
+      12  ?_4
+      10  cli_cli_cmd_handler
+     384  cli_cmd_process
+      10  cli_help_cmd_handler
+      66  cli_retval_getmesage
+      40  retval_map
+
+ 
+  88 bytes in section .rodata
+ 474 bytes in section .text
+ 
+ 474 bytes of CODE  memory
+  88 bytes of CONST memory
+
+Errors: none
+Warnings: none

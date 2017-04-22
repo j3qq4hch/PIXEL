@@ -1,0 +1,246 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:54
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\uart_int.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\uart_int.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\uart_int.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\uart_int.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\uart_int.c
+      1          /*
+      2           * uart_int.c
+      3           *
+      4           *  Created on: 22 марта 2017 г.
+      5           *      Author: j3qq4hch
+      6           */
+      7          
+      8          #include "uart_int.h"
+      9          #include <string.h>
+     10          #include "bsp.h"   
+     11             
+     12          #define UART_RXNE_bm            BIT0
+     13          #define UART_ORE_bm             BIT1
+     14          #define UART_TC_bm              BIT2
+     15          #define UART_RTO_bm             BIT3
+     16          #define UART_RX_COMPLETE_bm     BIT4
+     17          
+     18          void uart_isr(uart_desc_t * d)
+     19          { 
+     20            u32 ISR = d->instance->ISR;
+     21            if(ISR & USART_FLAG_RXNE)
+     22            {
+     23              if(d->rx_buf)
+     24              {
+     25                d->rx_buf[d->rx_counter++] = (u8)d->instance->RDR;
+     26                if(d->rx_counter >= d->bytes2read)
+     27                {
+     28                  xTaskNotifyFromISR( d->owner_task, UART_RX_COMPLETE_bm, eSetBits, NULL);
+     29                }
+     30              }
+     31                else
+     32              {
+     33              if(d->rx_fifo.buf)
+     34                {
+     35                  fifo_push(&d->rx_fifo,(u8)d->instance->RDR);
+     36                }
+     37              }
+     38            }
+     39          
+     40            if(ISR & USART_FLAG_ORE)
+     41            {
+     42            USART_ReceiveData(d->instance);
+     43            USART_ClearFlag(d->instance, USART_FLAG_ORE);
+     44            } 
+     45           
+     46            if(ISR & USART_FLAG_RTO)      
+     47            {
+     48            USART_ClearFlag(d->instance, USART_FLAG_RTO);
+     49            xTaskNotifyFromISR( d->owner_task, UART_RTO_bm, eSetBits, NULL);
+     50            }
+     51          }
+     52          
+     53          void uart_open(uart_desc_t * d, u8 * rx_buf, u16 rx_buflen, char* format_str, u32 baudrate)
+     54          {
+     55            
+     56                  fifo_init(&d->rx_fifo, rx_buf, rx_buflen);
+     57          	 
+     58                  USART_InitTypeDef USART_InitStructure;
+     59          	USART_StructInit(&USART_InitStructure);
+     60          	USART_InitStructure.USART_BaudRate = baudrate;
+     61          	USART_Init(d->instance, &USART_InitStructure);
+     62          	
+     63                  USART_SetReceiverTimeOut(d->instance, 22);
+     64                  USART_ReceiverTimeOutCmd(d->instance, ENABLE);
+     65                  
+     66                  USART_ITConfig(d->instance, USART_IT_RTO, ENABLE);
+     67                  USART_ITConfig(d->instance, USART_IT_RXNE, ENABLE);
+     68          	USART_Cmd(d->instance, ENABLE);
+     69                  d->owner_task =  xTaskGetCurrentTaskHandle();
+     70          }
+     71          
+     72          ////////////////////////////////////////////////////////////////////////////
+     73          
+     74          
+     75          
+     76          void uart_send_str(uart_desc_t * d, char * str)
+     77          {
+     78          uart_send(d, (u8 *) str, strlen(str));
+     79          }
+     80          
+     81          
+     82          
+     83          void uart_send(uart_desc_t * d, u8 * data, u16 datalen)
+     84          {
+     85            if(datalen)
+     86            {
+     87            while(datalen--)
+     88            {
+     89              while(USART_GetFlagStatus(d->instance,USART_FLAG_TXE) == RESET){}
+     90              USART_SendData(d->instance, *data++);
+     91            }
+     92            }
+     93          }
+     94          
+     95          
+     96          u16 uart_read(uart_desc_t * d, u8 * data, u16 datalen, TickType_t timeout_ticks)
+     97          {
+     98           u16 b = fifo_pop_buf(&d->rx_fifo, data, datalen); // check fifo first
+     99           datalen -= b;
+    100           
+    101           if(datalen)
+    102           {
+    103              d->rx_counter = 0; 
+    104              d->bytes2read = datalen;
+    105              d->rx_buf = data + b;
+    106              
+    107              while(1)
+    108                {
+    109                u32 event = 0;
+    110                if(xTaskNotifyWait(UART_RTO_bm, 0, &event, timeout_ticks ) == pdFALSE)
+    111                  {
+    112                    break;
+    113                  }
+    114                if(event & UART_RX_COMPLETE_bm)
+    115                  { 
+    116                    break; 
+    117                  }
+    118                }
+    119           }
+    120           d->rx_buf = NULL;
+    121           d->bytes2read = 0;
+    122           
+    123           return b + d->rx_counter;;
+    124          }
+    125          
+    126          
+    127          u16 uart_read_block(uart_desc_t * d, u8 * data, u16 maxdatalen, TickType_t timeout_ticks)
+    128          {
+    129              d->rx_counter       = 0; 
+    130              d->bytes2read       = maxdatalen;
+    131              d->rx_buf           = data;
+    132              
+    133              while(1)
+    134                {
+    135                u32 event = 0;
+    136                if(xTaskNotifyWait(UART_RTO_bm, 0, &event, timeout_ticks ) == pdFALSE)
+    137                  {
+    138                    break;
+    139                  }
+    140                if(event & (UART_RX_COMPLETE_bm | UART_RTO_bm))
+    141                  { 
+    142                    break; 
+    143                  }
+    144                }
+    145              
+    146           d->rx_buf = NULL;
+    147           d->bytes2read = 0; 
+    148           return d->rx_counter;
+    149          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       4   fifo_push
+      16   uart_isr
+        16   -> USART_ClearFlag
+        16   -> USART_ReceiveData
+        16   -> fifo_push
+        16   -> xTaskGenericNotifyFromISR
+      48   uart_open
+        48   -> USART_Cmd
+        48   -> USART_ITConfig
+        48   -> USART_Init
+        48   -> USART_ReceiverTimeOutCmd
+        48   -> USART_SetReceiverTimeOut
+        48   -> USART_StructInit
+        48   -> fifo_init
+        48   -> xTaskGetCurrentTaskHandle
+      32   uart_read
+        32   -> fifo_pop_buf
+        32   -> xTaskNotifyWait
+      24   uart_read_block
+        24   -> xTaskNotifyWait
+      16   uart_send
+        16   -> USART_GetFlagStatus
+        16   -> USART_SendData
+      16   uart_send_str
+        16   -> strlen
+        16   -> uart_send
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable0
+       4  ??DataTable0_1
+      44  fifo_push
+     132  uart_isr
+      96  uart_open
+      88  uart_read
+      60  uart_read_block
+      52  uart_send
+      26  uart_send_str
+
+ 
+ 506 bytes in section .text
+ 
+ 506 bytes of CODE memory
+
+Errors: none
+Warnings: none

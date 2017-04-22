@@ -1,0 +1,351 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:04:59
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\analog_input_app.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\analog_input_app.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\analog_input_app.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\analog_input_app.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\analog_input_app.c
+      1          #include "analog_input_app.h"
+      2          #include <string.h>
+      3          #include "fft.h"
+      4          #include "amp.h"
+      5          #include "test.h"
+      6          #include "uptime.h"
+      7          #include "cli.h"
+      8          #include "5x7.h"
+      9          #include <stdio.h>
+     10          // the idea here is to collect data from analog stream and when I have full buffer - i must process it really fast
+     11          volatile u16 analog_buf[SAMPLE_BUF_SIZE];
+     12          volatile u8 writing_to_first_half = 1;
+     13          
+     14          volatile u8 overflow_flag = 0;
+     15          
+     16          #define FFT_BUF_LEN   (1<<4) //as it has to be a power of two 
+     17          
+     18          static s16 fft_real_buf[FFT_BUF_LEN];
+     19          static s16 fft_img_buf[FFT_BUF_LEN];
+     20          static  char str[64];
+     21          u16 adc_ref_mV = 0;
+     22          
+     23          void visualizer(void);
+     24          void visualizer_init(void);
+     25          void visualizer_data_process(volatile u16* data,u16 len);
+     26          static void TIM_Config(void);
+     27          static void ADC_Config(void);
+     28          static void GPIO_Config(void);
+     29          static void DMA_Config(void);
+     30          
+     31          void visualizer_init(void)
+     32          {
+     33          GPIO_Config();
+     34          ADC_Config();
+     35          DMA_Config();
+     36          TIM_Config();
+     37          AMP_ON();
+     38          ADC_StartOfConversion(ADC1);
+     39          }
+     40          void visualizer(void)
+     41          {  
+     42               
+     43            while(writing_to_first_half){}
+     44            memcpy(fft_real_buf,(void*)analog_buf,FFT_BUF_LEN*2);   //and after this I can process data as long as I want
+     45           
+     46            for(u8 i = 0; i < FFT_BUF_LEN; i++)
+     47            {
+     48            fft_real_buf[i] -= 2048; //offset to make values -2048..+2048
+     49            }
+     50            
+     51            
+     52          fix_fft(fft_real_buf, fft_img_buf, 4);
+     53          
+     54           for (int k=0; k < FFT_BUF_LEN/2; k++){
+     55                                  fft_real_buf[k] = (fft_real_buf[k] * fft_real_buf[k] +  fft_img_buf[k] * fft_img_buf[k]);
+     56                                  fft_real_buf[k]=root(fft_real_buf[k]);   
+     57                                    }
+     58           
+     59           
+     60           for(u8 i =1;i<8;i++)
+     61           {
+     62           fft_real_buf[i]-=7;
+     63           fft_real_buf[i]<<=5;
+     64           }
+     65           
+     66           u16 strlen = sprintf(str,"%i %i %i %i %i %i %i\r\n", fft_real_buf[1],fft_real_buf[2],fft_real_buf[3],
+     67                                                                fft_real_buf[4],fft_real_buf[5],fft_real_buf[6],fft_real_buf[7]);
+     68           
+     69          serint_send(get_cli_interface(),(u8*)str,strlen);
+     70          led_matrix_putbars(&fft_real_buf[1], 7,NULL);
+     71          delay_ms__(40); 
+     72          }
+     73            
+     74          
+     75          
+     76          
+     77          
+     78          
+     79          
+     80          ////////////////////////////////////////
+     81          
+     82          
+     83          
+     84          
+     85          
+     86          
+     87          
+     88          
+     89          static void ADC_Config(void)
+     90          {
+     91            RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+     92            
+     93            ADC_InitTypeDef     ADC_InitStructure;
+     94            ADC_DeInit(ADC1);
+     95            
+     96            ADC_InitStructure.ADC_Resolution              = ADC_Resolution_12b;
+     97            ADC_InitStructure.ADC_ContinuousConvMode      = DISABLE; //It must be disables as i want it to be triggered
+     98            ADC_InitStructure.ADC_ExternalTrigConvEdge    = ADC_ExternalTrigConvEdge_Rising; //ADC_ExternalTrigConvEdge_None;              //;    
+     99            ADC_InitStructure.ADC_ExternalTrigConv        = ADC_ExternalTrigConv_T3_TRGO;
+    100            ADC_InitStructure.ADC_DataAlign               = ADC_DataAlign_Right;//ADC_DataAlign_Left;//;
+    101            ADC_InitStructure.ADC_ScanDirection           = ADC_ScanDirection_Upward;
+    102            ADC_Init(ADC1, &ADC_InitStructure); 
+    103            
+    104            ADC_GetCalibrationFactor(ADC1);
+    105            ADC_ChannelConfig(ADC1, AIN, ADC_SampleTime_28_5Cycles);
+    106            ADC_DMARequestModeConfig(ADC1, ADC_DMAMode_Circular);
+    107            //ADC_DMARequestModeConfig(ADC1, ADC_DMAMode_OneShot);  
+    108            ADC_DMACmd(ADC1, ENABLE);   
+    109            
+    110            ADC_Cmd(ADC1, ENABLE);     
+    111            while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_ADRDY)); 
+    112          }
+    113          
+    114          /////////////////////////////////////////
+    115          
+    116          static void DMA_Config(void)
+    117          {
+    118            RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1 , ENABLE); 
+    119             
+    120            NVIC_InitTypeDef NVIC_InitStructure;
+    121            NVIC_InitStructure.NVIC_IRQChannel = DMA1_Channel1_IRQn;
+    122            NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+    123            NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    124            NVIC_Init(&NVIC_InitStructure);
+    125             
+    126            DMA_InitTypeDef   DMA_InitStructure;
+    127            DMA_InitStructure.DMA_PeripheralBaseAddr      = (u32)(&ADC1->DR);
+    128            DMA_InitStructure.DMA_MemoryBaseAddr          = (uint32_t)analog_buf;
+    129            DMA_InitStructure.DMA_DIR                     = DMA_DIR_PeripheralSRC;
+    130            DMA_InitStructure.DMA_BufferSize              = SAMPLE_BUF_SIZE;
+    131            DMA_InitStructure.DMA_PeripheralInc           = DMA_PeripheralInc_Disable;
+    132            DMA_InitStructure.DMA_MemoryInc               = DMA_MemoryInc_Enable;
+    133            DMA_InitStructure.DMA_PeripheralDataSize      = DMA_PeripheralDataSize_HalfWord;
+    134            DMA_InitStructure.DMA_MemoryDataSize          = DMA_MemoryDataSize_HalfWord;
+    135            DMA_InitStructure.DMA_Mode                    = DMA_Mode_Circular;
+    136            DMA_InitStructure.DMA_Priority                = DMA_Priority_High;
+    137            DMA_InitStructure.DMA_M2M                     = DMA_M2M_Disable;
+    138            DMA_DeInit(DMA1_Channel1);
+    139            DMA_Init          (DMA1_Channel1, &DMA_InitStructure);
+    140          
+    141            DMA_ITConfig(DMA1_Channel1, DMA_IT_HT | DMA_IT_TC, ENABLE);
+    142            DMA_Cmd(DMA1_Channel1, ENABLE);
+    143          }
+    144          
+    145          
+    146          
+    147          static void GPIO_Config(){
+    148            
+    149          RCC_AHBPeriphClockCmd(AMP_ON_rcc | AIN_rcc | bat_ON_rcc | batV_rcc ,ENABLE);
+    150          GPIO_InitTypeDef GPIO_InitStructure;
+    151          
+    152          GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    153          GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
+    154          GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    155          GPIO_InitStructure.GPIO_Pin  = AMP_ON_pin; // amp on is output push-pull
+    156          GPIO_Init(AMP_ON_port, &GPIO_InitStructure);
+    157          
+    158          GPIO_InitStructure.GPIO_OType =  GPIO_OType_OD; //batON is open-drain
+    159          GPIO_InitStructure.GPIO_Pin   =  bat_ON_pin;
+    160          GPIO_Init(bat_ON_port, &GPIO_InitStructure);
+    161          
+    162          GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AN;
+    163          GPIO_InitStructure.GPIO_Pin   =  batV_pin;
+    164          GPIO_Init(batV_port, &GPIO_InitStructure);
+    165          
+    166          GPIO_InitStructure.GPIO_Pin   = AIN_pin ;
+    167          GPIO_Init(AIN_port, &GPIO_InitStructure);
+    168          
+    169          BAT_MEASURE_OFF();
+    170          AMP_OFF();
+    171          }
+    172          
+    173          
+    174          static void TIM_Config(void)
+    175          {
+    176            NVIC_InitTypeDef NVIC_InitStructure;  
+    177            NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
+    178            NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+    179            NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    180            NVIC_Init(&NVIC_InitStructure);
+    181          
+    182            
+    183            TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;  
+    184            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+    185            TIM_DeInit(SAMPLING_TIMER);
+    186            TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+    187            TIM_TimeBaseStructure.TIM_Period              = TIMER_PERIOD_TICKS;
+    188            TIM_TimeBaseStructure.TIM_Prescaler           = 0x0;       
+    189            TIM_TimeBaseStructure.TIM_ClockDivision       = 0x0;    
+    190            TIM_TimeBaseStructure.TIM_CounterMode         = TIM_CounterMode_Up;  
+    191            TIM_TimeBaseInit(SAMPLING_TIMER, &TIM_TimeBaseStructure);
+    192              
+    193            TIM_ITConfig(SAMPLING_TIMER, TIM_IT_Update, ENABLE);
+    194            TIM_SelectOutputTrigger(SAMPLING_TIMER, TIM_TRGOSource_Update); // ADC_ExternalTrigConv_T2_TRGO
+    195            
+    196            TIM_Cmd(SAMPLING_TIMER, ENABLE);
+    197            
+    198           }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   ADC_Config
+        32   -> ADC_ChannelConfig
+        32   -> ADC_Cmd
+        32   -> ADC_DMACmd
+        32   -> ADC_DMARequestModeConfig
+        32   -> ADC_DeInit
+        32   -> ADC_GetCalibrationFactor
+        32   -> ADC_GetFlagStatus
+        32   -> ADC_Init
+        32   -> RCC_APB2PeriphClockCmd
+      56   DMA_Config
+        56   -> DMA_Cmd
+        56   -> DMA_DeInit
+        56   -> DMA_ITConfig
+        56   -> DMA_Init
+        56   -> NVIC_Init
+        56   -> RCC_AHBPeriphClockCmd
+      16   GPIO_Config
+        16   -> GPIO_Init
+        16   -> RCC_AHBPeriphClockCmd
+      24   TIM_Config
+        24   -> NVIC_Init
+        24   -> RCC_APB1PeriphClockCmd
+        24   -> TIM_Cmd
+        24   -> TIM_DeInit
+        24   -> TIM_ITConfig
+        24   -> TIM_SelectOutputTrigger
+        24   -> TIM_TimeBaseInit
+        24   -> TIM_TimeBaseStructInit
+      40   visualizer
+        40   -> __aeabi_memcpy
+        40   -> delay_ms__
+        40   -> fix_fft
+        40   -> get_cli_interface
+        40   -> led_matrix_putbars
+        40   -> root
+        40   -> serint_send
+        40   -> sprintf
+       8   visualizer_init
+         8   -> ADC_Config
+         8   -> ADC_StartOfConversion
+         8   -> DMA_Config
+         8   -> GPIO_Config
+         8   -> TIM_Config
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable5
+       4  ??DataTable5_1
+       4  ??DataTable5_10
+       4  ??DataTable5_11
+       4  ??DataTable5_12
+       4  ??DataTable5_13
+       4  ??DataTable5_2
+       4  ??DataTable5_3
+       4  ??DataTable5_4
+       4  ??DataTable5_5
+       4  ??DataTable5_6
+       4  ??DataTable5_7
+       4  ??DataTable5_8
+       4  ??DataTable5_9
+      24  ?_0
+     112  ADC_Config
+     124  DMA_Config
+     128  GPIO_Config
+     110  TIM_Config
+       2  adc_ref_mV
+     512  analog_buf
+      32  fft_img_buf
+      32  fft_real_buf
+       1  overflow_flag
+      64  str
+     304  visualizer
+      38  visualizer_init
+       1  writing_to_first_half
+
+ 
+ 643 bytes in section .bss
+   1 byte  in section .data
+  24 bytes in section .rodata
+ 872 bytes in section .text
+ 
+ 872 bytes of CODE  memory
+  24 bytes of CONST memory
+ 644 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

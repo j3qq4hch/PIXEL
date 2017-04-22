@@ -1,0 +1,214 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:04:59
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\CLI.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\CLI.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\CLI.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\CLI.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\CLI\CLI.c
+      1          #include "cli.h"
+      2          #include "cmd_handlers.h"
+      3          
+      4          #define CLI_BUFLEN      128
+      5          #define CLI_RESPLEN     128
+      6          
+      7          static serint_desc_t* interface = NULL;
+      8          static char inbuf[CLI_BUFLEN];
+      9          static char response[CLI_RESPLEN];
+     10          
+     11          static USART_InitTypeDef usart_settings = 
+     12          {
+     13          9600,
+     14          USART_WordLength_8b,
+     15          USART_StopBits_1,
+     16          USART_Parity_No,
+     17          USART_Mode_Rx | USART_Mode_Tx,
+     18          USART_HardwareFlowControl_None
+     19          };
+     20          
+     21          #ifdef CLI_HELP_FOR_COMMANDS
+     22          static const cli_map_t cli_map[] = 
+     23          {
+     24            {"cli",       cli_cli_cmd_handler,            "shows brief CLI info"},
+     25            {"help",      cli_help_cmd_handler,           "shows brief help for cmd"},
+     26            {"name",      cli_name_cmd_handler,           "shows name of the device"},
+     27            {"lis",       cli_lis_cmd_handler,            "shows accel readings"},
+     28            {"lisreg",    cli_lisreg_cmd_handler,         "accel register operation"},
+     29            {"listhrsh",  cli_listhrsh_cmd_handler,       "sets thrsh for clicks"},
+     30            {"lislat",    cli_lislat_cmd_handler,         "shows specified font char"},
+     31            {"listime",   cli_listime_cmd_handler,        "shows specified font char"},
+     32            {"liswin",    cli_liswin_cmd_handler,         "shows specified font char"},
+     33            {"test",      cli_test_cmd_handler,           "test"},
+     34            {"char",      cli_char_cmd_handler,           "shows specified font char"},
+     35            {"pixel",     cli_pixel_cmd_handler,          "puts pixel in specified place"},
+     36            {"boot",      cli_boot_cmd_handler,           "starts DFU bootloader"}
+     37          };
+     38          
+     39          #else
+     40          static const cli_map_t cli_map[] = 
+     41          {
+     42            {"cli",       cli_cli_cmd_handler},
+     43            {"name",      cli_name_cmd_handler}
+     44          };
+     45          #endif
+     46          
+     47          void cli_init(serint_desc_t* d)
+     48          {
+     49          interface = d;
+     50          serint_open(interface,
+     51                      &usart_settings,
+     52                      (u8*)inbuf,
+     53                      CLI_BUFLEN);
+     54          }
+     55          
+     56          static u16 processed = 0;
+     57          void cli(void)
+     58          {
+     59          while(interface->receiving_flag){} // wait till receive everything
+     60          while(processed < interface->in_counter)
+     61          {
+     62            if(interface->inbuf[processed] == CLI_CMD_TERMINATION_SYMBOL)
+     63            {
+     64            u16 resplen = 0;
+     65            cli_cmd_process  ((char*)interface->inbuf,     //command string
+     66                               processed,                  //command string length
+     67                               response,                   //char buffer for response
+     68                               &resplen,
+     69                               cli_map,                    //cli command map
+     70                               ARRAY_SIZE(cli_map),        //cli command map length
+     71                               0);                         //nesting flag. Is used if response must include command
+     72            
+     73            serint_send(interface, (u8*)response, resplen);
+     74            serint_flush_inbuf(interface);
+     75            processed = 0;
+     76            }
+     77            processed++;
+     78            if(processed == CLI_BUFLEN)  // to avoid overflow
+     79            {
+     80            serint_flush_inbuf(interface);
+     81            processed = 0;
+     82            }
+     83          }
+     84          }
+     85          
+     86          serint_desc_t* get_cli_interface(void)
+     87          {
+     88          return interface ;
+     89          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   cli
+        24   -> cli_cmd_process
+        24   -> serint_flush_inbuf
+        24   -> serint_send
+       8   cli_init
+         8   -> serint_open
+       0   get_cli_interface
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_2
+       4  ??DataTable2_3
+       4  ??DataTable2_4
+       4  ??DataTable2_5
+       4  ?_0
+      24  ?_1
+      12  ?_10
+      24  ?_11
+       8  ?_12
+      28  ?_13
+       8  ?_14
+       8  ?_15
+       8  ?_16
+       8  ?_17
+       8  ?_18
+      32  ?_19
+       8  ?_2
+       8  ?_20
+      24  ?_21
+      28  ?_3
+       8  ?_4
+      28  ?_5
+       4  ?_6
+      24  ?_7
+       8  ?_8
+      28  ?_9
+     148  cli
+      24  cli_init
+     156  cli_map
+       6  get_cli_interface
+     128  inbuf
+       4  interface
+       2  processed
+     128  response
+      24  usart_settings
+
+ 
+ 262 bytes in section .bss
+  24 bytes in section .data
+ 496 bytes in section .rodata
+ 202 bytes in section .text
+ 
+ 202 bytes of CODE  memory
+ 496 bytes of CONST memory
+ 286 bytes of DATA  memory
+
+Errors: none
+Warnings: none

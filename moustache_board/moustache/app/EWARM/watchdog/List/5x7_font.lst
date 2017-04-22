@@ -1,0 +1,209 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.30.4.8167/W32 for ARM        05/Feb/2016  14:13:00
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  C:\led_zeppelin_5x7\app\led_matrix\5x7_font.c
+#    Command line =  
+#        C:\led_zeppelin_5x7\app\led_matrix\5x7_font.c -D USE_STDPERIPH_DRIVER
+#        -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\led_zeppelin_5x7\app\EWARM\watchdog\List\ -o
+#        C:\led_zeppelin_5x7\app\EWARM\watchdog\Obj\ --no_cse --no_unroll
+#        --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling
+#        --debug --endian=little --cpu=Cortex-M0 --char_is_signed --fpu=None
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\led_matrix\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\serint\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\usb\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\inc\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\CLI\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\Common\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.0\arm\CMSIS\Include\"
+#    List file    =  C:\led_zeppelin_5x7\app\EWARM\watchdog\List\5x7_font.lst
+#    Object file  =  C:\led_zeppelin_5x7\app\EWARM\watchdog\Obj\5x7_font.o
+#
+###############################################################################
+
+C:\led_zeppelin_5x7\app\led_matrix\5x7_font.c
+      1          #include "5x7_font.h"
+      2          
+      3          
+      4          const u8 font_data[] = {0x00,                                   //first unusable char
+      5                                  0x00,                                   //space char    1
+      6                                  0x1D,                                   //!             2           
+      7                                  0x10,0x10,                              //"             3
+      8                                  0x00,                                   //#             5
+      9                                  0x00,                                   //$             6
+     10                                  0x18,0x19,0x02,0x04,0x08,0x13,03,       //%             7
+     11                                  0x00,                                   //&             14
+     12                                  0x18,                                   //'             15
+     13                                  0x0E,0x11,                              //(             16
+     14                                  0x11,0x0E,                              //)             18
+     15                                  0x14,0x08,0x14,                         //*             20
+     16                                  0x04,0x0E,0x04,                         //+             23
+     17                                  0x01,0x02,                              //,             26
+     18                                  0x04,0x04,0x04,                         //-             28
+     19                                  0x01,                                   //.             31
+     20                                  0x01,0x02,0x04,0x08,0x10,               // /            32
+     21                                  0x1F,0x11,0x1F,                         //0             37
+     22                                  0x11,0x1F,0x01,                         //1             40
+     23                                  0x17,0x15,0x1D,                         //2             43
+     24                                  0x15,0x15,0x1F,                         //3             46
+     25                                  0x1C,0x04,0x1F,                         //4             49
+     26                                  0x1D,0x15,0x17,                         //5             52
+     27                                  0x1F,0x15,0x17,                         //6             55
+     28                                  0x10,0x10,0x1F,                         //7             58
+     29                                  0x1F,0x15,0x1F,                         //8             61
+     30                                  0x1D,0x15,0x1F,                         //9             64
+     31                                  0x0A,                                   //:             67
+     32                                  0x01,0x0A,                              //;             68
+     33                                  0x04,0x0A,0x11,                         //<             70
+     34                                  0x0A,0x0A,0x0A,                         //=             73
+     35                                  0x11,0x0A,0x04,                         //>             76
+     36                                  0x10,0x15,0x18,                         //?             79
+     37                                  0x12,0x15,0x0E,                         //@             82
+     38                                  0x0F,0x14,0x0F,                         //A             85
+     39                                  0x1F,0x15,0x0A,                         //B             88
+     40                                  0x0E,0x11,0x11,                         //C             91
+     41                                  0x1F,0x11,0x0E,                         //D             94
+     42                                  0x1F,0x15,0x11,                         //E             97
+     43                                  0x1F,0x14,0x10,                         //F             100
+     44                                  0x0E,0x11,0x15,0x16,                    //G             103
+     45                                  0x1F,0x04,0x1F,                         //H             107
+     46                                  0x11,0x1F,0x11,                         //I             110
+     47                                  0x12,0x11,0x1E,                         //J             113
+     48                                  0x1F,0x04,0x0A,0x11,                    //K             116
+     49                                  0x1F,0x01,0x01,                         //L             120
+     50                                  0x1F,0x08,0x04,0x08,0x1F,               //M             123
+     51                                  0x1F,0x08,0x04,0x02,0x1F,               //N             128
+     52                                  0x0E,0x11,0x0E,                         //O             133
+     53                                  0x1F,0x14,0x08,                         //P             136
+     54                                  0x0C,0x12,0x0D,                         //Q             139
+     55                                  0x1F,0x14,0x0B,                         //R             142
+     56                                  0x09,0x15,0x12,                         //S             145
+     57                                  0x10,0x1F,0x10,                         //T             148
+     58                                  0x1E,0x01,0x01,0x1E,                    //U             151
+     59                                  0x1E,0x01,0x1E,                         //V             155
+     60                                  0x1E,0x01,0x0E,0x01,0x1E,               //W             158
+     61                                  0x1B,0x04,0x1B,                         //X             163
+     62                                  0x18,0x07,0x18,                         //Y             166
+     63                                  0x13,0x15,0x19,                         //Z             169
+     64                                  0x1F,0x11,                              //[             172
+     65                                  0x10,0x08,0x04,0x02,0x01,               //\             174
+     66                                  0x11,0x1F,                              //]             179
+     67                                  0x08,0x10,0x08,                         //^             181
+     68                                  0x01,0x01,0x01,                         //_             184
+     69                                  0x18,                                   //'             187
+     70                                  0x11,0x0E,0x04,                         //}             188
+     71                                  0x1F,                                   //|             191
+     72                                  0x04,0x0E,0x11,                         //{             192
+     73                                  0x02,0x04,0x02,0x04                     //~             195
+     74                                                                          //199
+     75          };
+     76          
+     77          const u8 font_pos[] = { 1,      
+     78                                  2,      
+     79                                  3,      
+     80                                  5,      
+     81                                  6,      
+     82                                  7,      
+     83                                  14,     
+     84                                  15,     
+     85                                  16,
+     86                                  18,
+     87                                  20,
+     88                                  23,
+     89                                  26,
+     90                                  28,
+     91                                  31,
+     92                                  32,
+     93                                  37,     // 0
+     94                                  40,     // 1
+     95                                  43,     // 2
+     96                                  46,     // 3
+     97                                  49,     // 4
+     98                                  52,     // 5
+     99                                  55,     // 6
+    100                                  58,     // 7
+    101                                  61,     // 8
+    102                                  64,     // 9     
+    103                                  67,     // :
+    104                                  68,     // ;
+    105                                  70,     //<
+    106                                  73,     //=
+    107                                  76,     //>
+    108                                  79,     //?
+    109                                  82,     //@
+    110                                  85,     //A
+    111                                  88,     //B
+    112                                  91,     //C
+    113                                  94,     //D
+    114                                  97,     //E
+    115                                  100,    //F
+    116                                  103,    //G
+    117                                  107,    //H
+    118                                  110,    //I
+    119                                  113,    //J
+    120                                  116,    //K
+    121                                  120,    //L
+    122                                  123,    //M
+    123                                  128,    //N
+    124                                  133,    //O
+    125                                  136,    //P
+    126                                  139,    //Q
+    127                                  142,    //R
+    128                                  145,    //S
+    129                                  148,    //T
+    130                                  151,    //U
+    131                                  155,    //V
+    132                                  158,    //W
+    133                                  163,    //X
+    134                                  166,    //Y
+    135                                  169,    //Z
+    136                                  172,    //[
+    137                                  174,    // back-slash
+    138                                  179,    //]
+    139                                  181,    //^
+    140                                  184,    //_
+    141                                  187,    //'
+    142                                  188,    //}
+    143                                  191,    //|
+    144                                  192,    //{
+    145                                  195,    //~
+    146                                  199
+    147          };      
+    148          
+    149          const u8 font_len = ARRAY_SIZE(font_pos);
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     200  font_data
+       1  font_len
+      72  font_pos
+
+ 
+ 273 bytes in section .rodata
+ 
+ 273 bytes of CONST memory
+
+Errors: none
+Warnings: none

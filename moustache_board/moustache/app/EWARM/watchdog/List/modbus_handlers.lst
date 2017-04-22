@@ -1,0 +1,217 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:51
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus_handlers.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus_handlers.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\modbus_handlers.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\modbus_handlers.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus_handlers.c
+      1          
+      2          #include "modbus_handlers.h"
+      3          #include "version.h"
+      4          
+      5          extern pwm_master_param_t pwm_param[];
+      6          extern u16 pwm_period_ticks;
+      7          
+      8          u8 app_pwm_access (u8 mode, u16 adr, u16 * val)
+      9          {
+     10            u8 i = adr - PWM_START_ADR;
+     11            if(mode == REG_READ)
+     12            {
+     13              *val = pwm_param[i].desired_value;
+     14              return NO_ERROR;
+     15            }  
+     16            else
+     17            {
+     18            if(*val > pwm_get_period()) return ILLEGAL_DATA_VALUE;
+     19            pwm_param[i].desired_value = *val;
+     20            return NO_ERROR;
+     21            }
+     22            } 
+     23          
+     24          u8 app_step_access (u8 mode, u16 adr, u16 * val)
+     25          {
+     26            u8 i = adr - STEP_START_ADR;
+     27            if(mode == REG_READ)
+     28            {
+     29              *val = pwm_param[i].step;
+     30              return NO_ERROR;
+     31            }  
+     32            else
+     33            {
+     34            if(*val > 0xFF) return ILLEGAL_DATA_VALUE; //0xFF is maximal value for step
+     35            pwm_param[i].step = *val;
+     36            return NO_ERROR;
+     37            }
+     38          } 
+     39          
+     40          
+     41          u8 app_period_access (u8 mode, u16 adr, u16 * val)
+     42          {
+     43            u8 i = adr - PERIOD_START_ADR;
+     44            if(mode == REG_READ)
+     45            {
+     46              *val = pwm_param[i].period;
+     47              return NO_ERROR;
+     48            }  
+     49            else
+     50            {
+     51            if(*val > 0xFF) return ILLEGAL_DATA_VALUE; //0xFF is maximal value for step
+     52            pwm_param[i].period = *val;
+     53            return NO_ERROR;
+     54            }
+     55          } 
+     56          
+     57          u8 version_access(u8 mode, u16 adr, u16 * val)
+     58          {
+     59            if(mode == REG_READ)
+     60            {
+     61            *val = (HW_ID << 8) + SW_VER;
+     62            }
+     63            else
+     64            {
+     65            return ILLEGAL_FUNCTION;
+     66            }
+     67            return NO_ERROR;
+     68          }
+     69          
+     70          u8 pwm_period_access(u8 mode, u16 adr, u16 * val)
+     71          {
+     72            if(mode == REG_READ)
+     73            {
+     74            *val = pwm_period_ticks;
+     75            }
+     76            else
+     77            {
+     78            if(*val == 0) return ILLEGAL_DATA_VALUE;
+     79            pwm_period_ticks = *val;
+     80            pwm_init();
+     81            //i should restart timers here //
+     82            }
+     83            return NO_ERROR;
+     84          }  
+     85          
+     86          u8 serial_settings_access (u8 mode, u16 adr, u16 * val)
+     87          {
+     88            if(mode == REG_READ)
+     89            {
+     90              *val = 0xBEEF;
+     91            }
+     92            return NO_ERROR;
+     93          }
+     94          
+     95          
+     96          u8 adc_access(u8 mode, u16 adr, u16 * val)
+     97          {
+     98            if(mode == REG_READ)
+     99            {
+    100                *val = 0xDEAD;
+    101            }
+    102            else
+    103            {
+    104            return ILLEGAL_FUNCTION; // you cannot write to ADC register, read-only
+    105            }
+    106            return NO_ERROR;
+    107          }
+    108          
+    109          u8 id_access(u8 mode, u16 adr, u16 * val)
+    110          {
+    111            return NO_ERROR;
+    112          }
+    113          
+    114          //////////////////////////////////
+    115          
+    116          u8 modbus_adr_acceess   (u8 mode, u16 adr, u16 * val)
+    117          {
+    118            if(mode == REG_READ)
+    119            {
+    120              *val = modbus_get_adr();
+    121            }
+    122            else
+    123            {
+    124              if(*val > 254) return ILLEGAL_FUNCTION;
+    125              modbus_set_adr((u8)*val);
+    126            }
+    127            return NO_ERROR;
+    128          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       4   adc_access
+      16   app_period_access
+      24   app_pwm_access
+        24   -> pwm_get_period
+      16   app_step_access
+       0   id_access
+      16   modbus_adr_acceess
+        16   -> modbus_get_adr
+        16   -> modbus_set_adr
+      16   pwm_period_access
+        16   -> pwm_init
+       4   serial_settings_access
+       4   version_access
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable6
+       4  ??DataTable6_1
+       4  ??DataTable6_2
+       4  ??DataTable6_3
+       4  ??DataTable6_4
+      22  adc_access
+      60  app_period_access
+      70  app_pwm_access
+      60  app_step_access
+       6  id_access
+      44  modbus_adr_acceess
+      46  pwm_period_access
+      18  serial_settings_access
+      22  version_access
+
+ 
+ 368 bytes in section .text
+ 
+ 368 bytes of CODE memory
+
+Errors: none
+Warnings: none

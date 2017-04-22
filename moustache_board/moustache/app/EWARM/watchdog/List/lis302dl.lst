@@ -1,0 +1,281 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:05:01
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\lis302dl.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\lis302dl.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\lis302dl.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\lis302dl.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\lis302dl.c
+      1          
+      2          #include "lis302dl.h"
+      3          #include "test.h"
+      4          #ifdef  USE_I2C
+      5          #include "i2c.h"
+      6          #endif
+      7          
+      8          
+      9          
+     10          static void (*int1_handler)   (void);
+     11          static void (*int2_handler)   (void);
+     12          s8 * isr_readings; 
+     13          //reads 6 bytes from lis starting from addr LIS302DL_OUT_X - 1
+     14          void lis_get_readings(s8* readings)
+     15          {
+     16          i2c_read_transaction (LIS_I2C_ADR | BIT0 , (LIS302DL_OUT_X - 1)| BIT7, (u8*)readings, 6);
+     17          }
+     18          ///////////////////////////////////////////////////////
+     19          
+     20          u8      lis302d_get_id(void)
+     21          {
+     22          return lis302d_regread(LIS302DL_WHO_AM_I);
+     23          }
+     24          
+     25          //////////////////////////////////////////////
+     26          
+     27          void	lis302d_regwrite(u8 adr, u8 data)
+     28          {
+     29          i2c_write_transaction (LIS_I2C_ADR , adr, &data, 1);
+     30          }
+     31          
+     32          //////////////////////////////////////////////
+     33          
+     34          u8 lis302d_regread(u8 adr)
+     35          {
+     36          u8 data = 0;
+     37          i2c_read_transaction (LIS_I2C_ADR | BIT0, adr, &data, 1);
+     38          return data;
+     39          }
+     40          
+     41          //////////////////////////////////////////////
+     42          
+     43          void    lis302d_init(void(*int1_handler)(void),
+     44                               void(*int2_h)(void),
+     45                               u8 thrshX,u8 thrshY,u8 thrshZ,s8* readings)
+     46          {
+     47            
+     48            lis302d_set_int1_handler(int1_handler);
+     49            lis302d_set_int2_handler(int2_handler);
+     50            
+     51            isr_readings = readings;
+     52              
+     53            u8 reg = LIS302DL_XEN + LIS302DL_YEN + LIS302DL_ZEN + LIS302DL_PD + LIS302DL_DR; //ctrl1 reg, turn on accel
+     54            lis302d_regwrite(LIS302DL_CTRL_REG1, reg);
+     55            
+     56            reg  = LIS302DL_FDS;                                        
+     57            lis302d_regwrite(LIS302DL_CTRL_REG2, reg);
+     58              
+     59            lis302d_regwrite(LIS302DL_CLICK_timelimit, 100);  //set timelimit
+     60            lis302d_regwrite(LIS302DL_CLICK_latency,    70);  //set latency
+     61            lis302d_regwrite(LIS302DL_CLICK_window,    200);  //set window
+     62            
+     63            reg  = LIS302DL_I1CFG0+LIS302DL_I1CFG1+LIS302DL_I1CFG2;             //set int1 pad for click interrupts
+     64            lis302d_regwrite(LIS302DL_CTRL_REG3, reg);
+     65            
+     66            lis302d_set_thresholds(thrshX,thrshY,thrshZ);
+     67            lis302d_regwrite(LIS302DL_CLICK_CFG, 0xFF);                         //turn all posssible click interrupts
+     68            
+     69            lis302d_gpio_int_config();
+     70          }
+     71          
+     72          //////////////////////////////////////////////
+     73          
+     74          static void do_nothing(void){}
+     75          /////////////////////////////////////////////
+     76          
+     77          
+     78          void  lis302d_set_int1_handler(void(*handler)(void))
+     79          {
+     80          if(handler ==  NULL) handler = do_nothing;
+     81          int1_handler = handler;
+     82          }
+     83          
+     84          void  lis302d_set_int2_handler(void(*handler)(void))
+     85          {
+     86          if(handler ==  NULL) handler = do_nothing;
+     87          int2_handler = handler;
+     88          }
+     89                            
+     90          
+     91          
+     92          void lis302d_gpio_int_config(void)
+     93          {
+     94            RCC_AHBPeriphClockCmd(INT2_rcc | INT1_rcc, ENABLE);
+     95            RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+     96          
+     97            GPIO_InitTypeDef   GPIO_InitStructure;
+     98            EXTI_InitTypeDef   EXTI_InitStructure;
+     99            NVIC_InitTypeDef   NVIC_InitStructure;
+    100          
+    101            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+    102            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
+    103            
+    104            GPIO_InitStructure.GPIO_Pin = INT1_pin;
+    105            GPIO_Init(INT1_port, &GPIO_InitStructure);
+    106            
+    107          
+    108            SYSCFG_EXTILineConfig(INT1_EXTI_port, INT1_EXTI_pin);
+    109            SYSCFG_EXTILineConfig(INT2_EXTI_port, INT2_EXTI_pin);
+    110            
+    111            EXTI_InitStructure.EXTI_Line          = INT1_EXTI_LINE;
+    112            EXTI_InitStructure.EXTI_Mode          = EXTI_Mode_Interrupt;
+    113            EXTI_InitStructure.EXTI_Trigger       = EXTI_Trigger_Rising ;
+    114            EXTI_InitStructure.EXTI_LineCmd       = ENABLE;
+    115            EXTI_Init(&EXTI_InitStructure);
+    116          
+    117            EXTI_InitStructure.EXTI_Line          = INT2_EXTI_LINE;
+    118            EXTI_Init(&EXTI_InitStructure);
+    119            
+    120            NVIC_InitStructure.NVIC_IRQChannel            = EXTI4_15_IRQn;
+    121            NVIC_InitStructure.NVIC_IRQChannelPriority    = 0x01;
+    122            NVIC_InitStructure.NVIC_IRQChannelCmd         = ENABLE;
+    123            NVIC_Init(&NVIC_InitStructure);
+    124          }
+    125          
+    126          
+    127          
+    128          
+    129          void lis302d_set_thresholds(u8 x,u8 y, u8 z)
+    130          {
+    131            if(x>0x0F) x = 0x0F;
+    132            if(y>0x0F) y = 0x0F;
+    133            if(z>0x0F) z = 0x0F;
+    134            
+    135            lis302d_regwrite(LIS302DL_CLICK_THSY_X, (y<<4)+x);
+    136            lis302d_regwrite(LIS302DL_CLICK_THSZ, z);
+    137          }
+    138          
+    139          
+    140          void EXTI4_15_IRQHandler(void)
+    141          {
+    142          i2c_read_transaction (LIS_I2C_ADR | BIT0 , (LIS302DL_OUT_X - 1)| BIT7, (u8*)isr_readings, 6);
+    143          if(EXTI_GetITStatus(INT1_EXTI_LINE) != RESET)
+    144           {
+    145               int1_handler();
+    146               EXTI_ClearITPendingBit(INT1_EXTI_LINE);   
+    147            }
+    148          if(EXTI_GetITStatus(INT2_EXTI_LINE) != RESET)
+    149            {
+    150              int2_handler();
+    151              EXTI_ClearITPendingBit(INT2_EXTI_LINE);
+    152            }
+    153            
+    154          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   EXTI4_15_IRQHandler
+         8   -- Indirect call
+         8   -> EXTI_ClearITPendingBit
+         8   -> EXTI_GetITStatus
+         8   -> i2c_read_transaction
+       0   do_nothing
+       8   lis302d_get_id
+         8   -> lis302d_regread
+      24   lis302d_gpio_int_config
+        24   -> EXTI_Init
+        24   -> GPIO_Init
+        24   -> NVIC_Init
+        24   -> RCC_AHBPeriphClockCmd
+        24   -> RCC_APB2PeriphClockCmd
+        24   -> SYSCFG_EXTILineConfig
+      32   lis302d_init
+        32   -> lis302d_gpio_int_config
+        32   -> lis302d_regwrite
+        32   -> lis302d_set_int1_handler
+        32   -> lis302d_set_int2_handler
+        32   -> lis302d_set_thresholds
+      16   lis302d_regread
+        16   -> i2c_read_transaction
+      16   lis302d_regwrite
+        16   -> i2c_write_transaction
+       4   lis302d_set_int1_handler
+       4   lis302d_set_int2_handler
+      16   lis302d_set_thresholds
+        16   -> lis302d_regwrite
+       8   lis_get_readings
+         8   -> i2c_read_transaction
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_2
+       4  ??DataTable3_3
+      70  EXTI4_15_IRQHandler
+       2  do_nothing
+       4  int1_handler
+       4  int2_handler
+       4  isr_readings
+      10  lis302d_get_id
+     136  lis302d_gpio_int_config
+     120  lis302d_init
+      32  lis302d_regread
+      20  lis302d_regwrite
+      18  lis302d_set_int1_handler
+      18  lis302d_set_int2_handler
+      68  lis302d_set_thresholds
+      18  lis_get_readings
+
+ 
+  12 bytes in section .bss
+ 528 bytes in section .text
+ 
+ 528 bytes of CODE memory
+  12 bytes of DATA memory
+
+Errors: none
+Warnings: none

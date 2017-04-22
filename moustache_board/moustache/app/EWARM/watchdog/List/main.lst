@@ -1,0 +1,148 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:50
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\main.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\main.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
+      1          #include "pwm.h"
+      2          #include "bsp.h"
+      3          #include <string.h>
+      4          #include "Freertos.h"
+      5          #include "task.h"
+      6          #include "queue.h"
+      7          #include "uart_int.h"
+      8          #include "modbus.h"
+      9          #include "pwm_app.h"
+     10          #include "settings.h"
+     11          #include "modbus_app.h"
+     12          
+     13          void blinker    (void *p);
+     14          
+     15          u16 blink_period = 100;
+     16          extern pwm_ch_t pwm_array[];
+     17          extern modbus_app_param_t modbus_app_param ;
+     18          
+     19          
+     20          uart_desc_t RS485 =
+     21          {
+     22           "RS485", 	//char* name;
+     23           USART1,	//USART_TypeDef * instance;
+     24           NULL,	        //fifo_t * rx_fifo;
+     25           NULL,		//u8 * tx_p;
+     26           0			//u16 tx_counter;
+     27          };
+     28          
+     29          
+     30          int main(void)
+     31          { 
+     32          //settings_load();
+     33            board_init();
+     34                  
+     35            xTaskCreate(blinker,                    /* Function that implements the task. */
+     36                        "blink",                    /* Name */
+     37                        configMINIMAL_STACK_SIZE,   /* Stack size in words, not bytes. */
+     38                        ( void * ) &blink_period,   /* Parameter passed into the task. */
+     39                        tskIDLE_PRIORITY + 1,       /* Priority at which the task is created. */
+     40                        NULL );  
+     41          
+     42          
+     43          //  xTaskCreate(modbus_app,                     /* Function that implements the task. */
+     44          //              "modbus",                       /* Name */
+     45          //              configMINIMAL_STACK_SIZE * 2,   /* Stack size in words, not bytes. */
+     46          //              ( void * ) &modbus_app_param,   /* Parameter passed into the task. */
+     47          //              tskIDLE_PRIORITY + 1,           /* Priority at which the task is created. */
+     48          //              NULL );  
+     49            
+     50            vTaskStartScheduler();
+     51          }
+     52          
+     53          
+     54          void blinker(void *p)
+     55          {
+     56          
+     57          while(1)
+     58          {
+     59          LED_toggle();  
+     60          vTaskDelay( 150 / portTICK_PERIOD_MS );
+     61          }
+     62          }
+     63          
+     64          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   blinker
+         8   -> vTaskDelay
+      16   main
+        16   -> board_init
+        16   -> vTaskStartScheduler
+        16   -> xTaskCreate
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       8  ?_0
+       8  ?_1
+      44  RS485
+       2  blink_period
+      52  blinker
+      36  main
+
+ 
+  46 bytes in section .data
+  16 bytes in section .rodata
+ 112 bytes in section .text
+ 
+ 112 bytes of CODE  memory
+  16 bytes of CONST memory
+  46 bytes of DATA  memory
+
+Errors: none
+Warnings: none

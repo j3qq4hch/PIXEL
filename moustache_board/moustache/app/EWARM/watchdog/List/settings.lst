@@ -1,0 +1,390 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:09:34
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\settings.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\settings.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\settings.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\settings.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\settings.c
+      1          #include <string.h>
+      2          
+      3          #include "settings.h"
+      4          #include "pwm_app.h"
+      5          #include "modbus_app.h"
+      6          #include "flash_access.h"
+      7          
+      8          
+      9          static u16     setting_serialize_stream(const setting_t * s, u8 id, void(*write_byte)(u8 b));
+     10          static const setting_t * setting_deserialize_stream(u8 (*get_byte) (u8*byte), const setting_t *map, u8 maplen);
+     11          
+     12          u16 get_crc(u8* data, u16 len);
+     13          
+     14          extern pwm_master_param_t pwm_param[];
+     15          modbus_app_param_t modbus_app_param = {0};
+     16          //OK, let array index of setting be its unique ID, by whitch it should be recognised if there is no readable string
+     17          
+     18          
+     19          extern u16 pwm_period_ticks;
+     20          static const u16 dflt_pwm_res = 1024;
+     21          
+     22          static const modbus_app_param_t dflt_modbus_app_param = 
+     23          {
+     24          0x01,
+     25          115200,
+     26          "8N1"
+     27          };
+     28          
+     29          static const pwm_master_param_t dflt_pwm_param = 
+     30          {
+     31            NULL,
+     32            1,
+     33            1,
+     34            100
+     35          };
+     36          
+     37          
+     38          static const setting_t settings[] =
+     39          {
+     40          {"pwmres",      TYPE_U16, &pwm_period_ticks,                  &dflt_pwm_res},
+     41          
+     42          {"step0",       TYPE_U8,  &pwm_param[0].step,                 &dflt_pwm_param.step},
+     43          {"per0",        TYPE_U8,  &pwm_param[0].period,               &dflt_pwm_param.period},
+     44          {"val0",        TYPE_U16, &pwm_param[0].desired_value,        &dflt_pwm_param.desired_value},
+     45          
+     46          {"step1",       TYPE_U8,  &pwm_param[1].step,                 &dflt_pwm_param.step},
+     47          {"per1",        TYPE_U8,  &pwm_param[1].period,               &dflt_pwm_param.period},
+     48          {"val1",        TYPE_U16, &pwm_param[1].desired_value,        &dflt_pwm_param.desired_value},
+     49          
+     50          {"step2",       TYPE_U8,  &pwm_param[2].step,                 &dflt_pwm_param.step},
+     51          {"per2",        TYPE_U8,  &pwm_param[2].period,               &dflt_pwm_param.period},
+     52          {"val2",        TYPE_U16, &pwm_param[2].desired_value,        &dflt_pwm_param.desired_value},
+     53          
+     54          {"step3",       TYPE_U8,  &pwm_param[3].step,                 &dflt_pwm_param.step},
+     55          {"per3",        TYPE_U8,  &pwm_param[3].period,               &dflt_pwm_param.period},
+     56          {"val3",        TYPE_U16, &pwm_param[3].desired_value,        &dflt_pwm_param.desired_value},
+     57          
+     58          {"step4",       TYPE_U8,  &pwm_param[4].step,                 &dflt_pwm_param.step},
+     59          {"per4",        TYPE_U8,  &pwm_param[4].period,               &dflt_pwm_param.period},
+     60          {"val4",        TYPE_U16, &pwm_param[4].desired_value,        &dflt_pwm_param.desired_value},
+     61          
+     62          {"step5",       TYPE_U8,  &pwm_param[5].step,                 &dflt_pwm_param.step},
+     63          {"per5",        TYPE_U8,  &pwm_param[5].period,               &dflt_pwm_param.period},
+     64          {"val5",        TYPE_U16, &pwm_param[5].desired_value,        &dflt_pwm_param.desired_value},
+     65          
+     66          {"adr",         TYPE_U8,                                           &modbus_app_param.adr,       &dflt_modbus_app_param.adr},
+     67          {"baud",        TYPE_U32,                                          &modbus_app_param.baudrate,  &dflt_modbus_app_param.baudrate},
+     68          {"format",      TYPE_BYTE_ARRAY | sizeof(modbus_app_param.format), &modbus_app_param.format,    &dflt_modbus_app_param.format}
+     69          };
+     70          
+     71          ////////////////////////////////////////////////////////////////////////////////
+     72          
+     73          void settings_load_dflt(void)
+     74          {
+     75            for(u8 i = 0; i < ARRAY_SIZE(settings); i++)
+     76            {
+     77              switch(settings[i].type & 0xFF00)
+     78              {
+     79              case TYPE_U8: 
+     80                {
+     81                *(u8*)settings[i].val_p = 0;
+     82                if(settings[i].default_val_p) *(u8*)settings[i].val_p = *(u8*)settings[i].default_val_p;
+     83                break;
+     84                }
+     85              case TYPE_U16:
+     86                  {
+     87                    *(u16*)settings[i].val_p = 0;
+     88                    if(settings[i].default_val_p) *(u16*)settings[i].val_p = *(u16*)settings[i].default_val_p;
+     89                    break;
+     90                  }
+     91              case TYPE_U32:
+     92                  {
+     93                    *(u32*)settings[i].val_p = 0;
+     94                    *(u32*)settings[i].val_p = *(u32*)settings[i].default_val_p;
+     95                    break;
+     96                  }
+     97              case TYPE_BYTE_ARRAY:
+     98                  {
+     99                    u8 len = settings[i].type & 0xFF;
+    100                    memset(settings[i].val_p, 0x00, len); //make it GO AWAY later
+    101                    if(settings[i].default_val_p) memcpy(settings[i].val_p, settings[i].default_val_p, len);
+    102                    break;
+    103                  }
+    104              }
+    105            }
+    106          }
+    107          
+    108          ////////////////////////////////////////////////////////////////////////////////
+    109          
+    110          void settings_load(void)
+    111          { 
+    112            if(get_crc((u8*)SETTINGS_START_ADR,FLASH_PAGE_SIZE - 2) != *(u16*)(SETTINGS_START_ADR + FLASH_PAGE_SIZE - 2))
+    113            {
+    114              settings_load_dflt();
+    115              return;
+    116            }
+    117            
+    118            flash_init(SETTINGS_START_ADR);
+    119            while(1)
+    120            {
+    121              if(setting_deserialize_stream(flash_read_byte, settings, ARRAY_SIZE(settings))== NULL) break;
+    122            }
+    123          }
+    124          
+    125          void settings_save(void)
+    126          {
+    127            DISABLE_SYSTICK();
+    128            flash_init(SETTINGS_START_ADR);
+    129            FLASH_Unlock();
+    130            FLASH_ErasePage(SETTINGS_START_ADR);
+    131            
+    132            for(u8 i = 0; i < ARRAY_SIZE(settings); i++)
+    133            {
+    134              setting_serialize_stream(&settings[i], i, flash_write_byte);
+    135            }
+    136            flash_finalize();
+    137            FLASH_ProgramHalfWord( SETTINGS_START_ADR + FLASH_PAGE_SIZE - 2, get_crc((u8*)SETTINGS_START_ADR,FLASH_PAGE_SIZE - 2) );
+    138            FLASH_Lock();
+    139            ENABLE_SYSTICK();
+    140          }
+    141          
+    142          
+    143          static u16 setting_serialize_stream(const setting_t * s, u8 id, void(*write_byte)(u8 b))
+    144          {
+    145           write_byte(id);   
+    146           write_byte(s->type >> 8);
+    147           write_byte(s->type & 0xFF);
+    148           
+    149           u16 c = 3;
+    150           switch (s->type & 0xFF00)
+    151            {
+    152            case TYPE_U8:
+    153              {
+    154              write_byte(*(u8*)s->val_p);
+    155              c++;
+    156              break;
+    157              } 
+    158              
+    159            case TYPE_U16:
+    160              {
+    161              write_byte(*(u16*)s->val_p >> 8);
+    162              write_byte(*(u16*)s->val_p & 0xFF);      
+    163              c+=2;
+    164              break;
+    165              }
+    166              
+    167            case TYPE_U32:
+    168              {
+    169              write_byte(*(u32*)s->val_p >> 24); 
+    170              write_byte(*(u32*)s->val_p >> 16);
+    171              write_byte(*(u32*)s->val_p >> 8);
+    172              write_byte(*(u32*)s->val_p & 0xFF);      
+    173              c+=4;
+    174              break;
+    175              }
+    176            case TYPE_BYTE_ARRAY:
+    177              {
+    178              u8 len = s->type & 0xFF;
+    179              u8* byte = (u8*)s->val_p;
+    180              for(u8 i = 0; i < len; i++)
+    181                {
+    182                write_byte(*byte++);
+    183                }
+    184            c += len;
+    185            break;
+    186              }
+    187            default:
+    188              {
+    189              c = 0xFFFF;
+    190              break;
+    191              }
+    192            }
+    193          return c;
+    194          }
+    195          
+    196          
+    197          ////////////////////////////////////////////////////////////////////////////////
+    198          
+    199          
+    200          // reads some bytes and then tries to find a place for them in map. 
+    201          // If success - returns pointer to modified setting emelent in map
+    202          // If something goes wrong - returns NULL
+    203          //
+    204          // u8 (*get_byte) (u8* byte) is a pointer to the function that must read byte from some stream 
+    205          // and put it to u8* byte ptr
+    206          // if OK - return 0 
+    207          // if failed to read - return 1
+    208          static const setting_t * setting_deserialize_stream(u8 (*get_byte) (u8*byte), const setting_t *map, u8 maplen)
+    209          {
+    210           u8 id = 0;
+    211           if(get_byte(&id)) return NULL;
+    212           if(id > maplen) return NULL;           //invalid ID
+    213           const setting_t * s = &map[id];
+    214           
+    215           u16 type = 0;
+    216           if(get_byte((u8*)&type+1)) return NULL;
+    217           if(get_byte((u8*)&type))   return NULL;
+    218            
+    219           if(type != s->type) return NULL;  //type mismatch
+    220            
+    221           switch (type & 0xFF00)
+    222            {
+    223            case TYPE_U8:
+    224              {
+    225              if(get_byte((u8*)s->val_p)) return NULL;
+    226              break;
+    227              } 
+    228              
+    229            case TYPE_U16:
+    230              {
+    231              if(get_byte((u8*)s->val_p + 1))     return NULL;
+    232              if(get_byte((u8*)s->val_p))         return NULL;
+    233              break;
+    234              }
+    235              
+    236            case TYPE_U32:
+    237              {
+    238              if(get_byte((u8*)s->val_p + 3))     return NULL;
+    239              if(get_byte((u8*)s->val_p + 2))     return NULL;
+    240              if(get_byte((u8*)s->val_p + 1))     return NULL;
+    241              if(get_byte((u8*)s->val_p))         return NULL;
+    242              break;
+    243              }
+    244            case TYPE_BYTE_ARRAY:
+    245              {
+    246                u8 len = s->type & 0xFF;
+    247            
+    248                for(u8 i = 0; i < len; i++)
+    249                  {
+    250                    if(get_byte((u8*)s->val_p + i))     return NULL;
+    251                  }
+    252            break;
+    253              }
+    254            default:
+    255              {
+    256                return NULL; // invalid type
+    257                break;
+    258              }
+    259            }
+    260          return s;
+    261          }
+    262          
+    263          ////////////////////////////////////////////////////////////////////////////////
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   setting_deserialize_stream
+        32   -- Indirect call
+      32   setting_serialize_stream
+        32   -- Indirect call
+       8   settings_load
+         8   -> flash_init
+         8   -> get_crc
+         8   -> setting_deserialize_stream
+         8   -> settings_load_dflt
+      24   settings_load_dflt
+        24   -> __aeabi_memcpy
+        24   -> __aeabi_memset
+       8   settings_save
+         8   -> FLASH_ErasePage
+         8   -> FLASH_Lock
+         8   -> FLASH_ProgramHalfWord
+         8   -> FLASH_Unlock
+         8   -> flash_finalize
+         8   -> flash_init
+         8   -> get_crc
+         8   -> setting_serialize_stream
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_2
+       4  ??DataTable3_3
+       4  ??DataTable3_4
+       4  ??DataTable3_5
+       4  ??DataTable3_6
+       4  ??DataTable3_7
+       8  ?_0
+       8  ?_1
+       8  ?_10
+       8  ?_11
+       8  ?_12
+       8  ?_13
+       8  ?_14
+       8  ?_15
+       8  ?_16
+       8  ?_17
+       8  ?_18
+       4  ?_19
+       8  ?_2
+       8  ?_20
+       8  ?_21
+       8  ?_3
+       8  ?_4
+       8  ?_5
+       8  ?_6
+       8  ?_7
+       8  ?_8
+       8  ?_9
+      12  dflt_modbus_app_param
+       8  dflt_pwm_param
+       2  dflt_pwm_res
+      12  modbus_app_param
+     284  setting_deserialize_stream
+     222  setting_serialize_stream
+     352  settings
+      50  settings_load
+     332  settings_load_dflt
+     102  settings_save
+
+ 
+    12 bytes in section .bss
+   546 bytes in section .rodata
+ 1 022 bytes in section .text
+ 
+ 1 022 bytes of CODE  memory
+   546 bytes of CONST memory
+    12 bytes of DATA  memory
+
+Errors: none
+Warnings: none

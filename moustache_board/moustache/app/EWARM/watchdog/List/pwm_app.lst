@@ -1,0 +1,113 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:51
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm_app.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm_app.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\pwm_app.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\pwm_app.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm_app.c
+      1          
+      2          #include "Freertos.h"
+      3          #include "task.h"
+      4          #include "pwm_app.h"
+      5          
+      6          
+      7          void pwm_master(void *param)
+      8          {
+      9            pwm_master_param_t * p = param;
+     10           
+     11            u16 value = 0; 
+     12            u32 event = 0;
+     13          
+     14            while(1)
+     15            {
+     16             if(value != p->desired_value)
+     17              {   
+     18                if(p->step)
+     19                  { 
+     20                    if(value > p->desired_value)
+     21                      {
+     22                        ((value - p->desired_value) > p->step) ? (value -= p->step) : (value = p->desired_value);
+     23                      }
+     24                    
+     25                    if(value < p->desired_value)
+     26                      {
+     27                        ((p->desired_value - value) > p->step) ? (value += p->step) : (value = p->desired_value);
+     28                      }
+     29                  }
+     30                else
+     31                  {
+     32                  value = p->desired_value;
+     33                  }
+     34              pwm_setval(p->pwm, value);
+     35              vTaskDelay( p->period / portTICK_PERIOD_MS );
+     36              }
+     37             else
+     38              {
+     39              taskYIELD();
+     40              } 
+     41            }
+     42          }
+     43          
+     44          
+     45          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   pwm_master
+        24   -> pwm_setval
+        24   -> vPortYield
+        24   -> vTaskDelay
+        24 __aeabi_uidiv
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     124  pwm_master
+
+ 
+ 124 bytes in section .text
+ 
+ 124 bytes of CODE memory
+
+Errors: none
+Warnings: 1

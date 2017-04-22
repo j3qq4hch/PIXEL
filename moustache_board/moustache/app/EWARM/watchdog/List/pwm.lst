@@ -1,0 +1,193 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:10:14
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\pwm.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\pwm.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm.c
+      1          #include "pwm.h"
+      2          #include "bsp.h"
+      3          
+      4          static inline void TIM_OCInit(TIM_TypeDef* TIMx, u8 ch, TIM_OCInitTypeDef* TIM_OCInitStruct);
+      5          
+      6          u16 pwm_period_ticks = 1024;
+      7          
+      8          const pwm_ch_t pwm_array[] =
+      9          {
+     10            {PWM1_gpio_port, PWM1_gpio_pin, PWM1_gpio_pinsource, PWM1_gpio_pin_af, TIM14, 1},
+     11            {PWM2_gpio_port, PWM2_gpio_pin, PWM2_gpio_pinsource, PWM2_gpio_pin_af, TIM3,  1},
+     12            {PWM3_gpio_port, PWM3_gpio_pin, PWM3_gpio_pinsource, PWM3_gpio_pin_af, TIM3,  2},
+     13            {PWM4_gpio_port, PWM4_gpio_pin, PWM4_gpio_pinsource, PWM4_gpio_pin_af, TIM3,  4},
+     14            {PWM5_gpio_port, PWM5_gpio_pin, PWM5_gpio_pinsource, PWM5_gpio_pin_af, TIM1,  2},
+     15            {PWM6_gpio_port, PWM6_gpio_pin, PWM6_gpio_pinsource, PWM6_gpio_pin_af, TIM1,  3},
+     16          };
+     17          
+     18          
+     19          
+     20          
+     21          static inline void TIM_OCInit(TIM_TypeDef* TIMx, 
+     22                                        u8 ch, 
+     23                                        TIM_OCInitTypeDef* TIM_OCInitStruct)
+     24          {
+     25          if(ch == 1) TIM_OC1Init(TIMx, TIM_OCInitStruct);
+     26          if(ch == 2) TIM_OC2Init(TIMx, TIM_OCInitStruct);
+     27          if(ch == 3) TIM_OC3Init(TIMx, TIM_OCInitStruct);
+     28          if(ch == 4) TIM_OC4Init(TIMx, TIM_OCInitStruct);
+     29          }
+     30          
+     31          static inline void TIM_SetCompare(TIM_TypeDef* TIMx, u8 ch, uint32_t Compare)
+     32          {
+     33          if(ch == 1) TIM_SetCompare1(TIMx, Compare);
+     34          if(ch == 2) TIM_SetCompare2(TIMx, Compare);
+     35          if(ch == 3) TIM_SetCompare3(TIMx, Compare);
+     36          if(ch == 4) TIM_SetCompare4(TIMx, Compare);
+     37          }
+     38          
+     39          ////////////////////////////////////////////
+     40          
+     41          void pwm_setval(const pwm_ch_t* pwm, u32 val)
+     42          {
+     43            TIM_SetCompare(pwm->TIM, pwm->TIM_ch, val);
+     44          }
+     45          
+     46          /////////////////////////////////////////////
+     47          
+     48          static void pwm_init_ch(const pwm_ch_t* pwm)
+     49          {
+     50            TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+     51            TIM_OCInitTypeDef  TIM_OCInitStructure;
+     52            TIM_Cmd(pwm->TIM, DISABLE); 
+     53            
+     54            GPIO_InitTypeDef GPIO_InitStructure;
+     55          
+     56            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+     57            GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+     58            GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+     59            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+     60            
+     61            GPIO_InitStructure.GPIO_Pin = pwm->GPIO_Pin;
+     62            GPIO_Init(pwm->GPIO_port, &GPIO_InitStructure);
+     63            GPIO_PinAFConfig(pwm->GPIO_port, pwm->GPIO_PinSource, pwm->GPIO_AF); 
+     64            
+     65            TIM_TimeBaseStructure.TIM_Prescaler           = 0;
+     66            TIM_TimeBaseStructure.TIM_CounterMode         = TIM_CounterMode_Up;
+     67            TIM_TimeBaseStructure.TIM_Period              = pwm_period_ticks;
+     68            TIM_TimeBaseStructure.TIM_ClockDivision       = 0;
+     69            TIM_TimeBaseStructure.TIM_RepetitionCounter   = 0;
+     70          
+     71            TIM_TimeBaseInit(pwm->TIM, &TIM_TimeBaseStructure);
+     72          
+     73            TIM_OCInitStructure.TIM_OCMode        = TIM_OCMode_PWM2;
+     74            TIM_OCInitStructure.TIM_OutputState   = TIM_OutputState_Enable;
+     75            TIM_OCInitStructure.TIM_Pulse         = 0;
+     76            TIM_OCInitStructure.TIM_OCPolarity    = TIM_OCPolarity_Low;
+     77            TIM_OCInitStructure.TIM_OCIdleState   = TIM_OCIdleState_Set;
+     78            
+     79            TIM_OCInit(pwm->TIM, pwm->TIM_ch,  &TIM_OCInitStructure);
+     80            TIM_Cmd(pwm->TIM, ENABLE);
+     81            TIM_CtrlPWMOutputs(pwm->TIM, ENABLE);
+     82          }
+     83          
+     84          void pwm_init(void)
+     85          {
+     86            for(u8 i = 0; i < ARRAY_SIZE(pwm_array); i++)
+     87            {
+     88            pwm_init_ch(&pwm_array[i]);
+     89            }
+     90          }
+     91          
+     92          u16 pwm_get_period(void)
+     93          {
+     94          return pwm_period_ticks;
+     95          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      16   TIM_OCInit
+        16   -> TIM_OC1Init
+        16   -> TIM_OC2Init
+        16   -> TIM_OC3Init
+        16   -> TIM_OC4Init
+      16   TIM_SetCompare
+        16   -> TIM_SetCompare1
+        16   -> TIM_SetCompare2
+        16   -> TIM_SetCompare3
+        16   -> TIM_SetCompare4
+       0   pwm_get_period
+       8   pwm_init
+         8   -> pwm_init_ch
+      48   pwm_init_ch
+        48   -> GPIO_Init
+        48   -> GPIO_PinAFConfig
+        48   -> TIM_Cmd
+        48   -> TIM_CtrlPWMOutputs
+        48   -> TIM_OCInit
+        48   -> TIM_TimeBaseInit
+      16   pwm_setval
+        16   -> TIM_SetCompare
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable2
+       4  ??DataTable2_1
+      66  TIM_OCInit
+      66  TIM_SetCompare
+      96  pwm_array
+       6  pwm_get_period
+      30  pwm_init
+     160  pwm_init_ch
+       2  pwm_period_ticks
+      18  pwm_setval
+
+ 
+   2 bytes in section .data
+  96 bytes in section .rodata
+ 354 bytes in section .text
+ 
+ 354 bytes of CODE  memory
+  96 bytes of CONST memory
+   2 bytes of DATA  memory
+
+Errors: none
+Warnings: none

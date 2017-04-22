@@ -1,0 +1,339 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:05:01
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\fft.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\fft.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\fft.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\fft.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\fft.c
+      1          #include "fft.h"
+      2          
+      3          
+      4          // Since we only use 3/4 of N_WAVE, we define only
+      5          // this many samples, in order to conserve data space.
+      6          const int Sinewave[N_WAVE-N_WAVE/4] = {
+      7                0,    201,    402,    603,    804,   1005,   1206,   1406,
+      8             1607,   1808,   2009,   2209,   2410,   2610,   2811,   3011,
+      9             3211,   3411,   3611,   3811,   4011,   4210,   4409,   4608,
+     10             4807,   5006,   5205,   5403,   5601,   5799,   5997,   6195,
+     11             6392,   6589,   6786,   6982,   7179,   7375,   7571,   7766,
+     12             7961,   8156,   8351,   8545,   8739,   8932,   9126,   9319,
+     13             9511,   9703,   9895,  10087,  10278,  10469,  10659,  10849,
+     14            11038,  11227,  11416,  11604,  11792,  11980,  12166,  12353,
+     15            12539,  12724,  12909,  13094,  13278,  13462,  13645,  13827,
+     16            14009,  14191,  14372,  14552,  14732,  14911,  15090,  15268,
+     17            15446,  15623,  15799,  15975,  16150,  16325,  16499,  16672,
+     18            16845,  17017,  17189,  17360,  17530,  17699,  17868,  18036,
+     19            18204,  18371,  18537,  18702,  18867,  19031,  19194,  19357,
+     20            19519,  19680,  19840,  20000,  20159,  20317,  20474,  20631,
+     21            20787,  20942,  21096,  21249,  21402,  21554,  21705,  21855,
+     22            22004,  22153,  22301,  22448,  22594,  22739,  22883,  23027,
+     23            23169,  23311,  23452,  23592,  23731,  23869,  24006,  24143,
+     24            24278,  24413,  24546,  24679,  24811,  24942,  25072,  25201,
+     25            25329,  25456,  25582,  25707,  25831,  25954,  26077,  26198,
+     26            26318,  26437,  26556,  26673,  26789,  26905,  27019,  27132,
+     27            27244,  27355,  27466,  27575,  27683,  27790,  27896,  28001,
+     28            28105,  28208,  28309,  28410,  28510,  28608,  28706,  28802,
+     29            28897,  28992,  29085,  29177,  29268,  29358,  29446,  29534,
+     30            29621,  29706,  29790,  29873,  29955,  30036,  30116,  30195,
+     31            30272,  30349,  30424,  30498,  30571,  30643,  30713,  30783,
+     32            30851,  30918,  30984,  31049,  31113,  31175,  31236,  31297,
+     33            31356,  31413,  31470,  31525,  31580,  31633,  31684,  31735,
+     34            31785,  31833,  31880,  31926,  31970,  32014,  32056,  32097,
+     35            32137,  32176,  32213,  32249,  32284,  32318,  32350,  32382,
+     36            32412,  32441,  32468,  32495,  32520,  32544,  32567,  32588,
+     37            32609,  32628,  32646,  32662,  32678,  32692,  32705,  32717,
+     38            32727,  32736,  32744,  32751,  32757,  32761,  32764,  32766,
+     39            32767,  32766,  32764,  32761,  32757,  32751,  32744,  32736,
+     40            32727,  32717,  32705,  32692,  32678,  32662,  32646,  32628,
+     41            32609,  32588,  32567,  32544,  32520,  32495,  32468,  32441,
+     42            32412,  32382,  32350,  32318,  32284,  32249,  32213,  32176,
+     43            32137,  32097,  32056,  32014,  31970,  31926,  31880,  31833,
+     44            31785,  31735,  31684,  31633,  31580,  31525,  31470,  31413,
+     45            31356,  31297,  31236,  31175,  31113,  31049,  30984,  30918,
+     46            30851,  30783,  30713,  30643,  30571,  30498,  30424,  30349,
+     47            30272,  30195,  30116,  30036,  29955,  29873,  29790,  29706,
+     48            29621,  29534,  29446,  29358,  29268,  29177,  29085,  28992,
+     49            28897,  28802,  28706,  28608,  28510,  28410,  28309,  28208,
+     50            28105,  28001,  27896,  27790,  27683,  27575,  27466,  27355,
+     51            27244,  27132,  27019,  26905,  26789,  26673,  26556,  26437,
+     52            26318,  26198,  26077,  25954,  25831,  25707,  25582,  25456,
+     53            25329,  25201,  25072,  24942,  24811,  24679,  24546,  24413,
+     54            24278,  24143,  24006,  23869,  23731,  23592,  23452,  23311,
+     55            23169,  23027,  22883,  22739,  22594,  22448,  22301,  22153,
+     56            22004,  21855,  21705,  21554,  21402,  21249,  21096,  20942,
+     57            20787,  20631,  20474,  20317,  20159,  20000,  19840,  19680,
+     58            19519,  19357,  19194,  19031,  18867,  18702,  18537,  18371,
+     59            18204,  18036,  17868,  17699,  17530,  17360,  17189,  17017,
+     60            16845,  16672,  16499,  16325,  16150,  15975,  15799,  15623,
+     61            15446,  15268,  15090,  14911,  14732,  14552,  14372,  14191,
+     62            14009,  13827,  13645,  13462,  13278,  13094,  12909,  12724,
+     63            12539,  12353,  12166,  11980,  11792,  11604,  11416,  11227,
+     64            11038,  10849,  10659,  10469,  10278,  10087,   9895,   9703,
+     65             9511,   9319,   9126,   8932,   8739,   8545,   8351,   8156,
+     66             7961,   7766,   7571,   7375,   7179,   6982,   6786,   6589,
+     67             6392,   6195,   5997,   5799,   5601,   5403,   5205,   5006,
+     68             4807,   4608,   4409,   4210,   4011,   3811,   3611,   3411,
+     69             3211,   3011,   2811,   2610,   2410,   2209,   2009,   1808,
+     70             1607,   1406,   1206,   1005,    804,    603,    402,    201,
+     71                0,   -201,   -402,   -603,   -804,  -1005,  -1206,  -1406,
+     72            -1607,  -1808,  -2009,  -2209,  -2410,  -2610,  -2811,  -3011,
+     73            -3211,  -3411,  -3611,  -3811,  -4011,  -4210,  -4409,  -4608,
+     74            -4807,  -5006,  -5205,  -5403,  -5601,  -5799,  -5997,  -6195,
+     75            -6392,  -6589,  -6786,  -6982,  -7179,  -7375,  -7571,  -7766,
+     76            -7961,  -8156,  -8351,  -8545,  -8739,  -8932,  -9126,  -9319,
+     77            -9511,  -9703,  -9895, -10087, -10278, -10469, -10659, -10849,
+     78           -11038, -11227, -11416, -11604, -11792, -11980, -12166, -12353,
+     79           -12539, -12724, -12909, -13094, -13278, -13462, -13645, -13827,
+     80           -14009, -14191, -14372, -14552, -14732, -14911, -15090, -15268,
+     81           -15446, -15623, -15799, -15975, -16150, -16325, -16499, -16672,
+     82           -16845, -17017, -17189, -17360, -17530, -17699, -17868, -18036,
+     83           -18204, -18371, -18537, -18702, -18867, -19031, -19194, -19357,
+     84           -19519, -19680, -19840, -20000, -20159, -20317, -20474, -20631,
+     85           -20787, -20942, -21096, -21249, -21402, -21554, -21705, -21855,
+     86           -22004, -22153, -22301, -22448, -22594, -22739, -22883, -23027,
+     87           -23169, -23311, -23452, -23592, -23731, -23869, -24006, -24143,
+     88           -24278, -24413, -24546, -24679, -24811, -24942, -25072, -25201,
+     89           -25329, -25456, -25582, -25707, -25831, -25954, -26077, -26198,
+     90           -26318, -26437, -26556, -26673, -26789, -26905, -27019, -27132,
+     91           -27244, -27355, -27466, -27575, -27683, -27790, -27896, -28001,
+     92           -28105, -28208, -28309, -28410, -28510, -28608, -28706, -28802,
+     93           -28897, -28992, -29085, -29177, -29268, -29358, -29446, -29534,
+     94           -29621, -29706, -29790, -29873, -29955, -30036, -30116, -30195,
+     95           -30272, -30349, -30424, -30498, -30571, -30643, -30713, -30783,
+     96           -30851, -30918, -30984, -31049, -31113, -31175, -31236, -31297,
+     97           -31356, -31413, -31470, -31525, -31580, -31633, -31684, -31735,
+     98           -31785, -31833, -31880, -31926, -31970, -32014, -32056, -32097,
+     99           -32137, -32176, -32213, -32249, -32284, -32318, -32350, -32382,
+    100           -32412, -32441, -32468, -32495, -32520, -32544, -32567, -32588,
+    101           -32609, -32628, -32646, -32662, -32678, -32692, -32705, -32717,
+    102           -32727, -32736, -32744, -32751, -32757, -32761, -32764, -32766,
+    103          };
+    104          
+    105          // fix_fft.c - Fixed-point in-place Fast Fourier Transform
+    106          
+    107          // All data are fixed-point short integers, in which -32768
+    108          // to +32768 represent -1.0 to +1.0 respectively. Integer
+    109          // arithmetic is used for speed, instead of the more natural
+    110          // floating-point.
+    111          //
+    112          // For the forward FFT (time -> freq), fixed scaling is
+    113          // performed to prevent arithmetic overflow, and to map a 0dB
+    114          // sine/cosine wave (i.e. amplitude = 32767) to two -6dB freq
+    115          // coefficients.
+    116          //
+    117          // Written by:  Tom Roberts  11/8/89
+    118          // Made portable:  Malcolm Slaney 12/15/94 malcolm@interval.com
+    119          // Enhanced:  Dimitrios P. Bouras  14 Jun 2006 dbouras@ieee.org
+    120          // Ported to PIC18F:  Simon Inns 20110104
+    121          
+    122          /*
+    123            fix_fft() - perform forward fast Fourier transform.
+    124            fr[n],fi[n] are real and imaginary arrays, both INPUT AND
+    125            RESULT (in-place FFT), with 0 <= n < 2**m
+    126          */
+    127          
+    128          
+    129          
+    130          unsigned int root(unsigned int x)
+    131          {
+    132          unsigned int a,b;
+    133          b     = x;
+    134          a = x = 0x3f;
+    135          x     = b/x;
+    136          a = x = (x+a)>>1;
+    137          x     = b/x;
+    138          a = x = (x+a)>>1;
+    139          x     = b/x;
+    140          x     = (x+a)>>1;
+    141          return(x);         
+    142          }
+    143          
+    144          ////////////////////////////////
+    145          
+    146          void fix_fft(s16 fr[], s16 fi[], u16 m)
+    147          {
+    148          	long int mr = 0, nn, i, j, l, k, istep, n;
+    149          	int qr, qi, tr, ti, wr, wi;
+    150          
+    151          	n = 1 << m;
+    152          	nn = n - 1;
+    153          
+    154          	/* max FFT size = N_WAVE */
+    155          	//if (n > N_WAVE) return -1;
+    156          
+    157          	/* decimation in time - re-order data */
+    158          	for (m=1; m<=nn; ++m)
+    159          	{
+    160          		l = n;
+    161          		do
+    162          		{
+    163          			l >>= 1;
+    164          		} while (mr+l > nn);
+    165          		
+    166          		mr = (mr & (l-1)) + l;
+    167          		if (mr <= m) continue;
+    168          		
+    169          		tr = fr[m];
+    170          		fr[m] = fr[mr];
+    171          		fr[mr] = tr;
+    172          		ti = fi[m];
+    173          		fi[m] = fi[mr];
+    174          		fi[mr] = ti;
+    175          	}
+    176          
+    177          	l = 1;
+    178          	k = LOG2_N_WAVE-1;
+    179          	
+    180          	while (l < n)
+    181          	{
+    182          		/*
+    183          		  fixed scaling, for proper normalization --
+    184          		  there will be log2(n) passes, so this results
+    185          		  in an overall factor of 1/n, distributed to
+    186          		  maximize arithmetic accuracy.
+    187          
+    188          		  It may not be obvious, but the shift will be
+    189          		  performed on each data point exactly once,
+    190          		  during this pass.
+    191          		*/
+    192          		
+    193          		// Variables for multiplication code
+    194          		long int c;
+    195          		int b;
+    196          		
+    197          		istep = l << 1;
+    198          		for (m=0; m<l; ++m)
+    199          		{
+    200          			j = m << k;
+    201          			/* 0 <= j < N_WAVE/2 */
+    202          			wr =  Sinewave[j+N_WAVE/4];
+    203          			wi = -Sinewave[j];
+    204          
+    205          			wr >>= 1;
+    206          			wi >>= 1;
+    207          			
+    208          			for (i=m; i<n; i+=istep)
+    209          			{
+    210          				j = i + l;
+    211          				
+    212          				// Here I unrolled the multiplications to prevent overhead
+    213          				// for procedural calls (we don't need to be clever about 
+    214          				// the actual multiplications since the pic has an onboard
+    215          				// 8x8 multiplier in the ALU):
+    216          				
+    217          				// tr = FIX_MPY(wr,fr[j]) - FIX_MPY(wi,fi[j]);
+    218          				c = ((long int)wr * (long int)fr[j]);
+    219          				c = c >> 14;
+    220          				b = c & 0x01;
+    221          				tr = (c >> 1) + b;
+    222          				
+    223          				c = ((long int)wi * (long int)fi[j]);
+    224          				c = c >> 14;
+    225          				b = c & 0x01;
+    226          				tr = tr - ((c >> 1) + b);
+    227          				
+    228          				// ti = FIX_MPY(wr,fi[j]) + FIX_MPY(wi,fr[j]);
+    229          				c = ((long int)wr * (long int)fi[j]);
+    230          				c = c >> 14;
+    231          				b = c & 0x01;
+    232          				ti = (c >> 1) + b;
+    233          				
+    234          				c = ((long int)wi * (long int)fr[j]);
+    235          				c = c >> 14;
+    236          				b = c & 0x01;
+    237          				ti = ti + ((c >> 1) + b);
+    238          				
+    239          				qr = fr[i];
+    240          				qi = fi[i];
+    241          				qr >>= 1;
+    242          				qi >>= 1;
+    243          
+    244          				fr[j] = qr - tr;
+    245          				fi[j] = qi - ti;
+    246          				fr[i] = qr + tr;
+    247          				fi[i] = qi + ti;
+    248          			}
+    249          		}
+    250          		
+    251          		--k;
+    252          		l = istep;
+    253          	}
+    254          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      76   fix_fft
+      12   root
+        12 __aeabi_uidiv
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable0
+    3072  Sinewave
+     556  fix_fft
+      56  root
+
+ 
+ 3 072 bytes in section .rodata
+   616 bytes in section .text
+ 
+   616 bytes of CODE  memory
+ 3 072 bytes of CONST memory
+
+Errors: none
+Warnings: none

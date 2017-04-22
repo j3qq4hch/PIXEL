@@ -1,0 +1,223 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       23/Mar/2017  19:49:22
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\blinker.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\blinker.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\blinker.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\blinker.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\blinker.c
+      1          #include "blinker.h"
+      2          #include "bsp.h"
+      3          #include "pwm.h"
+      4          
+      5          //////////////////////////////////////////////
+      6          
+      7          static PT_THREAD(blink(struct pt *pt, void * data));
+      8          static PT_THREAD(animation(struct pt *pt, void * data));
+      9          static PT_THREAD(linear_breathe_thread(struct pt *pt, void * data));
+     10          
+     11          extern const pwm_ch_t pwm_array[];
+     12          
+     13          pwm_thread_context_t breath_context1 = {{0}, 0, 0, 1, 5, &pwm_array[0]};
+     14          pwm_thread_context_t breath_context2 = {{0}, 0, 0, 2, 5, &pwm_array[1]};
+     15          pwm_thread_context_t breath_context3 = {{0}, 0, 0, 3, 5, &pwm_array[2]};
+     16          pwm_thread_context_t breath_context4 = {{0}, 0, 0, 4, 5, &pwm_array[3]};
+     17          pwm_thread_context_t breath_context5 = {{0}, 0, 0, 5, 5, &pwm_array[4]};
+     18          pwm_thread_context_t breath_context6 = {{0}, 0, 0, 6, 5, &pwm_array[5]};
+     19          
+     20          
+     21          thread_t pwm1_thread = {"pwm1", linear_breathe_thread, 0, &breath_context1};
+     22          thread_t pwm2_thread = {"pwm2", linear_breathe_thread, 0, &breath_context2};
+     23          thread_t pwm3_thread = {"pwm3", linear_breathe_thread, 0, &breath_context3};
+     24          thread_t pwm4_thread = {"pwm4", linear_breathe_thread, 0, &breath_context4};
+     25          thread_t pwm5_thread = {"pwm5", linear_breathe_thread, 0, &breath_context5};
+     26          thread_t pwm6_thread = {"pwm6", linear_breathe_thread, 0, &breath_context6};
+     27          
+     28          timer_t z = {0};
+     29          
+     30          static PT_THREAD(blink(struct pt *pt, void * context))
+     31          {
+     32            PT_BEGIN(pt);
+     33            blinker_data_t * p = context;
+     34            while(1)
+     35              {
+     36              LED_toggle();
+     37              timer_set(&z,100);
+     38              PT_WAIT_UNTIL(pt,timer_expired(&z));
+     39          //    PT_TIMER_WAIT(pt,&z,p->period);
+     40              }
+     41            PT_END(pt);
+     42          }
+     43          
+     44          thread_t blinker_thread = {"blink", blink, 0, NULL};
+     45          
+     46          //////////////////////////////////////////////
+     47          
+     48          extern const pwm_ch_t pwm_array[];
+     49          
+     50          static PT_THREAD(animation(struct pt *pt, void * data))
+     51          {
+     52          
+     53            PT_BEGIN(pt);
+     54            animation_data_t * p = data;
+     55            p->from = 0;
+     56            p->to = p->from + 1;
+     57            
+     58            while(1)
+     59              {    
+     60                p->br_from = get_pwm_period();
+     61                p->br_to = 0;  
+     62                while(p->br_from)
+     63                {
+     64                pwm_setval(&pwm_array[p->from], p->br_from);
+     65                pwm_setval(&pwm_array[p->to], p->br_to);
+     66                PT_TIMER_WAIT(pt,&p->timer,p->period);
+     67                p->br_from--;
+     68                p->br_to++;
+     69                }
+     70                pwm_setval(&pwm_array[p->from], p->br_from);
+     71                pwm_setval(&pwm_array[p->to], p->br_to);
+     72                p->from++;
+     73                p->to++;
+     74                if(p->to >= 6) p->to = 0;
+     75                if(p->from >= 6) p->from = 0;
+     76              }
+     77            PT_END(pt);
+     78          }
+     79          
+     80          //////////////////////////////////////////////
+     81          
+     82          thread_t anim_thread = {"anim", animation, 0, NULL};
+     83          
+     84          static PT_THREAD(linear_breathe_thread(struct pt *pt, void * data))
+     85          {
+     86          	PT_BEGIN(pt);
+     87          	pwm_thread_context_t* p = data;
+     88          	while(1)
+     89          		{
+     90          		while(p->current_val < get_pwm_period())
+     91          		{
+     92          			p->current_val += p->step;
+     93          			pwm_setval(p->pwm, p->current_val);
+     94          			PT_TIMER_WAIT(pt,&p->timer,p->period);
+     95          		}
+     96          
+     97          		while(p->current_val > 0)
+     98          		{
+     99          		if(p->current_val < p->step)
+    100          			{
+    101          			p->current_val = 0;
+    102          			}
+    103          		else
+    104          			{
+    105          			p->current_val -= p->step;
+    106          			}
+    107          		pwm_setval(p->pwm, p->current_val);
+    108          		PT_TIMER_WAIT(pt,&p->timer,p->period);
+    109          		}
+    110          	}
+    111          	  PT_END(pt);
+    112          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      16   animation
+        16   -> get_pwm_period
+        16   -> pwm_setval
+        16   -> timer_expired
+        16   -> timer_set
+      16   blink
+        16   -> timer_expired
+        16   -> timer_set
+      16   linear_breathe_thread
+        16   -> get_pwm_period
+        16   -> pwm_setval
+        16   -> timer_expired
+        16   -> timer_set
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       8  ?_0
+       8  ?_1
+       8  ?_2
+       8  ?_3
+       8  ?_4
+       8  ?_5
+       8  ?_6
+       8  ?_7
+      16  anim_thread
+     198  animation
+      98  blink
+      16  blinker_thread
+      20  breath_context1
+      20  breath_context2
+      20  breath_context3
+      20  breath_context4
+      20  breath_context5
+      20  breath_context6
+     158  linear_breathe_thread
+      16  pwm1_thread
+      16  pwm2_thread
+      16  pwm3_thread
+      16  pwm4_thread
+      16  pwm5_thread
+      16  pwm6_thread
+       8  z
+
+ 
+   8 bytes in section .bss
+ 248 bytes in section .data
+  64 bytes in section .rodata
+ 474 bytes in section .text
+ 
+ 474 bytes of CODE  memory
+  64 bytes of CONST memory
+ 256 bytes of DATA  memory
+
+Errors: none
+Warnings: 8

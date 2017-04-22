@@ -1,0 +1,315 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:50
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\modbus.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\modbus.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\modbus.c
+      1          
+      2          #include "modbus.h"
+      3          #include "modbus_handlers.h"
+      4          
+      5          
+      6          u16 get_crc(u8* data, u16 len);
+      7          
+      8          
+      9          static u8 write_single_reg_handler (u8 * data, u8 * resp, u16 * l);
+     10          static u8 write_mult_reg_handler   (u8 * data, u8 * resp, u16 * l);
+     11          static u8 read_holding_reg_handler (u8 * data, u8 * resp, u16 * l);
+     12          
+     13          
+     14          static u8 access_holding_reg(u16 adr, u8 mode, u16 * val);
+     15          
+     16          static const modbus_code_map_t supported_func_codes[] = 
+     17          {
+     18          #ifdef WRITE_SINGLE_REGISTER
+     19            {WRITE_SINGLE_REGISTER,       write_single_reg_handler},
+     20          #endif
+     21          #ifdef WRITE_MULTIPLE_REGISTERS
+     22            {WRITE_MULTIPLE_REGISTERS,    write_mult_reg_handler},
+     23          #endif 
+     24          #ifdef READ_HOLDING_REGISTERS
+     25            {READ_HOLDING_REGISTERS,      read_holding_reg_handler}
+     26          #endif
+     27          };
+     28          
+     29          static const reg_map_t holding_register_map[] = 
+     30          { 
+     31            {1,                   1,              version_access},
+     32            {2,                   1,              pwm_period_access},
+     33            {PWM_START_ADR,       PWM_END_ADR,    app_pwm_access},
+     34            {STEP_START_ADR,      STEP_END_ADR,   app_step_access},
+     35            {PERIOD_START_ADR,    PERIOD_END_ADR, app_period_access},
+     36            {50,                  50,             serial_settings_access},
+     37            {51,                  51,             modbus_adr_acceess},
+     38            {53,                  53,             adc_access},
+     39            {ID_START_ADR,        ID_END_ADR,     id_access}
+     40          };
+     41          
+     42          
+     43          static u8 modbus_adr = 0;
+     44          
+     45          void modbus_set_adr(u8 m)
+     46          {
+     47          modbus_adr = m;
+     48          }
+     49          
+     50          u8 modbus_get_adr(void)
+     51          {
+     52          return modbus_adr;
+     53          }
+     54          
+     55          //returns length of response data part if everything is OK 
+     56          //otherwise returns 0
+     57          u16 modbus_process_request(u8 * data, u16 datalen, u8 * response, u16 response_maxlen)
+     58          {
+     59              
+     60            u16 crc = (*(data + datalen-2)<<8) + *(data + datalen-1);
+     61            if(crc != get_crc(data, datalen - 2)) 
+     62            {
+     63              return 0; //CRC ERROR
+     64            }
+     65            
+     66            response[0] = *data++;   //address
+     67            response[1] = *data++;   //function code
+     68            
+     69            if((response[0])&&(response[0] != modbus_adr)) //Address mismatch
+     70              { 
+     71                return 0;
+     72              }
+     73            
+     74            u16 resplen = 2;
+     75            u8 error = ILLEGAL_FUNCTION;
+     76            for(u8 i = 0; i < ARRAY_SIZE(supported_func_codes); i++)
+     77            {
+     78              if(response[1] == supported_func_codes[i].code) 
+     79                {
+     80                 error = supported_func_codes[i].handler(data, &response[2], &resplen);
+     81                 break;
+     82                }
+     83            }
+     84            if(error)
+     85              {
+     86              response[1] |= 0x80;
+     87              response[2]  = error;
+     88              resplen++;
+     89              }
+     90            
+     91            crc = get_crc(response, resplen); 
+     92            response[resplen++] = (crc & 0xFF00) >> 8;
+     93            response[resplen++] = crc & 0x00FF;
+     94            
+     95            return resplen;
+     96          }
+     97          
+     98          
+     99          // Compute the MODBUS RTU CRC
+    100          u16 get_crc(u8* buf, u16 len)
+    101          {
+    102            u16 crc = 0xFFFF;
+    103            
+    104            for (u16 pos = 0; pos < len; pos++) {
+    105              crc ^= (u16)buf[pos];          // XOR byte into least sig. byte of crc
+    106            
+    107              for (int i = 8; i != 0; i--) // Loop over each bit
+    108              {    
+    109                if ((crc & 0x0001) != 0)  // If the LSB is set
+    110                {      
+    111                  crc >>= 1;                    // Shift right and XOR 0xA001
+    112                  crc ^= 0xA001;
+    113                }
+    114                else                            // Else LSB is not set
+    115                  crc >>= 1;                    // Just shift right
+    116              }
+    117            }
+    118            // Note, this number has low and high bytes swapped, so use it accordingly (or swap bytes)
+    119            u8 a = crc & 0xFF;
+    120            crc >>= 8;
+    121            crc |= a<<8;
+    122            return crc;  
+    123          }
+    124          
+    125          /////////////////////////////////////////////////
+    126          
+    127          static u8 access_holding_reg(u16 adr, u8 mode, u16 * val)
+    128          {
+    129            for(u8 i = 0; i < ARRAY_SIZE(holding_register_map); i++)
+    130            {
+    131              if((adr >= holding_register_map[i].start_adr) && (adr <= holding_register_map[i].end_adr))
+    132              {
+    133              return holding_register_map[i].reg_access_func(mode, adr, val);
+    134              }
+    135            }
+    136            return ILLEGAL_DATA_ADDRESS;
+    137          }
+    138          
+    139          /////////////////////////////////////////////////
+    140          #ifdef WRITE_SINGLE_REGISTER
+    141          static u8 write_single_reg_handler(u8 * data, u8 * resp, u16 * l)
+    142          {
+    143            u16 adr = ((*data++) << 8);// 
+    144                adr +=  *(data++);
+    145            u16 val = *data++ << 8;
+    146                val+= *data++;
+    147          
+    148            *resp++ = (adr & 0xFF00) >>8;
+    149            *resp++ =  adr & 0x00FF;
+    150            
+    151            *resp++ = (val & 0xFF00) >>8;
+    152            *resp++ =  val & 0x00FF;
+    153            *l += 4;
+    154            return  access_holding_reg(adr++, REG_WRITE, &val);
+    155          }
+    156          #endif
+    157          
+    158          
+    159          #ifdef WRITE_MULTIPLE_REGISTERS
+    160          static u8 write_mult_reg_handler  (u8 * data, u8 * resp, u16 * l)
+    161          { 
+    162            
+    163            u16 adr = ((*data++) << 8);
+    164                adr +=  *(data++);
+    165            u16 n   = ((*data++) << 8);
+    166                n   +=  *(data++);
+    167            
+    168            *resp++ = (adr & 0xFF00) >>8;
+    169            *resp++ =  adr & 0x00FF;
+    170            *resp++ = (n & 0xFF00) >>8;;
+    171            *resp++ =  n & 0x00FF;
+    172           
+    173            *l += 4;
+    174            if(n * 2 != *(data++)) return ILLEGAL_DATA_VALUE;
+    175            u8 error = 0;
+    176            u16 val = 0;
+    177            
+    178            while(n--)
+    179            {
+    180            val = ((*data++) << 8);
+    181            val+= *(data++);
+    182            error = access_holding_reg(adr++, REG_WRITE, &val);
+    183            if(error) {break;}
+    184            }
+    185            return error;
+    186          }
+    187          #endif
+    188          
+    189          #ifdef READ_HOLDING_REGISTERS
+    190          
+    191          static u8 read_holding_reg_handler(u8 * data, u8 * resp, u16 * l)
+    192          { 
+    193            u8 error = 0;
+    194            u16 adr = ((*data++) << 8); // start address
+    195                adr +=  *(data++);
+    196            u16 n   = ((*data++) << 8); //number of regisgters
+    197                n   +=  *(data++);
+    198            
+    199             *resp++ = n * 2; //byte count
+    200             *l += 1;
+    201             u16 val = 0;
+    202            
+    203            while(n--)
+    204            {
+    205            error = access_holding_reg(adr++, REG_READ, &val);
+    206            if(!error) 
+    207              {
+    208              *resp++ = (val & 0xFF00) >>8;
+    209              *resp++ = val & 0xFF;
+    210              *l += 2;
+    211              }
+    212            else
+    213              {
+    214                break;
+    215              }
+    216            }
+    217            return error;
+    218          }
+    219          #endif
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   access_holding_reg
+        24   -- Indirect call
+      12   get_crc
+       0   modbus_get_adr
+      32   modbus_process_request
+        32   -- Indirect call
+        32   -> get_crc
+       0   modbus_set_adr
+      32   read_holding_reg_handler
+        32   -> access_holding_reg
+      32   write_mult_reg_handler
+        32   -> access_holding_reg
+      24   write_single_reg_handler
+        24   -> access_holding_reg
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_2
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+      88  access_holding_reg
+      74  get_crc
+      72  holding_register_map
+       1  modbus_adr
+       6  modbus_get_adr
+     240  modbus_process_request
+       6  modbus_set_adr
+     138  read_holding_reg_handler
+      24  supported_func_codes
+     174  write_mult_reg_handler
+     104  write_single_reg_handler
+
+ 
+   1 byte  in section .bss
+  96 bytes in section .rodata
+ 850 bytes in section .text
+ 
+ 850 bytes of CODE  memory
+  96 bytes of CONST memory
+   1 byte  of DATA  memory
+
+Errors: none
+Warnings: none

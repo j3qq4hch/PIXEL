@@ -1,0 +1,144 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:50
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\fifo.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\fifo.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\fifo.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\fifo.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\fifo.c
+      1          #include "fifo.h"
+      2          #ifdef GENERIC_FIFO
+      3          #include <string.h>
+      4          #endif
+      5          
+      6          
+      7          
+      8          u8 fifo_pop(fifo_t* f)
+      9          {
+     10          	if(f->counter == 0) return 0;
+     11          	s16 p = f->head - f->counter;
+     12          	if (p < 0) {p += f->buflen;}
+     13          	f->counter--;
+     14          	return f->buf[p];
+     15          }
+     16          
+     17          u16 fifo_pop_buf(fifo_t* f, u8* buf, u16 len)
+     18          {
+     19            u16 bytes_read = 0;
+     20            while(len--)
+     21            {
+     22              if(f->counter == 0) break;
+     23              s16 p = f->head - f->counter;
+     24              if (p < 0) {p += f->buflen;}
+     25              f->counter--;
+     26              bytes_read++;
+     27              *buf++ = f->buf[p];  
+     28            }
+     29          return bytes_read;
+     30          }
+     31          
+     32          void fifo_init(fifo_t* f, u8* data, u16 data_len)
+     33          {
+     34          f->buf		= data;
+     35          f->buflen	= data_len;
+     36          f->counter	= 0;
+     37          f->head		= 0;
+     38          }
+     39          
+     40          
+     41          //void fifo_push(fifo_t* f, u8 c)
+     42          //{
+     43          //    f->buf[f->head++] = c;
+     44          //    if(f->head == f->buflen) f->head = 0;
+     45          //    if(f->counter < f->buflen) f->counter++;
+     46          //}
+     47          
+     48          
+     49          #ifdef GENERIC_FIFO
+     50          void generic_fifo_init	(generic_fifo_t* f, u8* data, u16 elem_size, u16 elem_num)
+     51          {
+     52          f->buf			= data;
+     53          f->len			= elem_num;
+     54          f->element_size = elem_size;
+     55          f->counter		= 0;
+     56          f->head			= 0;
+     57          }
+     58          
+     59          void generic_fifo_push	(generic_fifo_t* f, void* element)
+     60          {
+     61          	memcpy(&f->buf[f->head],element,f->element_size);
+     62          	f->head += f->element_size;
+     63          	if(f->counter < f->len) f->counter++;
+     64          	if(f->head == f->len * f->element_size) f->head = 0;
+     65          }
+     66          
+     67          void   generic_fifo_pop	(generic_fifo_t* f, void* element)
+     68          {       
+     69          	if(f->counter == 0) return;
+     70          	s16 p = f->head - (f->counter*f->element_size);
+     71          	if (p < 0) {p += f->len * f->element_size;}
+     72          	f->counter--;
+     73          	memcpy(element,&f->buf[p],f->element_size);
+     74          }
+     75          
+     76          #endif
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   fifo_init
+       4   fifo_pop
+      12   fifo_pop_buf
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      14  fifo_init
+      44  fifo_pop
+      62  fifo_pop_buf
+
+ 
+ 120 bytes in section .text
+ 
+ 120 bytes of CODE memory
+
+Errors: none
+Warnings: none

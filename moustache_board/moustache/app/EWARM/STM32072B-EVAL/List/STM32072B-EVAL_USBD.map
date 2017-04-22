@@ -1,0 +1,364 @@
+###############################################################################
+#
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                17/Apr/2017  22:16:37
+# Copyright 2007-2015 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Exe\STM32072B-EVAL_USBD.out
+#    Map file     =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List\STM32072B-EVAL_USBD.map
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\bsp.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\croutine.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\event_groups.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\heap_1.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\list.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\main.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\port.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\portasm.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\queue.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\settings.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\startup_stm32f030.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32_it.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_adc.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_crc.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_crs.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_dbgmcu.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_dma.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_exti.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_flash.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_gpio.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_i2c.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_misc.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_pwr.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_rcc.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_syscfg.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_tim.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32f0xx_usart.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\system_stm32f0xx.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\tasks.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\timers.o
+#        --redirect _Printf=_PrintfTiny --redirect _Scanf=_ScanfSmall -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Exe\STM32072B-EVAL_USBD.out
+#        --map
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List\STM32072B-EVAL_USBD.map
+#        --config
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\stm32f042F4_flash.icf
+#        --semihosting --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x08000000 { ro section .intvec };
+"P1":  place in [from 0x08000000 to 0x0800ffff] { ro };
+"P2":  place in [from 0x20000000 to 0x20003fff] { rw, block CSTACK, block HEAP };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A1":                                       0xb4
+  .intvec            ro code  0x08000000    0xb4  startup_stm32f030.o [1]
+                            - 0x080000b4    0xb4
+
+"P1":                                     0x1008
+  .text              ro code  0x080000b4   0x5a0  tasks.o [1]
+  .text              ro code  0x08000654    0x84  heap_1.o [1]
+  .text              ro code  0x080006d8    0xa2  list.o [1]
+  .text              ro code  0x0800077a     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800077c   0x100  port.o [1]
+  CODE               ro code  0x0800087c    0x7c  portasm.o [1]
+  .text              ro code  0x080008f8   0x260  stm32f0xx_rcc.o [1]
+  .text              ro code  0x08000b58    0xae  I32DivModFast.o [4]
+  .text              ro code  0x08000c06     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08000c08     0x2  IntDivZer.o [4]
+  .text              ro code  0x08000c0a     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08000c0c   0x160  system_stm32f0xx.o [1]
+  .text              ro code  0x08000d6c    0xcc  stm32f0xx_gpio.o [1]
+  .text              ro code  0x08000e38    0x70  main.o [1]
+  .text              ro code  0x08000ea8    0x60  bsp.o [1]
+  .text              ro code  0x08000f08    0x50  stm32_it.o [1]
+  .text              ro code  0x08000f58    0x3c  zero_init3.o [4]
+  .text              ro code  0x08000f94    0x30  copy_init3.o [4]
+  .text              ro code  0x08000fc4    0x28  data_init.o [4]
+  .iar.init_table    const    0x08000fec    0x24  - Linker created -
+  .text              ro code  0x08001010    0x1a  cmain.o [4]
+  .text              ro code  0x0800102a     0x4  low_level_init.o [3]
+  .text              ro code  0x0800102e     0x8  exit.o [3]
+  .text              ro code  0x08001036     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001038     0xa  cexit.o [4]
+  .text              ro code  0x08001042     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001044    0x14  exit.o [5]
+  Initializer bytes  const    0x08001058    0x18  <for P2-1>
+  .text              ro code  0x08001070     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001074    0x10  startup_stm32f030.o [1]
+  .text              ro code  0x08001084     0xc  cstartup_M.o [4]
+  .rodata            const    0x08001090     0x8  main.o [1]
+  .rodata            const    0x08001098     0x8  tasks.o [1]
+  .text              ro code  0x080010a0     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010a2     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010a4     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010a6     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010a8     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010aa     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010ac     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010ae     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010b0     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010b2     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010b4     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010b6     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010b8     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080010ba     0x2  startup_stm32f030.o [1]
+  .rodata            const    0x080010bc     0x0  zero_init3.o [4]
+  .rodata            const    0x080010bc     0x0  copy_init3.o [4]
+                            - 0x080010bc  0x1008
+
+"P2", part 1 of 3:                          0x18
+  P2-1                        0x20000000    0x16  <Init block>
+    .data            inited   0x20000000     0x4  port.o [1]
+    .data            inited   0x20000004    0x10  stm32f0xx_rcc.o [1]
+    .data            inited   0x20000014     0x2  main.o [1]
+                            - 0x20000016    0x16
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000018   0x400  <Block>
+    CSTACK           uninit   0x20000018   0x400  <Block tail>
+                            - 0x20000418   0x400
+
+"P2", part 3 of 3:                         0x988
+  .bss               zero     0x20000418   0x880  heap_1.o [1]
+  .bss               zero     0x20000c98    0x8c  tasks.o [1]
+  .bss               zero     0x20000d24    0x14  tasks.o [1]
+  .bss               zero     0x20000d38    0x14  tasks.o [1]
+  .bss               zero     0x20000d4c    0x14  tasks.o [1]
+  .bss               zero     0x20000d60     0x4  heap_1.o [1]
+  .bss               zero     0x20000d64     0x4  heap_1.o [1]
+  .bss               zero     0x20000d68     0x4  tasks.o [1]
+  .bss               zero     0x20000d6c     0x4  tasks.o [1]
+  .bss               zero     0x20000d70     0x4  tasks.o [1]
+  .bss               zero     0x20000d74     0x4  tasks.o [1]
+  .bss               zero     0x20000d78     0x4  tasks.o [1]
+  .bss               zero     0x20000d7c     0x4  tasks.o [1]
+  .bss               zero     0x20000d80     0x4  tasks.o [1]
+  .bss               zero     0x20000d84     0x4  tasks.o [1]
+  .bss               zero     0x20000d88     0x4  tasks.o [1]
+  .bss               zero     0x20000d8c     0x4  tasks.o [1]
+  .bss               zero     0x20000d90     0x4  tasks.o [1]
+  .bss               zero     0x20000d94     0x4  tasks.o [1]
+  .bss               zero     0x20000d98     0x4  tasks.o [1]
+  .bss               zero     0x20000d9c     0x4  tasks.o [1]
+                            - 0x20000da0   0x988
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x988:
+          0x20000418  0x988
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x18 (109% of destination):
+          0x08001058   0x18
+    1 destination range, total size 0x16:
+          0x20000000   0x16
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module               ro code  ro data  rw data
+    ------               -------  -------  -------
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj: [1]
+    bsp.o                     96
+    heap_1.o                 132             2 184
+    list.o                   162
+    main.o                   112       10        2
+    port.o                   256        4        4
+    portasm.o                124
+    startup_stm32f030.o      236
+    stm32_it.o                80
+    stm32f0xx_gpio.o         204
+    stm32f0xx_rcc.o          608       16       16
+    system_stm32f0xx.o       352
+    tasks.o                1 440        8      256
+    ----------------------------------------------
+    Total:                 3 802       38    2 462
+
+command line: [2]
+    ----------------------------------------------
+    Total:
+
+dl6M_tlf.a: [3]
+    exit.o                     8
+    low_level_init.o           4
+    ----------------------------------------------
+    Total:                    12
+
+rt6M_tl.a: [4]
+    I32DivModFast.o          174
+    IntDivZer.o                2
+    cexit.o                   10
+    cmain.o                   26
+    copy_init3.o              48
+    cstartup_M.o              12
+    data_init.o               40
+    zero_init3.o              60
+    ----------------------------------------------
+    Total:                   372
+
+shb_l.a: [5]
+    exit.o                    20
+    ----------------------------------------------
+    Total:                    20
+
+    Gaps                       2
+    Linker created                     38    1 024
+--------------------------------------------------
+    Grand Total:           4 208       76    3 486
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x08000fec          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x08001010          --   Gb  - Linker created -
+?main                   0x08001011         Code  Gb  cmain.o [4]
+ADC1_IRQHandler         0x08000f53    0x2  Code  Gb  stm32_it.o [1]
+APBAHBPrescTable        0x20000004   0x10  Data  Lc  stm32f0xx_rcc.o [1]
+CSTACK$$Base            0x20000018          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000418          --   Gb  - Linker created -
+DMA1_Channel1_IRQHandler
+                        0x08000f57    0x2  Code  Gb  stm32_it.o [1]
+GPIO_Init               0x08000d6d   0xcc  Code  Gb  stm32f0xx_gpio.o [1]
+HardFault_Handler       0x08000f0b   0x36  Code  Gb  stm32_it.o [1]
+NMI_Handler             0x08000f09    0x2  Code  Gb  stm32_it.o [1]
+PendSV_Handler          0x08000883         Code  Gb  portasm.o [1]
+RCC_AHBPeriphClockCmd   0x08000ac5   0x20  Code  Gb  stm32f0xx_rcc.o [1]
+RCC_APB1PeriphClockCmd  0x08000b0d   0x20  Code  Gb  stm32f0xx_rcc.o [1]
+RCC_APB2PeriphClockCmd  0x08000aed   0x20  Code  Gb  stm32f0xx_rcc.o [1]
+RCC_GetClocksFreq       0x080008f9  0x1c6  Code  Gb  stm32f0xx_rcc.o [1]
+Region$$Table$$Base     0x08000fec          --   Gb  - Linker created -
+Region$$Table$$Limit    0x08001010          --   Gb  - Linker created -
+SVC_Handler             0x080008c1         Code  Gb  portasm.o [1]
+SetSysClock             0x08000c7b   0xbe  Code  Lc  system_stm32f0xx.o [1]
+SysTick_Handler         0x08000831   0x20  Code  Gb  port.o [1]
+SystemInit              0x08000c0d   0x6e  Code  Gb  system_stm32f0xx.o [1]
+TIM3_IRQHandler         0x08000f51    0x2  Code  Gb  stm32_it.o [1]
+USART1_IRQHandler       0x08000f55    0x2  Code  Gb  stm32_it.o [1]
+__ICFEDIT_region_RAM_end__ {Abs}
+                        0x20003fff          --   Gb  command line/config [2]
+__ICFEDIT_region_RAM_start__ {Abs}
+                        0x20000000          --   Gb  command line/config [2]
+__aeabi_idiv0           0x08000c09         Code  Gb  IntDivZer.o [4]
+__aeabi_uidiv           0x08000b59         Code  Gb  I32DivModFast.o [4]
+__aeabi_uidivmod        0x08000b59         Code  Gb  I32DivModFast.o [4]
+__cmain                 0x08001011         Code  Gb  cmain.o [4]
+__exit                  0x08001045   0x14  Code  Gb  exit.o [5]
+__iar_copy_init3        0x08000f95   0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x08000fc5   0x28  Code  Gb  data_init.o [4]
+__iar_program_start     0x08001085         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3        0x08000f59   0x3c  Code  Gb  zero_init3.o [4]
+__low_level_init        0x0800102b    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x08000000         Data  Gb  startup_stm32f030.o [1]
+_call_main              0x0800101d         Code  Gb  cmain.o [4]
+_exit                   0x08001039         Code  Gb  cexit.o [4]
+_main                   0x08001027         Code  Gb  cmain.o [4]
+blink_period            0x20000014    0x2  Data  Gb  main.o [1]
+blinker                 0x08000e5d   0x34  Code  Gb  main.o [1]
+board_init              0x08000efd    0xc  Code  Gb  bsp.o [1]
+exit                    0x0800102f    0x8  Code  Gb  exit.o [3]
+led_init                0x08000ea9   0x28  Code  Lc  bsp.o [1]
+main                    0x08000e39   0x24  Code  Gb  main.o [1]
+prvAddCurrentTaskToDelayedList
+                        0x080005f1   0x4e  Code  Lc  tasks.o [1]
+prvAddNewTaskToReadyList
+                        0x080001c1   0x8e  Code  Lc  tasks.o [1]
+prvCheckTasksWaitingTermination
+                        0x080005ab    0x2  Code  Lc  tasks.o [1]
+prvIdleTask             0x08000559   0x16  Code  Lc  tasks.o [1]
+prvInitialiseNewTask    0x08000129   0x98  Code  Lc  tasks.o [1]
+prvInitialiseTaskLists  0x08000571   0x3a  Code  Lc  tasks.o [1]
+prvResetNextTaskUnblockTime
+                        0x080005ad   0x28  Code  Lc  tasks.o [1]
+prvSetupTimerInterrupt  0x08000851    0xe  Code  Lc  port.o [1]
+prvTaskExitError        0x08000799   0x16  Code  Lc  port.o [1]
+pvPortMalloc            0x08000655   0x66  Code  Gb  heap_1.o [1]
+pxCurrentTCB            0x20000d68    0x4  Data  Gb  tasks.o [1]
+pxDelayedTaskList       0x20000d6c    0x4  Data  Lc  tasks.o [1]
+pxOverflowDelayedTaskList
+                        0x20000d70    0x4  Data  Lc  tasks.o [1]
+pxPortInitialiseStack   0x0800077d   0x1a  Code  Gb  port.o [1]
+pxReadyTasksLists       0x20000c98   0x8c  Data  Lc  tasks.o [1]
+rcc_init                0x08000ed1   0x2c  Code  Lc  bsp.o [1]
+ucHeap                  0x20000418  0x880  Data  Lc  heap_1.o [1]
+ulSetInterruptMaskFromISR
+                        0x080008e5         Code  Gb  portasm.o [1]
+uxCriticalNesting       0x20000000    0x4  Data  Lc  port.o [1]
+uxCurrentNumberOfTasks  0x20000d74    0x4  Data  Lc  tasks.o [1]
+uxListRemove            0x08000751   0x2a  Code  Gb  list.o [1]
+uxPendedTicks           0x20000d84    0x4  Data  Lc  tasks.o [1]
+uxSchedulerSuspended    0x20000d9c    0x4  Data  Lc  tasks.o [1]
+uxTaskNumber            0x20000d90    0x4  Data  Lc  tasks.o [1]
+uxTopReadyPriority      0x20000d7c    0x4  Data  Lc  tasks.o [1]
+vClearInterruptMaskFromISR
+                        0x080008ed         Code  Gb  portasm.o [1]
+vListInitialise         0x080006d9   0x1e  Code  Gb  list.o [1]
+vListInitialiseItem     0x080006f7    0x6  Code  Gb  list.o [1]
+vListInsert             0x08000715   0x3c  Code  Gb  list.o [1]
+vListInsertEnd          0x080006fd   0x18  Code  Gb  list.o [1]
+vPortEnterCritical      0x080007f5   0x16  Code  Gb  port.o [1]
+vPortExitCritical       0x0800080d   0x24  Code  Gb  port.o [1]
+vPortFree               0x080006bd    0xc  Code  Gb  heap_1.o [1]
+vPortStartFirstTask     0x080008c3         Code  Gb  portasm.o [1]
+vPortYield              0x080007e1   0x12  Code  Gb  port.o [1]
+vSetMSP                 0x0800087d         Code  Gb  portasm.o [1]
+vTaskDelay              0x08000251   0x32  Code  Gb  tasks.o [1]
+vTaskStartScheduler     0x08000285   0x46  Code  Gb  tasks.o [1]
+vTaskSuspendAll         0x080002cd    0xc  Code  Gb  tasks.o [1]
+vTaskSwitchContext      0x080004c9   0x64  Code  Gb  tasks.o [1]
+xDelayedTaskList1       0x20000d24   0x14  Data  Lc  tasks.o [1]
+xDelayedTaskList2       0x20000d38   0x14  Data  Lc  tasks.o [1]
+xIdleTaskHandle         0x20000d98    0x4  Data  Lc  tasks.o [1]
+xNextFreeByte           0x20000d60    0x4  Data  Lc  heap_1.o [1]
+xNextTaskUnblockTime    0x20000d94    0x4  Data  Lc  tasks.o [1]
+xNumOfOverflows         0x20000d8c    0x4  Data  Lc  tasks.o [1]
+xPendingReadyList       0x20000d4c   0x14  Data  Lc  tasks.o [1]
+xPortStartScheduler     0x080007af   0x30  Code  Gb  port.o [1]
+xSchedulerRunning       0x20000d80    0x4  Data  Lc  tasks.o [1]
+xTaskCreate             0x080000b5   0x74  Code  Gb  tasks.o [1]
+xTaskIncrementTick      0x080003b9   0xfa  Code  Gb  tasks.o [1]
+xTaskResumeAll          0x080002d9   0xc8  Code  Gb  tasks.o [1]
+xTickCount              0x20000d78    0x4  Data  Lc  tasks.o [1]
+xYieldPending           0x20000d88    0x4  Data  Lc  tasks.o [1]
+
+
+[1] = C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj
+[2] = command line
+[3] = dl6M_tlf.a
+[4] = rt6M_tl.a
+[5] = shb_l.a
+
+  4 208 bytes of readonly  code memory
+     76 bytes of readonly  data memory
+  3 486 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,324 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.30.4.8167/W32 for ARM        21/Jan/2016  14:55:18
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  C:\led_zeppelin_5x7\app\src\misc.c
+#    Command line =  
+#        C:\led_zeppelin_5x7\app\src\misc.c -D USE_STDPERIPH_DRIVER -D
+#        USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\led_zeppelin_5x7\app\EWARM\watchdog\List\ -o
+#        C:\led_zeppelin_5x7\app\EWARM\watchdog\Obj\ --no_cse --no_unroll
+#        --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling
+#        --debug --endian=little --cpu=Cortex-M0 --char_is_signed --fpu=None
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Full.h" -I C:\led_zeppelin_5x7\app\EWARM\..\
+#        -I C:\led_zeppelin_5x7\app\EWARM\..\led_matrix\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\serint\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\usb\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\inc\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\CLI\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\Common\ -I
+#        C:\led_zeppelin_5x7\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.0\arm\CMSIS\Include\"
+#    List file    =  C:\led_zeppelin_5x7\app\EWARM\watchdog\List\misc.lst
+#    Object file  =  C:\led_zeppelin_5x7\app\EWARM\watchdog\Obj\misc.o
+#
+###############################################################################
+
+C:\led_zeppelin_5x7\app\src\misc.c
+      1          #include "misc.h"
+      2          
+      3          
+      4          
+      5          //////////////////////////////////////////////////////////////////////////////////////////////////////
+      6          
+      7          void i2c_gpio_init(void)
+      8          {
+      9            GPIO_InitTypeDef  GPIO_InitStructure; 
+     10            RCC_AHBPeriphClockCmd(I2C_SDA_rcc | I2C_SCL_rcc, ENABLE);
+     11              
+     12            GPIO_PinAFConfig(I2C_SDA_port, I2C_SDA_AF_source, GPIO_AF_5);
+     13            GPIO_PinAFConfig(I2C_SCL_port, I2C_SCL_AF_source, GPIO_AF_5);
+     14            
+     15            GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
+     16            GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+     17            GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+     18            GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+     19            
+     20            GPIO_InitStructure.GPIO_Pin   = I2C_SCL_pin;
+     21            GPIO_Init(I2C_SCL_port, &GPIO_InitStructure);
+     22            
+     23            GPIO_InitStructure.GPIO_Pin = I2C_SDA_pin;
+     24            GPIO_Init(I2C_SDA_port, &GPIO_InitStructure);
+     25          }
+     26          
+     27          ////////////////////////////////////////////////////////////////
+     28          
+     29          void i2c_init(void)
+     30          { 
+     31            RCC_APB1PeriphClockCmd(I2C_rcc, ENABLE); 
+     32            I2C_InitTypeDef  I2C_InitStructure;
+     33          
+     34            I2C_InitStructure.I2C_Mode                    = I2C_Mode_I2C;
+     35            I2C_InitStructure.I2C_AnalogFilter            = I2C_AnalogFilter_Enable;
+     36            I2C_InitStructure.I2C_DigitalFilter           = 0x00;
+     37            I2C_InitStructure.I2C_OwnAddress1             = 0x00;
+     38            I2C_InitStructure.I2C_Ack                     = I2C_Ack_Enable;
+     39            I2C_InitStructure.I2C_AcknowledgedAddress     = I2C_AcknowledgedAddress_7bit;
+     40            I2C_InitStructure.I2C_Timing                  = 0x00210507; //        WHAT A FUCK!?
+     41            I2C_Init      (I2C_IN_USE, &I2C_InitStructure);
+     42            I2C_Cmd       (I2C_IN_USE, ENABLE);  
+     43          }
+     44          
+     45          
+     46          ////////////////////////////////////////////////////////////
+     47          //reads buffer from specified i2c slave device and starting from specified register
+     48          
+     49          u16 i2c_readbuf(u8 adr, u8 reg, u16 len ,u8* buf)
+     50          {
+     51            while(I2C_GetFlagStatus(I2C_IN_USE, I2C_FLAG_BUSY ) != RESET){}
+     52          
+     53          I2C_TransferHandling(I2C_IN_USE, adr, 1, I2C_SoftEnd_Mode, I2C_Generate_Start_Write);
+     54          
+     55          //while(I2C_GetFlagStatus(I2C_IN_USE, I2C_ISR_TXIS) == RESET){}
+     56          while(I2C_GetFlagStatus(I2C_IN_USE, I2C_FLAG_TXE) == RESET){}
+     57          I2C_SendData(I2C_IN_USE, reg);
+     58          while(I2C_GetFlagStatus(I2C_IN_USE, I2C_ISR_TC) == RESET){}
+     59          
+     60          I2C_TransferHandling(I2C_IN_USE, adr, len, I2C_AutoEnd_Mode, I2C_Generate_Start_Read);
+     61          
+     62          while (len)
+     63            {
+     64              while(I2C_GetFlagStatus(I2C_IN_USE, I2C_ISR_RXNE) == RESET){}
+     65              *buf++ = I2C_ReceiveData(I2C_IN_USE);
+     66              len--;
+     67            }    
+     68            I2C_ClearFlag(I2C_IN_USE, I2C_ICR_STOPCF);
+     69          return 0;
+     70          }
+     71          
+     72          
+     73          
+     74          
+     75          /////////////////////////////////////////////////////////////////
+     76          /////////////////////////////////////////////////////////////////
+     77          /////////////////////////////////////////////////////////////////
+     78          /////////////////////////////////////////////////////////////////
+     79          
+     80          
+     81          
+     82          /*
+     83          Это служебная функция, использовать её не нужно.
+     84          Устанавливает направление данных - приём или передача.
+     85          Задаёт объём пересылаемых данных.
+     86          Задаёт адрес ведомого устройства.
+     87          Выдаёт старт на шину.
+     88          Параметры:
+     89          Direction - направление (0-отправка, 1-приём)
+     90          Adress - адрес ведомого устройства
+     91          Size - размер данных (от 1 до 255 байт)
+     92          */
+     93          void I2C_Start_Direction_Adress_Size (I2C_Direction Direction, u8 Adress, u8 Size)
+     94          {
+     95          	//I2C_BUS->CR2 &= ~I2C_CR2_AUTOEND;		// Выдавать стоп вручную
+     96          	//I2C_BUS->CR2 &= ~I2C_CR2_RELOAD;		// Не использовать режим перезагрузки
+     97          	if (Direction) I2C_BUS->CR2 |= I2C_CR2_RD_WRN;	// Режим приёма
+     98          	else I2C_BUS->CR2 &= ~I2C_CR2_RD_WRN;		// Режим передачи
+     99          	I2C_BUS->CR2 &= ~I2C_CR2_NBYTES;		// Очистить размер данных
+    100          	I2C_BUS->CR2 |= Size<<I2C_OFFSET_CR2_NBYTES;	// Установить размер данных
+    101          	I2C_BUS->CR2 &= ~I2C_CR2_SADD;	                // Очистить адрес ведомого устройства
+    102          	I2C_BUS->CR2 |= Adress;			        // Установить адрес ведомого устройства
+    103          	I2C_BUS->CR2 |= I2C_CR2_START;			// Выдать старт на шину
+    104          	while ((I2C_BUS->ISR & I2C_ISR_BUSY)==0) {};	// Ожидать выдачу старта
+    105          }
+    106          
+    107          
+    108          /*
+    109          Это служебная функция, использовать её не нужно.
+    110          Выдаёт стоп на шину.
+    111          Очищает флаги.
+    112          Проверяет наличие ошибок, очищает флаги ошибок.
+    113          */
+    114          void I2C_Stop (void)
+    115          {
+    116          	I2C_BUS->CR2 |= I2C_CR2_STOP;				// Выдать стоп на шину
+    117          	while (I2C_BUS->ISR & I2C_ISR_BUSY) {};		// Ожидать выдачу стопа
+    118          	// Очищаю флаги - необходимо для дальнейшей работы шины
+    119          	I2C_BUS->ICR |= I2C_ICR_STOPCF;		// STOP флаг
+    120          	I2C_BUS->ICR |= I2C_ICR_NACKCF;		// NACK флаг
+    121          	// Если есть ошибки на шине - очищаю флаги
+    122          	if (I2C_BUS->ISR & (I2C_ISR_ARLO | I2C_ISR_BERR))
+    123          	{
+    124          		I2C_BUS->ICR |= I2C_ICR_ARLOCF;
+    125          		I2C_BUS->ICR |= I2C_ICR_BERRCF;
+    126          	}
+    127          }
+    128          
+    129          
+    130          /*
+    131          Выполняет транзакцию записи Size байт в регистр Register по адресу Adress.
+    132          Параметры:
+    133          Adress - адрес ведомого устройства
+    134          Register - регистр, в который хотим передать данные
+    135          Data - указывает откуда брать данные для передачи
+    136          Size - сколько байт хотим передать (от 1 до 254)
+    137          Возвращает:
+    138          1 - если данные успешно переданы
+    139          0 - если произошла ошибка
+    140          */
+    141          u8 I2C_Write_Transaction (u8 Adress, u8 Register, u8 *Data, u8 Size)
+    142          {
+    143          	u8 Count=0;	// Счётчик успешно переданных байт
+    144          	// Старт
+    145          	I2C_Start_Direction_Adress_Size (I2C_Transmitter, Adress, 1+Size);
+    146          	// Сейчас либо I2C запросит первый байт для отправки,
+    147          	// Либо взлетит NACK-флаг, говорящий о том, что микросхема не отвечает.
+    148          	// Если взлетит NACK-флаг, отправку прекращаем.
+    149          	while ((((I2C_BUS->ISR & I2C_ISR_TXIS)==0) && ((I2C_BUS->ISR & I2C_ISR_NACKF)==0)) && (I2C_BUS->ISR & I2C_ISR_BUSY)) {};
+    150          	if (I2C_BUS->ISR & I2C_ISR_TXIS) I2C_BUS->TXDR=Register;	// Отправляю адрес регистра
+    151          	
+    152          	// Отправляем байты до тех пор, пока не взлетит TC-флаг.
+    153          	// Если взлетит NACK-флаг, отправку прекращаем.
+    154          	while ((((I2C_BUS->ISR & I2C_ISR_TC)==0) && ((I2C_BUS->ISR & I2C_ISR_NACKF)==0)) && (I2C_BUS->ISR & I2C_ISR_BUSY))
+    155          	{
+    156          		if (I2C_BUS->ISR & I2C_ISR_TXIS) I2C_BUS->TXDR=*(Data+Count++);	// Отправляю данные
+    157          	}
+    158          	I2C_Stop();
+    159          	if (Count == Size) return 1; return 0;
+    160          }
+    161          
+    162          
+    163          /*
+    164          Выполняет транзакцию чтения Size байт из регистра Register по адресу Adress.
+    165          Параметры:
+    166          Adress - адрес ведомого устройства
+    167          Register - регистр, из которого хотим принять данные
+    168          Data - указывает куда складывать принятые данные
+    169          Size - сколько байт хотим принять (от 1 до 255)
+    170          Возвращает:
+    171          1 - если данные успешно приняты
+    172          0 - если произошла ошибка
+    173          */
+    174          u8 I2C_Read_Transaction (u8 Adress, u8 Register, u8 *Data, u8 Size)
+    175          {
+    176          	u8 Count=0;	// Счётчик успешно принятых байт
+    177          	// Старт
+    178          	I2C_Start_Direction_Adress_Size (I2C_Transmitter, Adress, 1);
+    179          	// Сейчас либо I2C запросит первый байт для отправки,
+    180          	// Либо взлетит NACK-флаг, говорящий о том, что микросхема не отвечает.
+    181          	// Если взлетит NACK-флаг, отправку прекращаем.
+    182          	while ((((I2C_BUS->ISR & I2C_ISR_TC)==0) && ((I2C_BUS->ISR & I2C_ISR_NACKF)==0)) && (I2C_BUS->ISR & I2C_ISR_BUSY))
+    183          	{
+    184          		if (I2C_BUS->ISR & I2C_ISR_TXIS) I2C_BUS->TXDR = Register;	// Отправляю адрес регистра
+    185          	}
+    186          	// Повторный старт
+    187          	I2C_Start_Direction_Adress_Size (I2C_Receiver, Adress, Size);
+    188          	// Принимаем байты до тех пор, пока не взлетит TC-флаг.
+    189          	// Если взлетит NACK-флаг, приём прекращаем.
+    190          	while ((((I2C_BUS->ISR & I2C_ISR_TC)==0) && ((I2C_BUS->ISR & I2C_ISR_NACKF)==0)) && (I2C_BUS->ISR & I2C_ISR_BUSY))
+    191          	{
+    192                    if (I2C_BUS->ISR & I2C_ISR_RXNE) {
+    193                                                      *(Data + Count) = I2C_BUS->RXDR;
+    194                                                       Count++;
+    195                                                      };	// Принимаю данные
+    196          	}
+    197          	I2C_Stop();
+    198          	if (Count == Size) return 1; return 0;
+    199          }
+    200          
+    201          void I2C_Initialization (void)
+    202          {
+    203          	RCC_APB1PeriphClockCmd(I2C_rcc, ENABLE); 
+    204          	I2C_BUS->CR1 &= ~I2C_CR1_PE;			// Отключаю I2C
+    205          	while (I2C_BUS->CR1 & I2C_CR1_PE) {};	// Жду пока отключится
+    206          	
+    207          	// Частота тактирования модуля I2C = 48 МГц
+    208          	// Частота шины I2C = 100 kHz
+    209          	// Настраиваю тайминги
+    210          	I2C_BUS->TIMINGR |= \
+    211          	(0xB  << I2C_OFFSET_TIMINGR_PRESC)|\
+    212          	(0x13 << I2C_OFFSET_TIMINGR_SCLL)|\
+    213          	(0xF  << I2C_OFFSET_TIMINGR_SCLH)|\
+    214          	(0x4  << I2C_OFFSET_TIMINGR_SCLDEL)|\
+    215          	(0x2  << I2C_OFFSET_TIMINGR_SDADEL);
+    216          	
+    217          	I2C_BUS->CR1 |= I2C_CR1_PE;				// Включаю I2C
+    218          	while ((I2C_BUS->CR1 & I2C_CR1_PE)==0) {};	        // Жду пока включится
+    219          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   I2C_Initialization
+         8   -> RCC_APB1PeriphClockCmd
+      24   I2C_Read_Transaction
+        24   -> I2C_Start_Direction_Adress_Size
+        24   -> I2C_Stop
+       8   I2C_Start_Direction_Adress_Size
+       4   I2C_Stop
+      24   I2C_Write_Transaction
+        24   -> I2C_Start_Direction_Adress_Size
+        24   -> I2C_Stop
+      16   i2c_gpio_init
+        16   -> GPIO_Init
+        16   -> GPIO_PinAFConfig
+        16   -> RCC_AHBPeriphClockCmd
+      32   i2c_init
+        32   -> I2C_Cmd
+        32   -> I2C_Init
+        32   -> RCC_APB1PeriphClockCmd
+      24   i2c_readbuf
+        24   -> I2C_ClearFlag
+        24   -> I2C_GetFlagStatus
+        24   -> I2C_ReceiveData
+        24   -> I2C_SendData
+        24   -> I2C_TransferHandling
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable6
+       4  ??DataTable6_1
+       4  ??DataTable7
+       4  ??DataTable7_1
+       4  ??DataTable7_2
+       4  ??DataTable7_3
+       4  ??DataTable7_4
+       4  ??DataTable7_5
+       4  ??DataTable7_6
+       4  ??DataTable7_7
+       4  ??DataTable7_8
+       4  ??DataTable7_9
+      66  I2C_Initialization
+     142  I2C_Read_Transaction
+     110  I2C_Start_Direction_Adress_Size
+      92  I2C_Stop
+     132  I2C_Write_Transaction
+      88  i2c_gpio_init
+      62  i2c_init
+     150  i2c_readbuf
+
+ 
+ 890 bytes in section .text
+ 
+ 890 bytes of CODE memory
+
+Errors: none
+Warnings: none

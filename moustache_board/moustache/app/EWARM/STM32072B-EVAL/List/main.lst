@@ -1,0 +1,133 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  22:16:36
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
+#        -D USE_STDPERIPH_DRIVER -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Full.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List\main.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\main.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
+      1          
+      2          #include "bsp.h"
+      3          #include "Freertos.h"
+      4          #include "task.h"
+      5          
+      6          #include "uart_int.h"
+      7          
+      8          
+      9          #include "settings.h"
+     10          #include "modbus_app.h"
+     11          
+     12          void blinker    (void *p);
+     13          
+     14          u16 blink_period = 100;
+     15          extern modbus_app_param_t modbus_app_param ;
+     16          
+     17          
+     18          int main(void)
+     19          { 
+     20          //settings_load();
+     21            board_init();
+     22                  
+     23            xTaskCreate(blinker,                    /* Function that implements the task. */
+     24                        "blink",                    /* Name */
+     25                        configMINIMAL_STACK_SIZE,   /* Stack size in words, not bytes. */
+     26                        ( void * ) &blink_period,   /* Parameter passed into the task. */
+     27                        tskIDLE_PRIORITY + 1,       /* Priority at which the task is created. */
+     28                        NULL );  
+     29          
+     30          
+     31          //  xTaskCreate(modbus_app,                     /* Function that implements the task. */
+     32          //              "modbus",                       /* Name */
+     33          //              configMINIMAL_STACK_SIZE * 2,   /* Stack size in words, not bytes. */
+     34          //              ( void * ) &modbus_app_param,   /* Parameter passed into the task. */
+     35          //              tskIDLE_PRIORITY + 1,           /* Priority at which the task is created. */
+     36          //              NULL );  
+     37            
+     38            vTaskStartScheduler();
+     39          }
+     40          
+     41          
+     42          
+     43          void blinker(void *p)
+     44          {
+     45          
+     46          while(1)
+     47          {
+     48          LED_toggle();  
+     49          vTaskDelay( 100 / portTICK_PERIOD_MS );
+     50          }
+     51          }
+     52          
+     53          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   blinker
+         8   -> vTaskDelay
+      16   main
+        16   -> board_init
+        16   -> vTaskStartScheduler
+        16   -> xTaskCreate
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       8  ?_0
+       2  blink_period
+      52  blinker
+      36  main
+
+ 
+   2 bytes in section .data
+   8 bytes in section .rodata
+ 112 bytes in section .text
+ 
+ 112 bytes of CODE  memory
+   8 bytes of CONST memory
+   2 bytes of DATA  memory
+
+Errors: none
+Warnings: none

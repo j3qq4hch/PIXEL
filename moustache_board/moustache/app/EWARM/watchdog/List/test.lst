@@ -1,0 +1,233 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       27/Dec/2016  14:05:06
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\test.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\test.c
+#        -D USE_STDPERIPH_DRIVER -D USE_STM32072B_EVAL -D STM32F042x6 -lcN
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\led_matrix\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\serint\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\usb\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\CLI\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\..\..\Utilities\STM32_EVAL\STM32072B_EVAL\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\List\test.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\EWARM\watchdog\Obj\test.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\led-zeppelin\software\pwm_controller\app\src\test.c
+      1          #include "test.h"
+      2          #include <string.h>
+      3          #include "types.h"
+      4          
+      5          #define ADC1_DR_Address    0x40012440
+      6          volatile uint16_t RegularConvData_Tab[128];
+      7          
+      8          static void ADC_Config(void);
+      9          static void DMA_Config(void);
+     10          
+     11          void test(void)
+     12          {
+     13          
+     14            ADC_Config();
+     15            DMA_Config();
+     16          //  while (1)
+     17          //  {
+     18          //    
+     19          //  // while(!new_data)
+     20          //    {
+     21          //    ADC_StartOfConversion(ADC1);
+     22          //    asm("NOP");
+     23          //    }
+     24          //    
+     25          //    memset((void*)RegularConvData_Tab,0x00,sizeof(RegularConvData_Tab));
+     26          //    //new_data = 0;
+     27          //     
+     28          //     for(u16 i = 0; i<0x0FFF; i++){}
+     29          //      
+     30          //  }
+     31          }
+     32          
+     33          
+     34          
+     35          static void ADC_Config(void)
+     36          {
+     37            ADC_InitTypeDef     ADC_InitStructure;
+     38            ADC_DeInit(ADC1);
+     39            
+     40           RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+     41           ADC_StructInit(&ADC_InitStructure);
+     42            
+     43            
+     44            ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+     45            ADC_InitStructure.ADC_ContinuousConvMode = DISABLE; 
+     46            ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
+     47            ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+     48            ADC_InitStructure.ADC_ScanDirection = ADC_ScanDirection_Backward;
+     49            ADC_Init(ADC1, &ADC_InitStructure); 
+     50          
+     51            ADC_TempSensorCmd(ENABLE);
+     52            ADC_ChannelConfig(ADC1, ADC_Channel_TempSensor , ADC_SampleTime_239_5Cycles);  
+     53            
+     54            ADC_ChannelConfig(ADC1, ADC_Channel_Vbat , ADC_SampleTime_239_5Cycles);  
+     55            ADC_VbatCmd(ENABLE);
+     56            
+     57            ADC_GetCalibrationFactor(ADC1);
+     58            
+     59            ADC_DMARequestModeConfig(ADC1, ADC_DMAMode_OneShot);//ADC_DMAMode_Circular);
+     60           
+     61            ADC_DMACmd(ADC1, ENABLE);  
+     62            
+     63            ADC_Cmd(ADC1, ENABLE);     
+     64            
+     65            while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_ADRDY)); 
+     66          
+     67          }
+     68          
+     69          /**
+     70            * @brief  DMA channel1 configuration
+     71            * @param  None
+     72            * @retval None
+     73            */
+     74          static void DMA_Config(void)
+     75          {
+     76            DMA_InitTypeDef   DMA_InitStructure;
+     77            RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1 , ENABLE);
+     78            DMA_DeInit(DMA1_Channel1);
+     79            DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)ADC1_DR_Address;
+     80            DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)RegularConvData_Tab;
+     81            DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+     82            DMA_InitStructure.DMA_BufferSize = 10;
+     83            DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+     84            DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+     85            DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
+     86            DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
+     87            DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
+     88            DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+     89            DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+     90            DMA_Init(DMA1_Channel1, &DMA_InitStructure);
+     91          
+     92            DMA_ITConfig(DMA1_Channel1, DMA_IT_HT | DMA_IT_TC, ENABLE);
+     93            
+     94            NVIC_InitTypeDef NVIC_InitStructure;
+     95            NVIC_InitStructure.NVIC_IRQChannel = DMA1_Channel1_IRQn;
+     96            NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+     97            NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+     98            NVIC_Init(&NVIC_InitStructure);
+     99            
+    100             DMA_Cmd(DMA1_Channel1, ENABLE);
+    101            
+    102          }
+    103          
+    104          
+    105          void test_pins_init(void)
+    106          {
+    107          RCC_AHBPeriphClockCmd(TEST1_rcc | TEST1_rcc  ,ENABLE);
+    108          GPIO_InitTypeDef GPIO_InitStructure;
+    109          GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    110          GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
+    111          GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    112          GPIO_InitStructure.GPIO_Pin  = TEST1_pin ; // amp on is output push-pull
+    113          GPIO_Init(TEST1_port, &GPIO_InitStructure);
+    114          
+    115          GPIO_InitStructure.GPIO_Pin  = TEST2_pin ; // amp on is output push-pull
+    116          GPIO_Init(TEST2_port, &GPIO_InitStructure);
+    117          
+    118          
+    119          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   ADC_Config
+        32   -> ADC_ChannelConfig
+        32   -> ADC_Cmd
+        32   -> ADC_DMACmd
+        32   -> ADC_DMARequestModeConfig
+        32   -> ADC_DeInit
+        32   -> ADC_GetCalibrationFactor
+        32   -> ADC_GetFlagStatus
+        32   -> ADC_Init
+        32   -> ADC_StructInit
+        32   -> ADC_TempSensorCmd
+        32   -> ADC_VbatCmd
+        32   -> RCC_APB2PeriphClockCmd
+      56   DMA_Config
+        56   -> DMA_Cmd
+        56   -> DMA_DeInit
+        56   -> DMA_ITConfig
+        56   -> DMA_Init
+        56   -> NVIC_Init
+        56   -> RCC_AHBPeriphClockCmd
+       8   test
+         8   -> ADC_Config
+         8   -> DMA_Config
+      16   test_pins_init
+        16   -> GPIO_Init
+        16   -> RCC_AHBPeriphClockCmd
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_2
+       4  ??DataTable2_3
+       4  ??DataTable2_4
+     138  ADC_Config
+     122  DMA_Config
+     256  RegularConvData_Tab
+      12  test
+      58  test_pins_init
+
+ 
+ 256 bytes in section .bss
+ 350 bytes in section .text
+ 
+ 350 bytes of CODE memory
+ 256 bytes of DATA memory
+
+Errors: none
+Warnings: none

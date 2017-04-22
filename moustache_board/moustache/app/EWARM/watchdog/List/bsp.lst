@@ -1,0 +1,145 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:50
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\bsp.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\bsp.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\bsp.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\bsp.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\bsp.c
+      1          #include "bsp.h"
+      2          
+      3          static void led_init(void)
+      4          {
+      5           GPIO_InitTypeDef GPIO_InitStructure;
+      6           GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+      7           GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+      8           GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+      9           GPIO_InitStructure.GPIO_Pin = LED_pin;
+     10           GPIO_Init(LED_port, &GPIO_InitStructure);
+     11          }
+     12          
+     13          
+     14          static void rcc_init(void)
+     15          {
+     16            RCC_ClocksTypeDef RCC_Clocks;
+     17            RCC_GetClocksFreq(&RCC_Clocks);
+     18            RCC_AHBPeriphClockCmd (RCC_AHBPeriph_GPIOA  | RCC_AHBPeriph_GPIOB,   ENABLE);
+     19            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM14 | RCC_APB1Periph_TIM3,   ENABLE);
+     20            RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1  | RCC_APB2Periph_USART1, ENABLE);
+     21          }
+     22          
+     23          
+     24          static void rs485_hw_init(void)
+     25          {
+     26          	GPIO_InitTypeDef GPIO_InitStructure;
+     27          
+     28          	GPIO_PinAFConfig(REDE_port, REDE_pinsource,	GPIO_AF_1 );
+     29          	GPIO_PinAFConfig(TX_port, TX_pinsource,		GPIO_AF_1);
+     30          	GPIO_PinAFConfig(RX_port, RX_pinsource,		GPIO_AF_1);
+     31          
+     32          	GPIO_InitStructure.GPIO_Pin = TX_pin;
+     33          	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+     34          	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+     35          	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+     36          	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+     37          	GPIO_Init(TX_port, &GPIO_InitStructure);
+     38          
+     39          	GPIO_InitStructure.GPIO_Pin = REDE_pin;
+     40          	GPIO_Init(REDE_port, &GPIO_InitStructure);
+     41          
+     42                  GPIO_InitStructure.GPIO_Pin = RX_pin;
+     43                  GPIO_Init(RX_port, &GPIO_InitStructure);
+     44          
+     45          	USART_DECmd(USART1,  ENABLE);
+     46          	USART_SetDEAssertionTime(USART1, 4);
+     47          	USART_SetDEDeassertionTime(USART1, 4);
+     48          
+     49          	NVIC_InitTypeDef NVIC_InitStructure;
+     50          	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+     51          	NVIC_InitStructure.NVIC_IRQChannelPriority = 3;
+     52          	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+     53          	NVIC_Init(&NVIC_InitStructure);
+     54          }
+     55          
+     56          
+     57          static void adc_init(void)
+     58          {
+     59          
+     60          }
+     61          
+     62          
+     63          void board_init(void)
+     64          {
+     65          	rcc_init();
+     66          	led_init();
+     67          //	adc_init();
+     68          //	rs485_hw_init();
+     69          }
+     70          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   board_init
+         8   -> led_init
+         8   -> rcc_init
+      16   led_init
+        16   -> GPIO_Init
+      40   rcc_init
+        40   -> RCC_AHBPeriphClockCmd
+        40   -> RCC_APB1PeriphClockCmd
+        40   -> RCC_APB2PeriphClockCmd
+        40   -> RCC_GetClocksFreq
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      12  board_init
+      40  led_init
+      44  rcc_init
+
+ 
+ 96 bytes in section .text
+ 
+ 96 bytes of CODE memory
+
+Errors: none
+Warnings: 2

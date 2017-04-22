@@ -1,0 +1,127 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  21:16:50
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\flash_access.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\flash_access.c
+#        -D USE_STDPERIPH_DRIVER -D CLK_SOURCE_HSE -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\pt\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\flash_access.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\flash_access.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\flash_access.c
+      1          
+      2          #include "flash_access.h"
+      3          
+      4          /*
+      5          some stuff to overcome stm32f0 natural flash access limitations to be able to write flash in 1 byte chunks
+      6          to make stream operations with flash possible
+      7          
+      8          It is important to mention it is NOT REENTRANT and thus should be used with care
+      9          */
+     10          
+     11          static u32 flash_adr = 0;
+     12          static u16 val = 0;
+     13          static u8 flag = 0;
+     14          
+     15          void flash_init(u32 start_adr)
+     16          {
+     17          flash_adr  = start_adr;
+     18          flag = 0;
+     19          val  = 0;
+     20          }
+     21          
+     22          void flash_write_byte(u8 b)
+     23          {
+     24            if(!flag)
+     25            {
+     26            flag = 1;
+     27            val = b;
+     28            }
+     29            else
+     30            {
+     31            flag = 0;
+     32            val |= b<<8;
+     33            FLASH_ProgramHalfWord(flash_adr, val);
+     34            flash_adr += 2;  
+     35            }
+     36          }
+     37          
+     38          void flash_finalize(void)
+     39          {
+     40            if(flag){flash_write_byte(0);}
+     41          }
+     42          
+     43          u8 flash_read_byte(u8 * b)
+     44          {
+     45            *b = *(u8*)flash_adr++;
+     46            return 0;
+     47          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   flash_finalize
+         8   -> flash_write_byte
+       0   flash_init
+       0   flash_read_byte
+       8   flash_write_byte
+         8   -> FLASH_ProgramHalfWord
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_2
+       1  flag
+       4  flash_adr
+      18  flash_finalize
+      18  flash_init
+      24  flash_read_byte
+      70  flash_write_byte
+       2  val
+
+ 
+   7 bytes in section .bss
+ 142 bytes in section .text
+ 
+ 142 bytes of CODE memory
+   7 bytes of DATA memory
+
+Errors: none
+Warnings: none

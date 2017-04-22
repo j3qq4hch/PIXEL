@@ -1,0 +1,132 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  22:16:37
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\stm32_it.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\stm32_it.c
+#        -D USE_STDPERIPH_DRIVER -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Full.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List\stm32_it.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\stm32_it.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\stm32_it.c
+      1          
+      2          
+      3          
+      4          /* Includes ------------------------------------------------------------------*/
+      5          #include "stm32_it.h"
+      6          #include "stm32f0xx.h"
+      7          #include "uart_int.h"
+      8          #include "bsp.h"
+      9          
+     10          
+     11          void NMI_Handler(void)
+     12          {
+     13          }
+     14          
+     15          void HardFault_Handler(void)
+     16          {
+     17           
+     18            while(1) 
+     19            {
+     20            u32 zz = 300000;
+     21            while(zz){zz--;}
+     22            LED_toggle();
+     23            }  
+     24          }
+     25            
+     26          /******************************************************************************/
+     27          /*                 STM32F0xx Peripherals Interrupt Handlers                   */
+     28          /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
+     29          /*  available peripheral interrupt handler's name please refer to the startup */
+     30          /*  file (startup_stm32f072.s).                                            */
+     31          /******************************************************************************/
+     32          void TIM2_IRQHandler(void)
+     33          {
+     34          }
+     35          
+     36          
+     37          void TIM3_IRQHandler(void)
+     38          {
+     39          }
+     40          
+     41          void ADC1_IRQHandler(void)
+     42          {
+     43          }
+     44          
+     45          //extern uart_desc_t RS485;
+     46          void USART1_IRQHandler(void)
+     47          {
+     48          //uart_isr(&RS485);
+     49          }
+     50          
+     51          void DMA1_Channel1_IRQHandler(void)
+     52          {
+     53           
+     54          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   ADC1_IRQHandler
+       0   DMA1_Channel1_IRQHandler
+       4   HardFault_Handler
+       0   NMI_Handler
+       0   TIM2_IRQHandler
+       0   TIM3_IRQHandler
+       0   USART1_IRQHandler
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable0
+       4  ??DataTable0_1
+       4  ??DataTable0_2
+       4  ??DataTable0_3
+       2  ADC1_IRQHandler
+       2  DMA1_Channel1_IRQHandler
+      54  HardFault_Handler
+       2  NMI_Handler
+       2  TIM2_IRQHandler
+       2  TIM3_IRQHandler
+       2  USART1_IRQHandler
+
+ 
+ 82 bytes in section .text
+ 
+ 82 bytes of CODE memory
+
+Errors: none
+Warnings: none

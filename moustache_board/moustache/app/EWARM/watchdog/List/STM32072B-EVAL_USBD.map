@@ -1,0 +1,373 @@
+###############################################################################
+#
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                17/Apr/2017  21:17:23
+# Copyright 2007-2015 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Exe\STM32072B-EVAL_USBD.out
+#    Map file     =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\STM32072B-EVAL_USBD.map
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\bsp.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\croutine.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\event_groups.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\heap_1.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\list.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\main.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\port.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\portasm.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\queue.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\startup_stm32f030.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32_it.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_adc.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_dbgmcu.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_dma.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_flash.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_gpio.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_misc.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_pwr.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_rcc.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_syscfg.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_tim.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\stm32f0xx_usart.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\system_stm32f0xx.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\tasks.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\timers.o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj\uart_int.o
+#        --redirect _Printf=_PrintfTiny --redirect _Scanf=_ScanfSmall -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Exe\STM32072B-EVAL_USBD.out
+#        --map
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\List\STM32072B-EVAL_USBD.map
+#        --config
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\stack_0x200_heap_0x100.icf
+#        --semihosting --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x08000000 { ro section .intvec };
+"P1":  place in [from 0x08000000 to 0x08003bff] { ro };
+"P2":  place in [from 0x20000000 to 0x20000fff] { rw, block CSTACK, block HEAP };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A1":                                       0xb4
+  .intvec            ro code  0x08000000    0xb4  startup_stm32f030.o [1]
+                            - 0x080000b4    0xb4
+
+"P1":                                     0x11ea
+  .text              ro code  0x080000b4   0x6a4  tasks.o [1]
+  .text              ro code  0x08000758    0x84  heap_1.o [1]
+  .text              ro code  0x080007dc    0xa2  list.o [1]
+  .text              ro code  0x0800087e     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08000880   0x100  port.o [1]
+  CODE               ro code  0x08000980    0x7c  portasm.o [1]
+  .text              ro code  0x080009fc   0x260  stm32f0xx_rcc.o [1]
+  .text              ro code  0x08000c5c    0xae  I32DivModFast.o [4]
+  .text              ro code  0x08000d0a     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08000d0c     0x2  IntDivZer.o [4]
+  .text              ro code  0x08000d0e     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08000d10   0x160  system_stm32f0xx.o [1]
+  .text              ro code  0x08000e70    0xcc  stm32f0xx_gpio.o [1]
+  .text              ro code  0x08000f3c    0xb0  uart_int.o [1]
+  .text              ro code  0x08000fec     0xc  stm32f0xx_usart.o [1]
+  .text              ro code  0x08000ff8    0x70  main.o [1]
+  .text              ro code  0x08001068    0x60  bsp.o [1]
+  .text              ro code  0x080010c8    0x5e  stm32_it.o [1]
+  .text              ro code  0x08001126    0x3c  zero_init3.o [4]
+  .text              ro code  0x08001162    0x3c  packbits_init_single.o [4]
+  .text              ro code  0x0800119e     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x080011a0    0x28  data_init.o [4]
+  .iar.init_table    const    0x080011c8    0x20  - Linker created -
+  .text              ro code  0x080011e8    0x1a  cmain.o [4]
+  .text              ro code  0x08001202     0x4  low_level_init.o [3]
+  .text              ro code  0x08001206     0x8  exit.o [3]
+  .text              ro code  0x0800120e     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001210     0xa  cexit.o [4]
+  .text              ro code  0x0800121a     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800121c    0x14  exit.o [5]
+  .text              ro code  0x08001230    0x10  startup_stm32f030.o [1]
+  .text              ro code  0x08001240     0xc  cstartup_M.o [4]
+  .rodata            const    0x0800124c     0x8  main.o [1]
+  .rodata            const    0x08001254     0x8  main.o [1]
+  .rodata            const    0x0800125c     0x8  tasks.o [1]
+  .text              ro code  0x08001264     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001266     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001268     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800126a     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800126c     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800126e     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001270     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001272     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001274     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001276     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x08001278     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800127a     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800127c     0x2  startup_stm32f030.o [1]
+  .text              ro code  0x0800127e     0x2  startup_stm32f030.o [1]
+  .rodata            const    0x08001280     0x0  zero_init3.o [4]
+  .rodata            const    0x08001280     0x0  packbits_init_single.o [4]
+  Initializer bytes  const    0x08001280    0x1e  <for P2-1>
+                            - 0x0800129e  0x11ea
+
+"P2", part 1 of 3:                          0x42
+  P2-1                        0x20000000    0x42  <Init block>
+    .data            inited   0x20000000    0x2c  main.o [1]
+    .data            inited   0x2000002c     0x4  port.o [1]
+    .data            inited   0x20000030    0x10  stm32f0xx_rcc.o [1]
+    .data            inited   0x20000040     0x2  main.o [1]
+                            - 0x20000042    0x42
+
+"P2", part 2 of 3:                         0x300
+  CSTACK                      0x20000048   0x300  <Block>
+    CSTACK           uninit   0x20000048   0x300  <Block tail>
+                            - 0x20000348   0x300
+
+"P2", part 3 of 3:                         0x988
+  .bss               zero     0x20000348   0x880  heap_1.o [1]
+  .bss               zero     0x20000bc8    0x8c  tasks.o [1]
+  .bss               zero     0x20000c54    0x14  tasks.o [1]
+  .bss               zero     0x20000c68    0x14  tasks.o [1]
+  .bss               zero     0x20000c7c    0x14  tasks.o [1]
+  .bss               zero     0x20000c90     0x4  heap_1.o [1]
+  .bss               zero     0x20000c94     0x4  heap_1.o [1]
+  .bss               zero     0x20000c98     0x4  tasks.o [1]
+  .bss               zero     0x20000c9c     0x4  tasks.o [1]
+  .bss               zero     0x20000ca0     0x4  tasks.o [1]
+  .bss               zero     0x20000ca4     0x4  tasks.o [1]
+  .bss               zero     0x20000ca8     0x4  tasks.o [1]
+  .bss               zero     0x20000cac     0x4  tasks.o [1]
+  .bss               zero     0x20000cb0     0x4  tasks.o [1]
+  .bss               zero     0x20000cb4     0x4  tasks.o [1]
+  .bss               zero     0x20000cb8     0x4  tasks.o [1]
+  .bss               zero     0x20000cbc     0x4  tasks.o [1]
+  .bss               zero     0x20000cc0     0x4  tasks.o [1]
+  .bss               zero     0x20000cc4     0x4  tasks.o [1]
+  .bss               zero     0x20000cc8     0x4  tasks.o [1]
+  .bss               zero     0x20000ccc     0x4  tasks.o [1]
+                            - 0x20000cd0   0x988
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x988:
+          0x20000348  0x988
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x1e (45% of destination):
+          0x08001280   0x1e
+    1 destination range, total size 0x42:
+          0x20000000   0x42
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj: [1]
+    bsp.o                        96
+    heap_1.o                    132             2 184
+    list.o                      162
+    main.o                      112       37       46
+    port.o                      256        1        4
+    portasm.o                   124
+    startup_stm32f030.o         236
+    stm32_it.o                   94
+    stm32f0xx_gpio.o            204
+    stm32f0xx_rcc.o             608        8       16
+    stm32f0xx_usart.o            12
+    system_stm32f0xx.o          352
+    tasks.o                   1 700        8      256
+    uart_int.o                  176
+    -------------------------------------------------
+    Total:                    4 264       54    2 506
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    exit.o                        8
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                       12
+
+rt6M_tl.a: [4]
+    I32DivModFast.o             174
+    IntDivZer.o                   2
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    packbits_init_single.o       60
+    zero_init3.o                 60
+    -------------------------------------------------
+    Total:                      384
+
+shb_l.a: [5]
+    exit.o                       20
+    -------------------------------------------------
+    Total:                       20
+
+    Linker created                        32      768
+-----------------------------------------------------
+    Grand Total:              4 680       86    3 274
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x080011c8          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x080011e8          --   Gb  - Linker created -
+?main                   0x080011e9         Code  Gb  cmain.o [4]
+ADC1_IRQHandler         0x08001103    0x2  Code  Gb  stm32_it.o [1]
+APBAHBPrescTable        0x20000030   0x10  Data  Lc  stm32f0xx_rcc.o [1]
+CSTACK$$Base            0x20000048          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000348          --   Gb  - Linker created -
+DMA1_Channel1_IRQHandler
+                        0x08001125    0x2  Code  Gb  stm32_it.o [1]
+GPIO_Init               0x08000e71   0xcc  Code  Gb  stm32f0xx_gpio.o [1]
+HardFault_Handler       0x080010cb   0x36  Code  Gb  stm32_it.o [1]
+NMI_Handler             0x080010c9    0x2  Code  Gb  stm32_it.o [1]
+PendSV_Handler          0x08000987         Code  Gb  portasm.o [1]
+RCC_AHBPeriphClockCmd   0x08000bc9   0x20  Code  Gb  stm32f0xx_rcc.o [1]
+RCC_APB1PeriphClockCmd  0x08000c11   0x20  Code  Gb  stm32f0xx_rcc.o [1]
+RCC_APB2PeriphClockCmd  0x08000bf1   0x20  Code  Gb  stm32f0xx_rcc.o [1]
+RCC_GetClocksFreq       0x080009fd  0x1c6  Code  Gb  stm32f0xx_rcc.o [1]
+RS485                   0x20000000   0x2c  Data  Gb  main.o [1]
+Region$$Table$$Base     0x080011c8          --   Gb  - Linker created -
+Region$$Table$$Limit    0x080011e8          --   Gb  - Linker created -
+SVC_Handler             0x080009c5         Code  Gb  portasm.o [1]
+SetSysClock             0x08000d7f   0xbe  Code  Lc  system_stm32f0xx.o [1]
+SysTick_Handler         0x08000935   0x20  Code  Gb  port.o [1]
+SystemInit              0x08000d11   0x6e  Code  Gb  system_stm32f0xx.o [1]
+TIM3_IRQHandler         0x08001101    0x2  Code  Gb  stm32_it.o [1]
+USART1_IRQHandler       0x08001105    0xa  Code  Gb  stm32_it.o [1]
+USART_ClearFlag         0x08000ff5    0x4  Code  Gb  stm32f0xx_usart.o [1]
+USART_ReceiveData       0x08000fed    0x8  Code  Gb  stm32f0xx_usart.o [1]
+__ICFEDIT_region_RAM_end__ {Abs}
+                        0x20000fff          --   Gb  command line/config [2]
+__ICFEDIT_region_RAM_start__ {Abs}
+                        0x20000000          --   Gb  command line/config [2]
+__aeabi_idiv0           0x08000d0d         Code  Gb  IntDivZer.o [4]
+__aeabi_uidiv           0x08000c5d         Code  Gb  I32DivModFast.o [4]
+__aeabi_uidivmod        0x08000c5d         Code  Gb  I32DivModFast.o [4]
+__cmain                 0x080011e9         Code  Gb  cmain.o [4]
+__exit                  0x0800121d   0x14  Code  Gb  exit.o [5]
+__iar_data_init3        0x080011a1   0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                        0x08001163   0x3c  Code  Gb  packbits_init_single.o [4]
+__iar_program_start     0x08001241         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3        0x08001127   0x3c  Code  Gb  zero_init3.o [4]
+__low_level_init        0x08001203    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x08000000         Data  Gb  startup_stm32f030.o [1]
+_call_main              0x080011f5         Code  Gb  cmain.o [4]
+_exit                   0x08001211         Code  Gb  cexit.o [4]
+_main                   0x080011ff         Code  Gb  cmain.o [4]
+blink_period            0x20000040    0x2  Data  Gb  main.o [1]
+blinker                 0x0800101d   0x34  Code  Gb  main.o [1]
+board_init              0x080010bd    0xc  Code  Gb  bsp.o [1]
+exit                    0x08001207    0x8  Code  Gb  exit.o [3]
+fifo_push               0x08000f3d   0x2c  Code  Lc  uart_int.o [1]
+led_init                0x08001069   0x28  Code  Lc  bsp.o [1]
+main                    0x08000ff9   0x24  Code  Gb  main.o [1]
+prvAddCurrentTaskToDelayedList
+                        0x080006e1   0x4e  Code  Lc  tasks.o [1]
+prvAddNewTaskToReadyList
+                        0x080001c1   0x8e  Code  Lc  tasks.o [1]
+prvCheckTasksWaitingTermination
+                        0x080005ab    0x2  Code  Lc  tasks.o [1]
+prvIdleTask             0x08000559   0x16  Code  Lc  tasks.o [1]
+prvInitialiseNewTask    0x08000129   0x98  Code  Lc  tasks.o [1]
+prvInitialiseTaskLists  0x08000571   0x3a  Code  Lc  tasks.o [1]
+prvResetNextTaskUnblockTime
+                        0x080005ad   0x28  Code  Lc  tasks.o [1]
+prvSetupTimerInterrupt  0x08000955    0xe  Code  Lc  port.o [1]
+prvTaskExitError        0x0800089d   0x16  Code  Lc  port.o [1]
+pvPortMalloc            0x08000759   0x66  Code  Gb  heap_1.o [1]
+pxCurrentTCB            0x20000c98    0x4  Data  Gb  tasks.o [1]
+pxDelayedTaskList       0x20000c9c    0x4  Data  Lc  tasks.o [1]
+pxOverflowDelayedTaskList
+                        0x20000ca0    0x4  Data  Lc  tasks.o [1]
+pxPortInitialiseStack   0x08000881   0x1a  Code  Gb  port.o [1]
+pxReadyTasksLists       0x20000bc8   0x8c  Data  Lc  tasks.o [1]
+rcc_init                0x08001091   0x2c  Code  Lc  bsp.o [1]
+uart_isr                0x08000f69   0x84  Code  Gb  uart_int.o [1]
+ucHeap                  0x20000348  0x880  Data  Lc  heap_1.o [1]
+ulSetInterruptMaskFromISR
+                        0x080009e9         Code  Gb  portasm.o [1]
+uxCriticalNesting       0x2000002c    0x4  Data  Lc  port.o [1]
+uxCurrentNumberOfTasks  0x20000ca4    0x4  Data  Lc  tasks.o [1]
+uxListRemove            0x08000855   0x2a  Code  Gb  list.o [1]
+uxPendedTicks           0x20000cb4    0x4  Data  Lc  tasks.o [1]
+uxSchedulerSuspended    0x20000ccc    0x4  Data  Lc  tasks.o [1]
+uxTaskNumber            0x20000cc0    0x4  Data  Lc  tasks.o [1]
+uxTopReadyPriority      0x20000cac    0x4  Data  Lc  tasks.o [1]
+vClearInterruptMaskFromISR
+                        0x080009f1         Code  Gb  portasm.o [1]
+vListInitialise         0x080007dd   0x1e  Code  Gb  list.o [1]
+vListInitialiseItem     0x080007fb    0x6  Code  Gb  list.o [1]
+vListInsert             0x08000819   0x3c  Code  Gb  list.o [1]
+vListInsertEnd          0x08000801   0x18  Code  Gb  list.o [1]
+vPortEnterCritical      0x080008f9   0x16  Code  Gb  port.o [1]
+vPortExitCritical       0x08000911   0x24  Code  Gb  port.o [1]
+vPortFree               0x080007c1    0xc  Code  Gb  heap_1.o [1]
+vPortStartFirstTask     0x080009c7         Code  Gb  portasm.o [1]
+vPortYield              0x080008e5   0x12  Code  Gb  port.o [1]
+vSetMSP                 0x08000981         Code  Gb  portasm.o [1]
+vTaskDelay              0x08000251   0x32  Code  Gb  tasks.o [1]
+vTaskStartScheduler     0x08000285   0x46  Code  Gb  tasks.o [1]
+vTaskSuspendAll         0x080002cd    0xc  Code  Gb  tasks.o [1]
+vTaskSwitchContext      0x080004c9   0x64  Code  Gb  tasks.o [1]
+xDelayedTaskList1       0x20000c54   0x14  Data  Lc  tasks.o [1]
+xDelayedTaskList2       0x20000c68   0x14  Data  Lc  tasks.o [1]
+xIdleTaskHandle         0x20000cc8    0x4  Data  Lc  tasks.o [1]
+xNextFreeByte           0x20000c90    0x4  Data  Lc  heap_1.o [1]
+xNextTaskUnblockTime    0x20000cc4    0x4  Data  Lc  tasks.o [1]
+xNumOfOverflows         0x20000cbc    0x4  Data  Lc  tasks.o [1]
+xPendingReadyList       0x20000c7c   0x14  Data  Lc  tasks.o [1]
+xPortStartScheduler     0x080008b3   0x30  Code  Gb  port.o [1]
+xSchedulerRunning       0x20000cb0    0x4  Data  Lc  tasks.o [1]
+xTaskCreate             0x080000b5   0x74  Code  Gb  tasks.o [1]
+xTaskGenericNotifyFromISR
+                        0x080005f1   0xee  Code  Gb  tasks.o [1]
+xTaskIncrementTick      0x080003b9   0xfa  Code  Gb  tasks.o [1]
+xTaskResumeAll          0x080002d9   0xc8  Code  Gb  tasks.o [1]
+xTickCount              0x20000ca8    0x4  Data  Lc  tasks.o [1]
+xYieldPending           0x20000cb8    0x4  Data  Lc  tasks.o [1]
+
+
+[1] = C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\watchdog\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = rt6M_tl.a
+[5] = shb_l.a
+
+  4 680 bytes of readonly  code memory
+     86 bytes of readonly  data memory
+  3 274 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
