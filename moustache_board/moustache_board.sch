@@ -1353,10 +1353,10 @@ package type OT</description>
 <text x="8.89" y="-1.27" size="1.778" layer="96" font="vector" ratio="15" align="center">&gt;MANF#</text>
 </symbol>
 <symbol name="IRS44273L">
-<pin name="IN" x="-2.54" y="5.08" length="short"/>
-<pin name="COM" x="-2.54" y="2.54" length="short"/>
-<pin name="OUT" x="17.78" y="5.08" length="short" rot="R180"/>
-<pin name="VCC" x="-2.54" y="7.62" length="short"/>
+<pin name="IN" x="-2.54" y="5.08" length="short" direction="in"/>
+<pin name="COM" x="-2.54" y="2.54" length="short" direction="pwr"/>
+<pin name="OUT" x="17.78" y="5.08" length="short" direction="out" rot="R180"/>
+<pin name="VCC" x="-2.54" y="7.62" length="short" direction="pwr"/>
 <wire x1="0" y1="10.16" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
 <wire x1="7.62" y1="0" x2="15.24" y2="0" width="0.254" layer="94"/>

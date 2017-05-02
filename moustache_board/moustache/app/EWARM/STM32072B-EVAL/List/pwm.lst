@@ -1,0 +1,171 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       25/Apr/2017  17:18:32
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm.c
+#    Command line =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm.c
+#        -D USE_STDPERIPH_DRIVER -lcN
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List
+#        -o
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0 --char_is_signed --fpu=None --dlib_config "C:\Program
+#        Files (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Full.h" -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\include\
+#        -I
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\..\..\FreeRTOS\portable\
+#        -On --use_c++_inline --require_prototypes -I "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.3\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\List\pwm.lst
+#    Object file  =  
+#        C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\EWARM\STM32072B-EVAL\Obj\pwm.o
+#
+###############################################################################
+
+C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\pwm.c
+      1          #include "pwm.h"
+      2          #include "bsp.h"
+      3          
+      4          #define DRIVER_TIMER   TIM1
+      5          
+      6          static inline void TIM_OCInit(TIM_TypeDef* TIMx, u8 ch, TIM_OCInitTypeDef* TIM_OCInitStruct);
+      7          
+      8          u16 pwm_period_ticks = 1024;
+      9          
+     10          const pwm_ch_t pwm_array[] =
+     11          {
+     12            {PWM1_gpio_port, PWM1_gpio_pin, PWM1_gpio_pinsource, PWM1_gpio_pin_af, TIM1, 0},
+     13            {PWM2_gpio_port, PWM2_gpio_pin, PWM2_gpio_pinsource, PWM2_gpio_pin_af, TIM1, 0},
+     14            {PWM3_gpio_port, PWM3_gpio_pin, PWM3_gpio_pinsource, PWM3_gpio_pin_af, TIM1, 0}
+     15          };
+     16          
+     17          
+     18          
+     19          static inline void TIM_OCInit(TIM_TypeDef* TIMx, 
+     20                                        u8 ch, 
+     21                                        TIM_OCInitTypeDef* TIM_OCInitStruct)
+     22          {
+     23          if(ch == 1) TIM_OC1Init(TIMx, TIM_OCInitStruct);
+     24          if(ch == 2) TIM_OC2Init(TIMx, TIM_OCInitStruct);
+     25          if(ch == 3) TIM_OC3Init(TIMx, TIM_OCInitStruct);
+     26          if(ch == 4) TIM_OC4Init(TIMx, TIM_OCInitStruct);
+     27          }
+     28          
+     29          static inline void TIM_SetCompare(TIM_TypeDef* TIMx, u8 ch, uint32_t Compare)
+     30          {
+     31          if(ch == 1) TIM_SetCompare1(TIMx, Compare);
+     32          if(ch == 2) TIM_SetCompare2(TIMx, Compare);
+     33          if(ch == 3) TIM_SetCompare3(TIMx, Compare);
+     34          if(ch == 4) TIM_SetCompare4(TIMx, Compare);
+     35          }
+     36          
+     37          ////////////////////////////////////////////
+     38          
+     39          void pwm_setval(const pwm_ch_t* pwm, u32 val)
+     40          {
+     41            TIM_SetCompare(pwm->TIM, pwm->TIM_ch, val);
+     42          }
+     43          
+     44          /////////////////////////////////////////////
+     45          
+     46          void led_driver_init(void)
+     47          {
+     48            const pwm_ch_t * pwm = &pwm_array[0];
+     49            GPIO_InitTypeDef GPIO_InitStructure;
+     50            
+     51            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+     52            GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+     53            GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+     54            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+     55            
+     56            GPIO_InitStructure.GPIO_Pin = pwm->GPIO_Pin;
+     57            GPIO_Init(pwm->GPIO_port, &GPIO_InitStructure);
+     58            GPIO_PinAFConfig(pwm->GPIO_port, pwm->GPIO_PinSource, pwm->GPIO_AF); 
+     59           
+     60            /////////////////////////////////////
+     61            
+     62            TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+     63            TIM_OCInitTypeDef  TIM_OCInitStructure;
+     64            TIM_Cmd(pwm->TIM, DISABLE); 
+     65           
+     66            TIM_TimeBaseStructure.TIM_Prescaler           = 0;
+     67            TIM_TimeBaseStructure.TIM_CounterMode         = TIM_CounterMode_Up;
+     68            TIM_TimeBaseStructure.TIM_Period              = pwm_period_ticks;
+     69            TIM_TimeBaseStructure.TIM_ClockDivision       = 0;
+     70            TIM_TimeBaseStructure.TIM_RepetitionCounter   = 0;
+     71          
+     72            TIM_TimeBaseInit(pwm->TIM, &TIM_TimeBaseStructure);
+     73          
+     74            TIM_OCInitStructure.TIM_OCMode        = TIM_OCMode_PWM2;
+     75            TIM_OCInitStructure.TIM_OutputState   = TIM_OutputState_Enable;
+     76            TIM_OCInitStructure.TIM_Pulse         = 0;
+     77            TIM_OCInitStructure.TIM_OCPolarity    = TIM_OCPolarity_Low;
+     78            TIM_OCInitStructure.TIM_OCIdleState   = TIM_OCIdleState_Set;
+     79          
+     80              
+     81            TIM_OC3Init(pwm->TIM, &TIM_OCInitStructure);
+     82            
+     83            TIM_Cmd(pwm->TIM, ENABLE);
+     84            TIM_CtrlPWMOutputs(pwm->TIM, ENABLE);
+     85          }
+     86          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      16   TIM_SetCompare
+        16   -> TIM_SetCompare1
+        16   -> TIM_SetCompare2
+        16   -> TIM_SetCompare3
+        16   -> TIM_SetCompare4
+      48   led_driver_init
+        48   -> GPIO_Init
+        48   -> GPIO_PinAFConfig
+        48   -> TIM_Cmd
+        48   -> TIM_CtrlPWMOutputs
+        48   -> TIM_OC3Init
+        48   -> TIM_TimeBaseInit
+      16   pwm_setval
+        16   -> TIM_SetCompare
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable0
+       4  ??DataTable0_1
+      66  TIM_SetCompare
+     158  led_driver_init
+      48  pwm_array
+       2  pwm_period_ticks
+      18  pwm_setval
+
+ 
+   2 bytes in section .data
+  48 bytes in section .rodata
+ 250 bytes in section .text
+ 
+ 250 bytes of CODE  memory
+  48 bytes of CONST memory
+   2 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

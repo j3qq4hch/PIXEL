@@ -22,5 +22,6 @@ static void pwm_init_ch(const pwm_ch_t* pwm);
 void pwm_setval(const pwm_ch_t* pwm, u32 val);
 void pwm_init(void);
 u16  pwm_get_period(void);
+void led_driver_init(void);
 
 #endif

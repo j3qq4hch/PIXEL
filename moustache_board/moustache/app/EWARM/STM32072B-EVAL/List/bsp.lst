@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  22:16:36
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       25/Apr/2017  17:12:46
 # Copyright 1999-2015 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -51,64 +51,62 @@ C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\bsp.c
      10           GPIO_Init(LED_port, &GPIO_InitStructure);
      11          }
      12          
-     13          
-     14          static void rcc_init(void)
-     15          {
-     16            RCC_ClocksTypeDef RCC_Clocks;
-     17            RCC_GetClocksFreq(&RCC_Clocks);
-     18            RCC_AHBPeriphClockCmd (RCC_AHBPeriph_GPIOA  | RCC_AHBPeriph_GPIOB,   ENABLE);
-     19            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM14 | RCC_APB1Periph_TIM3,   ENABLE);
-     20            RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1  | RCC_APB2Periph_USART1, ENABLE);
-     21          }
-     22          
-     23          
-     24          static void rs485_hw_init(void)
-     25          {
-     26          	GPIO_InitTypeDef GPIO_InitStructure;
-     27          
-     28          	GPIO_PinAFConfig(REDE_port, REDE_pinsource,	GPIO_AF_1 );
-     29          	GPIO_PinAFConfig(TX_port, TX_pinsource,		GPIO_AF_1);
-     30          	GPIO_PinAFConfig(RX_port, RX_pinsource,		GPIO_AF_1);
-     31          
-     32          	GPIO_InitStructure.GPIO_Pin = TX_pin;
-     33          	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-     34          	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
-     35          	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-     36          	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-     37          	GPIO_Init(TX_port, &GPIO_InitStructure);
-     38          
-     39          	GPIO_InitStructure.GPIO_Pin = REDE_pin;
-     40          	GPIO_Init(REDE_port, &GPIO_InitStructure);
-     41          
-     42                  GPIO_InitStructure.GPIO_Pin = RX_pin;
-     43                  GPIO_Init(RX_port, &GPIO_InitStructure);
-     44          
-     45          	USART_DECmd(USART1,  ENABLE);
-     46          	USART_SetDEAssertionTime(USART1, 4);
-     47          	USART_SetDEDeassertionTime(USART1, 4);
-     48          
-     49          	NVIC_InitTypeDef NVIC_InitStructure;
-     50          	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-     51          	NVIC_InitStructure.NVIC_IRQChannelPriority = 3;
-     52          	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-     53          	NVIC_Init(&NVIC_InitStructure);
-     54          }
-     55          
-     56          
-     57          static void adc_init(void)
-     58          {
+     13          static void rcc_init(void)
+     14          {
+     15              RCC_ClocksTypeDef RCC_Clocks;
+     16              RCC_GetClocksFreq(&RCC_Clocks);
+     17              RCC_AHBPeriphClockCmd (RCC_AHBPeriph_GPIOA  | RCC_AHBPeriph_GPIOB,   ENABLE);
+     18              RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1  | RCC_APB2Periph_USART1, ENABLE);
+     19          }
+     20          
+     21          
+     22          static void rs485_hw_init(void)
+     23          {
+     24          	GPIO_InitTypeDef GPIO_InitStructure;
+     25          
+     26          	GPIO_PinAFConfig(REDE_port, REDE_pinsource,	GPIO_AF_1 );
+     27          	GPIO_PinAFConfig(TX_port, TX_pinsource,		GPIO_AF_1);
+     28          	GPIO_PinAFConfig(RX_port, RX_pinsource,		GPIO_AF_1);
+     29          
+     30          	GPIO_InitStructure.GPIO_Pin = TX_pin;
+     31          	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+     32          	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+     33          	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+     34          	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+     35          	GPIO_Init(TX_port, &GPIO_InitStructure);
+     36          
+     37          	GPIO_InitStructure.GPIO_Pin = REDE_pin;
+     38          	GPIO_Init(REDE_port, &GPIO_InitStructure);
+     39          
+     40                  GPIO_InitStructure.GPIO_Pin = RX_pin;
+     41                  GPIO_Init(RX_port, &GPIO_InitStructure);
+     42          
+     43          	USART_DECmd(USART1,  ENABLE);
+     44          	USART_SetDEAssertionTime(USART1, 4);
+     45          	USART_SetDEDeassertionTime(USART1, 4);
+     46          
+     47          	NVIC_InitTypeDef NVIC_InitStructure;
+     48          	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+     49          	NVIC_InitStructure.NVIC_IRQChannelPriority = 3;
+     50          	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+     51          	NVIC_Init(&NVIC_InitStructure);
+     52          }
+     53          
+     54          
+     55          static void adc_init(void)
+     56          {
+     57          
+     58          }
      59          
-     60          }
-     61          
-     62          
-     63          void board_init(void)
-     64          {
-     65          	rcc_init();
-     66          	led_init();
-     67          //	adc_init();
-     68          //	rs485_hw_init();
-     69          }
-     70          
+     60          
+     61          void board_init(void)
+     62          {
+     63          	rcc_init();
+     64          	led_init();
+     65          //	adc_init();
+     66          //	rs485_hw_init();
+     67          }
+     68          
 
    Maximum stack usage in bytes:
 
@@ -121,7 +119,6 @@ C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\bsp.c
         16   -> GPIO_Init
       40   rcc_init
         40   -> RCC_AHBPeriphClockCmd
-        40   -> RCC_APB1PeriphClockCmd
         40   -> RCC_APB2PeriphClockCmd
         40   -> RCC_GetClocksFreq
 
@@ -132,12 +129,12 @@ C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\bsp.c
    -----  --------------
       12  board_init
       40  led_init
-      44  rcc_init
+      34  rcc_init
 
  
- 96 bytes in section .text
+ 86 bytes in section .text
  
- 96 bytes of CODE memory
+ 86 bytes of CODE memory
 
 Errors: none
 Warnings: 2

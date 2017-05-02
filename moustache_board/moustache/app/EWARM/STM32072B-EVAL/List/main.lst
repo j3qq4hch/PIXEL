@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       17/Apr/2017  22:16:36
+# IAR ANSI C/C++ Compiler V7.50.2.10312/W32 for ARM       25/Apr/2017  19:30:15
 # Copyright 1999-2015 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -43,55 +43,99 @@ C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
       2          #include "bsp.h"
       3          #include "Freertos.h"
       4          #include "task.h"
-      5          
-      6          #include "uart_int.h"
-      7          
-      8          
-      9          #include "settings.h"
-     10          #include "modbus_app.h"
+      5          #include "pwm.h"
+      6          
+      7          #include "settings.h"
+      8          #include "modbus_app.h"
+      9          
+     10          void blinker    (void *p);
      11          
-     12          void blinker    (void *p);
-     13          
-     14          u16 blink_period = 100;
-     15          extern modbus_app_param_t modbus_app_param ;
-     16          
-     17          
-     18          int main(void)
-     19          { 
-     20          //settings_load();
-     21            board_init();
-     22                  
-     23            xTaskCreate(blinker,                    /* Function that implements the task. */
-     24                        "blink",                    /* Name */
-     25                        configMINIMAL_STACK_SIZE,   /* Stack size in words, not bytes. */
-     26                        ( void * ) &blink_period,   /* Parameter passed into the task. */
-     27                        tskIDLE_PRIORITY + 1,       /* Priority at which the task is created. */
-     28                        NULL );  
-     29          
-     30          
-     31          //  xTaskCreate(modbus_app,                     /* Function that implements the task. */
-     32          //              "modbus",                       /* Name */
-     33          //              configMINIMAL_STACK_SIZE * 2,   /* Stack size in words, not bytes. */
-     34          //              ( void * ) &modbus_app_param,   /* Parameter passed into the task. */
-     35          //              tskIDLE_PRIORITY + 1,           /* Priority at which the task is created. */
-     36          //              NULL );  
-     37            
-     38            vTaskStartScheduler();
-     39          }
-     40          
-     41          
-     42          
-     43          void blinker(void *p)
-     44          {
-     45          
-     46          while(1)
-     47          {
-     48          LED_toggle();  
-     49          vTaskDelay( 100 / portTICK_PERIOD_MS );
-     50          }
-     51          }
-     52          
-     53          
+     12          u16 blink_period = 100;
+     13          extern modbus_app_param_t modbus_app_param ;
+     14          
+     15          
+     16          #define LED_DRV_FREQ    150000
+     17          #define TIMER_FREQ      48000000
+     18          
+     19          #define PERIOD_TICKS TIMER_FREQ / LED_DRV_FREQ
+     20          
+     21          int main(void)
+     22          { 
+     23          //settings_load();
+     24            board_init();
+     25            u32 resolution = PERIOD_TICKS;
+     26          
+     27            GPIO_InitTypeDef GPIO_InitStructure;
+     28            
+     29            GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
+     30            GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+     31            GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+     32            GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL ;
+     33            
+     34            GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+     35            GPIO_Init(GPIOA, &GPIO_InitStructure);
+     36            GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_2); 
+     37          
+     38          
+     39            TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+     40            TIM_OCInitTypeDef  TIM_OCInitStructure;
+     41            TIM_Cmd(TIM1, DISABLE); 
+     42           
+     43            TIM_TimeBaseStructure.TIM_Prescaler           = 0;
+     44            TIM_TimeBaseStructure.TIM_CounterMode         = TIM_CounterMode_Up;
+     45            TIM_TimeBaseStructure.TIM_Period              = PERIOD_TICKS;
+     46            TIM_TimeBaseStructure.TIM_ClockDivision       = 0;
+     47            TIM_TimeBaseStructure.TIM_RepetitionCounter   = 0;
+     48          
+     49            TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+     50          
+     51            TIM_OCInitStructure.TIM_OCMode        = TIM_OCMode_PWM2;
+     52            TIM_OCInitStructure.TIM_OutputState   = TIM_OutputState_Enable;
+     53            TIM_OCInitStructure.TIM_Pulse         = 0;
+     54            TIM_OCInitStructure.TIM_OCPolarity    = TIM_OCPolarity_Low;
+     55            TIM_OCInitStructure.TIM_OCIdleState   = TIM_OCIdleState_Set;
+     56              
+     57            TIM_OC3Init(TIM1, &TIM_OCInitStructure);
+     58            
+     59            TIM_Cmd(TIM1, ENABLE);
+     60            TIM_CtrlPWMOutputs(TIM1, ENABLE);
+     61            
+     62            TIM_SetCompare3(TIM1, PERIOD_TICKS / 4);  
+     63          
+     64            while(1){}
+     65            
+     66            
+     67            xTaskCreate(blinker,                    /* Function that implements the task. */
+     68                        "blink",                    /* Name */
+     69                        configMINIMAL_STACK_SIZE,   /* Stack size in words, not bytes. */
+     70                        ( void * ) &blink_period,   /* Parameter passed into the task. */
+     71                        tskIDLE_PRIORITY + 1,       /* Priority at which the task is created. */
+     72                        NULL );  
+     73          
+     74          
+     75          //  xTaskCreate(modbus_app,                     /* Function that implements the task. */
+     76          //              "modbus",                       /* Name */
+     77          //              configMINIMAL_STACK_SIZE * 2,   /* Stack size in words, not bytes. */
+     78          //              ( void * ) &modbus_app_param,   /* Parameter passed into the task. */
+     79          //              tskIDLE_PRIORITY + 1,           /* Priority at which the task is created. */
+     80          //              NULL );  
+     81            
+     82            vTaskStartScheduler();
+     83          }
+     84          
+     85          
+     86          
+     87          void blinker(void *p)
+     88          {
+     89          
+     90          while(1)
+     91          {
+     92          LED_toggle();  
+     93          vTaskDelay( 100 / portTICK_PERIOD_MS );
+     94          }
+     95          }
+     96          
+     97          
 
    Maximum stack usage in bytes:
 
@@ -99,10 +143,15 @@ C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
    ------- --------
        8   blinker
          8   -> vTaskDelay
-      16   main
-        16   -> board_init
-        16   -> vTaskStartScheduler
-        16   -> xTaskCreate
+      48   main
+        48   -> GPIO_Init
+        48   -> GPIO_PinAFConfig
+        48   -> TIM_Cmd
+        48   -> TIM_CtrlPWMOutputs
+        48   -> TIM_OC3Init
+        48   -> TIM_SetCompare3
+        48   -> TIM_TimeBaseInit
+        48   -> board_init
 
 
    Section sizes:
@@ -113,21 +162,16 @@ C:\Users\j3qq4hch\Documents\PIXEL\moustache_board\moustache\app\src\main.c
        4  ??DataTable1_1
        4  ??DataTable1_2
        4  ??DataTable1_3
-       4  ??DataTable1_4
-       4  ??DataTable1_5
-       8  ?_0
        2  blink_period
       52  blinker
-      36  main
+     174  main
 
  
    2 bytes in section .data
-   8 bytes in section .rodata
- 112 bytes in section .text
+ 242 bytes in section .text
  
- 112 bytes of CODE  memory
-   8 bytes of CONST memory
-   2 bytes of DATA  memory
+ 242 bytes of CODE memory
+   2 bytes of DATA memory
 
 Errors: none
-Warnings: none
+Warnings: 2

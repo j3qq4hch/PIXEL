@@ -10,14 +10,12 @@ static void led_init(void)
  GPIO_Init(LED_port, &GPIO_InitStructure);
 }
 
-
 static void rcc_init(void)
 {
-  RCC_ClocksTypeDef RCC_Clocks;
-  RCC_GetClocksFreq(&RCC_Clocks);
-  RCC_AHBPeriphClockCmd (RCC_AHBPeriph_GPIOA  | RCC_AHBPeriph_GPIOB,   ENABLE);
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM14 | RCC_APB1Periph_TIM3,   ENABLE);
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1  | RCC_APB2Periph_USART1, ENABLE);
+    RCC_ClocksTypeDef RCC_Clocks;
+    RCC_GetClocksFreq(&RCC_Clocks);
+    RCC_AHBPeriphClockCmd (RCC_AHBPeriph_GPIOA  | RCC_AHBPeriph_GPIOB,   ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1  | RCC_APB2Periph_USART1, ENABLE);
 }
 
 
