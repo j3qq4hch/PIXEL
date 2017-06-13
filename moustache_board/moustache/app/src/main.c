@@ -20,11 +20,26 @@ extern modbus_app_param_t modbus_app_param ;
 
 int main(void)
 { 
-//settings_load();
+
   board_init();
   u32 resolution = PERIOD_TICKS;
-
+  
   GPIO_InitTypeDef GPIO_InitStructure;
+  
+  GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT  ;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+  GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL ;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+GPIO_Init(GPIOA, &GPIO_InitStructure);
+while(1)
+{
+ GPIO_SetBits(GPIOA,  GPIO_Pin_10);
+ for(u8 i = 0; i< 0xFF; i++){}
+ GPIO_ResetBits(GPIOA,  GPIO_Pin_10);
+for(u8 i = 0; i< 0xFF; i++){}
+}
+
   
   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -59,7 +74,7 @@ int main(void)
   TIM_Cmd(TIM1, ENABLE);
   TIM_CtrlPWMOutputs(TIM1, ENABLE);
   
-  TIM_SetCompare3(TIM1, PERIOD_TICKS / 4);  
+  TIM_SetCompare3(TIM1, PERIOD_TICKS);  
 
   while(1){}
   

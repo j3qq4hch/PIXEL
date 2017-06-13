@@ -2314,6 +2314,7 @@ http://dangerousprototypes.com</description>
 <attribute name="THESIS_SUPERVISOR" value="I. Galkins"/>
 </attributes>
 <variantdefs>
+<variantdef name="SMD_SENSORS" current="yes"/>
 </variantdefs>
 <classes>
 <class number="0" name="default" width="0" drill="0">
@@ -2350,21 +2351,29 @@ http://dangerousprototypes.com</description>
 <part name="GND3" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND4" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="GND5" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="Q1" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM"/>
+<part name="Q1" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM">
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
 <part name="Q2" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-0805"/>
-<part name="R1" library="rc" deviceset="R" device="-0805" value="2K"/>
+<part name="R1" library="rc" deviceset="R" device="-0805" value="15-20K"/>
 <part name="GND14" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="Q3" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM"/>
+<part name="Q3" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM">
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
 <part name="Q4" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-0805"/>
-<part name="R2" library="rc" deviceset="R" device="-0805" value="2K"/>
+<part name="R2" library="rc" deviceset="R" device="-0805" value="15-20K"/>
 <part name="GND15" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="Q5" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM"/>
+<part name="Q5" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM">
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
 <part name="Q6" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-0805"/>
-<part name="R3" library="rc" deviceset="R" device="-0805" value="2K"/>
+<part name="R3" library="rc" deviceset="R" device="-0805" value="15-20K"/>
 <part name="GND16" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="Q7" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM"/>
+<part name="Q7" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-3MM">
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
 <part name="Q8" library="FreeHands_master_lib" deviceset="PHOTOTRANSISTOR" device="-0805"/>
-<part name="R4" library="rc" deviceset="R" device="-0805" value="2K"/>
+<part name="R4" library="rc" deviceset="R" device="-0805" value="15-20K"/>
 <part name="GND17" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="LED9" library="FreeHands_master_lib" deviceset="LED" device="-0805"/>
 <part name="LED10" library="dp_devices" deviceset="LED" device="-3MM">
@@ -2372,42 +2381,46 @@ http://dangerousprototypes.com</description>
 <attribute name="BOM" value="OPTIONAL"/>
 <attribute name="COLOR" value="BLUE"/>
 <attribute name="LINK" value="http://www.zip-2002.ru/osveshchenie_i_indikatsiya/svetodiody/86349/1x3x4_red_50_mcd_2,1v/"/>
+<variant name="SMD_SENSORS" populate="no"/>
 </part>
 <part name="+P3" library="supply_symbols" deviceset="5V" device=""/>
-<part name="R9" library="rc" deviceset="R" device="-0805" value="240R"/>
+<part name="R9" library="rc" deviceset="R" device="-0805" value="150R"/>
 <part name="LED11" library="FreeHands_master_lib" deviceset="LED" device="-0805"/>
 <part name="LED12" library="dp_devices" deviceset="LED" device="-3MM">
 <attribute name="ASSEMBLY" value="SPECIAL"/>
 <attribute name="BOM" value="OPTIONAL"/>
 <attribute name="COLOR" value="BLUE"/>
 <attribute name="LINK" value="http://www.zip-2002.ru/osveshchenie_i_indikatsiya/svetodiody/86349/1x3x4_red_50_mcd_2,1v/"/>
+<variant name="SMD_SENSORS" populate="no"/>
 </part>
 <part name="+P4" library="supply_symbols" deviceset="5V" device=""/>
-<part name="R10" library="rc" deviceset="R" device="-0805" value="240R"/>
+<part name="R10" library="rc" deviceset="R" device="-0805" value="150R"/>
 <part name="LED13" library="FreeHands_master_lib" deviceset="LED" device="-0805"/>
 <part name="LED14" library="dp_devices" deviceset="LED" device="-3MM">
 <attribute name="ASSEMBLY" value="SPECIAL"/>
 <attribute name="BOM" value="OPTIONAL"/>
 <attribute name="COLOR" value="BLUE"/>
 <attribute name="LINK" value="http://www.zip-2002.ru/osveshchenie_i_indikatsiya/svetodiody/86349/1x3x4_red_50_mcd_2,1v/"/>
+<variant name="SMD_SENSORS" populate="no"/>
 </part>
 <part name="+P5" library="supply_symbols" deviceset="5V" device=""/>
-<part name="R11" library="rc" deviceset="R" device="-0805" value="240R"/>
+<part name="R11" library="rc" deviceset="R" device="-0805" value="150R"/>
 <part name="LED15" library="FreeHands_master_lib" deviceset="LED" device="-0805"/>
 <part name="LED16" library="dp_devices" deviceset="LED" device="-3MM">
 <attribute name="ASSEMBLY" value="SPECIAL"/>
 <attribute name="BOM" value="OPTIONAL"/>
 <attribute name="COLOR" value="BLUE"/>
 <attribute name="LINK" value="http://www.zip-2002.ru/osveshchenie_i_indikatsiya/svetodiody/86349/1x3x4_red_50_mcd_2,1v/"/>
+<variant name="SMD_SENSORS" populate="no"/>
 </part>
 <part name="+P6" library="supply_symbols" deviceset="5V" device=""/>
-<part name="R12" library="rc" deviceset="R" device="-0805" value="240R"/>
+<part name="R12" library="rc" deviceset="R" device="-0805" value="150R"/>
 <part name="IC1" library="pixel_masterlib" deviceset="LM2902DT" device=""/>
 <part name="IC2" library="pixel_masterlib" deviceset="CD4066" device=""/>
 <part name="GND33" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P13" library="supply_symbols" deviceset="5V" device=""/>
 <part name="GND34" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="RN2" library="pixel_masterlib" deviceset="RESISTOR_ARRAY" device=""/>
+<part name="RN2" library="pixel_masterlib" deviceset="RESISTOR_ARRAY" device="" value="150R"/>
 <part name="+P16" library="supply_symbols" deviceset="5V" device=""/>
 <part name="+P17" library="supply_symbols" deviceset="5V" device=""/>
 <part name="IC3" library="pixel_masterlib" deviceset="M74HCT74" device=""/>
@@ -2430,9 +2443,16 @@ http://dangerousprototypes.com</description>
 <part name="GND21" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="+P2" library="supply_symbols" deviceset="5V" device=""/>
 <part name="GND10" library="supply_symbols" deviceset="GND" device="" value="GND"/>
-<part name="RN1" library="pixel_masterlib" deviceset="RESISTOR_ARRAY" device=""/>
-<part name="LED5" library="FreeHands_master_lib" deviceset="LED" device="-0805"/>
-<part name="R5" library="rc" deviceset="R" device="-0805" value="2K"/>
+<part name="RN1" library="pixel_masterlib" deviceset="RESISTOR_ARRAY" device="">
+<attribute name="ASSY" value="DNM"/>
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
+<part name="LED5" library="FreeHands_master_lib" deviceset="LED" device="-0805">
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
+<part name="R5" library="rc" deviceset="R" device="-0805" value="2K">
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
 <part name="GND11" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="SJ1" library="DAS_mater_library" deviceset="SOLDER_JOINT" device=""/>
 <part name="+P11" library="supply_symbols" deviceset="5V" device=""/>
@@ -2447,14 +2467,30 @@ http://dangerousprototypes.com</description>
 <part name="CON5" library="pixel_masterlib" deviceset="CONNECTOR" device=""/>
 <part name="+P8" library="supply_symbols" deviceset="5V" device=""/>
 <part name="GND7" library="supply_symbols" deviceset="GNDD" device="" value="GNDD"/>
-<part name="CON3" library="pinhead" deviceset="PINHEAD_1X09" device="-2"/>
-<part name="CON4" library="pinhead" deviceset="PINHEAD_1X09" device="-2"/>
-<part name="D1" library="pixel_masterlib" deviceset="BAR43AFILM" device=""/>
-<part name="D2" library="pixel_masterlib" deviceset="BAR43AFILM" device=""/>
-<part name="D3" library="pixel_masterlib" deviceset="BAR43AFILM" device=""/>
-<part name="D4" library="pixel_masterlib" deviceset="BAR43AFILM" device=""/>
+<part name="CON3" library="pinhead" deviceset="PINHEAD_1X09" device="-2">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
+<part name="CON4" library="pinhead" deviceset="PINHEAD_1X09" device="-2">
+<attribute name="BOM" value="EXCLUDE"/>
+</part>
+<part name="D1" library="pixel_masterlib" deviceset="BAR43AFILM" device="">
+<attribute name="ASSY" value="DNM"/>
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
+<part name="D2" library="pixel_masterlib" deviceset="BAR43AFILM" device="">
+<attribute name="ASSY" value="DNM"/>
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
+<part name="D3" library="pixel_masterlib" deviceset="BAR43AFILM" device="">
+<attribute name="ASSY" value="DNM"/>
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
+<part name="D4" library="pixel_masterlib" deviceset="BAR43AFILM" device="">
+<attribute name="ASSY" value="DNM"/>
+<variant name="SMD_SENSORS" populate="no"/>
+</part>
 <part name="Q9" library="watchdog_master_library" deviceset="IRLML2502" device="-SOT23"/>
-<part name="R6" library="rc" deviceset="R" device="-0805" value="2K"/>
+<part name="R6" library="rc" deviceset="R" device="-0805" value="150R"/>
 <part name="GND8" library="supply_symbols" deviceset="GND" device="" value="GND"/>
 <part name="SJ2" library="DAS_mater_library" deviceset="SOLDER_JOINT" device=""/>
 </parts>
@@ -2462,7 +2498,7 @@ http://dangerousprototypes.com</description>
 <sheet>
 <plain>
 <text x="91.694" y="80.518" size="1.778" layer="97" font="vector" ratio="15">OUT</text>
-<text x="105.41" y="94.996" size="1.778" layer="97" font="vector" ratio="15">IN</text>
+<text x="100.33" y="94.996" size="1.778" layer="97" font="vector" ratio="15">IN</text>
 <text x="259.08" y="134.62" size="1.27" layer="97" font="vector">IN</text>
 <wire x1="144.78" y1="160.02" x2="78.74" y2="160.02" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="78.74" y1="160.02" x2="78.74" y2="121.92" width="0.1524" layer="97" style="shortdash"/>
@@ -2471,6 +2507,7 @@ http://dangerousprototypes.com</description>
 <wire x1="144.78" y1="144.78" x2="144.78" y2="160.02" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="144.78" y1="144.78" x2="172.72" y2="144.78" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="172.72" y1="144.78" x2="172.72" y2="121.92" width="0.1524" layer="97" style="shortdash"/>
+<text x="55.88" y="167.64" size="1.778" layer="91">Replace IR leds and phototransistors with 1206 ones</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -2573,7 +2610,7 @@ http://dangerousprototypes.com</description>
 <instance part="+P16" gate="G$1" x="12.7" y="127"/>
 <instance part="+P17" gate="G$1" x="12.7" y="165.1"/>
 <instance part="IC3" gate="G$1" x="111.76" y="76.2"/>
-<instance part="+P9" gate="G$1" x="134.62" y="96.52"/>
+<instance part="+P9" gate="G$1" x="134.62" y="101.6"/>
 <instance part="GND18" gate="1" x="106.68" y="73.66" rot="MR0"/>
 <instance part="C9" gate="G$1" x="71.12" y="78.74" rot="R270">
 <attribute name="FARNELL#" x="71.12" y="78.74" size="1.778" layer="96" rot="R270" display="off"/>
@@ -2592,7 +2629,9 @@ http://dangerousprototypes.com</description>
 <instance part="GND21" gate="1" x="137.16" y="139.7" rot="MR0"/>
 <instance part="+P2" gate="G$1" x="119.38" y="48.26"/>
 <instance part="GND10" gate="1" x="66.04" y="7.62" rot="MR0"/>
-<instance part="RN1" gate="G$1" x="182.88" y="149.86"/>
+<instance part="RN1" gate="G$1" x="182.88" y="149.86">
+<attribute name="ASSY" x="182.88" y="149.86" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="LED5" gate="G$1" x="78.74" y="78.74" smashed="yes" rot="R270">
 <attribute name="NAME" x="80.772" y="81.28" size="1.27" layer="95" rot="R270"/>
 <attribute name="PACKAGE" x="79.248" y="80.01" size="0.508" layer="97" rot="R270" align="center"/>
@@ -2612,12 +2651,24 @@ http://dangerousprototypes.com</description>
 <instance part="CON5" gate="G$1" x="248.92" y="78.74" rot="MR0"/>
 <instance part="+P8" gate="G$1" x="215.9" y="83.82" rot="R90"/>
 <instance part="GND7" gate="G$1" x="213.36" y="76.2" rot="MR0"/>
-<instance part="CON3" gate="G$1" x="248.92" y="48.26" rot="MR0"/>
-<instance part="CON4" gate="G$1" x="248.92" y="147.32" rot="MR0"/>
-<instance part="D1" gate="G$1" x="170.18" y="160.02"/>
-<instance part="D2" gate="G$1" x="170.18" y="157.48"/>
-<instance part="D3" gate="G$1" x="170.18" y="154.94"/>
-<instance part="D4" gate="G$1" x="170.18" y="152.4"/>
+<instance part="CON3" gate="G$1" x="248.92" y="48.26" rot="MR0">
+<attribute name="BOM" x="248.92" y="48.26" size="1.778" layer="96" rot="MR0" display="off"/>
+</instance>
+<instance part="CON4" gate="G$1" x="248.92" y="147.32" rot="MR0">
+<attribute name="BOM" x="248.92" y="147.32" size="1.778" layer="96" rot="MR0" display="off"/>
+</instance>
+<instance part="D1" gate="G$1" x="170.18" y="160.02">
+<attribute name="ASSY" x="170.18" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="D2" gate="G$1" x="170.18" y="157.48">
+<attribute name="ASSY" x="170.18" y="157.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="D3" gate="G$1" x="170.18" y="154.94">
+<attribute name="ASSY" x="170.18" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="D4" gate="G$1" x="170.18" y="152.4">
+<attribute name="ASSY" x="170.18" y="152.4" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="Q9" gate="G$1" x="30.48" y="35.56"/>
 <instance part="R6" gate="G$1" x="20.32" y="35.56" rot="R180"/>
 <instance part="GND8" gate="1" x="33.02" y="25.4" rot="MR0"/>
@@ -2804,17 +2855,19 @@ http://dangerousprototypes.com</description>
 <pinref part="Q5" gate="G$1" pin="C"/>
 <wire x1="33.02" y1="121.92" x2="33.02" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="Q8" gate="G$1" pin="C"/>
-<wire x1="33.02" y1="124.46" x2="43.18" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="124.46" x2="12.7" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="124.46" x2="22.86" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="124.46" x2="22.86" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="124.46" x2="22.86" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="124.46" x2="12.7" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="Q7" gate="G$1" pin="C"/>
 <wire x1="12.7" y1="121.92" x2="12.7" y2="124.46" width="0.1524" layer="91"/>
 <junction x="12.7" y="124.46"/>
 <pinref part="Q6" gate="G$1" pin="C"/>
-<wire x1="43.18" y1="121.92" x2="43.18" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="+P16" gate="G$1" pin="VDD_5V"/>
 <wire x1="12.7" y1="124.46" x2="12.7" y2="127" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="121.92" x2="22.86" y2="124.46" width="0.1524" layer="91"/>
+<junction x="22.86" y="124.46"/>
+<wire x1="43.18" y1="121.92" x2="43.18" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="124.46" x2="33.02" y2="124.46" width="0.1524" layer="91"/>
+<junction x="33.02" y="124.46"/>
 </segment>
 <segment>
 <pinref part="+P17" gate="G$1" pin="VDD_5V"/>
@@ -2838,10 +2891,20 @@ http://dangerousprototypes.com</description>
 <pinref part="IC3" gate="G$1" pin="VCC"/>
 <wire x1="129.54" y1="93.98" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="+P9" gate="G$1" pin="VDD_5V"/>
-<wire x1="134.62" y1="93.98" x2="134.62" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="93.98" x2="134.62" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="99.06" x2="134.62" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="91.44" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
 <junction x="134.62" y="93.98"/>
+<pinref part="IC3" gate="G$1" pin="1!PR"/>
+<wire x1="109.22" y1="86.36" x2="106.68" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="86.36" x2="106.68" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="1!CLR"/>
+<wire x1="106.68" y1="93.98" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="93.98" x2="106.68" y2="99.06" width="0.1524" layer="91"/>
+<junction x="106.68" y="93.98"/>
+<wire x1="106.68" y1="99.06" x2="134.62" y2="99.06" width="0.1524" layer="91"/>
+<junction x="134.62" y="99.06"/>
 </segment>
 <segment>
 <pinref part="LED4" gate="G$1" pin="VDD"/>
@@ -3306,8 +3369,8 @@ http://dangerousprototypes.com</description>
 <net name="CLK" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="1CK"/>
-<wire x1="109.22" y1="88.9" x2="106.68" y2="88.9" width="0.1524" layer="91"/>
-<label x="106.68" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="109.22" y1="88.9" x2="104.14" y2="88.9" width="0.1524" layer="91"/>
+<label x="104.14" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="CON2" gate="G$1" pin="5"/>
@@ -3333,8 +3396,8 @@ http://dangerousprototypes.com</description>
 <net name="DATA_IN" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="1D"/>
-<wire x1="109.22" y1="91.44" x2="106.68" y2="91.44" width="0.1524" layer="91"/>
-<label x="106.68" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="109.22" y1="91.44" x2="104.14" y2="91.44" width="0.1524" layer="91"/>
+<label x="104.14" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="CON2" gate="G$1" pin="6"/>
